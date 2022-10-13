@@ -1,6 +1,16 @@
-<script setup>
+<script>
 import HelloWorld from './components/HelloWorld.vue'
 import TheWelcome from './components/TheWelcome.vue'
+import Footer from './components/Footer.vue'
+
+export default {
+  name: "App",
+  components: {
+    HelloWorld,
+    TheWelcome,
+    Footer
+  }
+}
 </script>
 
 <template>
@@ -15,6 +25,8 @@ import TheWelcome from './components/TheWelcome.vue'
   <main>
     <TheWelcome />
   </main>
+  <router-view></router-view>
+  <Footer />
 </template>
 
 <style scoped>
