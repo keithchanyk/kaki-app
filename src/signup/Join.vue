@@ -1,0 +1,94 @@
+<template>
+    <div class="container-fluid">
+        <div class="row mx-auto">
+            <div class="col d-flex justify-content-center">
+                <div class="card border-light" style="width: 30rem;">
+                    <div class="card-body text-center">
+                        <img src="../assets/login.png" />
+                        <h1 class="h3">Join Now!</h1>
+
+                        <button type="button" class="btn btn-primary">Continue with Google</button>
+                        <p>Or</p>
+
+                        <button type="button" class="btn btn-primary">Sign in with password</button>
+                        <!-- <h5 class="card-title">Card title</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the card's content.</p>
+                        <a href="#" class="card-link">Card link</a>
+                        <a href="#" class="card-link">Another link</a> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <div>
+        <img src="../assets/login.png" />
+        <h1 class="h3">Join Now!</h1>
+
+        <button type="button" class="btn btn-primary">Continue with Google</button>
+        <p>Or</p>
+
+        <button type="button" class="btn btn-primary">Sign in with password</button>
+    </div> -->
+</template>
+
+<style scoped>
+
+
+img {
+    display: flex;
+    align-items: center;
+    margin: auto
+}
+
+.card {
+    /* box-sizing: border-box;   */
+
+    /* position: absolute; */
+    /* width: 536px; */
+    /* height: 850px; */
+    /* left: 452px; */
+    /* top: 87px; */
+
+    background: linear-gradient(158.81deg, rgba(255, 255, 255, 0.25) 0.7%, rgba(255, 255, 255, 0) 100%);
+    backdrop-filter: blur(90px);
+    /* border: 2px solid red; */
+    /* Note: backdrop-filter has minimal browser support */
+
+    /* border-radius: 20px; */
+    /* margin: auto; */
+    /* text-align: center; */
+}
+</style>
+
+p {
+    font-family: sans-serif;
+    /* margin: 100px auto; */
+    /* color: #228B22; */
+    text-align: center;
+    /* font-size: 30px; */
+    /* max-width: 600px; */
+    position: relative;
+}
+
+p:before,
+p:after {
+    content: "";
+    /* display: block; */
+    width: 200px;
+    height: 1px;
+    background: #191970;
+    top: 50%;
+    margin: 0px 40px;
+    position: absolute;
+}
+
+p:before {
+    left: 0;
+}
+
+p:after {
+    right: 0;
+}
