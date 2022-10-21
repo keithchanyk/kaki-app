@@ -1,0 +1,42 @@
+body{
+    background: linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), conic-gradient(from 153.43deg at 0% 0%, #E2DEFE 0deg, #E7FDFF 161.25deg, #E8DAF4 360deg);
+}
+img{
+    position: absolute;
+    width: 1000px;
+}
+h6 {
+    font-size: 14px;
+}
+h6, svg{
+    display: inline;
+}
+.glass{
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 2px 22px 0 rgba(0, 0, 0, 0.20);
+}
+.card{
+    width: 300px;
+    height: 400px;
+    margin-right: 30px;
+}
+.card-context{
+    background: linear-gradient(0deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), linear-gradient(114.55deg, #DFE3FC 0%, #E2DFFE 98.46%);
+    margin-top: 230px;
+    width: 298px;
+    height: 168px;
+    border-radius: 0px 0px 20px 20px;
+    padding: 10px 5px 5px 20px;
+}
+#card-img{
+    width: 265px;
+    height: 200px;
+    position: absolute;
+}
+.proj-cards{
+    display: flex;
+}
