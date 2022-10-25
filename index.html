@@ -6,10 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- BOOTSTRAP CDN -->
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
-      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer" /> -->
+    <script src="https://kit.fontawesome.com/e4eb1ec68a.js" crossorigin="anonymous"></script>
     <title>Vite App</title>
   </head>
   <body>
@@ -26,5 +23,45 @@
     background-repeat: repeat;
     /* background-size: 150px; */
 
+  }
+
+  /* BUTTON FOR LOGIN AND SIGN UP */
+  .form-control {
+    opacity: 0.4;
+    /* border: 0.2px solid rgba(0, 0, 0, 0.01); */
+    border-radius: 20px;
+  }
+
+  .btn {
+      border-radius: 60px;
+      padding: 15px 0;
+  }
+
+  .btn-signup {
+      background-color: #3B4F7D;
+      box-shadow: -5px -5px 5px rgba(0, 0, 0, 0.25);
+  }
+
+  .btn-google {
+      background-color: transparent;
+      border: 1px solid lightgrey;
+  }
+
+  .form-floating {
+      position: relative;
+  }
+
+  .icon {
+      position: absolute;
+      top: calc(50%);
+      left: 1.25rem;
+
+      z-index: 2;
+  }
+
+  .form-floating label,
+  .form-floating .form-control {
+      /* left: .5rem; */
+      padding-left: 3.5rem;
   }
 </style>

@@ -1,10 +1,12 @@
+<!-- NOT IN USE -->
+
 <template>
     <div class="container-fluid">
         <div class="row mx-auto">
             <div class="col d-flex justify-content-center">
-                <div class="card border-light" style="width: 30rem;">
+                <div class="card border-light" style="width: 20rem;">
                     <div class="card-body text-center">
-                        <img src="../assets/login.png" />
+                        <img src="../../assets/login.png" />
                         <h1 class="h3">Join Now!</h1>
 
                         <button type="button" class="btn btn-primary">Continue with Google</button>
@@ -22,16 +24,6 @@
             </div>
         </div>
     </div>
-
-    <!-- <div>
-        <img src="../assets/login.png" />
-        <h1 class="h3">Join Now!</h1>
-
-        <button type="button" class="btn btn-primary">Continue with Google</button>
-        <p>Or</p>
-
-        <button type="button" class="btn btn-primary">Sign in with password</button>
-    </div> -->
 </template>
 
 <style scoped>
@@ -44,22 +36,13 @@ img {
 }
 
 .card {
-    /* box-sizing: border-box;   */
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
 
-    /* position: absolute; */
-    /* width: 536px; */
-    /* height: 850px; */
-    /* left: 452px; */
-    /* top: 87px; */
-
-    background: linear-gradient(158.81deg, rgba(255, 255, 255, 0.25) 0.7%, rgba(255, 255, 255, 0) 100%);
-    backdrop-filter: blur(90px);
-    /* border: 2px solid red; */
-    /* Note: backdrop-filter has minimal browser support */
-
-    /* border-radius: 20px; */
-    /* margin: auto; */
-    /* text-align: center; */
 }
 </style>
 
