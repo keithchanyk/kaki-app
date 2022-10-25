@@ -16,8 +16,8 @@ export default {
 </script>
 <template>
 <div>
-  <router-link to="/signup">Sign Up</router-link>
-  <router-link to="/">Sign In</router-link>
+  <!-- <router-link to="/signup">Sign Up</router-link>
+  <router-link to="/">Sign In</router-link> -->
 </div>
 <router-view />
 <!-- <Join /> -->
