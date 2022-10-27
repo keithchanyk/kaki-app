@@ -3,6 +3,7 @@ import Join from '../views/signup/Join.vue'
 import Signup from "../views/signup/Signup.vue"
 import SignIn from "../views/signup/SignIn.vue"
 import Project from "../views/projects/ProjectPage.vue"
+import Organisation from "../views/organisation/Organisation.vue"
 
 const routes = [
     {
@@ -24,6 +25,11 @@ const routes = [
         path: '/project',
         name: "Project Page",
         component: Project
+    },
+    {
+        path: '/org',
+        name: "Organisation",
+        component: Organisation
     },
 ]
 

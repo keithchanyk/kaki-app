@@ -11,10 +11,11 @@
                 <a class="nav-link" href="#">Explore</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Organisations</a>
+                <router-link class="nav-link" to="/org">Organisation</router-link>
+                
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Profile</a>
+                <router-link class="nav-link" to="/profile">Profile</router-link>
               </li>
             </ul>
           </div>
