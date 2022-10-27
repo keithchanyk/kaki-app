@@ -218,6 +218,8 @@ export default {
     --padding: 0.8rem;
     border-radius: .25rem;
     overflow: hidden;
+    min-width: 300px;
+    max-width: 400px;
 }
 
 .card-header {
