@@ -11,14 +11,14 @@
                         <!-- Email -->
                         <form>
                             <div class="mb-3 text-start form-floating">
-                                <i class="icon fa-regular fa-envelope fa-lg"></i>
+                                <font-awesome-icon icon="fa-solid fa-envelope fa-lg" class="icon" />
                                 <input type="email" class="form-control" id="emailInput" placeholder="Email">
                                 <label for="emailInput">Email</label>
                             </div>
 
                             <!-- Password -->
                             <div class="form-floating mb-3 text-start">
-                                <font-awesome-icon icon="fa-solid fa-lock" />
+                                <font-awesome-icon icon="fa-solid fa-lock fa-lg" class="icon" />
                                 <input type="password" class="form-control" id="passwordInput" placeholder="Password">
                                 <label for="passwordInput">Password</label>
                             </div>
