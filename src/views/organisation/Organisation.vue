@@ -14,18 +14,9 @@ export default {
     <div class="container">
         <div class="row">
             <!-- <div class="col"> -->
-            <div class="left_column col-4 m-4" id="left_box_1">
-                <img src="src/assets/org_image.png" alt="" class="img-fluid">
-            </div>
-            <!-- </div> -->
-
-            <div class="right_column col-8 mt-4">
-                <img src="src/assets/org_poster.png" alt="" class="img-fluid">
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="left_column col-3" id="left_box_2">
+            <div class="left_column col-3 m-4" id="left_box_1">
+                <img src="src/assets/org_image.png">
+                <br><br>
                 <p class="fw-bold">Supported Causes</p>
                 <p>Children & Youth</p>
                 <p>Elderly</p>
@@ -37,6 +28,32 @@ export default {
                 <p>Email:</p>
                 <p>Contact Number:</p>
             </div>
+            <!-- </div> -->
+
+            <!-- <div class="right_column col-8 mt-4">
+                <img src="src/assets/org_poster.png" alt="" class="img-fluid">
+            </div> -->
+        <!-- </div> -->
+
+        <!-- <div class="row"> -->
+            <!-- <div class="left_column col-3" id="left_box_2">
+                <p class="fw-bold">Supported Causes</p>
+                <p>Children & Youth</p>
+                <p>Elderly</p>
+                <p>Families</p>
+                <p>Community</p>
+                <p class="fw-bold">Supported Causes</p>
+                <p>Total activities posted:</p>
+                <p class="fw-bold">Contact Us</p>
+                <p>Email:</p>
+                <p>Contact Number:</p>
+            </div> -->
+            <!-- <div class="col"> -->
+            <div class="right_column mt-4">
+                <img src="src/assets/org_poster.png" alt="" class="img-fluid">
+            </div>
+            <!-- </div> -->
+
 
             <div class="tabs">
                 <input type="radio" name="tabs" id="tabone" checked>
@@ -67,7 +84,7 @@ export default {
                             <div class="col">
                                 <div class="card">
                                     <img src="src/assets/pic1.jpg" class="rounded card-img-top" alt="...">
-                                    <div class="card-body">
+                                    <!-- <div class="card-body"> -->
                                         <h5 class="card-title">Activity 1</h5>
                                         <p>Date & Day of the Week</p>
                                         <p>Time</p>
@@ -75,7 +92,7 @@ export default {
                                         <p>Location</p>
                                         <p>Vacancies Left</p>
                                         <i class="bi-alarm" style="font-size: 2rem; color: cornflowerblue;"></i>
-                                    </div>
+                                    <!-- </div> -->
                                 </div>
                             </div>
 
@@ -130,9 +147,12 @@ export default {
             </div>
         </div>
 
-    </div>
+        <br><br>
 
-    <hr>
+    </div>
+    
+
+
 
 </template>
 
