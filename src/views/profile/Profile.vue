@@ -30,7 +30,7 @@ export default {
 
 <template>
 
-  <Nav />>
+  <Nav />
 
     <!-- sidebar -->
     <div class="row">
