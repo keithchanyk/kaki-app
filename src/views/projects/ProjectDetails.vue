@@ -14,7 +14,22 @@ if(sessionStorage.getItem("isAuth") == "true"){
 
 </script>
 
+
+<script>
+import Nav from '../../components/Nav.vue'
+
+export default {
+    name: "App",
+    components: {
+
+        Nav
+    }
+}
+</script>
+
 <template>
+  <Nav />
+
     <div class="row">
       <div id="gallery-box" class="row">
         <a
