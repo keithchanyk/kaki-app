@@ -30,7 +30,7 @@ export default {
     <div class="container">
         <div class="row">
             <div class="col-3">
-                <div class="left_column">
+                <div class="left_column glass">
                     <img src="src/assets/org_image.png" width="150" height="150">
                     <br><br>
                     <p class="fw-bold">Supported Causes</p>
@@ -46,9 +46,9 @@ export default {
                 </div>
             </div>
             
-            <div class="col-9 pt-5">
+            <div class="col-9 mt-3 pt-5">
                 <div class="right_column mb-5">
-                    <img src="src/assets/org_poster.png" width="830" height="200">
+                    <img src="src/assets/org_poster.png" width="980" height="200">
                 </div>
             <!-- </div> -->
 
@@ -56,13 +56,11 @@ export default {
                     <input type="radio" name="tabs" id="tabone" checked>
                     <label for="tabone">About Us</label>
                     <div class="tab pt-4">
-                        <p id="about_us_info">
+                        <p class="glass" id="about_us_info">
                             Vision <br>
-                            ipsum dolor sit amet consectetur, adipisicing elit. Non ex alias aspernatur ratione recusandae
-                            delectus quae ab necessitatibus quod! Magnam possimus adipisci repudiandae, dignissimos sed iure
-                            minima eligendi. Non, velit? <br><br>
+                            Spreading kindness to everyone in society. Empowering every individual to contribute to society <br><br>
                             Mission <br>
-                            Where every individual is empowered to contribute to society
+                            Founded in 1958, SG Kindness Centre engages in various volunteering activities across the spectrum of society. It has organised more than 3000 activities...
                         </p>
                     </div>
 
@@ -78,7 +76,7 @@ export default {
 
                             <div class="row row-cols-1 row-cols-md-3 g-4">
                                 <div class="col">
-                                    <div class="card">
+                                    <div class="card glass">
                                         <img src="src/assets/pic1.jpg" class="rounded card-img-top" alt="...">
                                         <div class="card-body">
                                             <h5 class="card-title">Activity 1</h5>
@@ -93,7 +91,7 @@ export default {
                                 </div>
 
                                 <div class="col">
-                                    <div class="card">
+                                    <div class="card glass">
                                         <img src="src/assets/pic1.jpg" class="rounded card-img-top" alt="...">
                                         <div class="card-body">
                                             <h5 class="card-title">Card title</h5>
@@ -108,7 +106,7 @@ export default {
                                 </div>
 
                                 <div class="col">
-                                    <div class="card">
+                                    <div class="card glass">
                                         <img src="src/assets/pic1.jpg" class="rounded card-img-top" alt="...">
                                         <div class="card-body">
                                             <h5 class="card-title">Card title</h5>
@@ -128,19 +126,19 @@ export default {
                     <input type="radio" name="tabs" id="tabthree">
                     <label for="tabthree">Experience Sharing Forum</label>
                     <div class="tab">
-                        <div id="sharing_forum">
+                        <div  class="glass" id="sharing_forum">
                             <p style="font-weight: bold">House cleaning</p>
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi doloremque accusantium minus
                                 voluptatum, at sequi laudantium! Ea, quas porro. Doloremque vero, velit voluptate aperiam
                                 perspiciatis ut hic dicta tempore dolor.</p>
                         </div>
-                        <div id="sharing_forum">
+                        <div class="glass" id="sharing_forum">
                             <p style="font-weight: bold">Elderly Home</p>
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi doloremque accusantium minus
                                 voluptatum, at sequi laudantium! Ea, quas porro. Doloremque vero, velit voluptate aperiam
                                 perspiciatis ut hic dicta tempore dolor.</p>
                         </div>
-                        <div id="sharing_forum">
+                        <div class="glass" id="sharing_forum">
                             <p style="font-weight: bold">Beach Litter Picking</p>
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi doloremque accusantium minus
                                 voluptatum, at sequi laudantium! Ea, quas porro. Doloremque vero, velit voluptate aperiam
@@ -168,15 +166,15 @@ export default {
 
 .left_column,
 #sharing_forum {
-    background-color: rgb(226, 222, 254);
+    /* background-color: rgb(226, 222, 254); */
     border: lightgrey inset 2px;
     border-radius: 8px;
     text-align: left;
-    padding: 5px;
+    padding: 10px;
     /* width: 30%; */
     justify-content: center;
     /* position: relative; */
-    margin: 3rem;
+    margin: 4rem;
 }
 
 .right_column {
@@ -190,15 +188,17 @@ export default {
     border: 0.01cm solid lightgray;
     border-radius: 15px;
     padding: 0.2cm;
-    background-color: rgb(226, 222, 254);
+    /* background-color: rgb(226, 222, 254); */
 }
 
-
-/* nav ul {
-    padding: 0;
-    display: flex;
-    justify-content: space-between;
-} */
+.glass {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 2px 22px 0 rgba(0, 0, 0, 0.20);
+}
 
 .tabs {
     display: flex;
@@ -211,8 +211,8 @@ export default {
     order: 1;
     display: flex;
     padding: 1rem 1rem;
-    margin-left: 4rem;
-    margin-right: 4rem;
+    margin-left: 5.5rem;
+    margin-right: 5rem;
     margin-bottom: 1.5rem;
     cursor: pointer;
     background: white;
