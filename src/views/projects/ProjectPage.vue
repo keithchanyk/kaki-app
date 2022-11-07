@@ -1,3 +1,19 @@
+<script setup>
+
+
+console.log(sessionStorage.getItem("isAuth"))
+
+if(sessionStorage.getItem("isAuth") == "true"){
+  console.log('is authenticated!')
+
+}else{
+  console.log('fuck off!')
+  window.location.href = "http://localhost:5173/"
+}
+
+
+</script>
+
 <script>
 import Nav from '../../components/Nav.vue'
 
@@ -9,6 +25,9 @@ export default {
     }
 }
 </script>
+
+
+
 <template>
     <Nav />
 

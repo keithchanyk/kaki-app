@@ -11,10 +11,12 @@
     "@fortawesome/free-brands-svg-icons": "^6.2.0",
     "@fortawesome/free-regular-svg-icons": "^6.2.0",
     "@fortawesome/free-solid-svg-icons": "^6.2.0",
+    "@fortawesome/sharp-solid-svg-icons": "^6.2.0",
     "@fortawesome/vue-fontawesome": "^3.0.1",
     "bootstrap": "^5.2.2",
     "vue": "^3.2.38",
     "vue-router": "^4.0.13",
+    "vue3-google-login": "^2.0.12",
     "vue3-google-oauth2": "^1.0.6"
   },
   "devDependencies": {

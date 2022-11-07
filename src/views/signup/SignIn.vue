@@ -1,3 +1,14 @@
+<script setup>
+const callback = (response) => {
+  // This callback will be triggered when the user selects or login to
+  // his Google account from the popup
+  
+  console.log("Handle the response", response)
+  window.location.href = "http://localhost:5173/project"
+  sessionStorage.setItem("isAuth", "true");
+
+}
+</script>
 <template>
     <div class="container-fluid">
         <div class="row mx-auto">
@@ -30,7 +41,9 @@
                         </form>
                         <p>Or</p>
                         <div class="d-grid gap-2">
-                            <button type="button" class="btn btn-primary btn-google">Continue with Google</button>
+                            <GoogleLogin :callback="callback"/>
+                            
+                            <!-- <button type="button" class="btn btn-primary btn-google">Continue with Google</button> -->
                         </div>
                         <p>Do not have an account? <router-link to="/signup">Sign Up</router-link>
                         </p>

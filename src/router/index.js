@@ -4,6 +4,10 @@ import Signup from "../views/signup/Signup.vue"
 import SignIn from "../views/signup/SignIn.vue"
 import Project from "../views/projects/ProjectPage.vue"
 import Organisation from "../views/organisation/Organisation.vue"
+import ProjectDetails from "../views/projects/ProjectDetails.vue"
+import LandingPage from "../views/landing/LandingPage.vue"
+import ProfilePage from "../views/profile/Profile.vue"
+
 
 const routes = [
     {
@@ -31,6 +35,24 @@ const routes = [
         name: "Organisation",
         component: Organisation
     },
+    {
+        path: '/projectdetails',
+        name: "Project Details",
+        component: ProjectDetails
+    },
+    {
+        path: '/landing',
+        name: "Landing Page",
+        component: LandingPage
+    },
+
+    {
+        path: '/profile',
+        name: "Profile Page",
+        component: ProfilePage
+    },
+
+
 ]
 
 const router = createRouter({
