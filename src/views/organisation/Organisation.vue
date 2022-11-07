@@ -13,137 +13,125 @@ export default {
     <Nav />
     <div class="container">
         <div class="row">
-            <!-- <div class="col"> -->
-            <div class="left_column col-3 m-4" id="left_box_1">
-                <img src="src/assets/org_image.png">
-                <br><br>
-                <p class="fw-bold">Supported Causes</p>
-                <p>Children & Youth</p>
-                <p>Elderly</p>
-                <p>Families</p>
-                <p>Community</p>
-                <p class="fw-bold">Supported Causes</p>
-                <p>Total activities posted:</p>
-                <p class="fw-bold">Contact Us</p>
-                <p>Email:</p>
-                <p>Contact Number:</p>
-            </div>
-            <!-- </div> -->
-
-            <!-- <div class="right_column col-8 mt-4">
-                <img src="src/assets/org_poster.png" alt="" class="img-fluid">
-            </div> -->
-        <!-- </div> -->
-
-        <!-- <div class="row"> -->
-            <!-- <div class="left_column col-3" id="left_box_2">
-                <p class="fw-bold">Supported Causes</p>
-                <p>Children & Youth</p>
-                <p>Elderly</p>
-                <p>Families</p>
-                <p>Community</p>
-                <p class="fw-bold">Supported Causes</p>
-                <p>Total activities posted:</p>
-                <p class="fw-bold">Contact Us</p>
-                <p>Email:</p>
-                <p>Contact Number:</p>
-            </div> -->
-            <!-- <div class="col"> -->
-            <div class="right_column mt-4">
-                <img src="src/assets/org_poster.png" alt="" class="img-fluid">
-            </div>
-            <!-- </div> -->
-
-
-            <div class="tabs">
-                <input type="radio" name="tabs" id="tabone" checked>
-                <label for="tabone">About Us</label>
-                <div class="tab">
-                    <p id="about_us_info">
-                        ipsum dolor sit amet consectetur, adipisicing elit. Non ex alias aspernatur ratione recusandae
-                        delectus quae ab necessitatibus quod! Magnam possimus adipisci repudiandae, dignissimos sed iure
-                        minima eligendi. Non, velit?
-                        <span>
-                            <h4>Vision & Mission</h4>
-                        </span>Where every individual is empowered to contribute to society
-                    </p>
+            <div class="col-3">
+                <div class="left_column">
+                    <img src="src/assets/org_image.png" width="150" height="150">
+                    <br><br>
+                    <p class="fw-bold">Supported Causes</p>
+                    <p>Children & Youth</p>
+                    <p>Elderly</p>
+                    <p>Families</p>
+                    <p>Community</p>
+                    <p class="fw-bold">Supported Causes</p>
+                    <p>Total activities posted:</p>
+                    <p class="fw-bold">Contact Us</p>
+                    <p>Email:</p>
+                    <p>Contact Number:</p>
                 </div>
+            </div>
+            
+            <div class="col-9 pt-5">
+                <div class="right_column mb-5">
+                    <img src="src/assets/org_poster.png" width="830" height="200">
+                </div>
+            <!-- </div> -->
 
-                <input type="radio" name="tabs" id="tabtwo">
-                <label for="tabtwo">Our Posts</label>
-                <div class="tab">
-                    <!-- <h1>Second Tab Content</h1> -->
-                    <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p> -->
-                    <div class="container pt-4 pb-4">
-                        <div class="container pb-4">
-                            <h4 class="fw-bold col-11">Recommended For You</h4>
-                            <p id="see_all"><a id="see_all" class="fw-light col-1">See all</a></p>
-                        </div>
+                <div class="tabs">
+                    <input type="radio" name="tabs" id="tabone" checked>
+                    <label for="tabone">About Us</label>
+                    <div class="tab pt-4">
+                        <p id="about_us_info">
+                            Vision <br>
+                            ipsum dolor sit amet consectetur, adipisicing elit. Non ex alias aspernatur ratione recusandae
+                            delectus quae ab necessitatibus quod! Magnam possimus adipisci repudiandae, dignissimos sed iure
+                            minima eligendi. Non, velit? <br><br>
+                            Mission <br>
+                            Where every individual is empowered to contribute to society
+                        </p>
+                    </div>
 
-                        <div class="row row-cols-1 row-cols-md-3 g-4">
-                            <div class="col">
-                                <div class="card">
-                                    <img src="src/assets/pic1.jpg" class="rounded card-img-top" alt="...">
-                                    <!-- <div class="card-body"> -->
-                                        <h5 class="card-title">Activity 1</h5>
-                                        <p>Date & Day of the Week</p>
-                                        <p>Time</p>
-                                        <p>Suitability</p>
-                                        <p>Location</p>
-                                        <p>Vacancies Left</p>
-                                        <i class="bi-alarm" style="font-size: 2rem; color: cornflowerblue;"></i>
-                                    <!-- </div> -->
-                                </div>
+                    <input type="radio" name="tabs" id="tabtwo">
+                    <label for="tabtwo">Our Posts</label>
+                    <div class="tab">
+                        <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p> -->
+                        <div class="container pt-4 pb-4">
+                            <div class="container pb-4">
+                                <h4 class="fw-bold col-11">Recommended For You</h4>
+                                <!-- <p id="see_all"><a id="see_all" class="fw-light col-1">See all</a></p> -->
                             </div>
 
-                            <div class="col">
-                                <div class="card">
-                                    <img src="src/assets/pic1.jpg" class="rounded card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Card title</h5>
-                                        <p>Date & Day of the Week</p>
-                                        <p>Time</p>
-                                        <p>Suitability</p>
-                                        <p>Location</p>
-                                        <p>Vacancies Left</p>
+                            <div class="row row-cols-1 row-cols-md-3 g-4">
+                                <div class="col">
+                                    <div class="card">
+                                        <img src="src/assets/pic1.jpg" class="rounded card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Activity 1</h5>
+                                            <p>Date & Day of the Week</p>
+                                            <p>Time</p>
+                                            <p>Suitability</p>
+                                            <p>Location</p>
+                                            <p>Vacancies Left</p>
+                                            <i class="bi-alarm" style="font-size: 1rem; color: cornflowerblue;">See More</i>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
 
-                            <div class="col">
-                                <div class="card">
-                                    <img src="src/assets/pic1.jpg" class="rounded card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Card title</h5>
-                                        <p>Date & Day of the Week</p>
-                                        <p>Time</p>
-                                        <p>Suitability</p>
-                                        <p>Location</p>
-                                        <p>Vacancies Left</p>
+                                <div class="col">
+                                    <div class="card">
+                                        <img src="src/assets/pic1.jpg" class="rounded card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Card title</h5>
+                                            <p>Date & Day of the Week</p>
+                                            <p>Time</p>
+                                            <p>Suitability</p>
+                                            <p>Location</p>
+                                            <p>Vacancies Left</p>
+                                            <i class="bi-alarm" style="font-size: 1rem; color: cornflowerblue;">See More</i>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col">
+                                    <div class="card">
+                                        <img src="src/assets/pic1.jpg" class="rounded card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Card title</h5>
+                                            <p>Date & Day of the Week</p>
+                                            <p>Time</p>
+                                            <p>Suitability</p>
+                                            <p>Location</p>
+                                            <p>Vacancies Left</p>
+                                            <i class="bi-alarm" style="font-size: 1rem; color: cornflowerblue;">See More</i>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <input type="radio" name="tabs" id="tabthree">
-                <label for="tabthree">Experience Sharing Forum</label>
-                <div class="tab">
-                    <div id="sharing_forum">
-                        <p style="font-weight: bold">House cleaning</p>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi doloremque accusantium minus
-                            voluptatum, at sequi laudantium! Ea, quas porro. Doloremque vero, velit voluptate aperiam
-                            perspiciatis ut hic dicta tempore dolor.</p>
-                    </div>
-                    <div id="sharing_forum">
-                        <p style="font-weight: bold">Contact Us</p>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi doloremque accusantium minus
-                            voluptatum, at sequi laudantium! Ea, quas porro. Doloremque vero, velit voluptate aperiam
-                            perspiciatis ut hic dicta tempore dolor.</p>
+                    <input type="radio" name="tabs" id="tabthree">
+                    <label for="tabthree">Experience Sharing Forum</label>
+                    <div class="tab">
+                        <div id="sharing_forum">
+                            <p style="font-weight: bold">House cleaning</p>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi doloremque accusantium minus
+                                voluptatum, at sequi laudantium! Ea, quas porro. Doloremque vero, velit voluptate aperiam
+                                perspiciatis ut hic dicta tempore dolor.</p>
+                        </div>
+                        <div id="sharing_forum">
+                            <p style="font-weight: bold">Elderly Home</p>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi doloremque accusantium minus
+                                voluptatum, at sequi laudantium! Ea, quas porro. Doloremque vero, velit voluptate aperiam
+                                perspiciatis ut hic dicta tempore dolor.</p>
+                        </div>
+                        <div id="sharing_forum">
+                            <p style="font-weight: bold">Beach Litter Picking</p>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi doloremque accusantium minus
+                                voluptatum, at sequi laudantium! Ea, quas porro. Doloremque vero, velit voluptate aperiam
+                                perspiciatis ut hic dicta tempore dolor.</p>
+                        </div>
                     </div>
                 </div>
-
             </div>
         </div>
 
@@ -159,32 +147,34 @@ export default {
 <style scoped>
 .column_left img {
     max-width: 100%;
-    height: fit-content;
+    /* height: fit-content; */
 }
 
 .left_column,
 #sharing_forum {
     background-color: rgb(226, 222, 254);
-    border: lightgrey solid 2px;
-    border-radius: 6px;
+    border: lightgrey inset 2px;
+    border-radius: 8px;
     text-align: left;
-    padding: 10px;
+    padding: 5px;
     /* width: 30%; */
     justify-content: center;
-    position: relative;
+    /* position: relative; */
     margin: 3rem;
 }
 
 .right_column {
-    width: 60%;
+    /* width: 60%; */
     object-fit: cover;
-    height: 320px;
+    border-radius: "25px";
+    /* height: 420px; */
 }
 
 #about_us_info {
     border: 0.01cm solid lightgray;
     border-radius: 15px;
     padding: 0.2cm;
+    background-color: rgb(226, 222, 254);
 }
 
 
@@ -200,19 +190,18 @@ export default {
 }
 
 .tabs label {
-    border-bottom: 0.1px solid grey;
-    /* display: inline-flex; */
-}
-
-.tabs label {
+    border-bottom: 1px solid grey;
+    border-radius: 8px;
     order: 1;
-    display: block;
-    padding: 1rem 2rem;
-    margin-right: 2rem;
+    display: flex;
+    padding: 1rem 1rem;
+    margin-left: 4rem;
+    margin-right: 4rem;
+    margin-bottom: 1.5rem;
     cursor: pointer;
     background: white;
     font-weight: bold;
-    transition: background ease 0.2s;
+    transition: background ease 0.1s;
 }
 
 .tabs .tab {
@@ -221,8 +210,7 @@ export default {
     width: 100%;
     display: none;
     padding: 0.1rem;
-    background: #fff;
-
+    /* background: white; */
 }
 
 .tabs input[type="radio"] {
