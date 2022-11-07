@@ -4,6 +4,7 @@ import Signup from "../views/signup/Signup.vue"
 import SignIn from "../views/signup/SignIn.vue"
 import Project from "../views/projects/ProjectPage.vue"
 import Organisation from "../views/organisation/Organisation.vue"
+import ProjectDetails from "../views/projects/ProjectDetails.vue"
 
 const routes = [
     {
@@ -30,6 +31,11 @@ const routes = [
         path: '/org',
         name: "Organisation",
         component: Organisation
+    },
+    {
+        path: '/projectdetails',
+        name: "Project Details",
+        component: ProjectDetails
     },
 ]
 
