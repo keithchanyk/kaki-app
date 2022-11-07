@@ -65,7 +65,7 @@ export default {
                     </div>
 
                     <input type="radio" name="tabs" id="tabtwo">
-                    <label for="tabtwo">Our Posts</label>
+                    <label for="tabtwo" >Our Posts</label>
                     <div class="tab">
                         <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p> -->
                         <div class="container pt-4 pb-4">
@@ -216,6 +216,7 @@ export default {
     margin-bottom: 1.5rem;
     cursor: pointer;
     background: white;
+    opacity: 0.7;
     font-weight: bold;
     transition: background ease 0.1s;
 }
