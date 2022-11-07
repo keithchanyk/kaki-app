@@ -4,6 +4,7 @@ import TheWelcome from './components/TheWelcome.vue'
 import Footer from './components/Footer.vue'
 import Join from './views/signup/Join.vue'
 
+
 export default {
   name: "App",
   components: {

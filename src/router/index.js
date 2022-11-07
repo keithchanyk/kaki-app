@@ -8,6 +8,7 @@ import ProjectDetails from "../views/projects/ProjectDetails.vue"
 import LandingPage from "../views/landing/LandingPage.vue"
 import ProfilePage from "../views/profile/Profile.vue"
 
+
 const routes = [
     {
         path: '/join',

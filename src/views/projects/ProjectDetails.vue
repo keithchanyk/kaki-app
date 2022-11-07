@@ -1,3 +1,19 @@
+<script setup>
+
+
+console.log(sessionStorage.getItem("isAuth"))
+
+if(sessionStorage.getItem("isAuth") == "true"){
+  console.log('is authenticated!')
+
+}else{
+  console.log('fuck off!')
+  window.location.href = "http://localhost:5173/"
+}
+
+
+</script>
+
 <template>
     <div class="row">
       <div id="gallery-box" class="row">
