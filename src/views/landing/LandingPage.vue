@@ -15,7 +15,6 @@ if(sessionStorage.getItem("isAuth") == "true"){
 </script>
 
 <template>
-<img src="../../assets/landingImg" alt="" class="src">
 
     <div class="row">
       <div class="col">
