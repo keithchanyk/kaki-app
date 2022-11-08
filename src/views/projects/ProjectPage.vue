@@ -74,7 +74,7 @@ export default {
                         <div v-for="project in project_details" :key="project.id" class="mt-4 col d-flex justify-content-start">
                             <div class="card glass">
                                 <div class="card-header card-image">
-                                    <img id="card-img" class="mb-2 rounded" src="./pic1.jpg" />
+                                    <img id="card-img" class="mb-2 rounded" src="src/assets/pic1.jpg" />
                                 </div>
                                 <div class="card-body mb-1">
                                     <h5>{{project.proj_name}}</h5>
