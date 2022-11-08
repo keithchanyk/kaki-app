@@ -1,4 +1,5 @@
 import { createApp } from 'vue'
+import { createPinia } from "pinia";
 import App from './App.vue'
 import router from './router/index.js'
 import "bootstrap/dist/css/bootstrap.min.css"
@@ -33,12 +34,13 @@ export default defineComponent({
   },
 })
 
+const pinia = createPinia()
 
 /* add icons to the library */
 library.add(faUserSecret, faLock, faLink, faShare, faEnvelope)
 
 createApp(App)
-.use(router)
+.use(router).use(pinia)
 .use(VueGoogleMaps, {
     load: {
         key: 'AIzaSyDCBtObBDUy_E5GwV4iWad9G7I3EhMNjt4'
