@@ -60,7 +60,7 @@ export default {
     </GMapCluster>
   </GMapMap> -->
 
-
+  <Nav></Nav>
 
     <div class="row">
       <div id="gallery-box" class="row">
@@ -441,6 +441,7 @@ export default defineComponent({
 <script>
 import { defineComponent } from 'vue'
 import { GoogleMap, Marker } from 'vue3-google-map'
+import Nav from '../../components/Nav.vue'
 
 export default defineComponent({
   // components: { GoogleMap, Marker },
@@ -451,6 +452,9 @@ export default defineComponent({
   //   return { center, markerOptions }
   // },
   name: 'App',
+  components: {
+    Nav
+  },
   data() {
     return {
       center: { lat: 1.41518559, lng: 103.835153 },
