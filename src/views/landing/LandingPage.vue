@@ -3,10 +3,14 @@
 
 console.log(sessionStorage.getItem("isAuth"))
 
-if(sessionStorage.getItem("isAuth") == "true"){
+if(sessionStorage.getItem("isAuth") == ""){
+  sessionStorage.getItem("isAuth") == "false"
+}
+
+else if(sessionStorage.getItem("isAuth") == "true"){
   console.log('is authenticated!')
 
-}else{
+}else if(sessionStorage.getItem("isAuth") == "false"){
   console.log('fuck off!')
   window.location.href = "http://localhost:5173/"
 }
