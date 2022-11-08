@@ -27,7 +27,7 @@ export default {
 </script>
 <template>
     <Nav />
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
             <div class="col-3">
                 <div class="left_column glass">
@@ -43,14 +43,14 @@ export default {
                     <p class="fw-bold">Activities</p>
                     <p>Total submissions posted</p>
                     <p class="fw-bold">Contact Us</p>
-                    <p>Email: sgvolunteercentre@gmail.com</p>
-                    <p>Contact Number: 65 9834 1270</p>
+                    <p>Email</p>
+                    <p>Contact Us</p>
                 </div>
             </div>
             
             <div class="col-9 mt-3 pt-5">
                 <div class="right_column mb-5">
-                    <img src="src/assets/org_poster.png" width="980" height="200">
+                    <img src="src/assets/org_poster.png" width="900" height="200">
                 </div>
             <!-- </div> -->
 
@@ -62,7 +62,7 @@ export default {
                             Vision <br>
                             Spreading kindness to everyone in society. Empowering every individual to contribute to society <br><br>
                             Mission <br>
-                            Founded in 1958, SG Kindness Centre engages in various volunteering activities across the spectrum of society. It has organised more than 3000 activities...
+                            Founded in 1958, SG Kindness Centre engages in various volunteering activities across the spectrum of society. It has organised more than 3000 activities catering to various causes.
                         </p>
                     </div>
 
@@ -312,12 +312,13 @@ export default {
 
 .img {
     text-align: center;
+    min-width: 2px;
 }
 
 .right_column {
     /* width: 60%; */
     object-fit: cover;
-    border-radius: "25px";
+    border-radius: 25px;
     /* height: 420px; */
 }
 
@@ -416,9 +417,9 @@ h3 {
     order: 1;
     display: flex;
     padding: 1rem 1rem;
-    margin-left: 5.5rem;
-    margin-right: 5rem;
-    margin-bottom: 1.5rem;
+    margin-left: 4.5rem;
+    margin-right: 4.5rem;
+    margin-bottom: 1rem;
     cursor: pointer;
     background: white;
     opacity: 0.7;
