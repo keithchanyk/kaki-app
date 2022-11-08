@@ -14,6 +14,65 @@ if(sessionStorage.getItem("isAuth") == "true"){
 
 </script>
 
+<script>
+import { defineComponent } from 'vue'
+import { GoogleMap, Marker } from 'vue3-google-map'
+import Nav from '../../components/Nav.vue'
+
+export default defineComponent({
+  // components: { GoogleMap, Marker },
+  // setup() {
+  //   const center = { lat: 40.689247, lng: -74.044502 }
+  //   const markerOptions = { position: center, label: 'L', title: 'LADY LIBERTY' }
+
+  //   return { center, markerOptions }
+  // },
+  name: 'App',
+  components: {
+    Nav
+  },
+  data() {
+    return {
+      center: { lat: 1.41518559, lng: 103.835153 },
+      markerOptions : { position: { lat: 1.41518559, lng: 103.835153 }},
+      projectDetails: []
+    }
+  },
+  computed: {
+    getId() {
+      console.log(this.$route.query.id)
+      return this.$route.query.id
+      // id = this.$route.query.id
+      // console.log('hello')
+      // console.log(window.location.href)
+    }
+  },
+  methods:{
+            getProjectDetails(){
+                const id = this.getId
+                console.log(id)
+                const url = 'http://localhost/kakidb-2/project/read_one.php?id=' + id
+                console.log(url)
+
+                axios.get('http://localhost/kakidb-2/project/read_one.php?id=' + id)
+                    .then(response => {
+                        
+                        this.projectDetails = response.data.records;
+                        console.log(this.projectDetails)
+                        // console.log(this.projectDetails.records[0].proj_info.proj_desc)
+                        // console.log(this.projectDetails.records.proj_info.proj_desc)
+                        // console.log(typeof this.projectDetails)
+                        
+                    })
+                    .catch(error => alert(error));
+            }
+        },
+        mounted: function() {
+            this.getProjectDetails()
+        }
+})
+</script>
+
 
 <!-- <script>
 import Nav from '../../components/Nav.vue'
@@ -27,8 +86,7 @@ export default {
 }
 </script> -->
 
-<template>
-
+<template >
 <!-- 
 <GMapMap
       :center="{lat: 1.2983811, lng: 103.856409}"
@@ -90,7 +148,7 @@ export default {
         </a>
       </div>
     </div>
-    <div class="container">
+    <div class="container" v-for="project in projectDetails" :key="project.id">
       <!-- project name header -->
       <!-- <div class="row">
         <div class="col text-center p-5 mb-4">
@@ -104,12 +162,7 @@ export default {
           <div class="row pt-3">
             <h4>About the Activity</h4>
             <p>
-              Seniors who are less mobile, usually require transport for their
-              medical appointments. Hence, we are looking for transport drivers
-              who can ferry seniors and their medical escort to and fro their
-              medical appointments. Requests are on an ad-hoc basis, based on
-              seniors' needs. However, we are looking for regular volunteers who
-              are able to commit for 3 months.
+              {{project.proj_desc}}
             </p>
 
             <br /><br />
@@ -135,7 +188,7 @@ export default {
                 <div
                   class="d-grid gap-2 d-md-flex justify-content-md-end align-items-center"
                 >
-                  <p class="fw-bold m-0">10 Opening Left</p>
+                  <p class="fw-bold m-0">{{project.total_capacity}} Opening Left</p>
                   <button
                     class="btn btn-primary btn-apply btn-lg me-md-2 px-5"
                     type="button"
@@ -291,7 +344,7 @@ export default {
             <div class="card-body">
               <h3 class="card-title">House Cleaning for Elderly</h3>
               <h6 class="card-subtitle mb-2 text-muted">
-                by SG Cares Volunteer Centers
+                by {{project.org_name}}
               </h6>
 
               <!-- information sticky -->
@@ -300,11 +353,11 @@ export default {
                   <ul>
                     <li class="list-group-item">
                       <img src="../../assets/landingImg/icons/pdicons/Timesheet.png" />
-                      &nbsp; Mon, 3 Oct 2022
+                      &nbsp; {{project.proj_date}}
                     </li>
                     <li class="list-group-item">
                       <img src="../../assets/landingImg/icons/pdicons/Clock.png" />
-                      &nbsp; 10.00 AM- 12.00PM
+                      &nbsp; {{project.starttime}} - {{project.endtime}}
                     </li>
                     <li class="list-group-item">
                       <img src="../../assets/landingImg/icons/pdicons/Group.png" /> &nbsp;
@@ -438,31 +491,7 @@ export default defineComponent({
 </script> -->
 
 
-<script>
-import { defineComponent } from 'vue'
-import { GoogleMap, Marker } from 'vue3-google-map'
-import Nav from '../../components/Nav.vue'
 
-export default defineComponent({
-  // components: { GoogleMap, Marker },
-  // setup() {
-  //   const center = { lat: 40.689247, lng: -74.044502 }
-  //   const markerOptions = { position: center, label: 'L', title: 'LADY LIBERTY' }
-
-  //   return { center, markerOptions }
-  // },
-  name: 'App',
-  components: {
-    Nav
-  },
-  data() {
-    return {
-      center: { lat: 1.41518559, lng: 103.835153 },
-      markerOptions : { position: { lat: 1.41518559, lng: 103.835153 }}
-    };
-  },
-})
-</script>
 
 <style scoped>
 body {

@@ -38,7 +38,7 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     color: var(--fonts);
-    background-image: url("../img/bg.svg");
+    /* background-image: url("../img/bg.svg"); */
     height: 100vh;
     background-repeat: no-repeat;
     /* background-color: var(--light); */
