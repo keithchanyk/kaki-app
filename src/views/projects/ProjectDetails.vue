@@ -15,7 +15,7 @@ if(sessionStorage.getItem("isAuth") == "true"){
 </script>
 
 
-<script>
+<!-- <script>
 import Nav from '../../components/Nav.vue'
 
 export default {
@@ -25,7 +25,7 @@ export default {
         Nav
     }
 }
-</script>
+</script> -->
 
 <template>
 
@@ -299,19 +299,20 @@ export default {
                 <div class="row pt-3 ps-3">
                   <ul>
                     <li class="list-group-item">
-                      <img src="./img/icons/pdicons/Timesheet.png" />
+                      <img src="../../assets/landingImg/icons/pdicons/Timesheet.png" />
                       &nbsp; Mon, 3 Oct 2022
                     </li>
                     <li class="list-group-item">
-                      <img src="./img/icons/pdicons/Clock.png" />
+                      <img src="../../assets/landingImg/icons/pdicons/Clock.png" />
                       &nbsp; 10.00 AM- 12.00PM
                     </li>
                     <li class="list-group-item">
-                      <img src="./img/icons/pdicons/Group.png" /> &nbsp;
+                      <img src="../../assets/landingImg/icons/pdicons/Group.png" /> &nbsp;
                       Suitable for: All, First-timers
                     </li>
                     <li class="list-group-item">
-                      <img src="./img/icons/pdicons/Location.png" /> &nbsp;
+                      <img src="../../assets/landingImg/icons/pdicons/Location.png" /> &nbsp;
+                    
                       Geylang
                       <p class="text-muted">
                         3 EUNOS CRESCENT Singapore 400003
@@ -361,15 +362,15 @@ export default {
                   <h4>Contact Us</h4>
                   <ul>
                     <li class="list-group-item">
-                      <img src="./img/icons/pdicons/User.png" />
+                      <img src="../../assets/landingImg/icons/pdicons/User.png" />
                       &nbsp; Mon, 3 Oct 2022
                     </li>
                     <li class="list-group-item">
-                      <img src="./img/icons/pdicons/Mail.png" />
+                      <img src="../../assets/landingImg/icons/pdicons/Mail.png" />
                       &nbsp; kaki_tgt123@gmail.com
                     </li>
                     <li class="list-group-item">
-                      <img src="./img/icons/pdicons/Phone.png" /> &nbsp; +65
+                      <img src="../../assets/landingImg/icons/pdicons/Phone.png" /> &nbsp; +65
                       1234 5678
                     </li>
                   </ul>
