@@ -15,6 +15,40 @@ if(sessionStorage.getItem("isAuth") == "true"){
 </script>
 
 <template>
+
+<!-- 
+<GMapMap
+      :center="{lat: 1.2983811, lng: 103.856409}"
+      :zoom="12"
+      map-type-id="terrain"
+      style="width: 80vw; height: 300px; margin: auto;"
+  >
+  <GMapMarker
+      :key="index"
+      :position="m" 
+      v-for="(m, index) in markers"
+    />
+  </GMapMap> -->
+  <!-- <GMapMap
+    :center="center"
+    :zoom="10"
+    map-type-id="terrain"
+    style="width: 100vw; height: 20rem"
+  >
+    <GMapCluster :zoomOnClick="true">
+      <GMapMarker
+        :key="index"
+        v-for="(m, index) in markers"
+        :position="m.position"
+        :clickable="true"
+        :draggable="true"
+        @click="center = m.position"
+      />
+    </GMapCluster>
+  </GMapMap> -->
+
+
+
     <div class="row">
       <div id="gallery-box" class="row">
         <a
@@ -235,6 +269,8 @@ if(sessionStorage.getItem("isAuth") == "true"){
           </div>
         </div> -->
 
+
+
         <!-- sticky sign up -->
 
         <div id="sign-up" class="sticky-top col-4">
@@ -355,9 +391,60 @@ if(sessionStorage.getItem("isAuth") == "true"){
             </div>
           </div>
         </div>
+
+                <!-- map -->
+                <div class="row">
+            <GoogleMap
+            api-key="AIzaSyDCBtObBDUy_E5GwV4iWad9G7I3EhMNjt4"
+            style="width: 100%; height: 500px"
+            :center= center
+            :zoom="15"
+          >
+            <Marker :options="markerOptions" />
+          </GoogleMap>
+        </div>
+
       </div>
     </div>
 </template>
+
+
+
+<!-- <script>
+
+
+export default defineComponent({
+  components: { GoogleMap, Marker },
+  setup() {
+    const center = { lat: 40.689247, lng: -74.044502 }
+
+    return { center }
+  },
+})
+</script> -->
+
+
+<script>
+import { defineComponent } from 'vue'
+import { GoogleMap, Marker } from 'vue3-google-map'
+
+export default defineComponent({
+  // components: { GoogleMap, Marker },
+  // setup() {
+  //   const center = { lat: 40.689247, lng: -74.044502 }
+  //   const markerOptions = { position: center, label: 'L', title: 'LADY LIBERTY' }
+
+  //   return { center, markerOptions }
+  // },
+  name: 'App',
+  data() {
+    return {
+      center: { lat: 1.41518559, lng: 103.835153 },
+      markerOptions : { position: { lat: 1.41518559, lng: 103.835153 }}
+    };
+  },
+})
+</script>
 
 <style scoped>
 body {
