@@ -48,10 +48,10 @@ export default {
 
       <!-- nav -->
       <div class="col p-0">
-        <nav class="bg-special nav p-5">
+        <!-- <nav class="bg-special nav p-5">
           <a class="nav-link active" aria-current="page" href="#">Explore</a>
           <a class="nav-link" href="#">Organisation</a>
-        </nav>
+        </nav> -->
 
         <!-- tabs -->
         <nav>

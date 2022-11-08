@@ -23,6 +23,12 @@ const routes = [
     },
     {
         path: '/',
+        name: "Landing Page",
+        component: LandingPage
+    },
+
+    {
+        path: '/signin',
         name: "Sign In",
         component: SignIn
     },
@@ -40,11 +46,6 @@ const routes = [
         path: '/projectdetails',
         name: "Project Details",
         component: ProjectDetails
-    },
-    {
-        path: '/landing',
-        name: "Landing Page",
-        component: LandingPage
     },
 
     {
