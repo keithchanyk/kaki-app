@@ -14,6 +14,19 @@ if(sessionStorage.getItem("isAuth") == "true"){
 
 </script>
 
+
+<script>
+import Nav from '../../components/Nav.vue'
+
+export default {
+    name: "App",
+    components: {
+
+        Nav
+    }
+}
+</script>
+
 <template>
 
 <!-- 
