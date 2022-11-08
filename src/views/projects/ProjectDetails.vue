@@ -410,7 +410,7 @@ export default {
                 <div class="row">
             <GoogleMap
             api-key="AIzaSyDCBtObBDUy_E5GwV4iWad9G7I3EhMNjt4"
-            style="width: 100%; height: 500px"
+            style="width: 65%; height: 500px"
             :center= center
             :zoom="15"
           >
