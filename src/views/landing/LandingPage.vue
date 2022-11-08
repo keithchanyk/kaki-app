@@ -56,9 +56,14 @@ if(sessionStorage.getItem("isAuth") == "true"){
                   </li>
                 </ul>
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                  <button type="button" class="btn btn-outline-primary">
+                  <router-link to="/signin" custom v-slot="{ navigate }">
+                  <button class="btn btn-outline-primary" @click="navigate" role="link">
                     Sign In
                   </button>
+                </router-link>
+                  <!-- <button type="button" class="btn btn-outline-primary">
+                    Sign In
+                  </button> -->
                 </div>
               </div>
             </div>

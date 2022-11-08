@@ -1,7 +1,7 @@
 <template>
   <div style="width: 100%; position: fixed">
     <FormProgress />
-    <div class="nav">
+    <div class="nav-form">
       <button
         type="button"
         :class="{ disabled: isFirstField }"

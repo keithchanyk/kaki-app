@@ -196,7 +196,7 @@ pre {
 }
 
 /* Navigation and Progress Bar */
-.nav {
+.nav-form {
     position: fixed;
     bottom: 10px;
     left: 10px;
