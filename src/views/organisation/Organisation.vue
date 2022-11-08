@@ -260,21 +260,18 @@ export default {
                     <div class="tab">
                         <div  class="glass" id="sharing_forum">
                             <p style="font-weight: bold">House cleaning</p>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi doloremque accusantium minus
-                                voluptatum, at sequi laudantium! Ea, quas porro. Doloremque vero, velit voluptate aperiam
-                                perspiciatis ut hic dicta tempore dolor.</p>
+                            <p>The activity is engaging and I learnt many things than I could otherwise imagine. 
+                                The facilitators were friendly and they will guide us when we are unsure. Will definitely recommend it to others who have not tried it.</p>
                         </div>
                         <div class="glass" id="sharing_forum">
                             <p style="font-weight: bold">Elderly Home</p>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi doloremque accusantium minus
-                                voluptatum, at sequi laudantium! Ea, quas porro. Doloremque vero, velit voluptate aperiam
-                                perspiciatis ut hic dicta tempore dolor.</p>
+                            <p>An eye-opening experience and we had loads of fun whille doing something meaningful for a few hours.
+                                I wished there were more activities and opportunities to interact with the elderly, but other than that, it was great!</p>
                         </div>
                         <div class="glass" id="sharing_forum">
                             <p style="font-weight: bold">Beach Litter Picking</p>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi doloremque accusantium minus
-                                voluptatum, at sequi laudantium! Ea, quas porro. Doloremque vero, velit voluptate aperiam
-                                perspiciatis ut hic dicta tempore dolor.</p>
+                            <p>Only went for this activity because my friend dragged me along but it was an enriching experience with other volunteers.
+                                The facilitators were superb and spontaneous which made the whole event lively. Will definitely recommend it to others who have not tried it.</p>
                         </div>
                     </div>
                 </div>
@@ -299,7 +296,7 @@ export default {
 .left_column,
 #sharing_forum {
     /* background-color: rgb(226, 222, 254); */
-    border: lightgrey inset 2px;
+    border: white inset 2px;
     border-radius: 8px;
     text-align: left;
     padding: 10px;
@@ -307,7 +304,7 @@ export default {
     justify-content: center;
     /* position: relative; */
     margin-top: 4rem;
-    
+    background-color: #DFE3FC;
 }
 
 .img {
@@ -319,14 +316,13 @@ export default {
     /* width: 60%; */
     object-fit: cover;
     border-radius: 25px;
-    /* height: 420px; */
 }
 
 #about_us_info {
-    border: 0.01cm solid lightgray;
+    border: 2px inset white;
     border-radius: 15px;
     padding: 0.2cm;
-    /* background-color: rgb(226, 222, 254); */
+    background-color: #DFE3FC;
 }
 
 #bg_img {
@@ -412,7 +408,7 @@ h3 {
 }
 
 .tabs label {
-    border-bottom: 1px solid grey;
+    border-bottom: 1px solid ;
     border-radius: 8px;
     order: 1;
     display: flex;
