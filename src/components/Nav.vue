@@ -1,3 +1,20 @@
+<script>
+import { googleLogout } from 'vue3-google-login';
+export default {
+    methods: {
+      logout () {
+        sessionStorage.setItem("isAuth", "");
+        console.log("logout start")
+       googleLogout()
+       console.log("logout ends")
+      }
+    }
+  }
+</script>
+
+
+
+
 <template>
     <nav class="glass navbar navbar-expand-lg">
         <div class="mx-5 container-fluid">
@@ -22,6 +39,12 @@
 
               <li class="nav-item">
                 <router-link class="nav-link" to="/profile">Profile</router-link>
+              </li>
+
+              <li class="nav-item">
+                <button  @click="logout" type="button" class="btn btn-outline-danger">
+                <router-link class="nav-link" to="/signin">Log Out</router-link>
+              </button>
               </li>
 
             </ul>
