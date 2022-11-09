@@ -37,14 +37,15 @@ const callback = (response) => {
                                 <input type="password" class="form-control" id="passwordInput" placeholder="Password">
                                 <label for="passwordInput">Password</label>
                             </div>
-
+                                
                             <div class="d-grid gap-2">
                                 <button type="button" class="btn btn-primary btn-signup">Sign In</button>
                                 <p>Forget Password?</p>
                             </div>
                         </form>
                         <p>Or</p>
-                        <div class="d-grid gap-2">
+        
+                        <div>
                             <GoogleLogin :callback="callback"/>
                             
                             <!-- <button type="button" class="btn btn-primary btn-google">Continue with Google</button> -->
