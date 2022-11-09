@@ -3,10 +3,10 @@
 
 console.log(sessionStorage.getItem("isAuth"))
 
-if(sessionStorage.getItem("isAuth") == "true"){
+if (sessionStorage.getItem("isAuth") == "true") {
   console.log('is authenticated!')
 
-}else{
+} else {
   console.log('fuck off!')
   window.location.href = "http://localhost:5173/"
 }
@@ -33,44 +33,52 @@ export default defineComponent({
   },
   data() {
     return {
-      center: { lat: 1.41518559, lng: 103.835153 },
-      markerOptions : { position: { lat: 1.41518559, lng: 103.835153 }},
-      projectDetails: []
+      projectDetails: [],
+      lat: 1.41518559,
+      lng: 103.835153,
+      center: { lat: this.lat, lng: this.lng },
+      markerOptions: { position: { lat: this.lat, lng: this.lng } }
+
+      // center: { lat: this.projectDetails[0].lat, lng: this.projectDetails[0].lng }
+      // lats: 1.41518559,
+      // center: { lat: this.lats, lng: 103.835153 },
+      // markerOptions : { position: { lat: 1.41518559, lng: 103.835153 }},
+      // center: {  },
+      // markerOptions : { },
     }
   },
   computed: {
     getId() {
       console.log(this.$route.query.id)
       return this.$route.query.id
-      // id = this.$route.query.id
-      // console.log('hello')
-      // console.log(window.location.href)
     }
   },
-  methods:{
-            getProjectDetails(){
-                const id = this.getId
-                console.log(id)
-                const url = 'http://localhost/kakidb-2/project/read_one.php?id=' + id
-                console.log(url)
+  methods: {
+    getProjectDetails() {
+      const id = this.getId
+      console.log(id)
+      const url = 'http://localhost/kakidb-2/project/read_one.php?id=' + id
+      console.log(url)
 
-                axios.get('http://localhost/kakidb-2/project/read_one.php?id=' + id)
-                    .then(response => {
-                        
-                        this.projectDetails = response.data.records;
-                        console.log(this.projectDetails)
-                        // console.log(this.projectDetails.records[0].proj_info.proj_desc)
-                        // console.log(this.projectDetails.records.proj_info.proj_desc)
-                        // console.log(typeof this.projectDetails)
-                        
-                    })
-                    .catch(error => alert(error));
-            }
-        },
-        mounted: function() {
-            this.getProjectDetails()
-        }
-})
+      axios.get('http://localhost/kakidb-2/project/read_one.php?id=' + id)
+        .then(response => {
+          console.log(response.data.records)
+          this.projectDetails = response.data.records;
+          var lat = this.projectDetails[0].lat
+          var lng = this.projectDetails[0].long
+          this.lat = parseFloat(lat)
+          this.lng = parseFloat(lng)
+          this.center = { lat: this.lat, lng: this.lng },
+            this.markerOptions = { position: { lat: this.lat, lng: this.lng } }
+        })
+        .catch(error => alert(error));
+    },
+  },
+  mounted: function () {
+    console.log(this.getProjectDetails())
+  },
+}
+)
 </script>
 
 
@@ -86,14 +94,25 @@ export default {
 }
 </script> -->
 
+<style>
+/* .container {
+  border: 2px solid black;
+}
+.row {
+  border: 2px solid red;
+} */
+
+</style>
+
 <template >
-<!-- 
+
+  <!-- 
 <GMapMap
       :center="{lat: 1.2983811, lng: 103.856409}"
       :zoom="12"
       map-type-id="terrain"
       style="width: 80vw; height: 300px; margin: auto;"
-  >
+  >/drive/
   <GMapMarker
       :key="index"
       :position="m" 
@@ -120,87 +139,72 @@ export default {
 
   <Nav></Nav>
 
-    <div class="row">
+  <div class="container main" v-for="project in projectDetails" :key="project.id">
+    <!-- <div class="row"> -->
       <div id="gallery-box" class="row">
-        <a
-          href="https://unsplash.it/1200/768.jpg?image=251"
-          data-toggle="lightbox"
-          data-gallery="example-gallery"
-          class="col-sm-4"
-        >
+        <a href="https://unsplash.it/1200/768.jpg?image=251" data-toggle="lightbox" data-gallery="example-gallery"
+          class="col-sm-4">
           <img src="https://unsplash.it/600.jpg?image=251" class="img-fluid" />
         </a>
-        <a
-          href="https://unsplash.it/1200/768.jpg?image=252"
-          data-toggle="lightbox"
-          data-gallery="example-gallery"
-          class="col-sm-4"
-        >
+        <a href="https://unsplash.it/1200/768.jpg?image=252" data-toggle="lightbox" data-gallery="example-gallery"
+          class="col-sm-4">
           <img src="https://unsplash.it/600.jpg?image=252" class="img-fluid" />
         </a>
-        <a
-          href="https://unsplash.it/1200/768.jpg?image=253"
-          data-toggle="lightbox"
-          data-gallery="example-gallery"
-          class="col-sm-4"
-        >
+        <a href="https://unsplash.it/1200/768.jpg?image=253" data-toggle="lightbox" data-gallery="example-gallery"
+          class="col-sm-4">
           <img src="https://unsplash.it/600.jpg?image=253" class="img-fluid" />
         </a>
       </div>
-    </div>
-    <div class="container" v-for="project in projectDetails" :key="project.id">
-      <!-- project name header -->
-      <!-- <div class="row">
+    <!-- </div> -->
+
+    <!-- <div class="container" > -->
+    <!-- project name header -->
+    <!-- <div class="row">
         <div class="col text-center p-5 mb-4">
           <h1>Project Kaki</h1>
         </div>
       </div> -->
 
-      <!-- project description -->
-      <div class="row">
-        <div class="col-8">
-          <div class="row pt-3">
-            <h4>About the Activity</h4>
-            <p>
-              {{project.proj_desc}}
-            </p>
+    <!-- project description -->
+    <div class="row mt-3">
+      <div class="col-8">
+        <!-- <div class="row pt-3"> -->
+          <h4>About the Activity</h4>
+          <p>
+            {{ project.proj_desc }}
+          </p>
 
-            <br /><br />
+          <br /><br />
 
-            <h4>Volunteer Position</h4>
-            <div class="card text-bg-light mb-3">
-              <div class="card-header">Cleaning Volunteer</div>
-              <div class="card-body">
-                <p class="card-text">
-                  Skills required: No Specific Skills required
-                </p>
-                <p class="card-text">Suitable for: All, First Timers</p>
-                <p class="card-text">
-                  Objective: Conduct and assist to coordinate the Art and Craft
-                  session to engage seniors. And through the facilitation,
-                  befriend and provide companionship to seniors. - Conduct and
-                  coordinate art and craft session for 10 - 15 seniors - Guide
-                  seniors on the pre-planned activity - Mark attendance of
-                  seniors, and assist with SafeEntry and safe distancing
-                  measures
-                </p>
+          <h4>Volunteer Position</h4>
+          <div class="card text-bg-light mb-3">
+            <div class="card-header">Cleaning Volunteer</div>
+            <div class="card-body">
+              <p class="card-text">
+                Skills required: No Specific Skills required
+              </p>
+              <p class="card-text">Suitable for: All, First Timers</p>
+              <p class="card-text">
+                Objective: Conduct and assist to coordinate the Art and Craft
+                session to engage seniors. And through the facilitation,
+                befriend and provide companionship to seniors. - Conduct and
+                coordinate art and craft session for 10 - 15 seniors - Guide
+                seniors on the pre-planned activity - Mark attendance of
+                seniors, and assist with SafeEntry and safe distancing
+                measures
+              </p>
 
-                <div
-                  class="d-grid gap-2 d-md-flex justify-content-md-end align-items-center"
-                >
-                  <p class="fw-bold m-0">{{project.total_capacity}} Opening Left</p>
-                  <button
-                    class="btn btn-primary btn-apply btn-lg me-md-2 px-5"
-                    type="button"
-                  >
-                    Apply Now
-                  </button>
-                </div>
+              <div class="d-grid gap-2 d-md-flex justify-content-md-end align-items-center">
+                <p class="fw-bold m-0">{{ project.total_capacity }} Opening Left</p>
+                <button class="btn btn-primary btn-apply btn-lg me-md-2 px-5" type="button">
+                  Apply Now
+                </button>
               </div>
             </div>
           </div>
-        </div>
-        <!-- <div class="col-8">
+        <!-- </div> -->
+      </div>
+      <!-- <div class="col-8">
           <div class="card text-center">
             <div class="card-header">
               <ul class="nav nav-tabs card-header-tabs">
@@ -337,108 +341,99 @@ export default {
 
 
 
-        <!-- sticky sign up -->
+      <!-- sticky sign up -->
 
-        <div id="sign-up" class="sticky-top col-4">
-          <div class="card">
-            <div class="card-body">
-              <h3 class="card-title">House Cleaning for Elderly</h3>
-              <h6 class="card-subtitle mb-2 text-muted">
-                by {{project.org_name}}
-              </h6>
+      <div id="sign-up" class="sticky-top col-4 mt-3">
+        <div class="card">
+          <div class="card-body">
+            <h3 class="card-title">House Cleaning for Elderly</h3>
+            <h6 class="card-subtitle mb-2 text-muted">
+              by {{ project.org_name }}
+            </h6>
 
-              <!-- information sticky -->
-              <div class="card">
-                <div class="row pt-3 ps-3">
-                  <ul>
-                    <li class="list-group-item">
-                      <img src="../../assets/landingImg/icons/pdicons/Timesheet.png" />
-                      &nbsp; {{project.proj_date}}
-                    </li>
-                    <li class="list-group-item">
-                      <img src="../../assets/landingImg/icons/pdicons/Clock.png" />
-                      &nbsp; {{project.starttime}} - {{project.endtime}}
-                    </li>
-                    <li class="list-group-item">
-                      <img src="../../assets/landingImg/icons/pdicons/Group.png" /> &nbsp;
-                      Suitable for: All, First-timers
-                    </li>
-                    <li class="list-group-item">
-                      <img src="../../assets/landingImg/icons/pdicons/Location.png" /> &nbsp;
-                    
-                      Geylang
-                      <p class="text-muted">
-                        3 EUNOS CRESCENT Singapore 400003
-                      </p>
-                    </li>
-                  </ul>
-                </div>
-                <!-- buttons -->
-                <div class="d-flex justify-content-around">
-                  <div class="row">
-                    <div class="col">
-                      <button
-                        type="button"
-                        class="btn btn-secondary rounded-circle btn-icon"
-                      >
+            <!-- information sticky -->
+            <div class="card">
+              <div class="row pt-3 ps-3">
+                <ul>
+                  <li class="list-group-item">
+                    <img src="../../assets/landingImg/icons/pdicons/Timesheet.png" />
+                    &nbsp; {{ project.proj_date }}
+                  </li>
+                  <li class="list-group-item">
+                    <img src="../../assets/landingImg/icons/pdicons/Clock.png" />
+                    &nbsp; {{ project.starttime }} - {{ project.endtime }}
+                  </li>
+                  <li class="list-group-item">
+                    <img src="../../assets/landingImg/icons/pdicons/Group.png" /> &nbsp;
+                    Suitable for: All, First-timers
+                  </li>
+                  <li class="list-group-item">
+                    <img src="../../assets/landingImg/icons/pdicons/Location.png" /> &nbsp;
+
+                    Geylang
+                    <p class="text-muted">
+                      3 EUNOS CRESCENT Singapore 400003
+                    </p>
+                  </li>
+                </ul>
+              </div>
+              <!-- buttons -->
+              <div class="d-flex justify-content-around">
+                <div class="row">
+                  <div class="col">
+                    <button type="button" class="btn btn-secondary rounded-circle btn-icon">
                       <!-- <font-awesome-icon icon="fa-solid fa-link" /> -->
                       <font-awesome-icon icon="fa-solid fa-lock" />
 
-                      </button>
-                    </div>
-                    <div class="col">
-                      <button
-                        type="button"
-                        class="btn btn-secondary rounded-circle btn-icon"
-                      >
-                      <font-awesome-icon icon="fa-solid fa-share" />
-                        <!-- <font-awesome-icon icon="fa-solid fa-share" /> -->
-                      </button>
-                    </div>
-
-                    <div class="col">
-                      <button
-                        type="button"
-                        class="btn btn-secondary rounded-circle btn-icon"
-                      >
-                        <i class="fa-solid fa-bookmark" aria-hidden="true"></i>
-                       
-                      </button>
-                    </div>
+                    </button>
                   </div>
-                </div>
+                  <div class="col">
+                    <button type="button" class="btn btn-secondary rounded-circle btn-icon">
+                      <font-awesome-icon icon="fa-solid fa-share" />
+                      <!-- <font-awesome-icon icon="fa-solid fa-share" /> -->
+                    </button>
+                  </div>
 
-                <hr />
+                  <div class="col">
+                    <button type="button" class="btn btn-secondary rounded-circle btn-icon">
+                      <i class="fa-solid fa-bookmark" aria-hidden="true"></i>
 
-                <div class="row pt-3 ps-3">
-                  <!-- contact us -->
-                  <h4>Contact Us</h4>
-                  <ul>
-                    <li class="list-group-item">
-                      <img src="../../assets/landingImg/icons/pdicons/User.png" />
-                      &nbsp; Mon, 3 Oct 2022
-                    </li>
-                    <li class="list-group-item">
-                      <img src="../../assets/landingImg/icons/pdicons/Mail.png" />
-                      &nbsp; kaki_tgt123@gmail.com
-                    </li>
-                    <li class="list-group-item">
-                      <img src="../../assets/landingImg/icons/pdicons/Phone.png" /> &nbsp; +65
-                      1234 5678
-                    </li>
-                  </ul>
+                    </button>
+                  </div>
                 </div>
               </div>
 
-              <br />
-              <br />
-              <!-- <p class="card-text">
+              <hr />
+
+              <div class="row pt-3 ps-3">
+                <!-- contact us -->
+                <h4>Contact Us</h4>
+                <ul>
+                  <li class="list-group-item">
+                    <img src="../../assets/landingImg/icons/pdicons/User.png" />
+                    &nbsp; Mon, 3 Oct 2022
+                  </li>
+                  <li class="list-group-item">
+                    <img src="../../assets/landingImg/icons/pdicons/Mail.png" />
+                    &nbsp; kaki_tgt123@gmail.com
+                  </li>
+                  <li class="list-group-item">
+                    <img src="../../assets/landingImg/icons/pdicons/Phone.png" /> &nbsp; +65
+                    1234 5678
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <br />
+            <br />
+            <!-- <p class="card-text">
                 Some quick example text to build on the card title and make up
                 the bulk of the card's content.
               </p> -->
 
-              <!-- dropdown -->
-              <!-- <div class="dropdown-center">
+            <!-- dropdown -->
+            <!-- <div class="dropdown-center">
                 <button
                   class="btn btn-secondary dropdown-toggle"
                   type="button"
@@ -455,24 +450,21 @@ export default {
                   <li><a class="dropdown-item" href="#">Leader</a></li>
                 </ul>
               </div> -->
-            </div>
           </div>
         </div>
-
-                <!-- map -->
-                <div class="row">
-            <GoogleMap
-            api-key="AIzaSyDCBtObBDUy_E5GwV4iWad9G7I3EhMNjt4"
-            style="width: 65%; height: 500px"
-            :center= center
-            :zoom="15"
-          >
-            <Marker :options="markerOptions" />
-          </GoogleMap>
-        </div>
-
       </div>
+
+      <!-- map -->
+      <div class="row">
+        <GoogleMap :key="componentKey" api-key="AIzaSyDCBtObBDUy_E5GwV4iWad9G7I3EhMNjt4"
+          style="width: 65%; height: 500px" :center=center :zoom="15">
+          <Marker :options="markerOptions" />
+        </GoogleMap>
+      </div>
+
     </div>
+    <!-- </div> -->
+  </div>
 </template>
 
 
@@ -499,7 +491,13 @@ body {
 }
 
 
-h1,h2,h3,h4,h5,h6,p{
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -517,7 +515,7 @@ p{
   color: #D2DEFE;
 } */
 
-.text-landing{
+.text-landing {
   background-color: #4A60E8;
   opacity: 0.95;
   border: 1px solid #4A60E8;
@@ -532,32 +530,33 @@ h2 {
   letter-spacing: 5px;
 }
 
-#jumbotron-home{
+#jumbotron-home {
   background-image: url(./img/volunteer.jpg);
 }
 
 
 
-.list-group, .list-group-item{
-border-style: none;
+.list-group,
+.list-group-item {
+  border-style: none;
 }
 
-.btn-apply{
-background-color: #4A60E8
+.btn-apply {
+  background-color: #4A60E8
 }
 
-.bg-special{
+.bg-special {
   background-image: linear-gradient(#EAEDFF, #E2DEFE);
   /* background-color: #E2DEFE; */
 }
 
 
 .sidebar-item {
-	top: 0;
-	left: 0;
+  top: 0;
+  left: 0;
   padding: 0;
-	width: 100%;
-	height: 80%;
+  width: 100%;
+  height: 80%;
 
 }
 </style>
