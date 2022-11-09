@@ -7,11 +7,9 @@ if (sessionStorage.getItem("isAuth") == "true") {
   console.log('is authenticated!')
 
 } else {
-  console.log('fuck off!')
+  console.log('not authenticated, redirecting')
   window.location.href = "http://localhost:5173/"
 }
-
-
 </script>
 
 <script>
@@ -81,27 +79,18 @@ export default defineComponent({
 )
 </script>
 
-
-<!-- <script>
-import Nav from '../../components/Nav.vue'
-
-export default {
-    name: "App",
-    components: {
-
-        Nav
-    }
-}
-</script> -->
-
 <style>
 /* .container {
   border: 2px solid black;
 }
+
 .row {
   border: 2px solid red;
 } */
 
+.map {
+  height: 500px;
+}
 </style>
 
 <template >
@@ -137,24 +126,24 @@ export default {
     </GMapCluster>
   </GMapMap> -->
 
-  <Nav></Nav>
+  <Nav />
 
   <div class="container main" v-for="project in projectDetails" :key="project.id">
     <!-- <div class="row"> -->
-      <div id="gallery-box" class="row">
-        <a href="https://unsplash.it/1200/768.jpg?image=251" data-toggle="lightbox" data-gallery="example-gallery"
-          class="col-sm-4">
-          <img src="https://unsplash.it/600.jpg?image=251" class="img-fluid" />
-        </a>
-        <a href="https://unsplash.it/1200/768.jpg?image=252" data-toggle="lightbox" data-gallery="example-gallery"
-          class="col-sm-4">
-          <img src="https://unsplash.it/600.jpg?image=252" class="img-fluid" />
-        </a>
-        <a href="https://unsplash.it/1200/768.jpg?image=253" data-toggle="lightbox" data-gallery="example-gallery"
-          class="col-sm-4">
-          <img src="https://unsplash.it/600.jpg?image=253" class="img-fluid" />
-        </a>
-      </div>
+    <div id="gallery-box" class="row">
+      <a href="https://unsplash.it/1200/768.jpg?image=251" data-toggle="lightbox" data-gallery="example-gallery"
+        class="col-sm-4 p-0">
+        <img src="https://unsplash.it/600.jpg?image=251" class="img-fluid" />
+      </a>
+      <a href="https://unsplash.it/1200/768.jpg?image=252" data-toggle="lightbox" data-gallery="example-gallery"
+        class="col-sm-4">
+        <img src="https://unsplash.it/600.jpg?image=252" class="img-fluid" />
+      </a>
+      <a href="https://unsplash.it/1200/768.jpg?image=253" data-toggle="lightbox" data-gallery="example-gallery"
+        class="col-sm-4">
+        <img src="https://unsplash.it/600.jpg?image=253" class="img-fluid" />
+      </a>
+    </div>
     <!-- </div> -->
 
     <!-- <div class="container" > -->
@@ -167,41 +156,51 @@ export default {
 
     <!-- project description -->
     <div class="row mt-3">
-      <div class="col-8">
+      <div class="col-xl-8 col-md-12 col-s-12">
         <!-- <div class="row pt-3"> -->
-          <h4>About the Activity</h4>
-          <p>
-            {{ project.proj_desc }}
-          </p>
-
-          <br /><br />
-
-          <h4>Volunteer Position</h4>
-          <div class="card text-bg-light mb-3">
-            <div class="card-header">Cleaning Volunteer</div>
+        <div class="row">
+          <div class="card">
             <div class="card-body">
-              <p class="card-text">
-                Skills required: No Specific Skills required
+              <p class="h2 fw-bold">About the Activity</p>
+              <p>
+                {{ project.proj_desc }}
               </p>
-              <p class="card-text">Suitable for: All, First Timers</p>
-              <p class="card-text">
-                Objective: Conduct and assist to coordinate the Art and Craft
-                session to engage seniors. And through the facilitation,
-                befriend and provide companionship to seniors. - Conduct and
-                coordinate art and craft session for 10 - 15 seniors - Guide
-                seniors on the pre-planned activity - Mark attendance of
-                seniors, and assist with SafeEntry and safe distancing
-                measures
-              </p>
+            </div>
+          </div>
+        </div>
 
-              <div class="d-grid gap-2 d-md-flex justify-content-md-end align-items-center">
-                <p class="fw-bold m-0">{{ project.total_capacity }} Opening Left</p>
-                <button class="btn btn-primary btn-apply btn-lg me-md-2 px-5" type="button">
-                  Apply Now
-                </button>
+        <div class="row mt-3 row-xs-12">
+          <div class="card">
+            <div class="card-body">
+              <p class="h2 fw-bold">Volunteer Position</p>
+              <div class="card text-bg-light mb-3">
+                <div class="card-header">Cleaning Volunteer</div>
+                <div class="card-body">
+                  <p class="card-text">
+                    Skills required: No Specific Skills required
+                  </p>
+                  <p class="card-text">Suitable for: All, First Timers</p>
+                  <p class="card-text">
+                    Objective: Conduct and assist to coordinate the Art and Craft
+                    session to engage seniors. And through the facilitation,
+                    befriend and provide companionship to seniors. - Conduct and
+                    coordinate art and craft session for 10 - 15 seniors - Guide
+                    seniors on the pre-planned activity - Mark attendance of
+                    seniors, and assist with SafeEntry and safe distancing
+                    measures
+                  </p>
+
+                  <div class="d-grid gap-2 d-md-flex justify-content-md-end align-items-center">
+                    <p class="fw-bold m-0">{{ project.total_capacity }} Opening Left</p>
+                    <button class="btn btn-primary btn-apply btn-lg me-md-2 px-5" type="button">
+                      Apply Now
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
+        </div>
         <!-- </div> -->
       </div>
       <!-- <div class="col-8">
@@ -343,10 +342,10 @@ export default {
 
       <!-- sticky sign up -->
 
-      <div id="sign-up" class="sticky-top col-4 mt-3">
+      <div id="sign-up" class="sticky-xl-top col-xl-4 col-xs-12">
         <div class="card">
           <div class="card-body">
-            <h3 class="card-title">House Cleaning for Elderly</h3>
+            <h3 class="card-title ">House Cleaning for Elderly</h3>
             <h6 class="card-subtitle mb-2 text-muted">
               by {{ project.org_name }}
             </h6>
@@ -355,23 +354,23 @@ export default {
             <div class="card">
               <div class="row pt-3 ps-3">
                 <ul>
-                  <li class="list-group-item">
+                  <li class="list-group-item mt-2">
                     <img src="../../assets/landingImg/icons/pdicons/Timesheet.png" />
                     &nbsp; {{ project.proj_date }}
                   </li>
-                  <li class="list-group-item">
+                  <li class="list-group-item mt-2">
                     <img src="../../assets/landingImg/icons/pdicons/Clock.png" />
                     &nbsp; {{ project.starttime }} - {{ project.endtime }}
                   </li>
-                  <li class="list-group-item">
+                  <li class="list-group-item mt-2">
                     <img src="../../assets/landingImg/icons/pdicons/Group.png" /> &nbsp;
                     Suitable for: All, First-timers
                   </li>
-                  <li class="list-group-item">
+                  <li class="list-group-item mt-2">
                     <img src="../../assets/landingImg/icons/pdicons/Location.png" /> &nbsp;
 
                     Geylang
-                    <p class="text-muted">
+                    <p class="text-muted mt-2">
                       3 EUNOS CRESCENT Singapore 400003
                     </p>
                   </li>
@@ -455,11 +454,15 @@ export default {
       </div>
 
       <!-- map -->
-      <div class="row">
-        <GoogleMap :key="componentKey" api-key="AIzaSyDCBtObBDUy_E5GwV4iWad9G7I3EhMNjt4"
-          style="width: 65%; height: 500px" :center=center :zoom="15">
-          <Marker :options="markerOptions" />
-        </GoogleMap>
+      <div class="col-8 mt-3 p-0">
+        <div class="card">
+          <div class="card-body">
+            <GoogleMap :key="componentKey" api-key="AIzaSyDCBtObBDUy_E5GwV4iWad9G7I3EhMNjt4" class="map" :center=center
+              :zoom="15">
+              <Marker :options="markerOptions" />
+            </GoogleMap>
+          </div>
+        </div>
       </div>
 
     </div>
