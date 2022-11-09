@@ -19,7 +19,8 @@ else if(sessionStorage.getItem("isAuth") == "true"){
 </script>
 
 <template>
-
+  
+  <div class="container">
     <div class="row">
       <div class="col">
         <!-- jumbotron -->
@@ -550,7 +551,7 @@ else if(sessionStorage.getItem("isAuth") == "true"){
       </div>
     </div> -->
 
-
+  </div>
 
 </template>
 

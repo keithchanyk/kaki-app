@@ -33,6 +33,7 @@ export default {
   <Nav />
 
     <!-- sidebar -->
+    <div class="container">
     <div class="row">
       <div class="col-2 p-0 text-center">
         <div class="card sticky-top sidebar-item bg-special">
@@ -288,6 +289,7 @@ export default {
         </div>
       </div>
     </div>
+  </div>
 
 
 
