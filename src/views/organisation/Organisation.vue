@@ -29,10 +29,10 @@ export default {
     <Nav />
     <div class="container-fluid">
         <div class="row">
-            <div class="col-3">
+            <div class="col-xl-3">
                 <div class="left_column glass">
                     <div class="img">
-                    <img src="src/assets/org_image.png" align="absmiddle" width="150" height="150">
+                        <img src="src/assets/org_image.png" width="150" height="150">
                     </div>
                     <br><br>
                     <p class="fw-bold">Supported Causes</p>
@@ -48,13 +48,13 @@ export default {
                 </div>
             </div>
             
-            <div class="col-9 mt-3 pt-5">
-                <div class="right_column mb-5">
-                    <img src="src/assets/org_poster.png" width="900" height="200">
+            <div class="col-xl-9">
+                <div class="right_column mb-5 align-items-center">
+                    <img src="src/assets/org_poster.png" class="img-fluid" >
                 </div>
             <!-- </div> -->
 
-                <div class="tabs">
+                <div class="tabs right_column">
                     <input type="radio" name="tabs" id="tabone" checked>
                     <label for="tabone">About Us</label>
                     <div class="tab pt-4">
@@ -68,7 +68,7 @@ export default {
 
                     <input type="radio" name="tabs" id="tabtwo">
                     <label for="tabtwo" >Our Posts</label>
-                    <div class="tab">
+                    <div class="tab pt-4">
                         <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p> -->
                         <div class="container pt-4 pb-4">
                             <div class="container pb-4">
@@ -257,29 +257,29 @@ export default {
 
                     <input type="radio" name="tabs" id="tabthree">
                     <label for="tabthree">Experience Sharing Forum</label>
-                    <div class="tab">
+                    <div class="tab pt-4">
                         <div  class="glass" id="sharing_forum">
                             <p style="font-weight: bold">House cleaning</p>
                             <p>The activity is engaging and I learnt many things than I could otherwise imagine. 
                                 The facilitators were friendly and they will guide us when we are unsure. Will definitely recommend it to others who have not tried it.</p>
+                            <p style="font-weight: bold">Kim Lee</p>
                         </div>
                         <div class="glass" id="sharing_forum">
                             <p style="font-weight: bold">Elderly Home</p>
                             <p>An eye-opening experience and we had loads of fun whille doing something meaningful for a few hours.
                                 I wished there were more activities and opportunities to interact with the elderly, but other than that, it was great!</p>
+                            <p style="font-weight: bold">Brendan Tan</p>
                         </div>
                         <div class="glass" id="sharing_forum">
                             <p style="font-weight: bold">Beach Litter Picking</p>
                             <p>Only went for this activity because my friend dragged me along but it was an enriching experience with other volunteers.
                                 The facilitators were superb and spontaneous which made the whole event lively. Will definitely recommend it to others who have not tried it.</p>
+                            <p style="font-weight: bold">Thomas Gan</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-        <br><br>
-
     </div>
     
 
@@ -288,10 +288,6 @@ export default {
 </template>
 
 <style scoped>
-.column_left img {
-    max-width: 100%;
-    /* height: fit-content; */
-}
 
 .left_column,
 #sharing_forum {
@@ -309,13 +305,16 @@ export default {
 
 .img {
     text-align: center;
-    min-width: 2px;
+    min-width: 3px;
 }
 
 .right_column {
     /* width: 60%; */
-    object-fit: cover;
-    border-radius: 25px;
+    border-radius: 8px;
+    padding: 10px;
+    margin-top: 4rem;
+    justify-content: center;
+    display: flex;
 }
 
 #about_us_info {
