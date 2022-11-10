@@ -24,9 +24,9 @@ else if(sessionStorage.getItem("isAuth") == "true"){
     <div class="row">
       <div class="col">
         <!-- jumbotron -->
-        <div id="jumbotron-home" class="custom-jumbotron p-5">
+        <div id="jumbotron-home" class="custom-jumbotron p-1">
           <!-- navbar -->
-          <nav class="navbar navbar-expand-lg navbar rounded">
+          <nav class="navbar navbar-expand-md navbar rounded">
             <div class="container-fluid">
               <a class="navbar-brand" href="#">Kaki</a>
               <button
@@ -74,8 +74,8 @@ else if(sessionStorage.getItem("isAuth") == "true"){
             </div>
           </nav>
           <!-- text-landing -->
-          <div class="text-landing col-6 p-5 m-5">
-            <p class="fs-1">Ignite Your Volunteering Passion With Kaki Today</p>
+          <div class="text-landing col-4 p-3 m-3">
+            <p class="fs-2">Ignite Your Volunteering Passion With Kaki Today</p>
             <button type="button" class="btn btn-outline-light">
               Join Kaki
             </button>
@@ -175,8 +175,9 @@ else if(sessionStorage.getItem("isAuth") == "true"){
           </div>
           <div class="col">
             <p class="fs-1 fw-bold">
-              What our users <br />
-              say about us:
+              Testimonials
+              <!-- What our users <br />
+              say about us: -->
             </p>
 
             <div
@@ -207,17 +208,16 @@ else if(sessionStorage.getItem("isAuth") == "true"){
                 ></button>
               </div>
               <div class="carousel-inner">
-                <div class="carousel-item active">
+                <div class="carousel-item active" data-bs-interval="10000">
                   <div class="col-lg-12">
                     <div class="card">
                       <div class="card-body">
-                        <p class="card-text">
-                          Kaki helped me a lot in finding the most suitable
-                          activity according to my interest. I remebered my
+                        <p class="card-text" style="font-size:22px">
+                          Kaki has rekindled my interest in volunteering for good causes. I remebered my
                           first volunteer project at an animal shelter centre
                           where I meet other individuals who share the same
                           passion in helping animals. Now this is my favourite
-                          activity -
+                          activity!
                         </p>
                         <h3 class="card-title">April Tan</h3>
                         <h6 class="text-muted">Active Volunteer</h6>
@@ -230,16 +230,14 @@ else if(sessionStorage.getItem("isAuth") == "true"){
                   <div class="col-lg-12">
                     <div class="card">
                       <div class="card-body">
-                        <p class="card-text">
+                        <p class="card-text" style="font-size:22px">
                           Kaki helped me a lot in finding the most suitable
-                          activity according to my interest. I remebered my
-                          first volunteer project at an animal shelter centre
-                          where I meet other individuals who share the same
-                          passion in helping animals. Now this is my favourite
-                          activity -
+                          activity according to my interest. There is always something to look forward to every week.
+                          It is really hard to choose a favourite activity because
+                          all of them are great!
                         </p>
-                        <h3 class="card-title">April Tan</h3>
-                        <h6 class="text-muted">Active Volunteer</h6>
+                        <h3 class="card-title">Kim Wong</h3>
+                        <h6 class="text-muted">Occasional Volunteer</h6>
                       </div>
                     </div>
                   </div>
@@ -248,15 +246,12 @@ else if(sessionStorage.getItem("isAuth") == "true"){
                   <div class="col-lg-12">
                     <div class="card">
                       <div class="card-body">
-                        <p class="card-text">
-                          Kaki helped me a lot in finding the most suitable
-                          activity according to my interest. I remebered my
-                          first volunteer project at an animal shelter centre
-                          where I meet other individuals who share the same
-                          passion in helping animals. Now this is my favourite
-                          activity -
+                        <p class="card-text" style="font-size:22px">
+                          I will definitely recommend Kaki to anyone interested in volunteering for a good cause.
+                          it is a robust community of great people to forge memorable bonds and unique experiences.
+                          Look forward to meeting the community every week!
                         </p>
-                        <h3 class="card-title">April Tan</h3>
+                        <h3 class="card-title">Gabriel Teo</h3>
                         <h6 class="text-muted">Active Volunteer</h6>
                       </div>
                     </div>
@@ -582,10 +577,12 @@ p{
   bottom: 0;
   right: 0;
   position: absolute;
+  color: khaki;
 }
 
 #jumbotron-home{
   background-image: url(../../assets/landingImg/volunteer.jpg);
+  height: 580px;
 }
 
 
