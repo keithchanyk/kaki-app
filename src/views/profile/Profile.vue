@@ -1,52 +1,48 @@
 <script setup>
+console.log(sessionStorage.getItem('isAuth'));
 
-
-console.log(sessionStorage.getItem("isAuth"))
-
-if(sessionStorage.getItem("isAuth") == "true"){
-  console.log('is authenticated!')
-
-}else{
-  console.log('fuck off!')
-  window.location.href = "http://localhost:5173/"
+if (sessionStorage.getItem('isAuth') == 'true') {
+  console.log('is authenticated!');
+} else {
+  console.log('fuck off!');
+  window.location.href = 'http://localhost:5173/';
 }
-
-
 </script>
-
 
 <script>
-import Nav from '../../components/Nav.vue'
+import Nav from '../../components/Nav.vue';
 
 export default {
-    name: "App",
-    components: {
-
-        Nav
-    }
-}
+  name: 'App',
+  components: {
+    Nav,
+  },
+};
 </script>
 
-
 <template>
-
   <Nav />
 
-    <!-- sidebar -->
-    <div class="container">
-    <div class="row">
-      <div class="col-2 p-0 text-center">
-        <div class="card sticky-top sidebar-item bg-special">
-          <img class="m-auto" src="../../assets/landingImg/circle.png" style="width: 50%" />
+  <!-- sidebar -->
+  <div class="container">
+    <div class="row sticky-top bg-white border-bottom mb-4">
+      <div class="col-12 text-center">
+        <div class="card sidebar-item bg-special">
+          <img
+            class="sidebar-img m-auto"
+            src="../../assets/undraw_pic_profile_re_lxn6.svg"
+          />
           <div class="card-body">
-            <h2 class="card-title">Kaki</h2>
+            <h5 class="card-title">Kaki</h5>
             <h6 class="card-subtitle mb-2 text-muted">
               Burning passion to help and volunteer
             </h6>
           </div>
         </div>
       </div>
-
+    </div>
+    <div class="row">
+      <h1>Your Profile</h1>
       <!-- nav -->
       <div class="col p-0">
         <!-- <nav class="bg-special nav p-5">
@@ -158,20 +154,28 @@ export default {
                   </h6>
                   <ul>
                     <li class="list-group-item">
-                      <img src="../../assets/landingImg/icons/pdicons/Timesheet.png" />
+                      <img
+                        src="../../assets/landingImg/icons/pdicons/Timesheet.png"
+                      />
                       &nbsp; Mon, 3 Oct 2022
                     </li>
                     <li class="list-group-item">
-                      <img src="../../assets/landingImg/icons/pdicons/Clock.png" />
+                      <img
+                        src="../../assets/landingImg/icons/pdicons/Clock.png"
+                      />
                       &nbsp; 10.00 AM- 12.00PM
                     </li>
                     <li class="list-group-item">
-                      <img src="../../assets/landingImg/icons/pdicons/Group.png" /> &nbsp;
-                      Suitable for: All, First-timers
+                      <img
+                        src="../../assets/landingImg/icons/pdicons/Group.png"
+                      />
+                      &nbsp; Suitable for: All, First-timers
                     </li>
                     <li class="list-group-item">
-                      <img src="../../assets/landingImg/icons/pdicons/Location.png" /> &nbsp;
-                      Geylang
+                      <img
+                        src="../../assets/landingImg/icons/pdicons/Location.png"
+                      />
+                      &nbsp; Geylang
                       <p class="text-muted">
                         3 EUNOS CRESCENT Singapore 400003
                       </p>
@@ -192,20 +196,28 @@ export default {
                   </h6>
                   <ul>
                     <li class="list-group-item">
-                      <img src="../../assets/landingImg/icons/pdicons/Timesheet.png" />
+                      <img
+                        src="../../assets/landingImg/icons/pdicons/Timesheet.png"
+                      />
                       &nbsp; Mon, 3 Oct 2022
                     </li>
                     <li class="list-group-item">
-                      <img src="../../assets/landingImg/icons/pdicons/Clock.png" />
+                      <img
+                        src="../../assets/landingImg/icons/pdicons/Clock.png"
+                      />
                       &nbsp; 10.00 AM- 12.00PM
                     </li>
                     <li class="list-group-item">
-                      <img src="../../assets/landingImg/icons/pdicons/Group.png" /> &nbsp;
-                      Suitable for: All, First-timers
+                      <img
+                        src="../../assets/landingImg/icons/pdicons/Group.png"
+                      />
+                      &nbsp; Suitable for: All, First-timers
                     </li>
                     <li class="list-group-item">
-                      <img src="../../assets/landingImg/icons/pdicons/Location.png" /> &nbsp;
-                      Geylang
+                      <img
+                        src="../../assets/landingImg/icons/pdicons/Location.png"
+                      />
+                      &nbsp; Geylang
                       <p class="text-muted">
                         3 EUNOS CRESCENT Singapore 400003
                       </p>
@@ -226,20 +238,28 @@ export default {
                   </h6>
                   <ul>
                     <li class="list-group-item">
-                      <img src="../../assets/landingImg/icons/pdicons/Timesheet.png" />
+                      <img
+                        src="../../assets/landingImg/icons/pdicons/Timesheet.png"
+                      />
                       &nbsp; Mon, 3 Oct 2022
                     </li>
                     <li class="list-group-item">
-                      <img src="../../assets/landingImg/icons/pdicons/Clock.png" />
+                      <img
+                        src="../../assets/landingImg/icons/pdicons/Clock.png"
+                      />
                       &nbsp; 10.00 AM- 12.00PM
                     </li>
                     <li class="list-group-item">
-                      <img src="../../assets/landingImg/icons/pdicons/Group.png" /> &nbsp;
-                      Suitable for: All, First-timers
+                      <img
+                        src="../../assets/landingImg/icons/pdicons/Group.png"
+                      />
+                      &nbsp; Suitable for: All, First-timers
                     </li>
                     <li class="list-group-item">
-                      <img src="../../assets/landingImg/icons/pdicons/Location.png" /> &nbsp;
-                      Geylang
+                      <img
+                        src="../../assets/landingImg/icons/pdicons/Location.png"
+                      />
+                      &nbsp; Geylang
                       <p class="text-muted">
                         3 EUNOS CRESCENT Singapore 400003
                       </p>
@@ -260,20 +280,28 @@ export default {
                   </h6>
                   <ul>
                     <li class="list-group-item">
-                      <img src="../../assets/landingImg/icons/pdicons/Timesheet.png" />
+                      <img
+                        src="../../assets/landingImg/icons/pdicons/Timesheet.png"
+                      />
                       &nbsp; Mon, 3 Oct 2022
                     </li>
                     <li class="list-group-item">
-                      <img src="../../assets/landingImg/icons/pdicons/Clock.png" />
+                      <img
+                        src="../../assets/landingImg/icons/pdicons/Clock.png"
+                      />
                       &nbsp; 10.00 AM- 12.00PM
                     </li>
                     <li class="list-group-item">
-                      <img src="../../assets/landingImg/icons/pdicons/Group.png" /> &nbsp;
-                      Suitable for: All, First-timers
+                      <img
+                        src="../../assets/landingImg/icons/pdicons/Group.png"
+                      />
+                      &nbsp; Suitable for: All, First-timers
                     </li>
                     <li class="list-group-item">
-                      <img src="../../assets/landingImg/icons/pdicons/Location.png" /> &nbsp;
-                      Geylang
+                      <img
+                        src="../../assets/landingImg/icons/pdicons/Location.png"
+                      />
+                      &nbsp; Geylang
                       <p class="text-muted">
                         3 EUNOS CRESCENT Singapore 400003
                       </p>
@@ -290,17 +318,12 @@ export default {
       </div>
     </div>
   </div>
-
-
-
-
 </template>
 
 <style scoped>
 body {
-  background-color: #F0EEFE;
+  background-color: #f0eefe;
 }
-
 
 .custom-jumbotron {
   background-color: lightslategray;
@@ -315,58 +338,52 @@ p{
   color: #D2DEFE;
 } */
 
-.text-landing{
-  background-color: #4A60E8;
+.text-landing {
+  background-color: #4a60e8;
   opacity: 0.95;
-  border: 1px solid #4A60E8;
+  border: 1px solid #4a60e8;
   border-radius: 25px;
   bottom: 0;
   right: 0;
   position: absolute;
 }
 
-#jumbotron-home{
+#jumbotron-home {
   background-image: url(../../assets/landingImg/volunteer.jpg);
 }
 
-
-
-.list-group, .list-group-item{
-border-style: none;
+.list-group,
+.list-group-item {
+  border-style: none;
 }
 
-.btn-apply{
-background-color: #4A60E8
+.btn-apply {
+  background-color: #4a60e8;
 }
 
-.bg-special{
-  background-image: linear-gradient(#EAEDFF, #E2DEFE);
+.bg-special {
+  background-image: linear-gradient(#eaedff, #e2defe);
   /* background-color: #E2DEFE; */
 }
 
-
 .sidebar-item {
-	top: 0;
-	left: 0;
-  padding: 0;
-	width: 100%;
-	height: 80%;
-
+  height: 40%;
 }
 
-.carousel-indicators{
-  bottom: -60px
+.sidebar-img {
+  width: 10%;
 }
 
+.carousel-indicators {
+  bottom: -60px;
+}
 
-.carousel-control-prev{
+.carousel-control-prev {
   bottom: -120px;
   left: 400px;
 }
 
-.carousel-control-next{
-  bottom: -120px
+.carousel-control-next {
+  bottom: -120px;
 }
-
-
 </style>
