@@ -28,8 +28,8 @@ export default {
 <template>
     <Nav />
     <div class="container-fluid">
-        <div class="row g-3 align-items-center">
-            <div class="col-sm-3">
+        <div class="row">
+            <div class="col-xl-3">
                 <div class="left_column glass">
                     <div class="img">
                         <img src="src/assets/org_image.png" width="150" height="150">
@@ -48,13 +48,13 @@ export default {
                 </div>
             </div>
             
-            <div class="col-sm-9">
-                <div class="right_column mb-5">
+            <div class="col-xl-9">
+                <div class="right_column mb-5 align-items-center">
                     <img src="src/assets/org_poster.png" class="img-fluid" width="900" height="200">
                 </div>
             <!-- </div> -->
 
-                <div class="tabs">
+                <div class="tabs right_column">
                     <input type="radio" name="tabs" id="tabone" checked>
                     <label for="tabone">About Us</label>
                     <div class="tab pt-4">
@@ -68,7 +68,7 @@ export default {
 
                     <input type="radio" name="tabs" id="tabtwo">
                     <label for="tabtwo" >Our Posts</label>
-                    <div class="tab">
+                    <div class="tab pt-4">
                         <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p> -->
                         <div class="container pt-4 pb-4">
                             <div class="container pb-4">
@@ -257,7 +257,7 @@ export default {
 
                     <input type="radio" name="tabs" id="tabthree">
                     <label for="tabthree">Experience Sharing Forum</label>
-                    <div class="tab">
+                    <div class="tab pt-4">
                         <div  class="glass" id="sharing_forum">
                             <p style="font-weight: bold">House cleaning</p>
                             <p>The activity is engaging and I learnt many things than I could otherwise imagine. 
@@ -277,9 +277,6 @@ export default {
                 </div>
             </div>
         </div>
-
-        <br><br>
-
     </div>
     
 
@@ -305,7 +302,7 @@ export default {
 
 .img {
     text-align: center;
-    min-width: 2px;
+    min-width: 3px;
 }
 
 .right_column {
