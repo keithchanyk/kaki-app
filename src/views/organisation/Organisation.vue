@@ -262,16 +262,19 @@ export default {
                             <p style="font-weight: bold">House cleaning</p>
                             <p>The activity is engaging and I learnt many things than I could otherwise imagine. 
                                 The facilitators were friendly and they will guide us when we are unsure. Will definitely recommend it to others who have not tried it.</p>
+                            <p style="font-weight: bold">Kim Lee</p>
                         </div>
                         <div class="glass" id="sharing_forum">
                             <p style="font-weight: bold">Elderly Home</p>
                             <p>An eye-opening experience and we had loads of fun whille doing something meaningful for a few hours.
                                 I wished there were more activities and opportunities to interact with the elderly, but other than that, it was great!</p>
+                            <p style="font-weight: bold">Brendan Tan</p>
                         </div>
                         <div class="glass" id="sharing_forum">
                             <p style="font-weight: bold">Beach Litter Picking</p>
                             <p>Only went for this activity because my friend dragged me along but it was an enriching experience with other volunteers.
                                 The facilitators were superb and spontaneous which made the whole event lively. Will definitely recommend it to others who have not tried it.</p>
+                            <p style="font-weight: bold">Thomas Gan</p>
                         </div>
                     </div>
                 </div>
