@@ -12,357 +12,371 @@ if (sessionStorage.getItem('isAuth') == '') {
 </script>
 
 <template>
-  <div class="row">
-    <div class="col">
-      <!-- jumbotron -->
-      <div id="jumbotron-home" class="custom-jumbotron p-2">
-        <!-- navbar -->
-        <nav class="navbar navbar-expand-lg navbar rounded">
-          <div class="container-fluid">
-            <a class="navbar-brand" href="#">Kaki</a>
-            <button
-              class="navbar-toggler"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#navbarSupportedContent"
-              aria-controls="navbarSupportedContent"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="#"
-                    >Home</a
-                  >
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">About Us</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Organisation</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Testimonials</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Contact</a>
-                </li>
-              </ul>
-              <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                <router-link to="/signin" custom v-slot="{ navigate }">
-                  <button
-                    class="btn btn-outline-primary"
-                    @click="navigate"
-                    role="link"
-                  >
-                    Sign In
-                  </button>
-                </router-link>
-                <!-- <button type="button" class="btn btn-outline-primary">
+  <body>
+    <div class="row">
+      <div class="col">
+        <!-- jumbotron -->
+        <div id="jumbotron-home" class="custom-jumbotron p-2">
+          <!-- navbar -->
+          <nav
+            class="navbar navbar-expand-lg navbar-dark rounded p-3 m-2"
+            style="background-color: #2a2e45"
+          >
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">Kaki</a>
+              <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#"
+                      >Home</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">About Us</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Organisations</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Testimonials</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                  </li>
+                </ul>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                  <router-link to="/signin" custom v-slot="{ navigate }">
+                    <button
+                      class="btn btn-primary"
+                      @click="navigate"
+                      role="link"
+                    >
+                      Sign In
+                    </button>
+                  </router-link>
+                  <!-- <button type="button" class="btn btn-outline-primary">
                     Sign In
                   </button> -->
-              </div>
-            </div>
-          </div>
-        </nav>
-
-        <!-- text-landing -->
-        <div class="text-landing col-6 p-5 m-5">
-          <p class="fs-1">Ignite Your Volunteering Passion With Kaki Today</p>
-          <button type="button" class="btn btn-outline-dark">Join Kaki</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- about us -->
-
-  <div class="container">
-    <div class="row">
-      <div class="col mt-5">
-        <h1>About Us</h1>
-        <br />
-        <p class="fs-4">
-          We are 5 students from SMU Information Systems with one dream: Make
-          the volunteering experience tailored for every individual. We Make
-          Volunteering Easy!
-        </p>
-      </div>
-      <div class="col ms-2">
-        <img
-          class="people"
-          src="../../assets/landingImg/landing/blue person.png"
-          alt=""
-        />
-      </div>
-    </div>
-
-    <!-- Organisation -->
-
-    <div class="container">
-      <h2 class="pb-3">Organisation</h2>
-      <div class="row row-cols-1 row-cols-md-4 g-4">
-        <div class="col">
-          <div
-            class="card h-100 d-flex justify-content-center align-items-center-center rounded-5"
-          >
-            <img
-              src="../../assets/landingImg/landing/org1.png"
-              class="card-img-top"
-            />
-          </div>
-        </div>
-
-        <div class="col">
-          <div
-            class="card h-100 d-flex justify-content-center align-items-center-center rounded-5 p-4"
-          >
-            <img
-              src="../../assets/landingImg/landing/org2.png"
-              class="card-img"
-              alt="..."
-            />
-          </div>
-        </div>
-        <div class="col">
-          <div
-            class="card h-100 d-flex justify-content-center align-items-center-center rounded-5 p-4"
-          >
-            <img
-              src="../../assets/landingImg/landing/org3.png"
-              class="card-img"
-              alt="..."
-            />
-          </div>
-        </div>
-        <div class="col">
-          <div
-            class="card h-100 d-flex justify-content-center align-items-center-center rounded-5 p-4"
-          >
-            <img
-              src="../../assets/landingImg/landing/org4.png"
-              class="card-img"
-              alt="..."
-            />
-          </div>
-        </div>
-        <div class="col">
-          <div
-            class="card h-100 d-flex justify-content-center align-items-center-center rounded-5 p-4"
-          >
-            <img
-              src="../../assets/landingImg/landing/org5.png"
-              class="card-img"
-              alt="..."
-            />
-          </div>
-        </div>
-        <div class="col">
-          <div
-            class="card h-100 d-flex justify-content-center align-items-center-center rounded-5 p-4"
-          >
-            <img
-              src="../../assets/landingImg/landing/org6.png"
-              class="card-img"
-              alt="..."
-            />
-          </div>
-        </div>
-        <div class="col">
-          <div
-            class="card h-100 d-flex justify-content-center align-items-center-center rounded-5 p-4"
-          >
-            <img
-              src="../../assets/landingImg/landing/org7.png"
-              class="card-img"
-              alt="..."
-            />
-          </div>
-        </div>
-        <div class="col">
-          <div
-            class="card h-100 d-flex justify-content-center align-items-center-center rounded-5 p-4"
-          >
-            <img
-              src="../../assets/landingImg/landing/org8.png"
-              class="card-img"
-              alt="..."
-            />
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Testimonials -->
-
-    <div class="container mt-5">
-      <div class="row">
-        <div class="col">
-          <img
-            class="people"
-            src="../../assets/landingImg/landing/Saly-22.png"
-            alt=""
-          />
-        </div>
-        <div class="col">
-          <p class="fs-1 fw-bold">
-            What our users <br />
-            say about us:
-          </p>
-
-          <div
-            id="carouselExampleDark"
-            class="carousel carousel-dark slide"
-            data-bs-ride="carousel"
-          >
-            <div class="carousel-indicators">
-              <button
-                type="button"
-                data-bs-target="#carouselExampleIndicators"
-                data-bs-slide-to="0"
-                class="active"
-                aria-current="true"
-                aria-label="Slide 1"
-              ></button>
-              <button
-                type="button"
-                data-bs-target="#carouselExampleIndicators"
-                data-bs-slide-to="1"
-                aria-label="Slide 2"
-              ></button>
-              <button
-                type="button"
-                data-bs-target="#carouselExampleIndicators"
-                data-bs-slide-to="2"
-                aria-label="Slide 3"
-              ></button>
-            </div>
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <div class="col-lg-12">
-                  <div class="card">
-                    <div class="card-body">
-                      <p class="card-text">
-                        Kaki helped me a lot in finding the most suitable
-                        activity according to my interest. I remebered my first
-                        volunteer project at an animal shelter centre where I
-                        meet other individuals who share the same passion in
-                        helping animals. Now this is my favourite activity -
-                      </p>
-                      <h3 class="card-title">April Tan</h3>
-                      <h6 class="text-muted">Active Volunteer</h6>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="carousel-item">
-                <div class="col-lg-12">
-                  <div class="card">
-                    <div class="card-body">
-                      <p class="card-text">
-                        Kaki helped me a lot in finding the most suitable
-                        activity according to my interest. I remebered my first
-                        volunteer project at an animal shelter centre where I
-                        meet other individuals who share the same passion in
-                        helping animals. Now this is my favourite activity -
-                      </p>
-                      <h3 class="card-title">April Tan</h3>
-                      <h6 class="text-muted">Active Volunteer</h6>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="carousel-item">
-                <div class="col-lg-12">
-                  <div class="card">
-                    <div class="card-body">
-                      <p class="card-text">
-                        Kaki helped me a lot in finding the most suitable
-                        activity according to my interest. I remebered my first
-                        volunteer project at an animal shelter centre where I
-                        meet other individuals who share the same passion in
-                        helping animals. Now this is my favourite activity -
-                      </p>
-                      <h3 class="card-title">April Tan</h3>
-                      <h6 class="text-muted">Active Volunteer</h6>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
-            <button
-              class="carousel-control-prev"
-              type="button"
-              data-bs-target="#carouselExampleDark"
-              data-bs-slide="prev"
-            >
-              <span
-                class="carousel-control-prev-icon"
-                aria-hidden="true"
-              ></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button
-              class="carousel-control-next"
-              type="button"
-              data-bs-target="#carouselExampleDark"
-              data-bs-slide="next"
-            >
-              <span
-                class="carousel-control-next-icon"
-                aria-hidden="true"
-              ></span>
-              <span class="visually-hidden">Next</span>
+          </nav>
+
+          <!-- text-landing -->
+        </div>
+        <div class="container">
+          <div class="text-landing col-6 p-5 mb-5">
+            <p class="fs-1 text-light">
+              Ignite Your Volunteering Passion With Kaki Today
+            </p>
+            <button type="button" class="btn btn-primary border-5">
+              Join Kaki
             </button>
           </div>
         </div>
       </div>
     </div>
-
-    <!-- contact us -->
-
     <div class="container">
-      <div class="row">
-        <div id="contactDiv">
-          <div class="col-12 d-flex justify-content-center text-center">
-            <div class="card rounded-5 mt-5">
+      <!-- about us -->
+
+      <div class="about row rounded px-5 py-2 mb-4 mt-5">
+        <div class="col">
+          <div class="row">
+            <div class="aboutText col mt-5">
+              <h1>About Us</h1>
+              <br />
+              <p class="fs-4">
+                We are 5 students from SMU Information Systems with one dream:
+                Make the volunteering experience tailored for every individual.
+                We Make Volunteering Easy!
+              </p>
+            </div>
+            <div class="aboutImg col ms-2">
               <img
-                src="../../assets/landingImg/landing/footer pill.png"
-                class="card-img rounded-5"
+                class="people"
+                src="../../assets/landingImg/undraw_creative_thinking_re_9k71.svg"
+                style="top: 2rem"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Organisation -->
+      <div class="orgShow container">
+        <h2 class="pb-3">Partner Organisations</h2>
+        <div class="row row-cols-1 row-cols-md-4 g-4">
+          <div class="col">
+            <div
+              class="card h-100 d-flex justify-content-center align-items-center-center rounded-5"
+            >
+              <img
+                src="../../assets/landingImg/landing/org1.png"
+                class="card-img-top"
+              />
+            </div>
+          </div>
+
+          <div class="col">
+            <div
+              class="card h-100 d-flex justify-content-center align-items-center-center rounded-5 p-4"
+            >
+              <img
+                src="../../assets/landingImg/landing/org2.png"
+                class="card-img"
                 alt="..."
               />
+            </div>
+          </div>
+          <div class="col">
+            <div
+              class="card h-100 d-flex justify-content-center align-items-center-center rounded-5 p-4"
+            >
+              <img
+                src="../../assets/landingImg/landing/org3.png"
+                class="card-img"
+                alt="..."
+              />
+            </div>
+          </div>
+          <div class="col">
+            <div
+              class="card h-100 d-flex justify-content-center align-items-center-center rounded-5 p-4"
+            >
+              <img
+                src="../../assets/landingImg/landing/org4.png"
+                class="card-img"
+                alt="..."
+              />
+            </div>
+          </div>
+          <div class="col">
+            <div
+              class="card h-100 d-flex justify-content-center align-items-center-center rounded-5 p-4"
+            >
+              <img
+                src="../../assets/landingImg/landing/org5.png"
+                class="card-img"
+                alt="..."
+              />
+            </div>
+          </div>
+          <div class="col">
+            <div
+              class="card h-100 d-flex justify-content-center align-items-center-center rounded-5 p-4"
+            >
+              <img
+                src="../../assets/landingImg/landing/org6.png"
+                class="card-img"
+                alt="..."
+              />
+            </div>
+          </div>
+          <div class="col">
+            <div
+              class="card h-100 d-flex justify-content-center align-items-center-center rounded-5 p-4"
+            >
+              <img
+                src="../../assets/landingImg/landing/org7.png"
+                class="card-img"
+                alt="..."
+              />
+            </div>
+          </div>
+          <div class="col">
+            <div
+              class="card h-100 d-flex justify-content-center align-items-center-center rounded-5 p-4"
+            >
+              <img
+                src="../../assets/landingImg/landing/org8.png"
+                class="card-img"
+                alt="..."
+              />
+            </div>
+          </div>
+        </div>
+      </div>
 
-              <div class="card-img-overlay">
-                <h2 class="card-title fw-bold">Contact Us</h2>
+      <!-- Testimonials -->
 
-                <div id="contactQuestionDiv">
-                  <p class="card-text">
-                    Have queries? Feel free to drop us a message!
-                  </p>
-
-                  <!--send meesage input-->
-                  <form>
-                    <div class="input-group w-50 mx-auto">
-                      <input
-                        type="text"
-                        class="form-control border border-dark bg-light fw-bold"
-                        placeholder="Talk To Us!"
-                        aria-label="message"
-                        aria-describedby="button-addon2"
-                      />
-                      <button
-                        class="btn btn-primary"
-                        type="button"
-                        id="button-addon2"
-                      >
-                        Send!
-                      </button>
+      <div class="container mt-5 p-5 rounded bg-light">
+        <div class="row">
+          <div class="col">
+            <img
+              id="feedback"
+              src="../../assets/landingImg/undraw_feedback_re_urmj.svg"
+              alt=""
+            />
+          </div>
+          <div class="col">
+            <div
+              id="carouselExampleDark"
+              class="carousel carousel-dark slide mt-4"
+              data-bs-ride="carousel"
+            >
+              <div class="carousel-indicators">
+                <button
+                  type="button"
+                  data-bs-target="#carouselExampleIndicators"
+                  data-bs-slide-to="0"
+                  class="active"
+                  aria-current="true"
+                  aria-label="Slide 1"
+                ></button>
+                <button
+                  type="button"
+                  data-bs-target="#carouselExampleIndicators"
+                  data-bs-slide-to="1"
+                  aria-label="Slide 2"
+                ></button>
+                <button
+                  type="button"
+                  data-bs-target="#carouselExampleIndicators"
+                  data-bs-slide-to="2"
+                  aria-label="Slide 3"
+                ></button>
+              </div>
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <div class="col-lg-12">
+                    <div class="carouCard card">
+                      <div class="card-body">
+                        <h2 class="card-title fw-bold">User Testimonies</h2>
+                        <p class="card-text">
+                          Kaki helped me a lot in finding the most suitable
+                          activity according to my interest. I remebered my
+                          first volunteer project at an animal shelter centre
+                          where I meet other individuals who share the same
+                          passion in helping animals. Now this is my favourite
+                          activity -
+                        </p>
+                        <h3 class="card-title">April Tan</h3>
+                        <h6 class="text-muted">Active Volunteer</h6>
+                      </div>
                     </div>
-                  </form>
+                  </div>
+                </div>
+
+                <div class="carousel-item">
+                  <div class="col-lg-12">
+                    <div class="carouCard card">
+                      <div class="card-body">
+                        <h2 class="card-title fw-bold">User Testimonies</h2>
+                        <p class="card-text">
+                          Kaki helped me a lot in finding the most suitable
+                          activity according to my interest. I remebered my
+                          first volunteer project at an animal shelter centre
+                          where I meet other individuals who share the same
+                          passion in helping animals. Now this is my favourite
+                          activity -
+                        </p>
+                        <h3 class="card-title">April Tan</h3>
+                        <h6 class="text-muted">Active Volunteer</h6>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <div class="col-lg-12">
+                    <div class="carouCard card">
+                      <div class="card-body">
+                        <h2 class="card-title fw-bold">User Testimonies</h2>
+                        <p class="card-text">
+                          Kaki helped me a lot in finding the most suitable
+                          activity according to my interest. I remebered my
+                          first volunteer project at an animal shelter centre
+                          where I meet other individuals who share the same
+                          passion in helping animals. Now this is my favourite
+                          activity -
+                        </p>
+                        <h3 class="card-title">April Tan</h3>
+                        <h6 class="text-muted">Active Volunteer</h6>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button
+                class="carousel-control-prev"
+                type="button"
+                data-bs-target="#carouselExampleDark"
+                data-bs-slide="prev"
+              >
+                <span
+                  class="carousel-control-prev-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button
+                class="carousel-control-next"
+                type="button"
+                data-bs-target="#carouselExampleDark"
+                data-bs-slide="next"
+              >
+                <span
+                  class="carousel-control-next-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- contact us -->
+
+      <div class="container">
+        <div class="row">
+          <div id="contactDiv">
+            <div class="col-12 d-flex justify-content-center text-center">
+              <div class="card rounded-5 mt-5">
+                <img
+                  src="../../assets/landingImg/landing/footer pill.png"
+                  class="card-img rounded-5"
+                  alt="..."
+                />
+
+                <div class="card-img-overlay">
+                  <h2 class="card-title fw-bold">Contact Us</h2>
+
+                  <div id="contactQuestionDiv">
+                    <p class="card-text">
+                      Have queries? Feel free to drop us a message!
+                    </p>
+
+                    <!--send meesage input-->
+                    <form>
+                      <div class="input-group w-50 mx-auto">
+                        <input
+                          type="text"
+                          class="form-control border border-dark bg-light fw-bold"
+                          placeholder="Talk To Us!"
+                          aria-label="message"
+                          aria-describedby="button-addon2"
+                        />
+                        <button
+                          class="btn btn-primary"
+                          type="button"
+                          id="button-addon2"
+                        >
+                          Send!
+                        </button>
+                      </div>
+                    </form>
+                  </div>
                 </div>
               </div>
             </div>
@@ -370,92 +384,33 @@ if (sessionStorage.getItem('isAuth') == '') {
         </div>
       </div>
     </div>
-  </div>
-  <!-- Footer -->
-  <footer class="p-5 mt-5 bg-light text-dark">
-    <!-- Grid container -->
-    <div class="container p-4">
-      <!-- Section: Links -->
-      <section class="">
-        <!--Grid row-->
-        <div class="row">
-          <!--Grid column-->
-          <div class="col-lg-6 col-md-6 mb-4 mb-md-0">
-            <h5 class="text-uppercase">Kaki</h5>
-            <p>Volunteer with us</p>
+    <!-- Footer -->
+    <footer class="p-5 mt-5 bg-light text-dark">
+      <!-- Grid container -->
+      <div class="container p-4">
+        <!-- Section: Links -->
+        <section class="">
+          <!--Grid row-->
+          <div class="row">
+            <!--Grid column-->
+            <div class="col-12 text-center">
+              <h5 class="text-uppercase">Kaki</h5>
+              <p>Volunteer with us</p>
+            </div>
+            <!--Grid column-->
+
+            <!--Grid column-->
+
+            <!--Grid column-->
           </div>
-          <!--Grid column-->
-
-          <!--Grid column-->
-          <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
-            <h5 class="text-uppercase">Resources</h5>
-
-            <ul class="list-unstyled mb-0">
-              <li>
-                <a href="#!" class="text-dark">Link 1</a>
-              </li>
-              <li>
-                <a href="#!" class="text-dark">Link 2</a>
-              </li>
-              <li>
-                <a href="#!" class="text-dark">Link 3</a>
-              </li>
-              <li>
-                <a href="#!" class="text-dark">Link 4</a>
-              </li>
-            </ul>
-          </div>
-          <!--Grid column-->
-
-          <!--Grid column-->
-          <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
-            <h5 class="text-uppercase">Users</h5>
-
-            <ul class="list-unstyled mb-0">
-              <li>
-                <a href="#!" class="text-dark">Link 1</a>
-              </li>
-              <li>
-                <a href="#!" class="text-dark">Link 2</a>
-              </li>
-              <li>
-                <a href="#!" class="text-dark">Link 3</a>
-              </li>
-              <li>
-                <a href="#!" class="text-dark">Link 4</a>
-              </li>
-            </ul>
-          </div>
-          <!--Grid column-->
-
-          <!--Grid column-->
-          <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
-            <h5 class="text-uppercase">Get App</h5>
-
-            <ul class="list-unstyled mb-0">
-              <li>
-                <a href="#!" class="text-dark">Link 1</a>
-              </li>
-              <li>
-                <a href="#!" class="text-dark">Link 2</a>
-              </li>
-              <li>
-                <a href="#!" class="text-dark">Link 3</a>
-              </li>
-              <li>
-                <a href="#!" class="text-dark">Link 4</a>
-              </li>
-            </ul>
-          </div>
-          <!--Grid column-->
-        </div>
-        <!--Grid row-->
-      </section>
-      <!-- Section: Links -->
-    </div>
-    <!-- Grid container -->
-  </footer>
-  <!-- Footer -->
+          <!--Grid row-->
+        </section>
+        <!-- Section: Links -->
+      </div>
+      <!-- Grid container -->
+    </footer>
+    <!-- Footer -->
+  </body>
 
   <!-- </div>
     <footer>
@@ -586,16 +541,32 @@ if (sessionStorage.getItem('isAuth') == '') {
 </template>
 
 <style scoped>
+.about {
+  margin: 1px;
+}
+.orgShow {
+  padding: 0;
+}
+
+.carouCard {
+  background-color: #96a2ec;
+}
+
 h1 {
   margin-left: 0;
 }
 
 body {
-  background-color: #667aff;
+  background-color: rgb(255, 218, 154);
+}
+
+.about {
+  background-color: white;
 }
 
 .custom-jumbotron {
-  background-color: #96a2ec;
+  /* rgb(247, 224, 183) */
+  background-color: rgb(255, 218, 154);
   color: rgb(77, 77, 77);
   background-size: 100%;
   background-repeat: no-repeat;
@@ -607,8 +578,8 @@ body {
   max-width: 500px;
 }
 .text-landing {
-  background-color: rgb(255, 218, 154);
-  opacity: 0.8;
+  background-color: #96a2ec;
+  /* opacity: 0.8; */
   border: 1px solid #4a60e8;
   border-radius: 25px;
   bottom: 0;
@@ -663,6 +634,21 @@ body {
   .carousel-control-next {
     bottom: -9rem;
   }
+  .aboutImg {
+    display: none;
+  }
+
+  .aboutText {
+    margin-bottom: 48px;
+  }
+
+  .orgShow {
+    display: none;
+  }
+
+  #feedback {
+    width: 300px;
+  }
 }
 
 @media (min-width: 768px) {
@@ -680,6 +666,10 @@ body {
 
   .carousel-control-next {
     bottom: -9rem;
+  }
+
+  .people {
+    width: 350px;
   }
 }
 
@@ -709,8 +699,22 @@ body {
     top: 40%;
     left: 28%;
   }
+
+  .orgShow {
+    display: block;
+  }
+
+  .aboutImg {
+    display: block;
+  }
+  .people {
+    width: 400px;
+  }
 }
 @media (min-width: 1200px) {
+  /* .input-group {
+    padding-bottom: 20px;
+  } */
   .carousel-indicators {
     /* bottom: -60px; */
     bottom: -4rem;
@@ -739,6 +743,14 @@ body {
 
   .input-group {
     width: 70% !important;
+  }
+
+  .people {
+    width: 800px;
+  }
+
+  .text-landing {
+    right: 0;
   }
 }
 </style>
