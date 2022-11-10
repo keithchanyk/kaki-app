@@ -50,7 +50,7 @@ export default {
             
             <div class="col-xl-9">
                 <div class="right_column mb-5 align-items-center">
-                    <img src="src/assets/org_poster.png" class="img-fluid" width="900" height="200">
+                    <img src="src/assets/org_poster.png" class="img-fluid" >
                 </div>
             <!-- </div> -->
 
@@ -311,6 +311,7 @@ export default {
     padding: 10px;
     margin-top: 4rem;
     justify-content: center;
+    display: flex;
 }
 
 #about_us_info {
