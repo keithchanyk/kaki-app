@@ -9,9 +9,24 @@ const callback = (response) => {
 
 }
 
+</script>
 
-
-
+<script>
+export default {
+    name: "App",
+    data() {
+        return {
+            message: "Hello, please wait"
+        }
+    },
+    methods: {
+        login() {
+            // console.log("Handle the response", response)
+            window.location.href = "http://localhost:5173/project"
+            sessionStorage.setItem("isAuth", "true");
+        }
+    }
+}
 </script>
 
 <template>
@@ -72,7 +87,8 @@ const callback = (response) => {
                                         </div> -->
 
                                             <div class="d-grid gap-2 text-center">
-                                                <button type="button" class="btn btn-primary btn-signup fs-4">Sign
+                                                <button type="button"
+                                                    class="btn btn-dark btn-signup btn-outline-light fs-4" @click="login">Sign
                                                     In</button>
                                                 <p class="fs-5">Forget Password?</p>
                                             </div>
@@ -145,11 +161,12 @@ input {
     position: absolute;
     left: 15px;
     top: 10px;
-    /* font-size: 25px; */
+    font-size: 25px;
     height: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 2;
 }
 
 .gButton {
@@ -159,5 +176,26 @@ input {
     padding-right: 42px;
     font-size: 14px;
     font-weight: bold; */
+}
+
+.btn-signup {
+    background-color: #3B4F7D;
+    border-radius: 10px;
+    padding: 10px 0;
+    /* box-shadow: -5px -5px 5px rgba(0, 0, 0, 0.25); */
+}
+
+.btn:hover {
+    color: white;
+    background-color: rgb(68, 88, 141);
+    box-shadow: -2px -1px 2px rgba(0, 0, 0, 0.25);
+    /* border:  rgb(68, 88, 141) */
+}
+
+a,
+.green {
+    text-decoration: none;
+    color: hsla(160, 100%, 37%, 1);
+    transition: 0.4s;
 }
 </style>
