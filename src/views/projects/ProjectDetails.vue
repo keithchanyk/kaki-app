@@ -10,6 +10,18 @@ if (sessionStorage.getItem("isAuth") == "true") {
   console.log('not authenticated, redirecting')
   window.location.href = "http://localhost:5173/"
 }
+
+// function tConvert(time) {
+//       const timeString = '18:00:00'
+//       // Prepend any date. Use your birthday.
+//       const timeString12hr = new Date('1970-01-01T' + timeString + 'Z')
+//         .toLocaleTimeString('en-US',
+//           { timeZone: 'UTC', hour12: true, hour: 'numeric', minute: 'numeric' }
+//         );
+
+//       return timeString12hr
+//     }
+
 </script>
 
 <script>
@@ -47,16 +59,29 @@ export default defineComponent({
   },
   computed: {
     getId() {
-      console.log(this.$route.query.id)
+      // console.log(this.$route.query.id)
       return this.$route.query.id
     }
   },
   methods: {
+    tConvert(time) {
+      const timeString = time
+      // Prepend any date. Use your birthday.
+      const timeString12hr = new Date('1970-01-01T' + timeString + 'Z')
+        .toLocaleTimeString('en-US',
+          { timeZone: 'UTC', hour12: true, hour: 'numeric', minute: 'numeric' }
+        );
+
+      return timeString12hr
+    },
+
     getProjectDetails() {
       const id = this.getId
-      console.log(id)
+      // console.log(id)
       const url = 'http://localhost/kakidb-2/project/read_one.php?id=' + id
-      console.log(url)
+      // console.log(url)
+
+      // /Applications/MAMP/htdocs/is216/kaki-app/src/kakidb-2
 
       axios.get('http://localhost/kakidb-2/project/read_one.php?id=' + id)
         .then(response => {
@@ -68,7 +93,12 @@ export default defineComponent({
           this.lng = parseFloat(lng)
           this.center = { lat: this.lat, lng: this.lng },
             this.markerOptions = { position: { lat: this.lat, lng: this.lng } }
+
+
         })
+
+
+
         .catch(error => alert(error));
     },
   },
@@ -91,7 +121,6 @@ export default defineComponent({
 .map {
   height: 500px;
 }
-
 </style>
 
 <template >
@@ -193,37 +222,41 @@ export default defineComponent({
 
                   <div class="d-grid gap-2 d-md-flex justify-content-md-end align-items-center">
                     <p class="fw-bold m-0">{{ project.total_capacity }} Opening Left</p>
-                    
-                    
+
+
                     <button class="btn btn-primary btn-apply btn-lg me-md-2 px-5" type="button">
                       Apply Now
                     </button>
 
-                    
-                    <div class="modal fade" id="exampleModalToggle" aria-labelledby="exampleModalToggleLabel" tabindex="-1" aria-hidden="true" style="display: none;">
+
+                    <div class="modal fade" id="exampleModalToggle" aria-labelledby="exampleModalToggleLabel"
+                      tabindex="-1" aria-hidden="true" style="display: none;">
                       <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
                           <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Please select your preferred role</h1>
+                            <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Please select your preferred role
+                            </h1>
                           </div>
                           <div class="modal-body">
                             <form>
                               <select class="form-select" aria-label="Default select example">
-                              <option selected>Select Roles</option>
-                              <option value="1">Role 1</option>
-                              <option value="2">Role 2</option>
-                              <option value="3">Role 3</option>
+                                <option selected>Select Roles</option>
+                                <option value="1">Role 1</option>
+                                <option value="2">Role 2</option>
+                                <option value="3">Role 3</option>
                               </select><br>=<br>
                               <textarea class="form-control" placeholder="Write comments here"></textarea><br><br>
                             </form>
                           </div>
                           <div class="modal-footer">
-                            <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Confirm application</button>
+                            <button class="btn btn-primary" data-bs-target="#exampleModalToggle2"
+                              data-bs-toggle="modal">Confirm application</button>
                           </div>
                         </div>
                       </div>
                     </div>
-                    <div class="modal fade" id="exampleModalToggle2" aria-labelledby="exampleModalToggleLabel2" tabindex="-1" aria-hidden="true" style="display: none;">
+                    <div class="modal fade" id="exampleModalToggle2" aria-labelledby="exampleModalToggleLabel2"
+                      tabindex="-1" aria-hidden="true" style="display: none;">
                       <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
                           <div class="modal-header">
@@ -238,7 +271,8 @@ export default defineComponent({
                         </div>
                       </div>
                     </div>
-                    <a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle" role="button">Apply Now</a>
+                    <a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle" role="button">Apply
+                      Now</a>
 
 
 
@@ -407,7 +441,7 @@ export default defineComponent({
                   </li>
                   <li class="list-group-item mt-2">
                     <img src="../../assets/landingImg/icons/pdicons/Clock.png" />
-                    &nbsp; {{ project.starttime }} - {{ project.endtime }}
+                    &nbsp; {{ tConvert(project.starttime) }} - {{ tConvert(project.endtime) }}
                   </li>
                   <li class="list-group-item mt-2">
                     <img src="../../assets/landingImg/icons/pdicons/Group.png" /> &nbsp;
