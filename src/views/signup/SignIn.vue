@@ -37,7 +37,7 @@ export default {
         <section class="vh-100">
             <div class="container py-5 h-100">
                 <div class="row d-flex justify-content-center align-items-center h-100">
-                    <div class="col col-xl-10">
+                    <div class="col col-xl-8">
                         <div class="card-login">
                             <div class="row d-flex align-items-center justify-content-center g-0 ">
                                 <div class="col-md-6 col-lg-5 d-none d-md-block items-align-center">
@@ -50,7 +50,7 @@ export default {
 
                                             <div class="d-flex align-items-center mb-3 pb-1">
                                                 <!-- <i class="fas fa-cubes fa-2x me-3" style="color: #ff6219;"></i> -->
-                                                <span class="h1 fw-bold mb-0">Login to Your Account</span>
+                                                <span class="h3 fw-bold mb-0 text-center">Login to Your Account</span>
                                             </div>
 
                                             <!-- <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Sign into your
@@ -94,12 +94,11 @@ export default {
                                             </div>
 
                                             <!-- <a class="small text-muted" href="#!">Forgot password?</a> -->
-                                            <p class="text-center fs-6" style="color: #393f81;">Don't have an account?
-                                                <a href="#!" style="color: #393f81;">Register here</a>
-                                            </p>
+
                                             <!-- <a href="#!" class="small text-muted">Terms of use.</a>
                                         <a href="#!" class="small text-muted">Privacy policy</a> -->
                                         </form>
+                                        
                                         <div class="text-center">
                                             <p class="fs-6">Or</p>
                                             <div class="g-signin2" data-width="300" data-height="200"
@@ -108,9 +107,13 @@ export default {
 
                                                 <!-- <button type="button" class="btn btn-primary btn-google">Continue with Google</button> -->
                                             </div>
-                                            <p class="fs-5">Do not have an account? <router-link to="/signup">Sign Up
+                                            <p class="text-center fs-6" style="color: #393f81;">Don't have an account?
+                                                <router-link to="/signup" >Register here
                                                 </router-link>
+                                                <!-- <a href="#!" style="color: #393f81;">Register here</a> -->
                                             </p>
+
+
                                         </div>
 
                                     </div>
