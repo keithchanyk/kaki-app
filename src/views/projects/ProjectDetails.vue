@@ -14,7 +14,7 @@ if (sessionStorage.getItem("isAuth") == "true") {
 
 <script>
 import { defineComponent } from 'vue'
-import { GoogleMap, Marker } from 'vue3-google-map'
+// import { GoogleMap, Marker } from 'vue3-google-map'
 import Nav from '../../components/Nav.vue'
 
 export default defineComponent({
@@ -91,6 +91,7 @@ export default defineComponent({
 .map {
   height: 500px;
 }
+
 </style>
 
 <template >
@@ -192,9 +193,56 @@ export default defineComponent({
 
                   <div class="d-grid gap-2 d-md-flex justify-content-md-end align-items-center">
                     <p class="fw-bold m-0">{{ project.total_capacity }} Opening Left</p>
+                    
+                    
                     <button class="btn btn-primary btn-apply btn-lg me-md-2 px-5" type="button">
                       Apply Now
                     </button>
+
+                    
+                    <div class="modal fade" id="exampleModalToggle" aria-labelledby="exampleModalToggleLabel" tabindex="-1" aria-hidden="true" style="display: none;">
+                      <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Please select your preferred role</h1>
+                          </div>
+                          <div class="modal-body">
+                            <form>
+                              <select class="form-select" aria-label="Default select example">
+                              <option selected>Select Roles</option>
+                              <option value="1">Role 1</option>
+                              <option value="2">Role 2</option>
+                              <option value="3">Role 3</option>
+                              </select><br>=<br>
+                              <textarea class="form-control" placeholder="Write comments here"></textarea><br><br>
+                            </form>
+                          </div>
+                          <div class="modal-footer">
+                            <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Confirm application</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modal fade" id="exampleModalToggle2" aria-labelledby="exampleModalToggleLabel2" tabindex="-1" aria-hidden="true" style="display: none;">
+                      <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalToggleLabel2">Your application</h1>
+                          </div>
+                          <div class="modal-body">
+                            You have confirmed your application for the selected role.
+                          </div>
+                          <div class="modal-footer">
+                            <button class="btn btn-primary" data-bs-dismiss="modal">Back to home page</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle" role="button">Apply Now</a>
+
+
+
+
                   </div>
                 </div>
               </div>
@@ -209,8 +257,7 @@ export default defineComponent({
               <ul class="nav nav-tabs card-header-tabs">
                 <li class="nav-item">
                   <a class="nav-link active" aria-current="true" href="#"
-                    >Description</a
-                  >
+                    >Description</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="#">Timeline</a>
