@@ -28,11 +28,11 @@ export default {
 <template>
     <Nav />
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-3">
+        <div class="row g-3 align-items-center">
+            <div class="col-sm-3">
                 <div class="left_column glass">
                     <div class="img">
-                    <img src="src/assets/org_image.png" align="absmiddle" width="150" height="150">
+                        <img src="src/assets/org_image.png" width="150" height="150">
                     </div>
                     <br><br>
                     <p class="fw-bold">Supported Causes</p>
@@ -48,9 +48,9 @@ export default {
                 </div>
             </div>
             
-            <div class="col-9 mt-3 pt-5">
+            <div class="col-sm-9">
                 <div class="right_column mb-5">
-                    <img src="src/assets/org_poster.png" width="900" height="200">
+                    <img src="src/assets/org_poster.png" class="img-fluid" width="900" height="200">
                 </div>
             <!-- </div> -->
 
@@ -288,10 +288,6 @@ export default {
 </template>
 
 <style scoped>
-.column_left img {
-    max-width: 100%;
-    /* height: fit-content; */
-}
 
 .left_column,
 #sharing_forum {
@@ -314,8 +310,10 @@ export default {
 
 .right_column {
     /* width: 60%; */
-    object-fit: cover;
-    border-radius: 25px;
+    border-radius: 8px;
+    padding: 10px;
+    margin-top: 4rem;
+    justify-content: center;
 }
 
 #about_us_info {
