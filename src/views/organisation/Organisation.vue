@@ -265,26 +265,27 @@ export default {
         <div class="row">
             <div class="col-2"></div>
 
-            <div class="col-lg-3">
+            <div class="col-xl-3">
                 <div class="left_column glass">
                     <p class="fw-bold">Supported Causes</p>
                     <p>Children & Youth | Elderly</p>
-                    <p>Families | Communit</p>
+                    <p>Families | Community</p>
                 </div>
             </div>
 
-            <div class="col-lg-2">
+            <div class="col-xl-2">
                 <div class="left_column glass">
                     <p class="fw-bold">Activities</p>
-                    <p>Total submissions posted</p>
+                    <p>This month: 3</p>
+                    <p>Next month: 2</p>
                 </div>
             </div>
 
-            <div class="col-lg-3">
+            <div class="col-xl-3">
                 <div class="left_column glass">
                     <p class="fw-bold">Contact Us</p>
-                    <p>Email</p>
-                    <p>Contact Us</p>
+                    <p>Email: st_sg_volunteer@gmail.com</p>
+                    <p>Contact Us: 65 9715 2048</p>
                 </div>
             </div>
 
@@ -292,19 +293,19 @@ export default {
         </div>
             
         <div class="row">
-            <div class="col-2"></div>
-            <div class="col-lg-8">
+            <div class="col-xl-2"></div>
+            <div class="col-xl-8">
 
                 <div class="tabs right_column">
                     <input type="radio" name="tabs" id="tabone" checked>
                     <label for="tabone">About Us</label>
                     <div class="tab pt-4">
-                        <text class="glass" id="about_us_info">
+                        <p class="glass" id="about_us_info">
                             Vision <br>
                             Spreading kindness to everyone in society. Empowering every individual to contribute to society <br><br>
                             Mission <br>
                             Founded in 1958, SG Kindness Centre engages in various volunteering activities across the spectrum of society. It has organised more than 3000 activities catering to various causes.
-                        </text>
+                        </p>
                     </div>
 
                     <input type="radio" name="tabs" id="tabtwo">
@@ -315,7 +316,7 @@ export default {
                                 <h4 class="fw-bold col-11">Recommended For You</h4>
                             </div>
 
-                            <div class="row row-cols-1 row-cols-md-3 g-4">
+                            <div class="row row-cols-1 row-cols-md-3 g-3">
                                 <div class="col">
                                     <div class="card glass">
                                         <div class="card-header card-image">
@@ -517,7 +518,7 @@ export default {
                         </div>
                     </div>
                 </div>
-
+                <br><br>
             </div>
             <div class="col-2"></div>
         </div>
@@ -551,7 +552,7 @@ export default {
 .right_column {
     /* width: 60%; */
     border-radius: 8px;
-    padding: 10px;
+    padding: 8px;
     margin-top: 4rem;
     justify-content: center;
     display: flex;
