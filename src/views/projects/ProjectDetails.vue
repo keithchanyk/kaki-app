@@ -423,7 +423,7 @@ export default defineComponent({
 
       <!-- sticky sign up -->
 
-      <div id="sign-up" class="sticky-xl-top col-xl-4 col-xs-12">
+      <div id="details-page" class="sticky-xl-top col-xl-4 col-xs-12 ">
         <div class="card">
           <div class="card-body">
             <h3 class="card-title ">House Cleaning for Elderly</h3>
@@ -535,7 +535,7 @@ export default defineComponent({
       </div>
 
       <!-- map -->
-      <div class="col-8 mt-3 p-0">
+      <div class="col col-lg-8 col-sm-12 mt-3 p-0">
         <div class="card">
           <div class="card-body">
             <GoogleMap :key="componentKey" api-key="AIzaSyDCBtObBDUy_E5GwV4iWad9G7I3EhMNjt4" class="map" :center=center
@@ -642,5 +642,12 @@ h2 {
   width: 100%;
   height: 80%;
 
+}
+
+@media (min-width: 576px) {
+  #details-page {
+    padding: 0;
+    margin-top: 1rem;
+  }
 }
 </style>
