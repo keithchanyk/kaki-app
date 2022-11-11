@@ -27,7 +27,20 @@ export default {
 </script>
 <template>
     <Nav />
+    <div class="container">
+        <div class="mt-2 row">
+            <div class="mx-auto justify-content-center">
+                <img class="img-fluid banner" src="src/assets/projectimg/pic9.jpg">
+            </div>
+        </div>
+        <div class="mt-2 row">
+            <div class="col">
+                <p class="fw-bold">Supported Causes</p>
+            </div>
 
+        </div>
+
+    </div>
     <!-- version 1 -->
     <!-- <div class="container-fluid">
         <div class="row">
@@ -528,6 +541,12 @@ export default {
 </template>
 
 <style scoped>
+
+.banner{
+    overflow: hidden;
+    max-height: 500px;
+}
+
 
 .left_column,
 #sharing_forum {
