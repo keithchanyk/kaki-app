@@ -26,14 +26,14 @@ export default {
   <!-- sidebar -->
   <div class="container">
     <div class="row sticky-top bg-white border-bottom mb-4">
-      <div class="col-12 text-center">
+      <div class="col-12 text-start">
         <div class="card sidebar-item bg-special">
           <img
-            class="sidebar-img m-auto"
+            class="sidebar-img m-4"
             src="../../assets/undraw_pic_profile_re_lxn6.svg"
           />
           <div class="card-body">
-            <h5 class="card-title">Kaki</h5>
+            <h5 class="card-title">Xavier</h5>
             <h6 class="card-subtitle mb-2 text-muted">
               Burning passion to help and volunteer
             </h6>
@@ -367,7 +367,7 @@ p{
 }
 
 .sidebar-item {
-  height: 40%;
+  height: 58%;
 }
 
 .sidebar-img {

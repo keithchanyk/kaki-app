@@ -28,20 +28,51 @@ export default {
       capacity: '',
       location: '',
       project_details: [],
+      categories: ['Elderly', 'Children & Youth', 'Environment', 'Community'],
+      regions: ['North', 'South', 'East', 'West', 'Central'],
       search: '',
     };
   },
   computed: {
     filteredList() {
+      var categories = [];
+      var regions = [];
+
+      for (const category of this.categories) {
+        categories.push(category.toLowerCase());
+      }
+      for (const region of this.regions) {
+        regions.push(region.toLowerCase());
+      }
+
       console.log(this.project_details);
-      return this.project_details.filter((project) => {
+      var searchedList = this.project_details.filter((project) => {
         return (
           project.proj_name.toLowerCase().includes(this.search.toLowerCase()) ||
           project.org_name.toLowerCase().includes(this.search.toLowerCase())
         );
       });
+
+      return Array.prototype.filter.call(searchedList, (project) => {
+        return (
+          categories.includes(project.category.toLowerCase()) &&
+          regions.includes(project.region.toLowerCase())
+        );
+      });
+      console.log(searchedList);
     },
   },
+
+  // displayCourseList() {
+  //   // filter out according to applicable filters
+
+  //   return Array.prototype.filter.call(
+  //     this.project_details,
+  //     (project) =>
+  //       categories.includes(project.category.toLowerCase()) &&
+  //       regions.includes(project.region.toLowerCase())
+  //   );
+  // },
 
   methods: {
     get_details() {
@@ -72,7 +103,7 @@ export default {
       type="search"
       class="form-control"
       id="search"
-      placeholder="Search job role name..."
+      placeholder="What Are You Looking For?"
       v-model.trim="search"
     />
   </div>
@@ -83,23 +114,125 @@ export default {
         <!-- <div class="col"></div> -->
         <!-- col-sm-12 col-md-6 -->
         <div class="col-sm-3 p-3 filter-bar bg-light" style="height: 500px">
-          <h3>Filter By</h3>
+          <button
+            type="button"
+            class="btn btn-outline-secondary dropdown-toggle"
+            data-bs-toggle="dropdown"
+            data-bs-auto-close="outside"
+            aria-expanded="false"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="30"
+              height="30"
+              fill="currentColor"
+              class="bi bi-filter"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M6 10.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"
+              />
+            </svg>
+
+            Filter
+          </button>
+          <ul class="dropdown-menu">
+            <li><h6 class="dropdown-header">Voluntering Categories</h6></li>
+            <li class="dropdown-item">
+              <input
+                type="checkbox"
+                value="Elderly"
+                id="elderly"
+                v-model="categories"
+              /><label class="w-100" for="elderly">&nbsp;Elderly</label>
+            </li>
+            <li class="dropdown-item">
+              <input
+                type="checkbox"
+                value="Children & Youth"
+                id="children"
+                v-model="categories"
+              /><label class="w-100" for="children"
+                >&nbsp;Children & Youth</label
+              >
+            </li>
+            <li class="dropdown-item">
+              <input
+                type="checkbox"
+                value="Environment"
+                id="environment"
+                v-model="categories"
+              /><label class="w-100" for="environment">&nbsp;Environment</label>
+            </li>
+            <li class="dropdown-item">
+              <input
+                type="checkbox"
+                value="Community"
+                id="community"
+                v-model="categories"
+              /><label class="w-100" for="community">&nbsp;Community</label>
+            </li>
+            <li><hr class="dropdown-divider" /></li>
+            <li><h6 class="dropdown-header">Region</h6></li>
+            <li class="dropdown-item">
+              <input
+                type="checkbox"
+                value="North"
+                id="north"
+                v-model="regions"
+              /><label class="w-100" for="north">&nbsp;North</label>
+            </li>
+            <li class="dropdown-item">
+              <input
+                type="checkbox"
+                value="South"
+                id="south"
+                v-model="regions"
+              /><label class="w-100" for="south">&nbsp;South</label>
+            </li>
+            <li class="dropdown-item">
+              <input
+                type="checkbox"
+                value="East"
+                id="east"
+                v-model="regions"
+              /><label class="w-100" for="east">&nbsp;East</label>
+            </li>
+            <li class="dropdown-item">
+              <input
+                type="checkbox"
+                value="West"
+                id="west"
+                v-model="regions"
+              /><label class="w-100" for="west">&nbsp;West</label>
+            </li>
+            <li class="dropdown-item">
+              <input
+                type="checkbox"
+                value="Central"
+                id="central"
+                v-model="regions"
+              /><label class="w-100" for="central">&nbsp;Central</label>
+            </li>
+          </ul>
+
+          <!-- <h3>Filter By</h3>
           <br />
           <p class="mt-3 fs-4 text-center border-bottom text-bold">Region</p>
 
-          <div id="region_filter" class="mb-2"></div>
+          <div id="region_filter" class="mb-2"></div> -->
 
           <!-- <p class="fs-4 text-center border-bottom text-bold">Categories</p>
 
                     <div id="price_filter" class="mb-2"></div> -->
 
-          <p class="fs-4 text-center border-bottom text-bold">Categories</p>
+          <!-- <p class="fs-4 text-center border-bottom text-bold">Categories</p> -->
 
-          <div
+          <!-- <div
             id="brand_filter"
             class="overflow-auto mb-3"
             style="height: 350px"
-          ></div>
+          ></div> -->
         </div>
         <div class="col-sm-9">
           <!-- <div class="row py-3">
@@ -192,7 +325,7 @@ export default {
                       d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"
                     />
                   </svg>
-                  <h6 class="fw-normal">Region</h6>
+                  <h6 class="fw-normal">{{ project.region }}</h6>
                   <br />
                   <h6 style="font-size: 12px" class="fw-light">
                     &nbsp;{{ project.capacity }}

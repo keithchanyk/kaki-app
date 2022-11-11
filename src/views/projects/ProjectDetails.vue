@@ -1,21 +1,18 @@
 <script setup>
+console.log(sessionStorage.getItem('isAuth'));
 
-
-console.log(sessionStorage.getItem("isAuth"))
-
-if (sessionStorage.getItem("isAuth") == "true") {
-  console.log('is authenticated!')
-
+if (sessionStorage.getItem('isAuth') == 'true') {
+  console.log('is authenticated!');
 } else {
-  console.log('not authenticated, redirecting')
-  window.location.href = "http://localhost:5173/"
+  console.log('not authenticated, redirecting');
+  window.location.href = 'http://localhost:5173/';
 }
 </script>
 
 <script>
-import { defineComponent } from 'vue'
-// import { GoogleMap, Marker } from 'vue3-google-map'
-import Nav from '../../components/Nav.vue'
+import { defineComponent } from 'vue';
+import { GoogleMap, Marker } from 'vue3-google-map';
+import Nav from '../../components/Nav.vue';
 
 export default defineComponent({
   // components: { GoogleMap, Marker },
@@ -27,7 +24,7 @@ export default defineComponent({
   // },
   name: 'App',
   components: {
-    Nav
+    Nav,
   },
   data() {
     return {
@@ -35,7 +32,7 @@ export default defineComponent({
       lat: 1.41518559,
       lng: 103.835153,
       center: { lat: this.lat, lng: this.lng },
-      markerOptions: { position: { lat: this.lat, lng: this.lng } }
+      markerOptions: { position: { lat: this.lat, lng: this.lng } },
 
       // center: { lat: this.projectDetails[0].lat, lng: this.projectDetails[0].lng }
       // lats: 1.41518559,
@@ -43,40 +40,43 @@ export default defineComponent({
       // markerOptions : { position: { lat: 1.41518559, lng: 103.835153 }},
       // center: {  },
       // markerOptions : { },
-    }
+    };
   },
   computed: {
     getId() {
-      console.log(this.$route.query.id)
-      return this.$route.query.id
-    }
+      console.log(this.$route.query.id);
+      return this.$route.query.id;
+    },
   },
   methods: {
     getProjectDetails() {
-      const id = this.getId
-      console.log(id)
-      const url = 'http://localhost/kakidb-2/project/read_one.php?id=' + id
-      console.log(url)
+      const id = this.getId;
+      console.log(id);
+      const url =
+        'http://localhost:8888/kakidb-2/project/read_one.php?id=' + id;
+      console.log(url);
 
-      axios.get('http://localhost/kakidb-2/project/read_one.php?id=' + id)
-        .then(response => {
-          console.log(response.data.records)
+      axios
+        .get('http://localhost:8888/kakidb-2/project/read_one.php?id=' + id)
+        .then((response) => {
+          console.log(response.data.records);
           this.projectDetails = response.data.records;
-          var lat = this.projectDetails[0].lat
-          var lng = this.projectDetails[0].long
-          this.lat = parseFloat(lat)
-          this.lng = parseFloat(lng)
-          this.center = { lat: this.lat, lng: this.lng },
-            this.markerOptions = { position: { lat: this.lat, lng: this.lng } }
+          var lat = this.projectDetails[0].lat;
+          var lng = this.projectDetails[0].long;
+          this.lat = parseFloat(lat);
+          this.lng = parseFloat(lng);
+          (this.center = { lat: this.lat, lng: this.lng }),
+            (this.markerOptions = {
+              position: { lat: this.lat, lng: this.lng },
+            });
         })
-        .catch(error => alert(error));
+        .catch((error) => alert(error));
     },
   },
   mounted: function () {
-    console.log(this.getProjectDetails())
+    console.log(this.getProjectDetails());
   },
-}
-)
+});
 </script>
 
 <style>
@@ -91,11 +91,9 @@ export default defineComponent({
 .map {
   height: 500px;
 }
-
 </style>
 
-<template >
-
+<template>
   <!-- 
 <GMapMap
       :center="{lat: 1.2983811, lng: 103.856409}"
@@ -129,19 +127,35 @@ export default defineComponent({
 
   <Nav />
 
-  <div class="container main" v-for="project in projectDetails" :key="project.id">
+  <div
+    class="container main"
+    v-for="project in projectDetails"
+    :key="project.id"
+  >
     <!-- <div class="row"> -->
     <div id="gallery-box" class="row">
-      <a href="https://unsplash.it/1200/768.jpg?image=251" data-toggle="lightbox" data-gallery="example-gallery"
-        class="col-sm-4 p-0">
+      <a
+        href="https://unsplash.it/1200/768.jpg?image=251"
+        data-toggle="lightbox"
+        data-gallery="example-gallery"
+        class="col-sm-4 p-0"
+      >
         <img src="https://unsplash.it/600.jpg?image=251" class="img-fluid" />
       </a>
-      <a href="https://unsplash.it/1200/768.jpg?image=252" data-toggle="lightbox" data-gallery="example-gallery"
-        class="col-sm-4">
+      <a
+        href="https://unsplash.it/1200/768.jpg?image=252"
+        data-toggle="lightbox"
+        data-gallery="example-gallery"
+        class="col-sm-4"
+      >
         <img src="https://unsplash.it/600.jpg?image=252" class="img-fluid" />
       </a>
-      <a href="https://unsplash.it/1200/768.jpg?image=253" data-toggle="lightbox" data-gallery="example-gallery"
-        class="col-sm-4">
+      <a
+        href="https://unsplash.it/1200/768.jpg?image=253"
+        data-toggle="lightbox"
+        data-gallery="example-gallery"
+        class="col-sm-4"
+      >
         <img src="https://unsplash.it/600.jpg?image=253" class="img-fluid" />
       </a>
     </div>
@@ -182,67 +196,117 @@ export default defineComponent({
                   </p>
                   <p class="card-text">Suitable for: All, First Timers</p>
                   <p class="card-text">
-                    Objective: Conduct and assist to coordinate the Art and Craft
-                    session to engage seniors. And through the facilitation,
-                    befriend and provide companionship to seniors. - Conduct and
-                    coordinate art and craft session for 10 - 15 seniors - Guide
-                    seniors on the pre-planned activity - Mark attendance of
-                    seniors, and assist with SafeEntry and safe distancing
-                    measures
+                    Objective: Conduct and assist to coordinate the Art and
+                    Craft session to engage seniors. And through the
+                    facilitation, befriend and provide companionship to seniors.
+                    - Conduct and coordinate art and craft session for 10 - 15
+                    seniors - Guide seniors on the pre-planned activity - Mark
+                    attendance of seniors, and assist with SafeEntry and safe
+                    distancing measures
                   </p>
 
-                  <div class="d-grid gap-2 d-md-flex justify-content-md-end align-items-center">
-                    <p class="fw-bold m-0">{{ project.total_capacity }} Opening Left</p>
-                    
-                    
-                    <button class="btn btn-primary btn-apply btn-lg me-md-2 px-5" type="button">
+                  <div
+                    class="d-grid gap-2 d-md-flex justify-content-md-end align-items-center"
+                  >
+                    <p class="fw-bold m-0">
+                      {{ project.total_capacity }} Opening Left
+                    </p>
+
+                    <button
+                      class="btn btn-primary btn-apply btn-lg me-md-2 px-5"
+                      type="button"
+                    >
                       Apply Now
                     </button>
 
-                    
-                    <div class="modal fade" id="exampleModalToggle" aria-labelledby="exampleModalToggleLabel" tabindex="-1" aria-hidden="true" style="display: none;">
+                    <div
+                      class="modal fade"
+                      id="exampleModalToggle"
+                      aria-labelledby="exampleModalToggleLabel"
+                      tabindex="-1"
+                      aria-hidden="true"
+                      style="display: none"
+                    >
                       <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
                           <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Please select your preferred role</h1>
+                            <h1
+                              class="modal-title fs-5"
+                              id="exampleModalToggleLabel"
+                            >
+                              Please select your preferred role
+                            </h1>
                           </div>
                           <div class="modal-body">
                             <form>
-                              <select class="form-select" aria-label="Default select example">
-                              <option selected>Select Roles</option>
-                              <option value="1">Role 1</option>
-                              <option value="2">Role 2</option>
-                              <option value="3">Role 3</option>
-                              </select><br>=<br>
-                              <textarea class="form-control" placeholder="Write comments here"></textarea><br><br>
+                              <select
+                                class="form-select"
+                                aria-label="Default select example"
+                              >
+                                <option selected>Select Roles</option>
+                                <option value="1">Role 1</option>
+                                <option value="2">Role 2</option>
+                                <option value="3">Role 3</option></select
+                              ><br />=<br />
+                              <textarea
+                                class="form-control"
+                                placeholder="Write comments here"
+                              ></textarea
+                              ><br /><br />
                             </form>
                           </div>
                           <div class="modal-footer">
-                            <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Confirm application</button>
+                            <button
+                              class="btn btn-primary"
+                              data-bs-target="#exampleModalToggle2"
+                              data-bs-toggle="modal"
+                            >
+                              Confirm application
+                            </button>
                           </div>
                         </div>
                       </div>
                     </div>
-                    <div class="modal fade" id="exampleModalToggle2" aria-labelledby="exampleModalToggleLabel2" tabindex="-1" aria-hidden="true" style="display: none;">
+                    <div
+                      class="modal fade"
+                      id="exampleModalToggle2"
+                      aria-labelledby="exampleModalToggleLabel2"
+                      tabindex="-1"
+                      aria-hidden="true"
+                      style="display: none"
+                    >
                       <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
                           <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="exampleModalToggleLabel2">Your application</h1>
+                            <h1
+                              class="modal-title fs-5"
+                              id="exampleModalToggleLabel2"
+                            >
+                              Your application
+                            </h1>
                           </div>
                           <div class="modal-body">
-                            You have confirmed your application for the selected role.
+                            You have confirmed your application for the selected
+                            role.
                           </div>
                           <div class="modal-footer">
-                            <button class="btn btn-primary" data-bs-dismiss="modal">Back to home page</button>
+                            <button
+                              class="btn btn-primary"
+                              data-bs-dismiss="modal"
+                            >
+                              Back to home page
+                            </button>
                           </div>
                         </div>
                       </div>
                     </div>
-                    <a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle" role="button">Apply Now</a>
-
-
-
-
+                    <a
+                      class="btn btn-primary"
+                      data-bs-toggle="modal"
+                      href="#exampleModalToggle"
+                      role="button"
+                      >Apply Now</a
+                    >
                   </div>
                 </div>
               </div>
@@ -385,14 +449,12 @@ export default defineComponent({
           </div>
         </div> -->
 
-
-
       <!-- sticky sign up -->
 
       <div id="sign-up" class="sticky-xl-top col-xl-4 col-xs-12">
         <div class="card">
           <div class="card-body">
-            <h3 class="card-title ">House Cleaning for Elderly</h3>
+            <h3 class="card-title">House Cleaning for Elderly</h3>
             <h6 class="card-subtitle mb-2 text-muted">
               by {{ project.org_name }}
             </h6>
@@ -402,21 +464,28 @@ export default defineComponent({
               <div class="row pt-3 ps-3">
                 <ul>
                   <li class="list-group-item mt-2">
-                    <img src="../../assets/landingImg/icons/pdicons/Timesheet.png" />
+                    <img
+                      src="../../assets/landingImg/icons/pdicons/Timesheet.png"
+                    />
                     &nbsp; {{ project.proj_date }}
                   </li>
                   <li class="list-group-item mt-2">
-                    <img src="../../assets/landingImg/icons/pdicons/Clock.png" />
+                    <img
+                      src="../../assets/landingImg/icons/pdicons/Clock.png"
+                    />
                     &nbsp; {{ project.starttime }} - {{ project.endtime }}
                   </li>
                   <li class="list-group-item mt-2">
-                    <img src="../../assets/landingImg/icons/pdicons/Group.png" /> &nbsp;
-                    Suitable for: All, First-timers
+                    <img
+                      src="../../assets/landingImg/icons/pdicons/Group.png"
+                    />
+                    &nbsp; Suitable for: All, First-timers
                   </li>
                   <li class="list-group-item mt-2">
-                    <img src="../../assets/landingImg/icons/pdicons/Location.png" /> &nbsp;
-
-                    Geylang
+                    <img
+                      src="../../assets/landingImg/icons/pdicons/Location.png"
+                    />
+                    &nbsp; Geylang
                     <p class="text-muted mt-2">
                       3 EUNOS CRESCENT Singapore 400003
                     </p>
@@ -427,23 +496,30 @@ export default defineComponent({
               <div class="d-flex justify-content-around">
                 <div class="row">
                   <div class="col">
-                    <button type="button" class="btn btn-secondary rounded-circle btn-icon">
+                    <button
+                      type="button"
+                      class="btn btn-secondary rounded-circle btn-icon"
+                    >
                       <!-- <font-awesome-icon icon="fa-solid fa-link" /> -->
                       <font-awesome-icon icon="fa-solid fa-lock" />
-
                     </button>
                   </div>
                   <div class="col">
-                    <button type="button" class="btn btn-secondary rounded-circle btn-icon">
+                    <button
+                      type="button"
+                      class="btn btn-secondary rounded-circle btn-icon"
+                    >
                       <font-awesome-icon icon="fa-solid fa-share" />
                       <!-- <font-awesome-icon icon="fa-solid fa-share" /> -->
                     </button>
                   </div>
 
                   <div class="col">
-                    <button type="button" class="btn btn-secondary rounded-circle btn-icon">
+                    <button
+                      type="button"
+                      class="btn btn-secondary rounded-circle btn-icon"
+                    >
                       <i class="fa-solid fa-bookmark" aria-hidden="true"></i>
-
                     </button>
                   </div>
                 </div>
@@ -464,8 +540,10 @@ export default defineComponent({
                     &nbsp; kaki_tgt123@gmail.com
                   </li>
                   <li class="list-group-item">
-                    <img src="../../assets/landingImg/icons/pdicons/Phone.png" /> &nbsp; +65
-                    1234 5678
+                    <img
+                      src="../../assets/landingImg/icons/pdicons/Phone.png"
+                    />
+                    &nbsp; +65 1234 5678
                   </li>
                 </ul>
               </div>
@@ -504,20 +582,22 @@ export default defineComponent({
       <div class="col-8 mt-3 p-0">
         <div class="card">
           <div class="card-body">
-            <GoogleMap :key="componentKey" api-key="AIzaSyDCBtObBDUy_E5GwV4iWad9G7I3EhMNjt4" class="map" :center=center
-              :zoom="15">
+            <GoogleMap
+              :key="componentKey"
+              api-key="AIzaSyDCBtObBDUy_E5GwV4iWad9G7I3EhMNjt4"
+              class="map"
+              :center="center"
+              :zoom="15"
+            >
               <Marker :options="markerOptions" />
             </GoogleMap>
           </div>
         </div>
       </div>
-
     </div>
     <!-- </div> -->
   </div>
 </template>
-
-
 
 <!-- <script>
 
@@ -532,14 +612,10 @@ export default defineComponent({
 })
 </script> -->
 
-
-
-
 <style scoped>
 body {
-  background-color: #EDEDED;
+  background-color: #ededed;
 }
-
 
 h1,
 h2,
@@ -550,7 +626,6 @@ h6,
 p {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-
 
 .custom-jumbotron {
   background-color: lightslategray;
@@ -566,9 +641,9 @@ p{
 } */
 
 .text-landing {
-  background-color: #4A60E8;
+  background-color: #4a60e8;
   opacity: 0.95;
-  border: 1px solid #4A60E8;
+  border: 1px solid #4a60e8;
   border-radius: 25px;
   bottom: 0;
   right: 0;
@@ -584,22 +659,19 @@ h2 {
   background-image: url(./img/volunteer.jpg);
 }
 
-
-
 .list-group,
 .list-group-item {
   border-style: none;
 }
 
 .btn-apply {
-  background-color: #4A60E8
+  background-color: #4a60e8;
 }
 
 .bg-special {
-  background-image: linear-gradient(#EAEDFF, #E2DEFE);
+  background-image: linear-gradient(#eaedff, #e2defe);
   /* background-color: #E2DEFE; */
 }
-
 
 .sidebar-item {
   top: 0;
@@ -607,6 +679,5 @@ h2 {
   padding: 0;
   width: 100%;
   height: 80%;
-
 }
 </style>
