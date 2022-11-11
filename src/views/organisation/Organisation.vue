@@ -416,7 +416,7 @@ h3 {
     margin-right: 4.5rem;
     margin-bottom: 1rem;
     cursor: pointer;
-    background: white;
+    background: #d1d7f6;
     opacity: 0.7;
     font-weight: bold;
     transition: background ease 0.1s;
@@ -436,7 +436,7 @@ h3 {
 }
 
 .tabs input[type="radio"]:checked+label {
-    background: #fff;
+    background: #DFE3FC;
 }
 
 .tabs input[type="radio"]:checked+label+.tab {
