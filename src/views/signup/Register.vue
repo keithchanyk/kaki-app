@@ -1,10 +1,12 @@
 <template class="form">
 
-    <h1 class="register-header" >User <span>Registration</span> Form</h1>
-    <!-- <h1>Advanced <span> Vue 3 </span> Form</h1> -->
+    <div class="container">
+        <h1 class="register-header text-center">User <span>Registration</span> Form</h1>
+        <!-- <h1>Advanced <span> Vue 3 </span> Form</h1> -->
 
-    <VueForm :formConfig="formConfig" />
+        <VueForm :formConfig="formConfig" />
 
+    </div>
 </template>
   
 <script setup scoped>
@@ -68,18 +70,19 @@ body {
 
 /* Title - Advanced Vue.js Form */
 .title h1 {
-    padding-top: 5px;
-    font-weight: 700;
-    font-size: 1.7em;
+    /* padding-top: 5px; */
+    /* font-weight: 700; */
+    /* font-size: 1.7em; */
 }
 
 h1.register-header {
     color: var(--secondary);
-    position: fixed;
-    left: 0;
-    right: 0;
+    /* position: fixed; */
+    /* position: static; */
+    /* left: 0; */
+    /* right: 0; */
     user-select: none;
-    opacity: 0.85;
+    /* opacity: 0.85; */
 }
 
 h1 span {
@@ -251,6 +254,7 @@ pre {
     font-size: 1.5em;
 }
 
+/* progress bar */
 .bar {
     height: 7px;
     width: 0px;
