@@ -1,24 +1,17 @@
 <template>
-  <div style="width: 100%; position: fixed">
+  <!-- <div style="width: 100%; position: fixed"> -->
+  <div class="container  position-fixed" style="width: 100%; position: fixed">
+    <div class="formProgress">
     <FormProgress />
+    </div>
     <div class="nav-form">
-      <button
-        type="button"
-        :class="{ disabled: isFirstField }"
-        class="form-button"
-        @click="$emit('back')"
-        @keyup.page-up="$emit('back')"
-      >
+      <button type="button" :class="{ disabled: isFirstField }" class="form-button" @click="$emit('back')"
+        @keyup.page-up="$emit('back')">
         <Icon icon="ep:arrow-up-bold" />
       </button>
 
-      <button
-        type="button"
-        :class="{ disabled: isLastField }"
-        class="form-button"
-        @click="$emit('next')"
-        @keyup.page-down="$emit('next')"
-      >
+      <button type="button" :class="{ disabled: isLastField }" class="form-button" @click="$emit('next')"
+        @keyup.page-down="$emit('next')">
         <Icon icon="ep:arrow-down-bold" />
       </button>
     </div>
@@ -41,3 +34,15 @@ defineProps({
   },
 });
 </script>
+
+
+<style scoped>
+.container {
+  /* border: 2px solid red; */
+}
+
+/* .formProgress {
+  border: 2px solid red;
+  background-color: yellow;
+} */
+</style>
