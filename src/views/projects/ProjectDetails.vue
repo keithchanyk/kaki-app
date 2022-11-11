@@ -644,7 +644,7 @@ h2 {
 
 }
 
-@media (min-width: 576px) {
+@media (max-width: 576px) {
   #details-page {
     padding: 0;
     margin-top: 1rem;
