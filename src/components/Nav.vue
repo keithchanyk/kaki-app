@@ -94,7 +94,7 @@ export default {
 }
 
 nav {
-  z-index: 999;
+  z-index: 99999999999;
 }
 
 img {
