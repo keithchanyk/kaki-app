@@ -26,7 +26,7 @@ if (sessionStorage.getItem("isAuth") == "true") {
 
 <script>
 import { defineComponent } from 'vue'
-// import { GoogleMap, Marker } from 'vue3-google-map'
+import { GoogleMap, Marker } from 'vue3-google-map'
 import Nav from '../../components/Nav.vue'
 
 export default defineComponent({
