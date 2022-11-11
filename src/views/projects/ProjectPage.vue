@@ -37,6 +37,15 @@ export default {
     filteredList() {
       var categories = [];
       var regions = [];
+      var today = new Date();
+      var dd = String(today.getDate()).padStart(2, '0');
+      var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+      var yyyy = today.getFullYear();
+
+      today = yyyy + '/' + mm + '/' + dd;
+
+      console.log(today);
+
       for (const category of this.categories) {
         categories.push(category.toLowerCase());
       }
@@ -45,7 +54,11 @@ export default {
       }
       console.log(this.project_details);
 
-      var searchedList = this.project_details.filter((project) => {
+      var dateList = this.project_details.filter((project) => {
+        return project.proj_date > today;
+      });
+
+      var searchedList = dateList.filter((project) => {
         return (
           project.proj_name.toLowerCase().includes(this.search.toLowerCase()) ||
           project.org_name.toLowerCase().includes(this.search.toLowerCase())
@@ -88,116 +101,121 @@ export default {
   <div class="container">
     <div class="row">
       <div class="col">
-        <div class="m-3 w-50 mx-auto">
-          <input
-            type="search"
-            class="form-control"
-            id="search"
-            placeholder="What Are You Looking For?"
-            v-model.trim="search"
-          />
+        <div class="searchFilter m-3 mx-auto">
+          <div class="hstack gap-2">
+            <input
+              type="search"
+              class="form-control"
+              id="search"
+              placeholder="What Are You Looking For?"
+              v-model.trim="search"
+            />
 
-          <button
-            type="button"
-            class="btn btn-outline-secondary dropdown-toggle"
-            data-bs-toggle="dropdown"
-            data-bs-auto-close="outside"
-            aria-expanded="false"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="30"
-              height="30"
-              fill="currentColor"
-              class="bi bi-filter"
-              viewBox="0 0 16 16"
+            <button
+              type="button"
+              class="btn btn-outline-secondary btn-sm dropdown-toggle ms-auto"
+              data-bs-toggle="dropdown"
+              data-bs-auto-close="outside"
+              aria-expanded="false"
             >
-              <path
-                d="M6 10.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"
-              />
-            </svg>
-
-            Filter
-          </button>
-          <ul class="dropdown-menu">
-            <li><h6 class="dropdown-header">Voluntering Categories</h6></li>
-            <li class="dropdown-item">
-              <input
-                type="checkbox"
-                value="Elderly"
-                id="elderly"
-                v-model="categories"
-              /><label class="w-100" for="elderly">&nbsp;Elderly</label>
-            </li>
-            <li class="dropdown-item">
-              <input
-                type="checkbox"
-                value="Children & Youth"
-                id="children"
-                v-model="categories"
-              /><label class="w-100" for="children"
-                >&nbsp;Children & Youth</label
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="30"
+                height="30"
+                fill="currentColor"
+                class="bi bi-filter"
+                viewBox="0 0 16 16"
               >
-            </li>
-            <li class="dropdown-item">
-              <input
-                type="checkbox"
-                value="Environment"
-                id="environment"
-                v-model="categories"
-              /><label class="w-100" for="environment">&nbsp;Environment</label>
-            </li>
-            <li class="dropdown-item">
-              <input
-                type="checkbox"
-                value="Community"
-                id="community"
-                v-model="categories"
-              /><label class="w-100" for="community">&nbsp;Community</label>
-            </li>
-            <li><hr class="dropdown-divider" /></li>
-            <li><h6 class="dropdown-header">Region</h6></li>
-            <li class="dropdown-item">
-              <input
-                type="checkbox"
-                value="North"
-                id="north"
-                v-model="regions"
-              /><label class="w-100" for="north">&nbsp;North</label>
-            </li>
-            <li class="dropdown-item">
-              <input
-                type="checkbox"
-                value="South"
-                id="south"
-                v-model="regions"
-              /><label class="w-100" for="south">&nbsp;South</label>
-            </li>
-            <li class="dropdown-item">
-              <input
-                type="checkbox"
-                value="East"
-                id="east"
-                v-model="regions"
-              /><label class="w-100" for="east">&nbsp;East</label>
-            </li>
-            <li class="dropdown-item">
-              <input
-                type="checkbox"
-                value="West"
-                id="west"
-                v-model="regions"
-              /><label class="w-100" for="west">&nbsp;West</label>
-            </li>
-            <li class="dropdown-item">
-              <input
-                type="checkbox"
-                value="Central"
-                id="central"
-                v-model="regions"
-              /><label class="w-100" for="central">&nbsp;Central</label>
-            </li>
-          </ul>
+                <path
+                  d="M6 10.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"
+                />
+              </svg>
+
+              <span id="filterText">Filter</span>
+            </button>
+
+            <ul class="dropdown-menu">
+              <li><h6 class="dropdown-header">Voluntering Categories</h6></li>
+              <li class="dropdown-item">
+                <input
+                  type="checkbox"
+                  value="Elderly"
+                  id="elderly"
+                  v-model="categories"
+                /><label class="w-100" for="elderly">&nbsp;Elderly</label>
+              </li>
+              <li class="dropdown-item">
+                <input
+                  type="checkbox"
+                  value="Children & Youth"
+                  id="children"
+                  v-model="categories"
+                /><label class="w-100" for="children"
+                  >&nbsp;Children & Youth</label
+                >
+              </li>
+              <li class="dropdown-item">
+                <input
+                  type="checkbox"
+                  value="Environment"
+                  id="environment"
+                  v-model="categories"
+                /><label class="w-100" for="environment"
+                  >&nbsp;Environment</label
+                >
+              </li>
+              <li class="dropdown-item">
+                <input
+                  type="checkbox"
+                  value="Community"
+                  id="community"
+                  v-model="categories"
+                /><label class="w-100" for="community">&nbsp;Community</label>
+              </li>
+              <li><hr class="dropdown-divider" /></li>
+              <li><h6 class="dropdown-header">Region</h6></li>
+              <li class="dropdown-item">
+                <input
+                  type="checkbox"
+                  value="North"
+                  id="north"
+                  v-model="regions"
+                /><label class="w-100" for="north">&nbsp;North</label>
+              </li>
+              <li class="dropdown-item">
+                <input
+                  type="checkbox"
+                  value="South"
+                  id="south"
+                  v-model="regions"
+                /><label class="w-100" for="south">&nbsp;South</label>
+              </li>
+              <li class="dropdown-item">
+                <input
+                  type="checkbox"
+                  value="East"
+                  id="east"
+                  v-model="regions"
+                /><label class="w-100" for="east">&nbsp;East</label>
+              </li>
+              <li class="dropdown-item">
+                <input
+                  type="checkbox"
+                  value="West"
+                  id="west"
+                  v-model="regions"
+                /><label class="w-100" for="west">&nbsp;West</label>
+              </li>
+              <li class="dropdown-item">
+                <input
+                  type="checkbox"
+                  value="Central"
+                  id="central"
+                  v-model="regions"
+                /><label class="w-100" for="central">&nbsp;Central</label>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
@@ -206,12 +224,13 @@ export default {
     <div class="col col-sm-12">
       <h3 class="row fw-bold text-dark ms-4">Recommended For You</h3>
       <br />
-      <div class="row mx-auto container-fluid">
+      <div class="row mx-auto container">
         <div
           v-for="project in filteredList"
           :key="project.id"
-          class="mt-4 col col-md-4 mb-2 p-3 d-flex justify-content-start"
+          class="mt-4 col-12 col-sm-6 col-md-4"
         >
+          <!-- class="mt-4 col col-md-4 mb-2 p-3 d-flex justify-content-start" -->
           <div class="card glass">
             <div class="card-header card-image">
               <img
@@ -338,8 +357,8 @@ export default {
   --padding: 0.8rem;
   border-radius: 0.25rem;
   overflow: hidden;
-  min-width: 300px;
-  max-width: 400px;
+  /* min-width: 300px;
+  max-width: 400px; */
 }
 
 .card-header {
@@ -396,5 +415,23 @@ h3 {
 
 .a {
   border: 2px solid red;
+}
+
+.searchFilter {
+  width: 90%;
+}
+
+#filterText {
+  display: none;
+}
+
+@media (min-width: 391px) {
+  .searchFilter {
+    width: 50%;
+  }
+
+  #filterText {
+    display: inline-block;
+  }
 }
 </style>
