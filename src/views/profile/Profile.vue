@@ -134,7 +134,7 @@ export default {
               <div class="row mx-auto container-fluid">
                 <div v-if="isDateOver" v-for="project in filteredList" :key="project.id"
                   class="mt-4 col d-flex justify-content-start">
-                  <a class='nav-link' href="'/projectdetails?id=' + project.id">
+                  <a class='nav-link' :href="'/projectdetails?id=' + project.id">
                     <div class="card projCard glass">
                       <div class="card-header projCard-header projCard-image card-image">
                         <img id="card-img" class="mb-2 rounded" src="src/assets/pic1.jpg" />
