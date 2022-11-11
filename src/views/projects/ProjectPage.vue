@@ -11,6 +11,7 @@ if (sessionStorage.getItem('isAuth') == 'true') {
 
 <script>
 import Nav from '../../components/Nav.vue';
+import * as Main from "../../main"
 
 export default {
   name: 'App',
@@ -77,7 +78,7 @@ export default {
   methods: {
     get_details() {
       axios
-        .get('http://localhost:8888/kakidb-2/project/read.php')
+        .get('http://localhost/kakidb-2/project/read.php')
         .then((response) => {
           this.project_details = response.data.records;
           console.log(this.project_details);
@@ -275,7 +276,7 @@ export default {
                 />
               </svg>
               <h6 class="fw-normal">
-                &nbsp;{{ project.starttime }} - {{ project.endtime }}
+                &nbsp;{{ Main.tConvert(project.starttime) }} - {{ Main.tConvert(project.endtime) }}
               </h6>
               <br />
               <svg
