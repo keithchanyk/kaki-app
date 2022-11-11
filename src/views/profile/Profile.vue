@@ -11,6 +11,7 @@ if (sessionStorage.getItem('isAuth') == 'true') {
 
 <script>
 import Nav from '../../components/Nav.vue';
+import * as Main from "../../main"
 
 export default {
   name: 'App',
@@ -46,7 +47,7 @@ export default {
   methods: {
     get_details() {
       axios
-        .get('http://localhost:8888/kakidb-2/project/read.php')
+        .get('http://localhost/kakidb-2/project/read.php')
         .then((response) => {
           this.project_details = response.data.records;
           console.log(this.project_details);
@@ -72,10 +73,7 @@ export default {
     <div class="row sticky-top bg-white border-bottom mb-4">
       <div class="col-12 text-start">
         <div class="card sidebar-item bg-special">
-          <img
-            class="sidebar-img m-4"
-            src="../../assets/undraw_pic_profile_re_lxn6.svg"
-          />
+          <img class="sidebar-img m-4" src="../../assets/undraw_pic_profile_re_lxn6.svg" />
           <div class="card-body">
             <h5 class="card-title">Xavier</h5>
             <h6 class="card-subtitle mb-2 text-muted">
@@ -218,7 +216,7 @@ export default {
                           />
                         </svg>
                         <h6 class="fw-normal">
-                          &nbsp;{{ project.starttime }} - {{ project.endtime }}
+                          &nbsp;{{ Main.tConvert(project.starttime) }} - {{ Main.tConvert(project.endtime) }}
                         </h6>
                         <br />
                         <svg
@@ -240,7 +238,7 @@ export default {
                             d="M4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"
                           />
                         </svg>
-                        <h6 class="fw-normal">&nbsp;{{ project.for_who }}</h6>
+                        <h6 class="fw-normal">&nbsp;{{ project.suitability }}</h6>
                         <br />
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -270,181 +268,6 @@ export default {
 
             <!-- PROJECT DETAILS -->
 
-            <hr />
-
-            <!-- Start of PAGE ONE -->
-            <div class="container-fluid">
-              <div class="row row-cols-1 row-cols-md-3 g-4">
-                <div class="col">
-                  <div class="bg-special card h-100">
-                    <div class="card-body">
-                      <h3 class="card-title">House Cleaning for Elderly</h3>
-                      <h6 class="card-subtitle mb-2 text-muted">
-                        by SG Cares Volunteer Centers
-                      </h6>
-                      <ul>
-                        <li class="list-group-item">
-                          <img
-                            src="../../assets/landingImg/icons/pdicons/Timesheet.png"
-                          />
-                          &nbsp; Mon, 3 Oct 2022
-                        </li>
-                        <li class="list-group-item">
-                          <img
-                            src="../../assets/landingImg/icons/pdicons/Clock.png"
-                          />
-                          &nbsp; 10.00 AM- 12.00PM
-                        </li>
-                        <li class="list-group-item">
-                          <img
-                            src="../../assets/landingImg/icons/pdicons/Group.png"
-                          />
-                          &nbsp; Suitable for: All, First-timers
-                        </li>
-                        <li class="list-group-item">
-                          <img
-                            src="../../assets/landingImg/icons/pdicons/Location.png"
-                          />
-                          &nbsp; Geylang
-                          <p class="text-muted">
-                            3 EUNOS CRESCENT Singapore 400003
-                          </p>
-                        </li>
-                      </ul>
-                      <div class="d-flex justify-content-end">
-                        <a href="#">Details ></a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col">
-                  <div class="bg-special card h-100">
-                    <div class="card-body">
-                      <h3 class="card-title">House Cleaning for Elderly</h3>
-                      <h6 class="card-subtitle mb-2 text-muted">
-                        by SG Cares Volunteer Centers
-                      </h6>
-                      <ul>
-                        <li class="list-group-item">
-                          <img
-                            src="../../assets/landingImg/icons/pdicons/Timesheet.png"
-                          />
-                          &nbsp; Mon, 3 Oct 2022
-                        </li>
-                        <li class="list-group-item">
-                          <img
-                            src="../../assets/landingImg/icons/pdicons/Clock.png"
-                          />
-                          &nbsp; 10.00 AM- 12.00PM
-                        </li>
-                        <li class="list-group-item">
-                          <img
-                            src="../../assets/landingImg/icons/pdicons/Group.png"
-                          />
-                          &nbsp; Suitable for: All, First-timers
-                        </li>
-                        <li class="list-group-item">
-                          <img
-                            src="../../assets/landingImg/icons/pdicons/Location.png"
-                          />
-                          &nbsp; Geylang
-                          <p class="text-muted">
-                            3 EUNOS CRESCENT Singapore 400003
-                          </p>
-                        </li>
-                      </ul>
-                      <div class="d-flex justify-content-end">
-                        <a href="#">Details ></a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col">
-                  <div class="bg-special card h-100">
-                    <div class="card-body">
-                      <h3 class="card-title">House Cleaning for Elderly</h3>
-                      <h6 class="card-subtitle mb-2 text-muted">
-                        by SG Cares Volunteer Centers
-                      </h6>
-                      <ul>
-                        <li class="list-group-item">
-                          <img
-                            src="../../assets/landingImg/icons/pdicons/Timesheet.png"
-                          />
-                          &nbsp; Mon, 3 Oct 2022
-                        </li>
-                        <li class="list-group-item">
-                          <img
-                            src="../../assets/landingImg/icons/pdicons/Clock.png"
-                          />
-                          &nbsp; 10.00 AM- 12.00PM
-                        </li>
-                        <li class="list-group-item">
-                          <img
-                            src="../../assets/landingImg/icons/pdicons/Group.png"
-                          />
-                          &nbsp; Suitable for: All, First-timers
-                        </li>
-                        <li class="list-group-item">
-                          <img
-                            src="../../assets/landingImg/icons/pdicons/Location.png"
-                          />
-                          &nbsp; Geylang
-                          <p class="text-muted">
-                            3 EUNOS CRESCENT Singapore 400003
-                          </p>
-                        </li>
-                      </ul>
-                      <div class="d-flex justify-content-end">
-                        <a href="#">Details ></a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col">
-                  <div class="bg-special card h-100">
-                    <div class="card-body">
-                      <h3 class="card-title">House Cleaning for Elderly</h3>
-                      <h6 class="card-subtitle mb-2 text-muted">
-                        by SG Cares Volunteer Centers
-                      </h6>
-                      <ul>
-                        <li class="list-group-item">
-                          <img
-                            src="../../assets/landingImg/icons/pdicons/Timesheet.png"
-                          />
-                          &nbsp; Mon, 3 Oct 2022
-                        </li>
-                        <li class="list-group-item">
-                          <img
-                            src="../../assets/landingImg/icons/pdicons/Clock.png"
-                          />
-                          &nbsp; 10.00 AM- 12.00PM
-                        </li>
-                        <li class="list-group-item">
-                          <img
-                            src="../../assets/landingImg/icons/pdicons/Group.png"
-                          />
-                          &nbsp; Suitable for: All, First-timers
-                        </li>
-                        <li class="list-group-item">
-                          <img
-                            src="../../assets/landingImg/icons/pdicons/Location.png"
-                          />
-                          &nbsp; Geylang
-                          <p class="text-muted">
-                            3 EUNOS CRESCENT Singapore 400003
-                          </p>
-                        </li>
-                      </ul>
-                      <div class="d-flex justify-content-end">
-                        <a href="#">Details ></a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
           <div
             class="tab-pane fade"
