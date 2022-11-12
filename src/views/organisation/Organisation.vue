@@ -59,7 +59,7 @@ export default {
   methods: {
     get_details() {
       axios
-        .get('http://localhost/kakidb-2/project/read.php')
+        .get('http://localhost:8888/kakidb-2/project/read.php')
         .then((response) => {
           this.project_details = response.data.records;
           console.log(this.project_details);
@@ -68,6 +68,15 @@ export default {
     },
     isDateOver() {
       console.log(new Date());
+    },
+    theFormat(number) {
+      return number.toFixed(0);
+    },
+    completed() {
+      console.log('Animation ends!');
+    },
+    playAnimation() {
+      this.$refs.number2.play();
     },
   },
   created: function () {
@@ -81,15 +90,141 @@ export default {
   <Nav style="z-index: 3" />
 
   <div class="container">
+    <div class="h-50 w-100 d-inline-block">
+      <div class="row bg-white rounded my-3">
+        <div class="col-3">
+          <img
+            src="../../assets/landingImg/landing/org3.png"
+            style="max-width: 120px"
+          />
+        </div>
+        <div class="col my-auto">
+          <h1>Autism Association Singapore</h1>
+        </div>
+      </div>
+    </div>
+
+    <!-- carousel -->
+    <div class="row">
+      <div class="col-md-8">
+        <div
+          id="carouselExampleInterval"
+          class="carousel slide"
+          data-bs-ride="carousel"
+        >
+          <div class="carousel-inner">
+            <div class="carousel-item active" data-bs-interval="2000">
+              <img
+                src="../../assets/orgImg/pexels-rodnae-productions-6646918.jpg"
+                class="d-block w-100"
+                alt="..."
+              />
+            </div>
+            <div class="carousel-item" data-bs-interval="2000">
+              <img
+                src="../../assets/orgImg/pexels-rodnae-productions-6646981.jpg"
+                class="d-block w-100"
+                alt="..."
+              />
+            </div>
+            <div class="carousel-item" data-bs-interval="2000">
+              <img
+                src="../../assets/orgImg/pexels-rodnae-productions-6646990.jpg"
+                class="d-block w-100"
+                alt="..."
+              />
+            </div>
+          </div>
+        </div>
+
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselExampleInterval"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselExampleInterval"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+      <div class="col">
+        <div class="card border-primary mb-3 h-100">
+          <div class="card-header fs-3">Our Impact In Numbers</div>
+          <div class="card-body text-primary">
+            <!-- <h5 class="card-title">Let Our Numbers Speak For Themselves</h5> -->
+            <div id="rollingNumbers">
+              <h2>Events Organised</h2>
+              <h1>
+                <number
+                  ref="number1"
+                  :from="0"
+                  :to="50"
+                  :format="theFormat"
+                  :duration="3"
+                  :delay="1"
+                  easing="Power1.easeOut"
+                />
+              </h1>
+
+              <h2>Total Volunteers</h2>
+              <h1>
+                <number
+                  ref="number1"
+                  :from="0"
+                  :to="2000"
+                  :format="theFormat"
+                  :duration="3"
+                  :delay="1"
+                  easing="Power1.easeOut"
+                />
+              </h1>
+              <h2>Lives Impacted</h2>
+              <h1>
+                <number
+                  ref="number1"
+                  :from="0"
+                  :to="10000"
+                  :format="theFormat"
+                  :duration="3"
+                  :delay="1"
+                  easing="Power1.easeOut"
+                />
+              </h1>
+            </div>
+
+            <!-- <number
+              tag="div"
+              animationPaused
+              ref="number2"
+              :to="10000"
+              :duration="5"
+              easing="Back.easeIn"
+              @complete="completed"
+              @click="playAnimation"
+            /> -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 
     <div class="mt-3 row">
       <div class="d-flex justify-content-center">
         <img class="img-fluid banner" src="src/assets/projectimg/pic1.jpg" />
       </div>
-    </div>
-    <div class="mt-1 row">
+    </div> -->
+    <!-- <div class="mt-1 row">
       <div class="col-2"></div>
       <div class="col-8">
-        <!-- <div class="row mx-auto container-fluid"> -->
+
         <div class="row m-0 d-flex justify-content-center">
           <div
             class="mt-1 col-12 col-sm-6 col-md-3 pt-0 text-center border border-dark p-2 m-2 rounded-3 border-opacity-25 bg-light"
@@ -116,12 +251,12 @@ export default {
             <span>Facebook</span>
           </div>
         </div>
-        <!-- </div> -->
+
       </div>
       <div class="col-2"></div>
-    </div>
+    </div> -->
 
-    <div class="row mt-5">
+    <div class="row mt-3">
       <nav>
         <div class="nav nav-tabs" id="nav-tab" role="tablist">
           <button
@@ -376,6 +511,13 @@ export default {
 </template>
 
 <style scoped>
+#rollingNumbers {
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .banner {
   overflow: hidden;
   max-height: 400px;

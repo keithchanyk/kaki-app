@@ -54,7 +54,6 @@ export default defineComponent({
       visible: false,
       index: 0, // default: 0
       selected: '',
-      
 
       // center: { lat: this.projectDetails[0].lat, lng: this.projectDetails[0].lng }
       // lats: 1.41518559,
@@ -106,7 +105,7 @@ export default defineComponent({
       // /Applications/MAMP/htdocs/is216/kaki-app/src/kakidb-2
 
       axios
-        .get('http://localhost/kakidb-2/project/read_one.php?id=' + id)
+        .get('http://localhost:8888/kakidb-2/project/read_one.php?id=' + id)
         .then((response) => {
           console.log(response.data.records);
           this.projectDetails = response.data.records;
@@ -656,9 +655,7 @@ export default defineComponent({
   </script>
   -->
 
-<style>
-
-</style>
+<style></style>
 
 <style scoped>
 *,
@@ -756,6 +753,4 @@ h2 {
   /* position: relative !important ; */
   vertical-align: -35em;
 }
-
-
 </style>
