@@ -568,7 +568,7 @@ body { */
   bottom: 0;
 }
 
-.glass {
+/* .glass {
   background: linear-gradient(
     135deg,
     rgba(255, 255, 255, 0.3),
@@ -579,7 +579,7 @@ body { */
   border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: 0 2px 22px 0 rgba(0, 0, 0, 0.2);
-}
+} */
 
 .projCard {
   --padding: 0.8rem;
