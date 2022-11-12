@@ -231,12 +231,7 @@ export default defineComponent({
 
                   <div class="d-grid gap-2 d-md-flex justify-content-md-end align-items-center">
                     <p class="fw-bold m-0">{{ project.total_capacity }} Opening Left</p>
-
-
-                    <button class="btn btn-primary btn-apply btn-lg me-md-2 px-5" type="button">
-                      Apply Now
-                    </button>
-
+                    
 
                     <div class="modal fade" id="exampleModalToggle" aria-labelledby="exampleModalToggleLabel"
                       tabindex="-1" aria-hidden="true" style="display: none;">
