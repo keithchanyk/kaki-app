@@ -13,15 +13,60 @@ if(sessionStorage.getItem("isAuth") == "true"){
 
 <script>
 import Nav from '../../components/Nav.vue'
+import * as Main from '../../main'
 
 export default {
-    name: "App",
-    components: {
+  name: 'App',
+  components: {
+    Nav,
+  },
+  data() {
+    return {
+      proj_name: '',
+      org_name: '',
+      proj_date: '',
+      starttime: '',
+      endtime: '',
+      for_who: '',
+      capacity: '',
+      location: '',
+      project_details: [],
+      search: '',
+    };
+  },
+  computed: {
+    filteredList() {
+      console.log(this.project_details);
+      return this.project_details.filter((project) => {
+        return (
+          project.proj_name.toLowerCase().includes(this.search.toLowerCase()) ||
+          project.org_name.toLowerCase().includes(this.search.toLowerCase())
+        );
+      });
+    },
+  },
 
-        Nav
-    }
-}
+  methods: {
+    get_details() {
+      axios
+        .get('http://localhost/is216/kakidb-2/kakidb-2/project/read.php')
+        .then((response) => {
+          this.project_details = response.data.records;
+          console.log(this.project_details);
+        })
+        .catch((error) => alert(error));
+    },
+    isDateOver() {
+      console.log(new Date());
+    },
+  },
+  created: function () {
+    this.get_details();
+    return true;
+  },
+};
 </script>
+
 
 
 <template>
@@ -39,20 +84,20 @@ export default {
             <div class="col-8">
                 
                 <!-- <div class="row mx-auto container-fluid"> -->
-                    <div class="row m-0 d-flex justify-content-center border border-dark">
-                        <div class="mt-1 col-12 col-sm-6 col-md-3 pt-0 text-center border border-dark p-2 m-2 rounded-3 border-opacity-25">
+                    <div class="row m-0 d-flex justify-content-center">
+                        <div class="mt-1 col-12 col-sm-6 col-md-3 pt-0 text-center border border-dark p-2 m-2 rounded-3 border-opacity-25 bg-light">
                             <span class="fw-bold">Supported Causes</span><br>
                             <span>Children & Youth</span><br>
                             <span>&nbsp;Elderly</span><br>
                             <span>&nbsp;Families</span><br>
                             <span>&nbsp;Community</span>
                         </div>
-                        <div class="mt-1 col-12 col-sm-6 col-md-3 text-center border border-dark p-2 m-2 rounded-3 border-opacity-25">
+                        <div class="mt-1 col-12 col-sm-6 col-md-3 text-center border border-dark p-2 m-2 rounded-3 border-opacity-25 bg-light">
                             <span class="fw-bold">Our Engagements</span><br>
                             <span class="">Total posts: 20</span><br>
                             <span>Total posts: 20</span>
                         </div>
-                        <div class="mt-1 col-12 col-sm-6 col-md-3 text-center border border-dark p-2 m-2 rounded-3 border-opacity-25">
+                        <div class="mt-1 col-12 col-sm-6 col-md-3 text-center border border-dark p-2 m-2 rounded-3 border-opacity-25 bg-light">
                             <span class="fw-bold">Find us here</span><br>
                             <span>Instagram</span><br>
                             <span>Twitter</span><br>
@@ -64,8 +109,6 @@ export default {
             </div>
             <div class="col-2"></div>
         </div>
-
-
 
 
         <div class="row mt-5">
@@ -137,14 +180,10 @@ export default {
                     </div>
 
                 </div>
-            </div>
-            <div
-            class="tab-content"
-            id="nav-tabContent"
-            style="background-color: white; border-radius: 10px;"
-            >
+
+                
                 <div
-                    class="tab-pane fade show active"
+                    class="tab-pane fade show"
                     id="nav-post"
                     role="tabpanel"
                     aria-labelledby="nav-post-tab"
@@ -152,7 +191,7 @@ export default {
                 >
                     <div class="container-fluid">
                         <div class="row mx-auto container-fluid">
-                            <h1>HI</h1>
+                            
                             <div
                             v-if="isDateOver"
                             v-for="project in filteredList"
@@ -260,14 +299,8 @@ export default {
                     </div>
 
                 </div>
-            </div>
-            <div
-            class="tab-content"
-            id="nav-tabContent"
-            style="background-color: white; border-radius: 10px;"
-            >
                 <div
-                    class="tab-pane fade show active"
+                    class="tab-pane fade show"
                     id="nav-forum"
                     role="tabpanel"
                     aria-labelledby="nav-forum-tab"
@@ -306,14 +339,9 @@ export default {
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
-
         </div>
-            
-           
-        
     </div>
     
 
@@ -326,7 +354,7 @@ export default {
     max-height: 400px;
 
 }
-
+/* 
 
 
 .img {
@@ -445,10 +473,10 @@ h3 {
     width: 100%;
     display: none;
     padding: 0.1rem;
-    /* background: white; */
-}
+    /* background: white; 
+}*/
 
-.tabs input[type="radio"] {
+/* .tabs input[type="radio"] {
     display: none;
 }
 
@@ -474,13 +502,13 @@ h3 {
     }
 }
 
-body {
+body { */
     /* background: #333; */
-    min-height: 100vh;
+    /* min-height: 100vh;
     box-sizing: border-box;
-    padding-top: 10vh;
+    padding-top: 10vh; */
     /* font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; */
-    font-weight: 300;
+    /* font-weight: 300;
     line-height: 1.5;
     max-width: 60rem;
     margin: 0 auto;
@@ -494,5 +522,95 @@ body {
   margin: 0;
   position: relative;
   font-weight: normal;
+} */ 
+
+
+
+
+#bg_img {
+  position: fixed;
+  min-height: 100px;
+  min-width: 1024px;
+  width: 100%;
+  height: auto;
+  top: 0;
+  bottom: 0;
 }
+
+.glass {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.3),
+    rgba(255, 255, 255, 0.1)
+  );
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 2px 22px 0 rgba(0, 0, 0, 0.2);
+}
+
+.projCard {
+  --padding: 0.8rem;
+  border-radius: 0.25rem;
+  overflow: hidden;
+  min-width: 300px;
+  max-width: 400px;
+}
+
+.projCard-header {
+  font-size: 1.5rem;
+  padding: var(--padding);
+  padding-bottom: 0;
+  margin-bottom: 0.5rem;
+}
+
+.projCard-header.projCard-image {
+  padding: 4;
+  overflow: hidden;
+}
+
+.projCard-header.projCard-image > img {
+  display: block;
+  width: 100%;
+  max-height: 200px;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  object-position: center;
+  transition: 200ms transform ease-in-out;
+}
+
+.projCard:hover > .projCard-header.projCard-image > img {
+  transform: scale(1.025);
+}
+
+.projCard-body {
+  font-size: 0.9rem;
+  padding: 0 1rem;
+  background: linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0.5)
+    ),
+    linear-gradient(114.55deg, #dfe3fc 0%, #e2dffe 98.46%);
+}
+
+h6,
+svg {
+  display: inline;
+}
+
+h3 {
+  position: absolute;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  position: relative;
+  font-weight: normal;
+}
+
+
 </style>
