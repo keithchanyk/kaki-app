@@ -11,7 +11,7 @@ if (sessionStorage.getItem('isAuth') == 'true') {
 
 <script>
 import Nav from '../../components/Nav.vue';
-import * as Main from "../../main"
+import * as Main from '../../main';
 
 export default {
   name: 'App',
@@ -35,6 +35,28 @@ export default {
     };
   },
   computed: {
+    // filteredList() {
+    //   var org_name = 'amk community club';
+    //   var today = new Date();
+    //   var dd = String(today.getDate()).padStart(2, '0');
+    //   var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    //   var yyyy = today.getFullYear();
+
+    //   today = yyyy + '/' + mm + '/' + dd;
+
+    //   console.log(today);
+
+    //   console.log(this.project_details);
+
+    //   var dateList = this.project_details.filter((project) => {
+    //     return project.proj_date > today;
+    //   });
+
+    //   return Array.prototype.filter.call(dateList, (project) => {
+    //     return org_name.includes(project.org_name.toLowerCase());
+    //   });
+    // },
+
     filteredList() {
       var categories = [];
       var regions = [];
@@ -276,7 +298,8 @@ export default {
                 />
               </svg>
               <h6 class="fw-normal">
-                &nbsp;{{ Main.tConvert(project.starttime) }} - {{ Main.tConvert(project.endtime) }}
+                &nbsp;{{ Main.tConvert(project.starttime) }} -
+                {{ Main.tConvert(project.endtime) }}
               </h6>
               <br />
               <svg
