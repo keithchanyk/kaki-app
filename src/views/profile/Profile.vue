@@ -30,6 +30,7 @@ export default {
       location: '',
       project_details: [],
       search: '',
+      message: '',
     };
   },
   computed: {
@@ -74,6 +75,9 @@ export default {
     isDateOver() {
       console.log(new Date());
     },
+    submitForm() {
+      alert(this.message);
+    },
   },
   created: function () {
     this.get_details();
@@ -83,11 +87,65 @@ export default {
 </script>
 
 <template>
-  <Nav style="z-index: 3" />
+  <!-- modal content start -->
+  <div
+    class="modal fade"
+    id="exampleModal"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog" style="z-index: 3">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">New message</h1>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="message-text" class="col-form-label">Message:</label>
+              <textarea
+                v-model="message"
+                class="form-control"
+                id="message-text"
+              ></textarea>
+              <h2>{{ message }}</h2>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Close
+          </button>
+          <button
+            type="button"
+            @click="submitForm"
+            data-bs-dismiss="modal"
+            class="btn btn-primary"
+          >
+            Send message
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- end here -->
+  </div>
+  <!-- modal content ends -->
+  <Nav style="z-index: 2" />
 
   <!-- sidebar -->
   <div class="container">
-    <div class="row sticky-top bg-white border-bottom mb-4" style="z-index: 2">
+    <div class="row sticky-top bg-white border-bottom mb-4" style="z-index: 1">
       <div class="col-12 text-start">
         <div class="card sidebar-item bg-special">
           <img
@@ -311,11 +369,11 @@ export default {
                   :key="project.id"
                   class="mt-4 col d-flex justify-content-start"
                 >
-                  <a
-                    class="nav-link"
-                    :href="'/projectdetails?id=' + project.id"
-                  >
-                    <div class="card projCard glass">
+                  <div class="card projCard glass">
+                    <a
+                      class="nav-link"
+                      :href="'/projectdetails?id=' + project.id"
+                    >
                       <div
                         class="card-header projCard-header projCard-image card-image"
                       >
@@ -410,14 +468,26 @@ export default {
                           &nbsp;{{ project.total_capacity }}
                         </h6> -->
                       </div>
-                    </div>
-                  </a>
+
+                      <!-- MARKED -->
+                    </a>
+                    <button
+                      type="button"
+                      class="btn btn-primary"
+                      data-bs-toggle="modal"
+                      data-bs-target="#exampleModal"
+                      data-bs-whatever="@mdo"
+                    >
+                      Open modal for @mdo
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
 
             <!-- PROJECT DETAILS -->
           </div>
+
           <div
             class="tab-pane fade"
             id="nav-profile"
@@ -435,6 +505,11 @@ export default {
 </template>
 
 <style scoped>
+/* modal */
+modal-backdrop {
+  z-index: 3;
+}
+
 body {
   background-color: #f0eefe;
 }
