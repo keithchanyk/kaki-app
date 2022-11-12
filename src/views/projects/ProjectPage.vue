@@ -296,7 +296,7 @@ export default {
                 />
                 <path d="M4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z" />
               </svg>
-              <h6 class="fw-normal">&nbsp;{{ project.suitability }}</h6>
+              <h6 class="fw-normal">&nbsp;&nbsp;{{ project.suitability }}</h6>
               <br />
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -310,11 +310,16 @@ export default {
                   d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"
                 />
               </svg>
-              <h6 class="fw-normal">{{ project.region }}</h6>
-              <br />
+              <h6 class="fw-normal">&nbsp;&nbsp;{{ project.region }}</h6>
+              
               <h6 style="font-size: 12px" class="fw-light">
                 &nbsp;{{ project.capacity }}
               </h6>
+              <div class="d-flex justify-content-end">
+                <span class="badge text-bg-primary">{{ project.categories }}</span>
+              </div>
+              
+
             </div>
           </div>
         </div>
