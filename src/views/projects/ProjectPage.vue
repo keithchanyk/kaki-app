@@ -19,6 +19,7 @@ export default {
     Nav,
   },
   data() {
+    
     return {
       proj_name: '',
       org_name: '',
@@ -30,13 +31,28 @@ export default {
       location: '',
       project_details: [],
       search: '',
-      categories: 
-      {'Elderly': "src/assets/projectimg/pic2.jpg", 
-      'Children & Youth': "src/assets/projectimg/pic1.jpg", 
-      'Environment': "src/assets/projectimg/pic6.jpg", 
-      'Community': "src/assets/projectimg/pic1.jpg"},
+      categories: ['Elderly', 'Children & Youth', 'Environment', 'Community'],
+      categories_details: 
+      {
+        'Elderly': {
+          badge: "badge text-bg-primary",
+          img: "src/assets/projectimg/pic2.jpg"
+      },
+      'Children & Youth': {
+          badge: "badge text-bg-danger",
+          img: "src/assets/projectimg/pic1.jpg", 
+      },
+      'Environment': {
+        badge: "badge text-bg-success",
+        img: "src/assets/projectimg/pic6.jpg"
+      } ,
+      'Community': {
+        badge: "badge text-bg-secondary",
+        img: "src/assets/projectimg/pic1.jpg"},
+      },
       regions: ['North', 'South', 'East', 'West', 'Central'],
     };
+    
   },
   computed: {
     // filteredList() {
@@ -99,22 +115,22 @@ export default {
         );
       });
     },
-    badgecolor() {
-        let el = document.getElementById("cat");
-        console.log(el)
-        let category = el.innerText.match("Community")[1];
-        console.log(category)
-        if (category == "Community") {
-          el.className = "badge text-bg-danger";
-        } else if (category == "Environment") {
-          el.className = "badge text-bg-danger";
-        } else if (category == "Children & Youth") {
-          el.className = "badge text-bg-danger";
-        } else if (category == "Elderly")  {
-          el.className = "badge text-bg-danger";
-        }
+    // categories() {
+        
+    //     console.log(categories_details[Elderly].badge/key)
+    //     let category = el.innerText.match("Community")[1];
+    //     console.log(category)
+    //     if (category == "Community") {
+    //       el.className = "badge text-bg-danger";
+    //     } else if (category == "Environment") {
+    //       el.className = "badge text-bg-danger";
+    //     } else if (category == "Children & Youth") {
+    //       el.className = "badge text-bg-danger";
+    //     } else if (category == "Elderly")  {
+    //       el.className = "badge text-bg-danger";
+    //     }
       
-    }
+    // }
   },
 
   methods: {
@@ -127,6 +143,7 @@ export default {
         })
         .catch((error) => alert(error));
     },
+    
   },
   created: function () {
     this.get_details();
@@ -136,6 +153,7 @@ export default {
   //     this.get_details();
   //   },
 };
+console.log(categories_details[Elderly].badge/key)
 </script>
 
 <template>
@@ -274,12 +292,14 @@ export default {
           class="mt-4 col-12 col-sm-6 col-md-4"
         >
           <!-- class="mt-4 col col-md-4 mb-2 p-3 d-flex justify-content-start" -->
+          <!--'images/' + w + '.jpg'-->
           <div class="card glass">
             <div class="card-header card-image">
-              <img v-bind:src="'images/' + w + '.jpg'"
+              <img v-if="project.category.length != 0"
+                
                 id="card-img"
                 class="mb-2 rounded"
-                
+                v-on:src="categories()"
               />
             </div>
             <div class="card-body mb-1">
@@ -359,8 +379,7 @@ export default {
                 &nbsp;{{ project.capacity }}
               </h6>
               <div class="d-flex justify-content-end">
-                {{badgecolor}}
-                <span class="badge text-bg-primary" id="cat">{{project.category}}</span>
+                <span :class="categories_details[project.category].badge/key" id="cat">{{project.category}}</span>
               </div>
               
 
