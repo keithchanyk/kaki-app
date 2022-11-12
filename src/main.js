@@ -27,6 +27,7 @@ import { GoogleMap, Marker } from 'vue3-google-map'
 
 
 import VueEasyLightbox from 'vue-easy-lightbox'
+import VueNumber from 'vue-number-animation'
 
 
 export default defineComponent({
@@ -68,7 +69,9 @@ createApp(App)
     })
 .use(vue3GoogleLogin, {
     clientId: '785352656664-clp2q5kst70jfde7lsivm0rm02gl84kk.apps.googleusercontent.com',
-  }).use(VueEasyLightbox)
+  })
+.use(VueEasyLightbox)
+.use(VueNumber)
 .component('font-awesome-icon', FontAwesomeIcon)
 .mount('#app')
 
