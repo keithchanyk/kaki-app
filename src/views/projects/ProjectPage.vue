@@ -490,9 +490,6 @@ h3 {
   position: absolute;
 }
 
-.a {
-  border: 2px solid red;
-}
 
 .searchFilter {
   width: 90%;
