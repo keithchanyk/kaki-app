@@ -1,4 +1,4 @@
-/* #bg_img{
+#bg_img{
     position: fixed;
     min-height: 100px;
     min-width: 1024px;
@@ -11,6 +11,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 1rem;
+    /* align-items: flex-start; */
 }
 
 .glass{
@@ -70,4 +71,4 @@ h6, svg{
 }
 h3 {
     position: absolute;
-} */
+}

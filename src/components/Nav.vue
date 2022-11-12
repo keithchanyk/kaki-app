@@ -117,5 +117,4 @@ img {
   object-fit: cover;
   border-radius: 50%;
 }
-
 </style>
