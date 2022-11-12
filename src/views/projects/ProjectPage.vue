@@ -31,25 +31,35 @@ export default {
       location: '',
       project_details: [],
       search: '',
+      category: '',
       categories: ['Elderly', 'Children & Youth', 'Environment', 'Community'],
       categories_details: 
+        {
+        'Elderly': "badge text-bg-primary",
+        'Children & Youth': "badge text-bg-danger",
+        'Environment': "badge text-bg-success",
+        'Community': "badge text-bg-secondary",
+        },
+
+      categories_details: 
       {
-        'Elderly': {
+        'Elderly': {  
           badge: "badge text-bg-primary",
-          img: "src/assets/projectimg/pic2.jpg"
-      },
-      'Children & Youth': {
-          badge: "badge text-bg-danger",
-          img: "src/assets/projectimg/pic1.jpg", 
-      },
-      'Environment': {
-        badge: "badge text-bg-success",
-        img: "src/assets/projectimg/pic6.jpg"
-      } ,
-      'Community': {
-        badge: "badge text-bg-secondary",
-        img: "src/assets/projectimg/pic1.jpg"},
-      },
+          // img: "src/assets/projectimg/pic2.jpg"
+        },
+        'Children & Youth': {
+            badge: "badge text-bg-danger",
+            // img: "src/assets/projectimg/pic1.jpg", 
+        },
+        'Environment': {
+          badge: "badge text-bg-success",
+          // img: "src/assets/projectimg/pic6.jpg"
+        } ,
+        'Community': {
+          badge: "badge text-bg-secondary",
+          // img: "src/assets/projectimg/pic1.jpg"
+        },
+        },
       regions: ['North', 'South', 'East', 'West', 'Central'],
     };
     
@@ -115,8 +125,11 @@ export default {
         );
       });
     },
-    // categories() {
-        
+    categories() {
+      var category = document.getElementById("cat")
+
+      console.log(category)
+          
     //     console.log(categories_details[Elderly].badge/key)
     //     let category = el.innerText.match("Community")[1];
     //     console.log(category)
@@ -130,13 +143,13 @@ export default {
     //       el.className = "badge text-bg-danger";
     //     }
       
-    // }
+    }
   },
 
   methods: {
     get_details() {
       axios
-        .get('http://localhost/kakidb-2/project/read.php')
+        .get('http://localhost/is216/kakidb-2/kakidb-2/project/read.php')
         .then((response) => {
           this.project_details = response.data.records;
           console.log(this.project_details);
@@ -153,7 +166,6 @@ export default {
   //     this.get_details();
   //   },
 };
-console.log(categories_details[Elderly].badge/key)
 </script>
 
 <template>
@@ -304,7 +316,7 @@ console.log(categories_details[Elderly].badge/key)
                 <img
                   id="card-img"
                   class="mb-2 rounded"
-                  src="src/assets/pic1.jpg"
+                  src="src/assets/projectimg/pic1.jpg"
                 />
               </div>
               <div class="card-body mb-1">
@@ -385,11 +397,33 @@ console.log(categories_details[Elderly].badge/key)
                 <h6 style="font-size: 12px" class="fw-light">
                   &nbsp;{{ project.capacity }}
                 </h6>
-                <div class="d-flex justify-content-end">
-                  <span class="badge text-bg-primary">{{
-                    project.categories
-                  }}</span>
+                <div v-if="project.category == 'Elderly'" 
+                class="d-flex justify-content-end">
+                  <span class="badge text-bg-primary">
+                    {{project.category}}</span>
                 </div>
+                <!-- <div v-if="project.category == 'Elderly'" 
+                class="d-flex justify-content-end">
+                  <span class="badge text-bg-primary">
+                    {{project.category}}</span>
+                </div>
+                <div v-if="project.category == 'Children & Youth'" 
+                class="d-flex justify-content-end">
+                  <span class="badge text-bg-danger">
+                    {{project.category}}</span>
+                </div>
+                <div v-if="project.category == 'Environment'" 
+                class="d-flex justify-content-end">
+                  <span class="badge text-bg-success">
+                    {{project.category}}</span>
+                </div>
+                <div v-if="project.category == 'Community'" 
+                class="d-flex justify-content-end">
+                  <span class="badge text-bg-secondary">
+                    {{project.category}}</span>
+                </div> -->
+
+
               </div>
             </div>
           </a>
