@@ -53,6 +53,7 @@ export default defineComponent({
       ], // Img Url , string or Array of string
       visible: false,
       index: 0, // default: 0
+      selected: '',
 
       // center: { lat: this.projectDetails[0].lat, lng: this.projectDetails[0].lng }
       // lats: 1.41518559,
@@ -69,21 +70,9 @@ export default defineComponent({
     },
   },
   methods: {
-    // lightbox methods
-    // showSingle() {
-    //   this.imgs = 'http://via.placeholder.com/350x150';
-    //   this.show();
-    // },
-    // showMultiple() {
-    //   this.imgs = [
-    //     'https://unsplash.it/1200/768.jpg?image=251',
-    //     'https://unsplash.it/1200/768.jpg?image=252',
-    //     'https://unsplash.it/1200/768.jpg?image=253',
-    //   ];
-
-    //   this.index = 1; // index of imgList
-    //   this.show();
-    // },
+    getRole() {
+      console.log(this.roleSelected);
+    },
     show() {
       this.visible = true;
     },
@@ -110,13 +99,13 @@ export default defineComponent({
       const id = this.getId;
       // console.log(id)
       const url =
-        'http://localhost:8888/kakidb-2/project/read_one.php?id=' + id;
+        'http://localhost/kakidb-2/project/read_one.php?id=' + id;
       // console.log(url)
 
       // /Applications/MAMP/htdocs/is216/kaki-app/src/kakidb-2
 
       axios
-        .get('http://localhost:8888/kakidb-2/project/read_one.php?id=' + id)
+        .get('http://localhost/kakidb-2/project/read_one.php?id=' + id)
         .then((response) => {
           console.log(response.data.records);
           this.projectDetails = response.data.records;
@@ -155,18 +144,9 @@ export default defineComponent({
 <template>
   <Nav style="z-index: 3" />
 
-  <div
-    class="container main"
-    v-for="project in projectDetails"
-    :key="project.id"
-  >
+  <div class="container main" v-for="project in projectDetails" :key="project.id">
     <div class="row gallery">
-      <div
-        v-for="(img, idx) in imgs"
-        :key="idx"
-        class="col pic"
-        @click="() => show(idx)"
-      >
+      <div v-for="(img, idx) in imgs" :key="idx" class="col pic" @click="() => show(idx)">
         <img :src="img.src ? img.src : img" style="width: 100%" />
       </div>
     </div>
@@ -177,15 +157,8 @@ export default defineComponent({
 
       <!-- all props & events -->
 
-      <vue-easy-lightbox
-        escDisabled
-        moveDisabled
-        :visible="visible"
-        :imgs="imgs"
-        :index="index"
-        @hide="handleHide"
-        class="proj_lightbox"
-      ></vue-easy-lightbox>
+      <vue-easy-lightbox escDisabled moveDisabled :visible="visible" :imgs="imgs" :index="index" @hide="handleHide"
+        class="proj_lightbox"></vue-easy-lightbox>
     </div>
 
     <!-- <a
@@ -258,97 +231,64 @@ export default defineComponent({
                     distancing measures
                   </p>
 
-                  <div
-                    class="d-grid gap-2 d-md-flex justify-content-md-end align-items-center"
-                  >
+                  <div class="d-grid gap-2 d-md-flex justify-content-md-end align-items-center">
                     <p class="fw-bold m-0">
                       {{ project.total_capacity }} Opening Left
                     </p>
 
-                    <button
-                      class="btn btn-primary btn-apply btn-lg me-md-2 px-5"
-                      type="button"
-                      data-bs-toggle="modal"
-                      href="#exampleModalToggle"
-                    >
+                    <button class="btn btn-primary btn-apply btn-lg me-md-2 px-5" type="button" data-bs-toggle="modal"
+                      href="#exampleModalToggle">
                       Apply Now
                     </button>
 
-                    <div
-                      class="modal fade"
-                      id="exampleModalToggle"
-                      aria-labelledby="exampleModalToggleLabel"
-                      tabindex="-1"
-                      aria-hidden="true"
-                      style="display: none"
-                    >
+                    <div class="modal fade" id="exampleModalToggle" aria-labelledby="exampleModalToggleLabel"
+                      tabindex="-1" aria-hidden="true" style="display: none">
                       <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
                           <div class="modal-header">
-                            <h1
-                              class="modal-title fs-5"
-                              id="exampleModalToggleLabel"
-                            >
+                            <h1 class="modal-title fs-5" id="exampleModalToggleLabel">
                               Please select your preferred role
                             </h1>
                           </div>
                           <div class="modal-body">
                             <form>
-                              <select
-                                class="form-select"
-                                aria-label="Default select example"
-                              >
+                              <select class="form-select" aria-label="Default select example" v-model="selected">
                                 <option selected>Select Roles</option>
-                                <option value="1">Role 1</option>
-                                <option value="2">Role 2</option>
-                                <option value="3">Role 3</option></select
-                              ><br />=<br />
-                              <textarea
-                                class="form-control"
-                                placeholder="Write comments here"
-                              ></textarea
-                              ><br /><br />
+                                <option value="General Volunteer">
+                                  General Volunteer
+                                </option>
+                                <option value="Designer">Designer</option>
+                                <option value="Coder">Coder</option>
+                                <option value="Manager">Manager</option>
+                              </select><br /><br />
+                              <textarea class="form-control"
+                                placeholder="Tell us about yourself!"></textarea><br /><br />
                             </form>
                           </div>
                           <div class="modal-footer">
-                            <button
-                              class="btn btn-primary"
-                              data-bs-target="#exampleModalToggle2"
-                              data-bs-toggle="modal"
-                            >
+                            <button class="btn btn-primary" data-bs-target="#exampleModalToggle2"
+                              data-bs-toggle="modal">
                               Confirm application
                             </button>
                           </div>
                         </div>
                       </div>
                     </div>
-                    <div
-                      class="modal fade"
-                      id="exampleModalToggle2"
-                      aria-labelledby="exampleModalToggleLabel2"
-                      tabindex="-1"
-                      aria-hidden="true"
-                      style="display: none"
-                    >
+                    <div class="modal fade" id="exampleModalToggle2" aria-labelledby="exampleModalToggleLabel2"
+                      tabindex="-1" aria-hidden="true" style="display: none">
                       <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
                           <div class="modal-header">
-                            <h1
-                              class="modal-title fs-5"
-                              id="exampleModalToggleLabel2"
-                            >
+                            <h1 class="modal-title fs-5" id="exampleModalToggleLabel2">
                               Your application
                             </h1>
                           </div>
                           <div class="modal-body">
-                            You have confirmed your application for the selected
-                            role.
+                            You have confirmed your application for
+                            {{ selected }}
                           </div>
                           <div class="modal-footer">
-                            <button
-                              class="btn btn-primary"
-                              data-bs-dismiss="modal"
-                            >
+                            <button class="btn btn-primary" data-bs-dismiss="modal">
                               Back to home page
                             </button>
                           </div>
@@ -512,28 +452,20 @@ export default defineComponent({
               <div class="row pt-3 ps-3">
                 <ul>
                   <li class="list-group-item mt-2">
-                    <img
-                      src="../../assets/landingImg/icons/pdicons/Timesheet.png"
-                    />
+                    <img src="../../assets/landingImg/icons/pdicons/Timesheet.png" />
                     &nbsp; {{ project.proj_date }}
                   </li>
                   <li class="list-group-item mt-2">
-                    <img
-                      src="../../assets/landingImg/icons/pdicons/Clock.png"
-                    />
+                    <img src="../../assets/landingImg/icons/pdicons/Clock.png" />
                     &nbsp; {{ tConvert(project.starttime) }} -
                     {{ tConvert(project.endtime) }}
                   </li>
                   <li class="list-group-item mt-2">
-                    <img
-                      src="../../assets/landingImg/icons/pdicons/Group.png"
-                    />
+                    <img src="../../assets/landingImg/icons/pdicons/Group.png" />
                     &nbsp; Suitable for: All, First-timers
                   </li>
                   <li class="list-group-item mt-2">
-                    <img
-                      src="../../assets/landingImg/icons/pdicons/Location.png"
-                    />
+                    <img src="../../assets/landingImg/icons/pdicons/Location.png" />
                     &nbsp; Geylang
                     <p class="text-muted mt-2">
                       3 EUNOS CRESCENT Singapore 400003
@@ -545,29 +477,20 @@ export default defineComponent({
               <div class="d-flex justify-content-around">
                 <div class="row">
                   <div class="col">
-                    <button
-                      type="button"
-                      class="btn btn-secondary rounded-circle btn-icon"
-                    >
+                    <button type="button" class="btn btn-secondary rounded-circle btn-icon">
                       <!-- <font-awesome-icon icon="fa-solid fa-link" /> -->
                       <font-awesome-icon icon="fa-solid fa-lock" />
                     </button>
                   </div>
                   <div class="col">
-                    <button
-                      type="button"
-                      class="btn btn-secondary rounded-circle btn-icon"
-                    >
+                    <button type="button" class="btn btn-secondary rounded-circle btn-icon">
                       <font-awesome-icon icon="fa-solid fa-share" />
                       <!-- <font-awesome-icon icon="fa-solid fa-share" /> -->
                     </button>
                   </div>
 
                   <div class="col">
-                    <button
-                      type="button"
-                      class="btn btn-secondary rounded-circle btn-icon"
-                    >
+                    <button type="button" class="btn btn-secondary rounded-circle btn-icon">
                       <i class="fa-solid fa-bookmark" aria-hidden="true"></i>
                     </button>
                   </div>
@@ -589,9 +512,7 @@ export default defineComponent({
                     &nbsp; kaki_tgt123@gmail.com
                   </li>
                   <li class="list-group-item">
-                    <img
-                      src="../../assets/landingImg/icons/pdicons/Phone.png"
-                    />
+                    <img src="../../assets/landingImg/icons/pdicons/Phone.png" />
                     &nbsp; +65 1234 5678
                   </li>
                 </ul>
@@ -631,20 +552,17 @@ export default defineComponent({
       <div class="col col-lg-8 col-sm-12 mt-3 p-0">
         <div class="card">
           <div class="card-body">
-            <GoogleMap
-              :key="componentKey"
-              api-key="AIzaSyDCBtObBDUy_E5GwV4iWad9G7I3EhMNjt4"
-              class="map"
-              :center="center"
-              :zoom="15"
-            >
+            <p class="h2 fw-bold">Location</p>
+            <GoogleMap :key="componentKey" api-key="AIzaSyDCBtObBDUy_E5GwV4iWad9G7I3EhMNjt4" class="map"
+              :center="center" :zoom="15">
               <Marker :options="markerOptions" />
             </GoogleMap>
           </div>
         </div>
       </div>
     </div>
-    -->
+
+    
   </div>
 </template>
 
@@ -749,11 +667,18 @@ h2 {
 @media (max-width: 576px) {
   #details-page {
     padding: 0;
-    margin-top: 1rem;
+    margin-bottom: 1rem;
   }
+
+  .phone-view {
+  display: none;
 }
+}
+
 .btn__next {
   /* position: relative !important ; */
   vertical-align: -35em;
 }
+
+
 </style>
