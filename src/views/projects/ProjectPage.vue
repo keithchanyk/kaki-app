@@ -60,10 +60,10 @@ export default {
       regions: ['North', 'South', 'East', 'West', 'Central'],
       project_img: [
         {
-          Elderly: 'src/assets/projectimg/pic1.jpg',
-          'Children & Youth': 'src/assets/projectimg/pic2.jpg',
-          Environment: 'src/assets/projectimg/pic3.jpg',
-          Community: 'src/assets/projectimg/pic4.jpg',
+          Elderly: 'src/assets/projectimg/pic2.jpg',
+          'Children & Youth': 'src/assets/projectimg/pic4.jpg',
+          Environment: 'src/assets/projectimg/pic6.jpg',
+          Community: 'src/assets/projectimg/pic3.jpg',
         },
         // {
         //   id: 5,
@@ -159,7 +159,7 @@ export default {
   methods: {
     get_details() {
       axios
-        .get('http://localhost/kakidb-2/project/read.php')
+        .get('http://localhost:8888/kakidb-2/project/read.php')
         .then((response) => {
           this.project_details = response.data.records;
           console.log(this.project_details);
@@ -430,33 +430,41 @@ export default {
                   v-if="project.category == 'Elderly'"
                   class="d-flex justify-content-end"
                 >
-                  <span class="badge text-bg-primary">
-                    {{ project.category }}</span
-                  >
+                  <h5>
+                    <span class="badge text-bg-primary">
+                      {{ project.category }}</span
+                    >
+                  </h5>
                 </div>
                 <div
                   v-if="project.category == 'Children & Youth'"
                   class="d-flex justify-content-end"
                 >
-                  <span class="badge text-bg-danger">
-                    {{ project.category }}</span
-                  >
+                  <h5>
+                    <span class="badge text-bg-danger">
+                      {{ project.category }}</span
+                    >
+                  </h5>
                 </div>
                 <div
                   v-if="project.category == 'Environment'"
                   class="d-flex justify-content-end"
                 >
-                  <span class="badge text-bg-success">
-                    {{ project.category }}</span
-                  >
+                  <h5>
+                    <span class="badge text-bg-success">
+                      {{ project.category }}</span
+                    >
+                  </h5>
                 </div>
                 <div
                   v-if="project.category == 'Community'"
                   class="d-flex justify-content-end"
                 >
-                  <span class="badge text-bg-secondary">
-                    {{ project.category }}</span
-                  >
+                  <h5>
+                    <span class="badge text-bg-secondary">
+                      {{ project.category }}</span
+                    >
+                  </h5>
                 </div>
               </div>
             </div>
