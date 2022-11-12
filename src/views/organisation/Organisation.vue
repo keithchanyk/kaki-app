@@ -469,4 +469,10 @@ body {
     margin: 0 auto;
     font-size: 112%;
 }
+
+*,
+*::before,
+*::after {
+  position: relative;
+}
 </style>

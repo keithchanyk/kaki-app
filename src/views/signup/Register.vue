@@ -1,307 +1,312 @@
 <template class="form">
+  <div class="container">
+    <h1 class="register-header text-center">
+      User <span>Registration</span> Form
+    </h1>
+    <!-- <h1>Advanced <span> Vue 3 </span> Form</h1> -->
 
-    <div class="container">
-        <h1 class="register-header text-center">User <span>Registration</span> Form</h1>
-        <!-- <h1>Advanced <span> Vue 3 </span> Form</h1> -->
-
-        <VueForm :formConfig="formConfig" />
-
-    </div>
+    <VueForm :formConfig="formConfig" />
+  </div>
 </template>
-  
+
 <script setup scoped>
-import VueForm from "../../views/signup/registerProfile/vueForm";
-import { formConfig } from "../../config/config";
+import VueForm from '../../views/signup/registerProfile/vueForm';
+import { formConfig } from '../../config/config';
 </script>
 <style>
-@import url("https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css");
+@import url('https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css');
 
-@import url("https://fonts.googleapis.com/css?family=Rubik:300,400,500,700&display=swap");
+@import url('https://fonts.googleapis.com/css?family=Rubik:300,400,500,700&display=swap');
 
 :root {
-    /* accent-color: #4c9d8d; */
-    --primary: #3B4F7D;
-    --secondary: #4A60E8;
-    --fonts: #2c3e50;
-    --error: #ef6574;
-    --light: #E2DEFE;
+  /* accent-color: #4c9d8d; */
+  --primary: #3b4f7d;
+  --secondary: #4a60e8;
+  --fonts: #2c3e50;
+  --error: #ef6574;
+  --light: #e2defe;
 }
 
 label {
-    background: none;
+  background: none;
 }
 
 body {
-    margin: 0;
+  margin: 0;
 }
 
 #app {
-    font-family: "Rubik", sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    color: var(--fonts);
-    /* background-image: url("../img/bg.svg"); */
-    height: 100vh;
-    background-repeat: no-repeat;
-    /* background-color: var(--light); */
-    background-blend-mode: overlay;
-    background-size: cover;
+  font-family: 'Rubik', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--fonts);
+  /* background-image: url("../img/bg.svg"); */
+  height: 100vh;
+  background-repeat: no-repeat;
+  /* background-color: var(--light); */
+  background-blend-mode: overlay;
+  background-size: cover;
 }
 
 .register-form {
-    /* background-image: url("../img/vue-mascot.svg"); */
-    /* background-position: bottom right; */
-    /* background-size: 25%; */
-    height: 100vh;
-    background-repeat: no-repeat;
+  /* background-image: url("../img/vue-mascot.svg"); */
+  /* background-position: bottom right; */
+  /* background-size: 25%; */
+  height: 100vh;
+  background-repeat: no-repeat;
 }
 
 @media screen and (max-width: 600px) {
-    form {
-        background-size: 65%;
-    }
+  form {
+    background-size: 65%;
+  }
 }
 
 .form-template {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Title - Advanced Vue.js Form */
 .title h1 {
-    /* padding-top: 5px; */
-    /* font-weight: 700; */
-    /* font-size: 1.7em; */
+  /* padding-top: 5px; */
+  /* font-weight: 700; */
+  /* font-size: 1.7em; */
 }
 
 h1.register-header {
-    color: var(--secondary);
-    /* position: fixed; */
-    /* position: static; */
-    /* left: 0; */
-    /* right: 0; */
-    user-select: none;
-    /* opacity: 0.85; */
+  color: var(--secondary);
+  /* position: fixed; */
+  /* position: static; */
+  /* left: 0; */
+  /* right: 0; */
+  user-select: none;
+  /* opacity: 0.85; */
 }
 
 h1 span {
-    color: var(--fonts)
+  color: var(--fonts);
 }
 
 /* HTML Tags */
 h1 {
-    margin: 15px;
-    font-weight: 300;
+  margin: 15px;
+  font-weight: 300;
 }
 
 h2 {
-    font-size: 2em;
-    margin-bottom: 0.75em;
+  font-size: 2em;
+  margin-bottom: 0.75em;
 }
 
 h2:not(:first-child) {
-    margin-top: 0.75em;
+  margin-top: 0.75em;
 }
 
-input[type="checkbox"],
-input[type="radio"] {
-    height: 20px;
-    width: 20px;
-    margin-right: 10px;
+input[type='checkbox'],
+input[type='radio'] {
+  height: 20px;
+  width: 20px;
+  margin-right: 10px;
 }
 
-input[type="text"],
+input[type='text'],
 textarea {
-    border-color: transparent;
-    border: none;
-    border-bottom: 2px solid var(--light) !important;
-    height: 30px;
-    width: 100%;
-    font-size: 1.5em;
-    border-radius: 2px;
-    background-color: transparent;
+  border-color: transparent;
+  border: none;
+  border-bottom: 2px solid var(--light) !important;
+  height: 30px;
+  width: 100%;
+  font-size: 1.5em;
+  border-radius: 2px;
+  background-color: transparent;
 }
 
-input[type="text"]:focus,
+input[type='text']:focus,
 textarea:focus {
-    outline: none;
-    border-bottom: 2px solid var(--primary) !important;
+  outline: none;
+  border-bottom: 2px solid var(--primary) !important;
 }
 
-input[type="text"]::placeholder,
+input[type='text']::placeholder,
 textarea::placeholder {
-    color: var(--fonts);
-    opacity: 0.25;
+  color: var(--fonts);
+  opacity: 0.25;
 }
 
 textarea {
-    height: 120px;
+  height: 120px;
 }
 
 /* Form */
 .field-group {
-    position: absolute;
-    width: 55%;
+  position: absolute;
+  width: 55%;
 }
 
 @media screen and (max-width: 600px) {
-    .field-group {
-        width: 90%;
-    }
+  .field-group {
+    width: 90%;
+  }
 }
 
 .field-label {
-    display: block;
-    padding-bottom: 35px;
-    display: flex;
-    align-items: center;
-    background-color: transparent;
-    opacity: 0.7;
+  display: block;
+  padding-bottom: 35px;
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  opacity: 0.7;
 }
 
 .field-label svg {
-    color: var(--primary);
-    font-size: 1.5em;
+  color: var(--primary);
+  font-size: 1.5em;
 }
 
 .input-errors {
-    font-size: 1em;
-    font-weight: 300;
-    color: var(--error);
-    font-weight: 400;
-    background-color: rgba(255, 255, 255, 0.5);
-    padding: 5px 7px;
+  font-size: 1em;
+  font-weight: 300;
+  color: var(--error);
+  font-weight: 400;
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 5px 7px;
 }
 
 .input-errors svg {
-    font-size: 25px;
-    margin-right: 5px;
+  font-size: 25px;
+  margin-right: 5px;
 }
 
 .error-msg {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .form-result {
-    display: flex;
-    align-items: center;
-    width: 90%;
+  display: flex;
+  align-items: center;
+  width: 90%;
 }
 
 pre {
-    white-space: pre-wrap
+  white-space: pre-wrap;
 }
 
 .form-complete p {
-    padding-left: 100px;
+  padding-left: 100px;
 }
 
 /* Navigation and Progress Bar */
 .nav-form {
-    position: fixed;
-    bottom: 10px;
-    left: 10px;
-    right: 0;
-    background-color: inherit;
-    padding: 5px;
-    z-index: 10;
-    display: flex;
-    justify-content: left;
-    transition: background-color 0.5s ease;
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  right: 0;
+  background-color: inherit;
+  padding: 5px;
+  z-index: 10;
+  display: flex;
+  justify-content: left;
+  transition: background-color 0.5s ease;
 }
 
 .form-button {
-    display: flex;
-    border: none;
-    margin-left: 0;
-    margin-right: 3px;
-    border-radius: 3px;
-    font-size: 1em;
-    box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2);
-    cursor: pointer;
-    font-weight: 500;
-    padding: 5px 10px;
-    background-color: var(--primary);
-    color: white;
+  display: flex;
+  border: none;
+  margin-left: 0;
+  margin-right: 3px;
+  border-radius: 3px;
+  font-size: 1em;
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  font-weight: 500;
+  padding: 5px 10px;
+  background-color: var(--primary);
+  color: white;
 }
 
 .form-button:hover {
-    background-color: var(--secondary)
+  background-color: var(--secondary);
 }
 
 .form-button svg {
-    font-size: 25px;
+  font-size: 25px;
 }
 
 .disabled {
-    pointer-events: none;
-    background: lightgrey;
+  pointer-events: none;
+  background: lightgrey;
 }
 
 .form-error-message {
-    margin-top: 50px;
-    position: inherit;
+  margin-top: 50px;
+  position: inherit;
 }
 
 .form-error-message .form-button {
-    font-weight: 700;
-    padding: 10px 15px;
+  font-weight: 700;
+  padding: 10px 15px;
 }
 
 .info-block {
-    font-size: 1.5em;
+  font-size: 1.5em;
 }
 
 /* progress bar */
 .bar {
-    height: 7px;
-    width: 0px;
-    background-color: var(--primary);
-    border-radius: 2px;
-    position: fixed;
-    top: 66px;
+  height: 7px;
+  width: 0px;
+  background-color: var(--primary);
+  border-radius: 2px;
+  position: fixed;
+  top: 66px;
 }
 
 ::-webkit-scrollbar {
-    width: 0px;
+  width: 0px;
 }
 
 /* Media query for portrait mode */
 @media only screen and (orientation: portrait) {
-    input[type="text"] {
-        font-size: 1.4em;
-    }
+  input[type='text'] {
+    font-size: 1.4em;
+  }
 
-    textarea {
-        font-size: 1.2em;
-    }
+  textarea {
+    font-size: 1.2em;
+  }
 
-    .form-complete {
-        padding-top: 35%;
-        padding-bottom: 35%;
-    }
+  .form-complete {
+    padding-top: 35%;
+    padding-bottom: 35%;
+  }
 
-    .form-complete p {
-        padding-left: 30px !important;
-    }
+  .form-complete p {
+    padding-left: 30px !important;
+  }
 }
 
 .instructions {
-    font-size: 0.7em;
-    opacity: 0.7;
+  font-size: 0.7em;
+  opacity: 0.7;
 }
 
 .instructions svg {
-    position: relative;
-    opacity: 0.85;
-    top: 5px;
-    font-size: 1.3em;
+  position: relative;
+  opacity: 0.85;
+  top: 5px;
+  font-size: 1.3em;
 }
 
 .instructions span {
-    font-weight: bold;
+  font-weight: bold;
+}
+
+*,
+*::before,
+*::after {
+  position: relative;
 }
 </style>
-  

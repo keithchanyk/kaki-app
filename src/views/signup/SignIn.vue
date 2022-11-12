@@ -1,179 +1,194 @@
 <script setup>
 const callback = (response) => {
-    // This callback will be triggered when the user selects or login to
-    // his Google account from the popup
+  // This callback will be triggered when the user selects or login to
+  // his Google account from the popup
 
-    console.log("Handle the response", response)
-    window.location.href = "http://localhost:5173/project"
-    sessionStorage.setItem("isAuth", "true");
-
-}
-
+  console.log('Handle the response', response);
+  window.location.href = 'http://localhost:5173/project';
+  sessionStorage.setItem('isAuth', 'true');
+};
 </script>
 
 <script>
 export default {
-    name: "App",
-    data() {
-        return {
-            message: "Hello, please wait"
-        }
+  name: 'App',
+  data() {
+    return {
+      message: 'Hello, please wait',
+    };
+  },
+  methods: {
+    login() {
+      // console.log("Handle the response", response)
+      window.location.href = 'http://localhost:5173/project';
+      sessionStorage.setItem('isAuth', 'true');
     },
-    methods: {
-        login() {
-            // console.log("Handle the response", response)
-            window.location.href = "http://localhost:5173/project"
-            sessionStorage.setItem("isAuth", "true");
-        }
-    }
-}
+  },
+};
 </script>
 
 <template>
+  <div class="body">
+    <section class="vh-100">
+      <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="col col-xl-8">
+            <div class="card-login">
+              <div
+                class="row d-flex align-items-center justify-content-center g-0"
+              >
+                <div
+                  class="col-md-6 col-lg-5 d-none d-md-block items-align-center"
+                >
+                  <img src="../../assets/login.png" alt="login form" class="" />
+                </div>
+                <div class="col-md-6 col-lg-7 d-flex align-items-center">
+                  <div class="card-body p-4 p-lg-5 text-black">
+                    <form>
+                      <div class="d-flex align-items-center mb-3 pb-1">
+                        <!-- <i class="fas fa-cubes fa-2x me-3" style="color: #ff6219;"></i> -->
+                        <span class="h3 fw-bold mb-0 text-center"
+                          >Login to Your Account</span
+                        >
+                      </div>
 
-
-    <div class="body">
-
-        <section class="vh-100">
-            <div class="container py-5 h-100">
-                <div class="row d-flex justify-content-center align-items-center h-100">
-                    <div class="col col-xl-8">
-                        <div class="card-login">
-                            <div class="row d-flex align-items-center justify-content-center g-0 ">
-                                <div class="col-md-6 col-lg-5 d-none d-md-block items-align-center">
-                                    <img src="../../assets/login.png" alt="login form" class="" />
-                                </div>
-                                <div class="col-md-6 col-lg-7 d-flex align-items-center">
-                                    <div class="card-body p-4 p-lg-5 text-black">
-
-                                        <form>
-
-                                            <div class="d-flex align-items-center mb-3 pb-1">
-                                                <!-- <i class="fas fa-cubes fa-2x me-3" style="color: #ff6219;"></i> -->
-                                                <span class="h3 fw-bold mb-0 text-center">Login to Your Account</span>
-                                            </div>
-
-                                            <!-- <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Sign into your
+                      <!-- <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Sign into your
                                             account</h5> -->
 
-                                            <div class="form-outline mb-4 content-justify-center">
-                                                <!-- <input type="email" id="form2Example17"
+                      <div class="form-outline mb-4 content-justify-center">
+                        <!-- <input type="email" id="form2Example17"
                                                 class="form-control form-control-lg" />
                                             <label class="form-label" for="form2Example17">Email address</label> -->
 
-                                                <!-- new -->
-                                                <font-awesome-icon icon="fa-solid fa-envelope fa-lg"
-                                                    class="icon icon-pw" />
-                                                <input type="email" class="form-control form-control-lg" id="emailInput"
-                                                    placeholder="Email">
-                                                <!-- <label for="emailInput">Email</label> -->
+                        <!-- new -->
+                        <font-awesome-icon
+                          icon="fa-solid fa-envelope fa-lg"
+                          class="icon icon-pw"
+                        />
+                        <input
+                          type="email"
+                          class="form-control form-control-lg"
+                          id="emailInput"
+                          placeholder="Email"
+                        />
+                        <!-- <label for="emailInput">Email</label> -->
+                      </div>
 
-                                            </div>
-
-                                            <div class="form-outline mb-4 content-justify-center">
-
-                                                <!-- <input type="password" id="form2Example27"
+                      <div class="form-outline mb-4 content-justify-center">
+                        <!-- <input type="password" id="form2Example27"
                                                 class="form-control form-control-lg" />
                                             <label class="form-label" for="form2Example27">Password</label> -->
 
-                                                <font-awesome-icon icon="fa-solid fa-lock fa-lg" class="icon icon-pw" />
-                                                <input type="password" class="form-control form-control-lg pw-input"
-                                                    id="passwordInput" placeholder="Password">
-                                                <!-- <label for="passwordInput">Password</label> -->
-                                            </div>
+                        <font-awesome-icon
+                          icon="fa-solid fa-lock fa-lg"
+                          class="icon icon-pw"
+                        />
+                        <input
+                          type="password"
+                          class="form-control form-control-lg pw-input"
+                          id="passwordInput"
+                          placeholder="Password"
+                        />
+                        <!-- <label for="passwordInput">Password</label> -->
+                      </div>
 
-                                            <!-- <div class="pt-1 mb-4">
+                      <!-- <div class="pt-1 mb-4">
                                             <button class="btn btn-dark btn-lg btn-block" type="button">Login</button>
                                         </div> -->
 
-                                            <div class="d-grid gap-2 text-center">
-                                                <button type="button"
-                                                    class="btn btn-dark btn-signup btn-outline-light fs-4" @click="login">Sign
-                                                    In</button>
-                                                <p class="fs-5">Forget Password?</p>
-                                            </div>
+                      <div class="d-grid gap-2 text-center">
+                        <button
+                          type="button"
+                          class="btn btn-dark btn-signup btn-outline-light fs-4"
+                          @click="login"
+                        >
+                          Sign In
+                        </button>
+                        <p class="fs-5">Forget Password?</p>
+                      </div>
 
-                                            <!-- <a class="small text-muted" href="#!">Forgot password?</a> -->
+                      <!-- <a class="small text-muted" href="#!">Forgot password?</a> -->
 
-                                            <!-- <a href="#!" class="small text-muted">Terms of use.</a>
+                      <!-- <a href="#!" class="small text-muted">Terms of use.</a>
                                         <a href="#!" class="small text-muted">Privacy policy</a> -->
-                                        </form>
-                                        
-                                        <div class="text-center">
-                                            <p class="fs-6">Or</p>
-                                            <div class="g-signin2" data-width="300" data-height="200"
-                                                data-longtitle="true">
-                                                <GoogleLogin :callback="callback" />
+                    </form>
 
-                                                <!-- <button type="button" class="btn btn-primary btn-google">Continue with Google</button> -->
-                                            </div>
-                                            <p class="text-center fs-6" style="color: #393f81;">Don't have an account?
-                                                <router-link to="/signup" >Register here
-                                                </router-link>
-                                                <!-- <a href="#!" style="color: #393f81;">Register here</a> -->
-                                            </p>
+                    <div class="text-center">
+                      <p class="fs-6">Or</p>
+                      <div
+                        class="g-signin2"
+                        data-width="300"
+                        data-height="200"
+                        data-longtitle="true"
+                      >
+                        <GoogleLogin :callback="callback" />
 
-
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <!-- <button type="button" class="btn btn-primary btn-google">Continue with Google</button> -->
+                      </div>
+                      <p class="text-center fs-6" style="color: #393f81">
+                        Don't have an account?
+                        <router-link to="/signup">Register here </router-link>
+                        <!-- <a href="#!" style="color: #393f81;">Register here</a> -->
+                      </p>
                     </div>
+                  </div>
                 </div>
+              </div>
             </div>
-
-        </section>
-
-    </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
 </template>
 
 <style scoped>
 .body {
-    background-image: url("../../../src/assets/bg_plain.png");
+  background-image: url('../../../src/assets/bg_plain.png');
 }
 
 img {
-    display: flex;
-    align-items: center;
-    margin: auto;
-    /* height: 100%; */
-    width: 100%;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  margin: auto;
+  /* height: 100%; */
+  width: 100%;
+  justify-content: center;
 }
 
 .card-login {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.3),
+    rgba(255, 255, 255, 0.1)
+  );
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
 }
 
 input {
-    padding: 5px 10px 5px 50px;
-    display: block;
-    width: 100%;
-
+  padding: 5px 10px 5px 50px;
+  display: block;
+  width: 100%;
 }
 
 .icon {
-    position: absolute;
-    left: 15px;
-    top: 10px;
-    font-size: 25px;
-    height: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 2;
+  position: absolute;
+  left: 15px;
+  top: 10px;
+  font-size: 25px;
+  height: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
 }
 
 .gButton {
-    /* display: inline-block;
+  /* display: inline-block;
     vertical-align: middle;
     padding-left: 42px;
     padding-right: 42px;
@@ -182,23 +197,28 @@ input {
 }
 
 .btn-signup {
-    background-color: #3B4F7D;
-    border-radius: 10px;
-    padding: 10px 0;
-    /* box-shadow: -5px -5px 5px rgba(0, 0, 0, 0.25); */
+  background-color: #3b4f7d;
+  border-radius: 10px;
+  padding: 10px 0;
+  /* box-shadow: -5px -5px 5px rgba(0, 0, 0, 0.25); */
 }
 
 .btn:hover {
-    color: white;
-    background-color: rgb(68, 88, 141);
-    box-shadow: -2px -1px 2px rgba(0, 0, 0, 0.25);
-    /* border:  rgb(68, 88, 141) */
+  color: white;
+  background-color: rgb(68, 88, 141);
+  box-shadow: -2px -1px 2px rgba(0, 0, 0, 0.25);
+  /* border:  rgb(68, 88, 141) */
 }
 
 a,
 .green {
-    text-decoration: none;
-    color: hsla(160, 100%, 37%, 1);
-    transition: 0.4s;
+  text-decoration: none;
+  color: hsla(160, 100%, 37%, 1);
+  transition: 0.4s;
+}
+*,
+*::before,
+*::after {
+  position: relative;
 }
 </style>

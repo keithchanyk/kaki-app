@@ -44,6 +44,12 @@ img {
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
 
 }
+
+*,
+*::before,
+*::after {
+  position: relative;
+}
 </style>
 
 p {

@@ -25,6 +25,10 @@ import VueGoogleMaps from '@fawmi/vue-google-maps'
 import { defineComponent } from 'vue'
 import { GoogleMap, Marker } from 'vue3-google-map'
 
+
+import VueEasyLightbox from 'vue-easy-lightbox'
+
+
 export default defineComponent({
   components: { GoogleMap, Marker },
   setup() {
@@ -49,7 +53,7 @@ createApp(App)
     })
 .use(vue3GoogleLogin, {
     clientId: '785352656664-clp2q5kst70jfde7lsivm0rm02gl84kk.apps.googleusercontent.com',
-  })
+  }).use(VueEasyLightbox)
 .component('font-awesome-icon', FontAwesomeIcon)
 .mount('#app')
 

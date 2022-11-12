@@ -171,7 +171,13 @@ export default {
   display: block;
 }
 
-nav {
+/* nav {
   z-index: 9999999999999;
+} */
+
+*,
+*::before,
+*::after {
+  position: relative;
 }
 </style>
