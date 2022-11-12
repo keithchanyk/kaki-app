@@ -66,11 +66,11 @@ export default {
 </script>
 
 <template>
-  <Nav />
+  <Nav style="z-index: 3" />
 
   <!-- sidebar -->
   <div class="container">
-    <div class="row sticky-top bg-white border-bottom mb-4" style="z-index: -1">
+    <div class="row sticky-top bg-white border-bottom mb-4" style="z-index: 2">
       <div class="col-12 text-start">
         <div class="card sidebar-item bg-special">
           <img
@@ -86,7 +86,7 @@ export default {
         </div>
       </div>
     </div>
-    <div class="row" style="z-index: -2">
+    <div class="row" style="z-index: 0">
       <h1>Your Profile</h1>
       <!-- nav -->
       <div class="col p-0">
@@ -308,10 +308,6 @@ export default {
 </template>
 
 <style scoped>
-.container {
-  z-index: -1;
-}
-
 body {
   background-color: #f0eefe;
 }

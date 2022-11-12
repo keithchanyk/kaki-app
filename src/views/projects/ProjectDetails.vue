@@ -153,7 +153,7 @@ export default defineComponent({
 </style>
 
 <template>
-  <Nav />
+   <Nav style="z-index: 3" />
 
   <div
     class="container main"

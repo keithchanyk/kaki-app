@@ -78,7 +78,7 @@ export default {
 </script>
 
 <template>
-  <Nav />
+   <Nav style="z-index: 3" />
 
   <div class="container">
     <div class="mt-3 row">
@@ -375,9 +375,7 @@ export default {
 </template>
 
 <style scoped>
-.container {
-  z-index: -1;
-}
+
 .banner {
   overflow: hidden;
   max-height: 400px;

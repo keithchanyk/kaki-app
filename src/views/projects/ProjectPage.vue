@@ -119,7 +119,7 @@ export default {
 </script>
 
 <template>
-  <Nav />
+   <Nav style="z-index: 3" />
 
   <div class="container">
     <div class="row">
@@ -352,9 +352,7 @@ export default {
 </template>
 
 <style scoped>
-.container {
-  z-index: -1;
-}
+
 
 #bg_img {
   position: fixed;
