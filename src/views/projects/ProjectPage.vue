@@ -19,6 +19,7 @@ export default {
     Nav,
   },
   data() {
+    
     return {
       proj_name: '',
       org_name: '',
@@ -31,8 +32,27 @@ export default {
       project_details: [],
       search: '',
       categories: ['Elderly', 'Children & Youth', 'Environment', 'Community'],
+      categories_details: 
+      {
+        'Elderly': {
+          badge: "badge text-bg-primary",
+          img: "src/assets/projectimg/pic2.jpg"
+      },
+      'Children & Youth': {
+          badge: "badge text-bg-danger",
+          img: "src/assets/projectimg/pic1.jpg", 
+      },
+      'Environment': {
+        badge: "badge text-bg-success",
+        img: "src/assets/projectimg/pic6.jpg"
+      } ,
+      'Community': {
+        badge: "badge text-bg-secondary",
+        img: "src/assets/projectimg/pic1.jpg"},
+      },
       regions: ['North', 'South', 'East', 'West', 'Central'],
     };
+    
   },
   computed: {
     // filteredList() {
@@ -95,6 +115,22 @@ export default {
         );
       });
     },
+    // categories() {
+        
+    //     console.log(categories_details[Elderly].badge/key)
+    //     let category = el.innerText.match("Community")[1];
+    //     console.log(category)
+    //     if (category == "Community") {
+    //       el.className = "badge text-bg-danger";
+    //     } else if (category == "Environment") {
+    //       el.className = "badge text-bg-danger";
+    //     } else if (category == "Children & Youth") {
+    //       el.className = "badge text-bg-danger";
+    //     } else if (category == "Elderly")  {
+    //       el.className = "badge text-bg-danger";
+    //     }
+      
+    // }
   },
 
   methods: {
@@ -107,6 +143,7 @@ export default {
         })
         .catch((error) => alert(error));
     },
+    
   },
   created: function () {
     this.get_details();
@@ -116,6 +153,7 @@ export default {
   //     this.get_details();
   //   },
 };
+console.log(categories_details[Elderly].badge/key)
 </script>
 
 <template>
