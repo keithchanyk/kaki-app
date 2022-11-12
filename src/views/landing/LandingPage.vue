@@ -76,7 +76,7 @@ if (sessionStorage.getItem('isAuth') == '') {
           <!-- text-landing -->
         </div>
         <div class="container">
-          <div class="text-landing col-6 p-5 mb-5">
+          <div class="text-landing col-12 col-sm-4 p-5 mb-5">
             <p class="fs-1 text-light">
               Ignite Your Volunteering Passion With Kaki Today
             </p>
@@ -248,7 +248,7 @@ if (sessionStorage.getItem('isAuth') == '') {
                 ></button>
               </div>
               <div class="carousel-inner">
-                <div class="carousel-item active">
+                <div class="carousel-item active" data-bs-interval="10000">
                   <div class="col-lg-12">
                     <div class="carouCard card">
                       <div class="card-body">
@@ -268,7 +268,7 @@ if (sessionStorage.getItem('isAuth') == '') {
                   </div>
                 </div>
 
-                <div class="carousel-item">
+                <div class="carousel-item" data-bs-interval="10000">
                   <div class="col-lg-12">
                     <div class="carouCard card">
                       <div class="card-body">
@@ -281,13 +281,13 @@ if (sessionStorage.getItem('isAuth') == '') {
                           passion in helping animals. Now this is my favourite
                           activity -
                         </p>
-                        <h3 class="card-title">April Tan</h3>
+                        <h3 class="card-title">John Snow</h3>
                         <h6 class="text-muted">Active Volunteer</h6>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div class="carousel-item">
+                <div class="carousel-item" data-bs-interval="10000">
                   <div class="col-lg-12">
                     <div class="carouCard card">
                       <div class="card-body">
@@ -300,7 +300,7 @@ if (sessionStorage.getItem('isAuth') == '') {
                           passion in helping animals. Now this is my favourite
                           activity -
                         </p>
-                        <h3 class="card-title">April Tan</h3>
+                        <h3 class="card-title">Abignale See</h3>
                         <h6 class="text-muted">Active Volunteer</h6>
                       </div>
                     </div>
@@ -346,20 +346,21 @@ if (sessionStorage.getItem('isAuth') == '') {
                 <img
                   src="../../assets/landingImg/landing/footer pill.png"
                   class="card-img rounded-5"
+                  id="footerOverlayImg"
                   alt="..."
                 />
 
                 <div class="card-img-overlay">
-                  <h2 class="card-title fw-bold">Contact Us</h2>
+                  <div id="contactTexts" class="text-center">
+                    <h2 class="card-title fw-bold">Contact Us</h2>
 
-                  <div id="contactQuestionDiv">
-                    <p class="card-text">
+                    <p id="contactQuestionDiv" class="card-text">
                       Have queries? Feel free to drop us a message!
                     </p>
 
                     <!--send meesage input-->
                     <form>
-                      <div class="input-group w-50 mx-auto">
+                      <div class="input-group w-75 mx-auto">
                         <input
                           type="text"
                           class="form-control border border-dark bg-light fw-bold"
@@ -541,6 +542,10 @@ if (sessionStorage.getItem('isAuth') == '') {
 </template>
 
 <style scoped>
+#footerOverlayImg {
+  max-height: 280px;
+}
+
 .about {
   margin: 1px;
 }
@@ -618,7 +623,7 @@ body {
   height: 80%;
 }
 
-@media (min-width: 576px) {
+@media (min-width: 290px) {
   .carousel-indicators {
     /* bottom: -60px; */
     bottom: -3rem;
@@ -627,12 +632,12 @@ body {
   .carousel-control-prev {
     /* bottom: -120px;
   left: 400px; */
-    bottom: -9rem;
-    left: 20rem;
+    bottom: -16rem;
+    left: 12rem;
   }
 
   .carousel-control-next {
-    bottom: -9rem;
+    bottom: -16rem;
   }
   .aboutImg {
     display: none;
@@ -649,9 +654,22 @@ body {
   #feedback {
     width: 300px;
   }
+
+  #contactQuestionDiv {
+    display: none;
+  }
+
+  .text-landing {
+    right: 25px !important;
+    width: 85%;
+  }
 }
 
 @media (min-width: 768px) {
+  .text-landing {
+    right: 25px !important;
+    width: 45%;
+  }
   .carousel-indicators {
     /* bottom: -60px; */
     bottom: -4rem;
@@ -670,6 +688,10 @@ body {
 
   .people {
     width: 350px;
+  }
+  #contactQuestionDiv {
+    display: inline-block;
+    right: 240px;
   }
 }
 
