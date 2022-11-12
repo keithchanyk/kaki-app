@@ -524,27 +524,50 @@
                         </button> -->
                         
                         <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                        <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                           Apply Now
-                        </button>
-
-                        <!-- Modal -->
-                        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                          <div class="modal-dialog">
+                        </button> -->
+                        
+                        <div class="modal fade" id="exampleModalToggle" aria-labelledby="exampleModalToggleLabel" tabindex="-1" aria-hidden="true" style="display: none;">
+                          <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">
                               <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Please select your preferred role</h1>
                               </div>
                               <div class="modal-body">
-                                Hello
+                                <form>
+                                  <select class="form-select" aria-label="Default select example">
+                                  <option selected>Select Roles</option>
+                                  <option value="1">Role 1</option>
+                                  <option value="2">Role 2</option>
+                                  <option value="3">Role 3</option>
+                                  </select><br>=<br>
+                                  <textarea class="form-control" placeholder="Write comments here"></textarea><br><br>
+                                </form>
                               </div>
                               <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Submit</button>
+                                <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Confirm application</button>
                               </div>
                             </div>
                           </div>
                         </div>
+                        <div class="modal fade" id="exampleModalToggle2" aria-labelledby="exampleModalToggleLabel2" tabindex="-1" aria-hidden="true" style="display: none;">
+                          <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalToggleLabel2">Your application</h1>
+                              </div>
+                              <div class="modal-body">
+                                You have confirmed your application for the selected role.
+                              </div>
+                              <div class="modal-footer">
+                                <button class="btn btn-primary" data-bs-dismiss="modal">Back to home page</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle" role="button">Apply Now</a>
+    
 
                       </div>
                     </div>
