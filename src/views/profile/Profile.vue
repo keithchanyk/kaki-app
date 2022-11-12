@@ -47,7 +47,7 @@ export default {
   methods: {
     get_details() {
       axios
-        .get('http://localhost/kakidb-2/project/read.php')
+        .get('http://localhost:8888/kakidb-2/project/read.php')
         .then((response) => {
           this.project_details = response.data.records;
           console.log(this.project_details);
@@ -405,10 +405,12 @@ svg {
 h3 {
   position: absolute;
 }
-
 *,
 *::before,
 *::after {
+  box-sizing: border-box;
+  margin: 0;
   position: relative;
+  font-weight: normal;
 }
 </style>

@@ -109,7 +109,8 @@ export default defineComponent({
     getProjectDetails() {
       const id = this.getId;
       // console.log(id)
-      const url = 'http://localhost/kakidb-2/project/read_one.php?id=' + id;
+      const url =
+        'http://localhost:8888/kakidb-2/project/read_one.php?id=' + id;
       // console.log(url)
 
       // /Applications/MAMP/htdocs/is216/kaki-app/src/kakidb-2
@@ -666,6 +667,17 @@ export default defineComponent({
   </script>
   -->
 
+<style>
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  position: static;
+  font-weight: normal;
+}
+</style>
+
 <style scoped>
 .btn__prev {
   top: 400px;
@@ -748,10 +760,5 @@ h2 {
 .btn__next {
   /* position: relative !important ; */
   vertical-align: -35em;
-}
-
-.proj_lightbox ::before,
-.proj_lightbox ::after {
-  position: static;
 }
 </style>
