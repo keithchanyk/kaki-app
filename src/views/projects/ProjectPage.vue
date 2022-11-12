@@ -159,7 +159,7 @@ export default {
   methods: {
     get_details() {
       axios
-        .get('http://localhost:8888/kakidb-2/project/read.php')
+        .get('http://localhost/kakidb-2/project/read.php')
         .then((response) => {
           this.project_details = response.data.records;
           console.log(this.project_details);
@@ -583,5 +583,13 @@ h3 {
   margin: 0;
   position: relative;
   font-weight: normal;
+}
+.btn:hover {
+  background-color: gray !important;
+}
+
+.btn {
+  background-color: transparent !important;
+  border: 1px solid gray;
 }
 </style>
