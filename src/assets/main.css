@@ -77,3 +77,12 @@ a,
   border: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: 0 2px 22px 0 rgba(0, 0, 0, 0.2);
 }
+
+.btn:hover {
+  background-color: #4e5ff4;
+}
+
+.btn {
+  background-color: #3B4F7D;
+  border: none;
+}

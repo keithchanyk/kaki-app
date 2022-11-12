@@ -92,6 +92,11 @@ export default {
   outline: none;
   margin: auto;
   display: block;
+  background-color: transparent !important;
+}
+
+#imgButton:hover {
+  background-color: transparent !important;
 }
 
 /* nav {
@@ -131,7 +136,4 @@ img {
   box-shadow: 0 2px 22px 0 rgba(0, 0, 0, 0.2);
 }
 
-.glass {
-  
-}
 </style>
