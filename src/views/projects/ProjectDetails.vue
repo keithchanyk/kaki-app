@@ -54,6 +54,7 @@ export default defineComponent({
       visible: false,
       index: 0, // default: 0
       selected: '',
+      
 
       // center: { lat: this.projectDetails[0].lat, lng: this.projectDetails[0].lng }
       // lats: 1.41518559,
@@ -144,9 +145,18 @@ export default defineComponent({
 <template>
   <Nav style="z-index: 3" />
 
-  <div class="container main" v-for="project in projectDetails" :key="project.id">
+  <div
+    class="container main"
+    v-for="project in projectDetails"
+    :key="project.id"
+  >
     <div class="row gallery">
-      <div v-for="(img, idx) in imgs" :key="idx" class="col pic" @click="() => show(idx)">
+      <div
+        v-for="(img, idx) in imgs"
+        :key="idx"
+        class="col pic"
+        @click="() => show(idx)"
+      >
         <img :src="img.src ? img.src : img" style="width: 100%" />
       </div>
     </div>
@@ -157,8 +167,15 @@ export default defineComponent({
 
       <!-- all props & events -->
 
-      <vue-easy-lightbox escDisabled moveDisabled :visible="visible" :imgs="imgs" :index="index" @hide="handleHide"
-        class="proj_lightbox"></vue-easy-lightbox>
+      <vue-easy-lightbox
+        escDisabled
+        moveDisabled
+        :visible="visible"
+        :imgs="imgs"
+        :index="index"
+        @hide="handleHide"
+        class="proj_lightbox"
+      ></vue-easy-lightbox>
     </div>
 
     <!-- <a
@@ -231,55 +248,89 @@ export default defineComponent({
                     distancing measures
                   </p>
 
-                  <div class="d-grid gap-2 d-md-flex justify-content-md-end align-items-center">
+                  <div
+                    class="d-grid gap-2 d-md-flex justify-content-md-end align-items-center"
+                  >
                     <p class="fw-bold m-0">
                       {{ project.total_capacity }} Opening Left
                     </p>
 
-                    <button class="btn btn-primary btn-apply btn-lg me-md-2 px-5" type="button" data-bs-toggle="modal"
-                      href="#exampleModalToggle">
+                    <button
+                      class="btn btn-primary btn-apply btn-lg me-md-2 px-5"
+                      type="button"
+                      data-bs-toggle="modal"
+                      href="#exampleModalToggle"
+                    >
                       Apply Now
                     </button>
 
-                    <div class="modal fade" id="exampleModalToggle" aria-labelledby="exampleModalToggleLabel"
-                      tabindex="-1" aria-hidden="true" style="display: none">
+                    <div
+                      class="modal fade"
+                      id="exampleModalToggle"
+                      aria-labelledby="exampleModalToggleLabel"
+                      tabindex="-1"
+                      aria-hidden="true"
+                      style="display: none"
+                    >
                       <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
                           <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="exampleModalToggleLabel">
+                            <h1
+                              class="modal-title fs-5"
+                              id="exampleModalToggleLabel"
+                            >
                               Please select your preferred role
                             </h1>
                           </div>
                           <div class="modal-body">
                             <form>
-                              <select class="form-select" aria-label="Default select example" v-model="selected">
+                              <select
+                                class="form-select"
+                                aria-label="Default select example"
+                                v-model="selected"
+                              >
                                 <option selected>Select Roles</option>
                                 <option value="General Volunteer">
                                   General Volunteer
                                 </option>
                                 <option value="Designer">Designer</option>
                                 <option value="Coder">Coder</option>
-                                <option value="Manager">Manager</option>
-                              </select><br /><br />
-                              <textarea class="form-control"
-                                placeholder="Tell us about yourself!"></textarea><br /><br />
+                                <option value="Manager">Manager</option></select
+                              ><br /><br />
+                              <textarea
+                                class="form-control"
+                                placeholder="Tell us about yourself!"
+                              ></textarea
+                              ><br /><br />
                             </form>
                           </div>
                           <div class="modal-footer">
-                            <button class="btn btn-primary" data-bs-target="#exampleModalToggle2"
-                              data-bs-toggle="modal">
+                            <button
+                              class="btn btn-primary"
+                              data-bs-target="#exampleModalToggle2"
+                              data-bs-toggle="modal"
+                            >
                               Confirm application
                             </button>
                           </div>
                         </div>
                       </div>
                     </div>
-                    <div class="modal fade" id="exampleModalToggle2" aria-labelledby="exampleModalToggleLabel2"
-                      tabindex="-1" aria-hidden="true" style="display: none">
+                    <div
+                      class="modal fade"
+                      id="exampleModalToggle2"
+                      aria-labelledby="exampleModalToggleLabel2"
+                      tabindex="-1"
+                      aria-hidden="true"
+                      style="display: none"
+                    >
                       <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
                           <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="exampleModalToggleLabel2">
+                            <h1
+                              class="modal-title fs-5"
+                              id="exampleModalToggleLabel2"
+                            >
                               Your application
                             </h1>
                           </div>
@@ -288,7 +339,10 @@ export default defineComponent({
                             {{ selected }}
                           </div>
                           <div class="modal-footer">
-                            <button class="btn btn-primary" data-bs-dismiss="modal">
+                            <button
+                              class="btn btn-primary"
+                              data-bs-dismiss="modal"
+                            >
                               Back to home page
                             </button>
                           </div>
@@ -452,20 +506,28 @@ export default defineComponent({
               <div class="row pt-3 ps-3">
                 <ul>
                   <li class="list-group-item mt-2">
-                    <img src="../../assets/landingImg/icons/pdicons/Timesheet.png" />
+                    <img
+                      src="../../assets/landingImg/icons/pdicons/Timesheet.png"
+                    />
                     &nbsp; {{ project.proj_date }}
                   </li>
                   <li class="list-group-item mt-2">
-                    <img src="../../assets/landingImg/icons/pdicons/Clock.png" />
+                    <img
+                      src="../../assets/landingImg/icons/pdicons/Clock.png"
+                    />
                     &nbsp; {{ tConvert(project.starttime) }} -
                     {{ tConvert(project.endtime) }}
                   </li>
                   <li class="list-group-item mt-2">
-                    <img src="../../assets/landingImg/icons/pdicons/Group.png" />
+                    <img
+                      src="../../assets/landingImg/icons/pdicons/Group.png"
+                    />
                     &nbsp; Suitable for: All, First-timers
                   </li>
                   <li class="list-group-item mt-2">
-                    <img src="../../assets/landingImg/icons/pdicons/Location.png" />
+                    <img
+                      src="../../assets/landingImg/icons/pdicons/Location.png"
+                    />
                     &nbsp; Geylang
                     <p class="text-muted mt-2">
                       3 EUNOS CRESCENT Singapore 400003
@@ -477,20 +539,29 @@ export default defineComponent({
               <div class="d-flex justify-content-around">
                 <div class="row">
                   <div class="col">
-                    <button type="button" class="btn btn-secondary rounded-circle btn-icon">
+                    <button
+                      type="button"
+                      class="btn btn-secondary rounded-circle btn-icon"
+                    >
                       <!-- <font-awesome-icon icon="fa-solid fa-link" /> -->
                       <font-awesome-icon icon="fa-solid fa-lock" />
                     </button>
                   </div>
                   <div class="col">
-                    <button type="button" class="btn btn-secondary rounded-circle btn-icon">
+                    <button
+                      type="button"
+                      class="btn btn-secondary rounded-circle btn-icon"
+                    >
                       <font-awesome-icon icon="fa-solid fa-share" />
                       <!-- <font-awesome-icon icon="fa-solid fa-share" /> -->
                     </button>
                   </div>
 
                   <div class="col">
-                    <button type="button" class="btn btn-secondary rounded-circle btn-icon">
+                    <button
+                      type="button"
+                      class="btn btn-secondary rounded-circle btn-icon"
+                    >
                       <i class="fa-solid fa-bookmark" aria-hidden="true"></i>
                     </button>
                   </div>
@@ -512,7 +583,9 @@ export default defineComponent({
                     &nbsp; kaki_tgt123@gmail.com
                   </li>
                   <li class="list-group-item">
-                    <img src="../../assets/landingImg/icons/pdicons/Phone.png" />
+                    <img
+                      src="../../assets/landingImg/icons/pdicons/Phone.png"
+                    />
                     &nbsp; +65 1234 5678
                   </li>
                 </ul>
@@ -553,16 +626,19 @@ export default defineComponent({
         <div class="card">
           <div class="card-body">
             <p class="h2 fw-bold">Location</p>
-            <GoogleMap :key="componentKey" api-key="AIzaSyDCBtObBDUy_E5GwV4iWad9G7I3EhMNjt4" class="map"
-              :center="center" :zoom="15">
+            <GoogleMap
+              :key="componentKey"
+              api-key="AIzaSyDCBtObBDUy_E5GwV4iWad9G7I3EhMNjt4"
+              class="map"
+              :center="center"
+              :zoom="15"
+            >
               <Marker :options="markerOptions" />
             </GoogleMap>
           </div>
         </div>
       </div>
     </div>
-
-    
   </div>
 </template>
 
@@ -671,8 +747,8 @@ h2 {
   }
 
   .phone-view {
-  display: none;
-}
+    display: none;
+  }
 }
 
 .btn__next {
@@ -680,5 +756,16 @@ h2 {
   vertical-align: -35em;
 }
 
-
+/* .glass {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.3),
+    rgba(255, 255, 255, 0.1)
+  );
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 2px 22px 0 rgba(0, 0, 0, 0.2);
+} */
 </style>
