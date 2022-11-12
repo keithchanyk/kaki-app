@@ -20,7 +20,11 @@ export default {
         ><span class="fw-bold text-success" >Kaki</span></a
       > -->
       <!-- <a class="navbar-brand"> -->
-        <router-link class="fw-bold text-success nav-link navbar-brand" to="/project">Kaki</router-link>
+      <router-link
+        class="fw-bold text-success nav-link navbar-brand"
+        to="/project"
+        >Kaki</router-link
+      >
       <!-- </a> -->
       <button
         class="navbar-toggler"
@@ -33,7 +37,7 @@ export default {
       >
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent" >
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
           <li class="nav-item">
             <router-link class="nav-link" to="/project">Explore</router-link>
@@ -53,11 +57,10 @@ export default {
             <router-link class="nav-link" to="/profile">Profile</router-link>
           </li>
 
-
-          <div class="nav-link p-0" data-bs-toggle="dropdown" >
+          <div class="nav-link p-0" data-bs-toggle="dropdown">
             <li class="nav-item">
               <button id="imgButton" class="btn btn-default">
-                <img src="../assets/xavier.JPG"/>
+                <img src="../assets/xavier.JPG" />
               </button>
               <div class="dropdown-menu dropdown-menu-end">
                 <li><a class="dropdown-item">Reports</a></li>
@@ -69,7 +72,6 @@ export default {
               </div>
             </li>
           </div>
-          
         </ul>
       </div>
     </div>
@@ -77,7 +79,6 @@ export default {
 </template>
 
 <style scoped>
-
 .navbar-nav {
   display: flex;
   align-items: center;
@@ -93,14 +94,24 @@ export default {
   display: block;
 }
 
-nav {
-  z-index: 99999999999;
+/* nav {
+  z-index: 9999999999999;
+} */
+
+*,
+*::before,
+*::after {
+  position: relative;
 }
 
+/* nav {
+  z-index: 99999999999;
+} */
+
 img {
-    width: 35px;
-    height: 35px;
-    object-fit: cover;
-    border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  object-fit: cover;
+  border-radius: 50%;
 }
 </style>

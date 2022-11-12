@@ -405,4 +405,10 @@ svg {
 h3 {
   position: absolute;
 }
+
+*,
+*::before,
+*::after {
+  position: relative;
+}
 </style>

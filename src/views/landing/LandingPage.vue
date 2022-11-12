@@ -13,7 +13,7 @@ if (sessionStorage.getItem('isAuth') == '') {
 
 <template>
   <body>
-    <div class="row">
+    <div class="row" style="position: relative">
       <div class="col">
         <!-- jumbotron -->
         <div id="jumbotron-home" class="custom-jumbotron p-2">
@@ -583,7 +583,7 @@ body {
   border: 1px solid #4a60e8;
   border-radius: 25px;
   bottom: 0;
-  right: 0;
+  right: 30px !important;
   position: absolute;
 }
 

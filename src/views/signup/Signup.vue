@@ -135,4 +135,10 @@ a,
     color: hsla(160, 100%, 37%, 1);
     transition: 0.4s;
 }
+
+*,
+*::before,
+*::after {
+  position: relative;
+}
 </style>
