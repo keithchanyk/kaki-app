@@ -1,4 +1,4 @@
-/* #bg_img{
+#bg_img{
     position: fixed;
     min-height: 100px;
     min-width: 1024px;
@@ -11,16 +11,17 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 1rem;
+    /* align-items: flex-start; */
 }
 
-.glass{
+/* .glass{
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border-radius: 20px;
     border: 1px solid rgba(255, 255, 255, 0.2);
     box-shadow: 0 2px 22px 0 rgba(0, 0, 0, 0.20);
-}
+} */
 
 .card {
     --padding: 0.8rem;
@@ -70,4 +71,4 @@ h6, svg{
 }
 h3 {
     position: absolute;
-} */
+}

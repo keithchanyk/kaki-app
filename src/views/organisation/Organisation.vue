@@ -313,8 +313,7 @@ export default {
             <div class="row mx-auto container-fluid">
               <p class="h4 mt-4">Vision</p>
               <p>
-                Spreading kindness to everyone in society. Kathy, [12/11/22 4:02
-                PM] Empowering every individual to contribute to society
+                Spreading kindness to everyone in society. Empowering every individual to contribute to society
               </p>
               <p class="h4 mt-2">Mission</p>
               <p>
@@ -709,8 +708,8 @@ body { */
   top: 0;
   bottom: 0;
 }
-/* 
-.glass {
+
+/* .glass {
   background: linear-gradient(
     135deg,
     rgba(255, 255, 255, 0.3),

@@ -14,7 +14,7 @@ export default {
 </script>
 
 <template>
-  <nav class="glass navbar navbar-expand-lg">
+  <nav class="rounded-bottom navbar navbar-expand-lg navbar-container">
     <div class="mx-5 container-fluid p-0">
       <!-- <a class="navbar-brand" href="/project"
         ><span class="fw-bold text-success" >Kaki</span></a
@@ -43,11 +43,11 @@ export default {
             <router-link class="nav-link" to="/project">Explore</router-link>
           </li>
 
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <router-link class="nav-link" to="/projectdetails"
               >Project Details</router-link
             >
-          </li>
+          </li> -->
 
           <li class="nav-item">
             <router-link class="nav-link" to="/org">Organisation</router-link>
@@ -118,4 +118,20 @@ img {
   border-radius: 50%;
 }
 
+.navbar-container {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.3),
+    rgba(255, 255, 255, 0.1)
+  );
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  /* border-radius: 20px; */
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 2px 22px 0 rgba(0, 0, 0, 0.2);
+}
+
+.glass {
+  
+}
 </style>
