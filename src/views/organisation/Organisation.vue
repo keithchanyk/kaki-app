@@ -78,7 +78,7 @@ export default {
 </script>
 
 <template>
-   <Nav style="z-index: 3" />
+  <Nav style="z-index: 3" />
 
   <div class="container">
     <div class="mt-3 row">
@@ -146,7 +146,7 @@ export default {
             aria-controls="nav-post"
             aria-selected="false"
           >
-            Our Posts
+            Upcoming
           </button>
           <button
             class="nav-link"
@@ -376,7 +376,6 @@ export default {
 </template>
 
 <style scoped>
-
 .banner {
   overflow: hidden;
   max-height: 400px;

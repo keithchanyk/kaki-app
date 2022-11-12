@@ -187,18 +187,6 @@ export default {
             </button>
             <button
               class="nav-link"
-              id="nav-pending-tab"
-              data-bs-toggle="tab"
-              data-bs-target="#nav-profile"
-              type="button"
-              role="tab"
-              aria-controls="nav-profile"
-              aria-selected="false"
-            >
-              Pending Activities
-            </button>
-            <button
-              class="nav-link"
               id="nav-complete-tab"
               data-bs-toggle="tab"
               data-bs-target="#nav-complete"
@@ -478,7 +466,7 @@ export default {
                       data-bs-target="#exampleModal"
                       data-bs-whatever="@mdo"
                     >
-                      Open modal for @mdo
+                      Leave a Review
                     </button>
                   </div>
                 </div>
@@ -486,16 +474,6 @@ export default {
             </div>
 
             <!-- PROJECT DETAILS -->
-          </div>
-
-          <div
-            class="tab-pane fade"
-            id="nav-profile"
-            role="tabpanel"
-            aria-labelledby="nav-profile-tab"
-            tabindex="0"
-          >
-            ...
           </div>
         </div>
       </div>
