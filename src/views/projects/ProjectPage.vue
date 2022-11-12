@@ -30,7 +30,11 @@ export default {
       location: '',
       project_details: [],
       search: '',
-      categories: ['Elderly', 'Children & Youth', 'Environment', 'Community'],
+      categories: 
+      {'Elderly': "src/assets/projectimg/pic2.jpg", 
+      'Children & Youth': "src/assets/projectimg/pic1.jpg", 
+      'Environment': "src/assets/projectimg/pic6.jpg", 
+      'Community': "src/assets/projectimg/pic1.jpg"},
       regions: ['North', 'South', 'East', 'West', 'Central'],
     };
   },
@@ -95,12 +99,28 @@ export default {
         );
       });
     },
+    badgecolor() {
+        let el = document.getElementById("cat");
+        console.log(el)
+        let category = el.innerText.match("Community")[1];
+        console.log(category)
+        if (category == "Community") {
+          el.className = "badge text-bg-danger";
+        } else if (category == "Environment") {
+          el.className = "badge text-bg-danger";
+        } else if (category == "Children & Youth") {
+          el.className = "badge text-bg-danger";
+        } else if (category == "Elderly")  {
+          el.className = "badge text-bg-danger";
+        }
+      
+    }
   },
 
   methods: {
     get_details() {
       axios
-        .get('http://localhost:8888/kakidb-2/project/read.php')
+        .get('http://localhost/is216/kakidb-2/kakidb-2/project/read.php')
         .then((response) => {
           this.project_details = response.data.records;
           console.log(this.project_details);
@@ -256,10 +276,10 @@ export default {
           <!-- class="mt-4 col col-md-4 mb-2 p-3 d-flex justify-content-start" -->
           <div class="card glass">
             <div class="card-header card-image">
-              <img
+              <img v-bind:src="'images/' + w + '.jpg'"
                 id="card-img"
                 class="mb-2 rounded"
-                src="src/assets/pic1.jpg"
+                
               />
             </div>
             <div class="card-body mb-1">
@@ -339,7 +359,8 @@ export default {
                 &nbsp;{{ project.capacity }}
               </h6>
               <div class="d-flex justify-content-end">
-                <span class="badge text-bg-primary">{{ project.categories }}</span>
+                {{badgecolor}}
+                <span class="badge text-bg-primary" id="cat">{{project.category}}</span>
               </div>
               
 
