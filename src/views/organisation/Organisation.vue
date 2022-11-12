@@ -1,6 +1,5 @@
 <script setup>
 
-
 console.log(sessionStorage.getItem("isAuth"))
 
 if(sessionStorage.getItem("isAuth") == "true"){
@@ -10,8 +9,6 @@ if(sessionStorage.getItem("isAuth") == "true"){
   console.log('fuck off!')
   window.location.href = "http://localhost:5173/"
 }
-
-
 </script>
 
 <script>
@@ -25,33 +22,37 @@ export default {
     }
 }
 </script>
+
+
 <template>
+    
     <Nav />
+
     <div class="container">
-        <div class="mt-2 row">
+        <div class="mt-3 row">
             <div class="border border-dark d-flex justify-content-center">
                 <img class="img-fluid banner" src="src/assets/projectimg/pic1.jpg">
             </div>
         </div>
-        <div class="mt-2 row">
+        <div class="mt-3 row">
             <div class="col-2 border border-dark"></div>
             <div class="col-8 border border-dark">
                 
                 <!-- <div class="row mx-auto container-fluid"> -->
-                    <div class="mt-4 col-xl-3 d-flex justify-content-start">
-                        <div class="text-center border border-dark p-2 mb-2 rounded-3 border-opacity-25">
+                    <div class="m-4 d-flex justify-content-center">
+                        <div class="col-3 text-center border border-dark p-2 m-2 rounded-3 border-opacity-25">
                             <span class="fw-bold">Supported Causes</span><br>
-                            <span>Children & Youth</span>
-                            <span>&nbsp;| Elderly</span>
-                            <span>&nbsp;| Families</span>
-                            <span>&nbsp;| Community</span>
+                            <span>Children & Youth</span><br>
+                            <span>&nbsp;Elderly</span><br>
+                            <span>&nbsp;Families</span><br>
+                            <span>&nbsp;Community</span>
                         </div>
-                        <div class="text-center border border-dark p-2 mb-2 rounded-3 border-opacity-25">
+                        <div class="col-3 text-center border border-dark p-2 m-2 rounded-3 border-opacity-25">
                             <span class="fw-bold">Our Engagements</span><br>
                             <span class="">Total posts: 20</span><br>
                             <span>Total posts: 20</span>
                         </div>
-                        <div class="text-center border border-dark p-2 mb-2 rounded-3 border-opacity-25">
+                        <div class="col-3 text-center border border-dark p-2 m-2 rounded-3 border-opacity-25">
                             <span class="fw-bold">Find us here</span><br>
                             <span>Instagram</span><br>
                             <span>Twitter</span><br>
