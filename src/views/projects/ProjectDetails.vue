@@ -153,7 +153,7 @@ export default defineComponent({
 </style>
 
 <template>
-  <Nav />
+  <Nav style="z-index: 3" />
 
   <div
     class="container main"
@@ -502,7 +502,7 @@ export default defineComponent({
       <div id="details-page" class="sticky-xl-top col-xl-4 col-xs-12">
         <div class="card">
           <div class="card-body">
-            <h3 class="card-title">House Cleaning for Elderly</h3>
+            <h3 class="card-title">{{ project.proj_name }}</h3>
             <h6 class="card-subtitle mb-2 text-muted">
               by {{ project.org_name }}
             </h6>
