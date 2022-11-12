@@ -289,13 +289,13 @@ export default {
                   v-if="isDateOver"
                   v-for="project in filteredList"
                   :key="project.id"
-                  class="mt-4 col d-flex justify-content-start"
+                  class="mt-4 col-12 col-md-6 col-lg-4"
                 >
                   <a
                     class="nav-link"
                     :href="'/projectdetails?id=' + project.id"
                   >
-                    <div class="card projCard glass">
+                    <div class="card projCard glass h-100">
                       <div
                         class="card-header projCard-header projCard-image card-image"
                       >
@@ -413,9 +413,9 @@ export default {
                   v-if="isDateOver"
                   v-for="project in pastEvents"
                   :key="project.id"
-                  class="mt-4 col d-flex justify-content-start"
+                  class="mt-4 col-12 col-md-6 col-lg-4"
                 >
-                  <div class="card projCard glass">
+                  <div class="card projCard glass h-100">
                     <a
                       class="nav-link"
                       :href="'/projectdetails?id=' + project.id"
