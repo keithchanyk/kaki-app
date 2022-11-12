@@ -268,6 +268,8 @@ export default defineComponent({
                     <button
                       class="btn btn-primary btn-apply btn-lg me-md-2 px-5"
                       type="button"
+                      data-bs-toggle="modal"
+                      href="#exampleModalToggle"
                     >
                       Apply Now
                     </button>
@@ -353,13 +355,7 @@ export default defineComponent({
                         </div>
                       </div>
                     </div>
-                    <a
-                      class="btn btn-primary"
-                      data-bs-toggle="modal"
-                      href="#exampleModalToggle"
-                      role="button"
-                      >Apply Now</a
-                    >
+                    
                   </div>
                 </div>
               </div>
