@@ -205,7 +205,7 @@ input {
 
 .btn:hover {
   color: white;
-  background-color: rgb(68, 88, 141);
+  background-color: #4e5ff4;
   box-shadow: -2px -1px 2px rgba(0, 0, 0, 0.25);
   /* border:  rgb(68, 88, 141) */
 }
