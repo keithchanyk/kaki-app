@@ -219,6 +219,9 @@ a,
 *,
 *::before,
 *::after {
+  box-sizing: border-box;
+  margin: 0;
   position: relative;
+  font-weight: normal;
 }
 </style>
