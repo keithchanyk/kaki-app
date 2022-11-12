@@ -34,10 +34,10 @@ export default {
       categories: ['Elderly', 'Children & Youth', 'Environment', 'Community'],
       project_img: [
         {
-          Elderly: 'src/assets/projectimg/pic1.jpg',
-          'Children & Youth': 'src/assets/projectimg/pic2.jpg',
-          Environment: 'src/assets/projectimg/pic3.jpg',
-          Community: 'src/assets/projectimg/pic4.jpg',
+          Elderly: 'src/assets/projectimg/pic2.jpg',
+          'Children & Youth': 'src/assets/projectimg/pic4.jpg',
+          Environment: 'src/assets/projectimg/pic6.jpg',
+          Community: 'src/assets/projectimg/pic3.jpg',
         },
       ],
     };
@@ -355,6 +355,46 @@ export default {
                       <!-- <h6 style="font-size: 12px" class="fw-light">
                                     &nbsp;{{ project.total_capacity }}
                                     </h6> -->
+                      <div
+                        v-if="project.category == 'Elderly'"
+                        class="d-flex justify-content-end"
+                      >
+                        <h5>
+                          <span class="badge text-bg-primary">
+                            {{ project.category }}</span
+                          >
+                        </h5>
+                      </div>
+                      <div
+                        v-if="project.category == 'Children & Youth'"
+                        class="d-flex justify-content-end"
+                      >
+                        <h5>
+                          <span class="badge text-bg-danger">
+                            {{ project.category }}</span
+                          >
+                        </h5>
+                      </div>
+                      <div
+                        v-if="project.category == 'Environment'"
+                        class="d-flex justify-content-end"
+                      >
+                        <h5>
+                          <span class="badge text-bg-success">
+                            {{ project.category }}</span
+                          >
+                        </h5>
+                      </div>
+                      <div
+                        v-if="project.category == 'Community'"
+                        class="d-flex justify-content-end"
+                      >
+                        <h5>
+                          <span class="badge text-bg-secondary">
+                            {{ project.category }}</span
+                          >
+                        </h5>
+                      </div>
                     </div>
                   </div>
                 </a>
