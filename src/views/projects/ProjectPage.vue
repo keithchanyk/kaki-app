@@ -153,7 +153,7 @@ export default {
   //     this.get_details();
   //   },
 };
-console.log(categories_details[Elderly].badge/key)
+// console.log(categories_details[Elderly].badge/key)
 </script>
 
 <template>
@@ -416,7 +416,7 @@ console.log(categories_details[Elderly].badge/key)
   gap: 1rem;
   /* align-items: flex-start; */
 }
-
+/* 
 .glass {
   background: linear-gradient(
     135deg,
@@ -428,7 +428,7 @@ console.log(categories_details[Elderly].badge/key)
   border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: 0 2px 22px 0 rgba(0, 0, 0, 0.2);
-}
+} */
 
 .card {
   --padding: 0.8rem;

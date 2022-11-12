@@ -106,7 +106,7 @@ export default defineComponent({
       // /Applications/MAMP/htdocs/is216/kaki-app/src/kakidb-2
 
       axios
-        .get('http://localhost:8888/kakidb-2/project/read_one.php?id=' + id)
+        .get('http://localhost/kakidb-2/project/read_one.php?id=' + id)
         .then((response) => {
           console.log(response.data.records);
           this.projectDetails = response.data.records;
@@ -657,6 +657,10 @@ export default defineComponent({
   -->
 
 <style>
+
+</style>
+
+<style scoped>
 *,
 *::before,
 *::after {
@@ -665,9 +669,6 @@ export default defineComponent({
   position: static;
   font-weight: normal;
 }
-</style>
-
-<style scoped>
 .btn__prev {
   top: 400px;
 }
@@ -755,4 +756,6 @@ h2 {
   /* position: relative !important ; */
   vertical-align: -35em;
 }
+
+
 </style>
