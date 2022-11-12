@@ -27,29 +27,29 @@ export const formConfig = [
     },
     validation: {
       required: true,
-      minLength: 5,
+      minLength: 1,
     },
   },
-  {
-    type: "text",
-    label: "Your Email",
-    name: "email",
-    // buttonText: "Let's do this!",
-    options: {
-      attrs: {
-        placeholder: "Your Email",
-      },
-    },
-    validation: {
-      required: true,
-      email: true,
-    },
-  },
+  // {
+  //   type: "text",
+  //   label: "Your Email",
+  //   name: "email",
+  //   // buttonText: "Let's do this!",
+  //   options: {
+  //     attrs: {
+  //       placeholder: "Your Email",
+  //     },
+  //   },
+  //   validation: {
+  //     required: true,
+  //     email: true,
+  //   },
+  // },
   {
     type: "text",
     label: "Your Age",
     name: "age",
-    buttonText: "Done!",
+    buttonText: "Never too old to volunteer!",
     options: {
       attrs: {
         placeholder: "Age",
@@ -65,7 +65,7 @@ export const formConfig = [
     type: "text",
     label: "Your phone number",
     name: "phone",
-    buttonText: "Done!",
+    buttonText: "To keep in touch!",
     options: {
       attrs: {
         placeholder: "Your Contact",
@@ -79,11 +79,25 @@ export const formConfig = [
   },
   {
     type: "checkbox",
-    label: "Areas of Volunteering Interest",
-    name: "superpowers",
-    buttonText: "Okay, cool!",
+    label: "Which region do you live in?",
+    name: "region",
+    buttonText: "Cool!",
     options: {
-      choices: ["Elderly", "Kids", "Climate", "Digital", "Community", "Others"],
+      choices: ["North", "South", "East", "West", "Central"],
+    },
+    validation: {
+      required: true,
+      minLength: 1,
+      // maxLength: 1,
+    },
+  },
+  {
+    type: "checkbox",
+    label: "Areas of Volunteering Interest",
+    name: "Interests",
+    buttonText: "Fantastic!",
+    options: {
+      choices: ["Elderly", "Community", "Environment", "Children"],
     },
     validation: {
       required: true,
@@ -94,7 +108,7 @@ export const formConfig = [
     type: "text",
     label: "Describe yourself in one word!",
     name: "oneWord",
-    buttonText: "Next...",
+    buttonText: "You are ready to go!",
     options: {
       attrs: {
         placeholder: "One word to describe yourself...",
@@ -102,7 +116,6 @@ export const formConfig = [
     },
     validation: {
       required: true,
-      
     },
   },
 

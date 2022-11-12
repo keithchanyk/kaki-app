@@ -1,11 +1,19 @@
-<template class="form">
-  <div class="container">
-    <h1 class="register-header text-center">
-      User <span>Registration</span> Form
-    </h1>
+<template class="form ">
+  <div class="body">
+
+
+    <div class="container ">
+      <div class="text-center mt-3">
+        <router-link class="fw-bold text-success nav-link fs-3" to="/project">Kaki</router-link>
+        <h1 class="register-header">
+          User <span>Registration</span> Form
+        </h1>
+      </div>
+
+    </div>
     <!-- <h1>Advanced <span> Vue 3 </span> Form</h1> -->
 
-    <VueForm :formConfig="formConfig" />
+    <VueForm :formConfig="formConfig" class="vueForm" />
   </div>
 </template>
 
@@ -18,6 +26,10 @@ import { formConfig } from '../../config/config';
 
 @import url('https://fonts.googleapis.com/css?family=Rubik:300,400,500,700&display=swap');
 
+.body {
+  background-image: url('../../../src/assets/bg_plain.png');
+}
+
 :root {
   /* accent-color: #4c9d8d; */
   --primary: #3b4f7d;
@@ -25,6 +37,11 @@ import { formConfig } from '../../config/config';
   --fonts: #2c3e50;
   --error: #ef6574;
   --light: #e2defe;
+}
+
+.vueForm .field-label {
+  top: 20px;
+  font-size: 25px;
 }
 
 label {
@@ -65,7 +82,9 @@ body {
 .form-template {
   display: flex;
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
+  top: 10px;
+  margin-top: 200px;
 }
 
 /* Title - Advanced Vue.js Form */
@@ -157,7 +176,8 @@ textarea {
   display: flex;
   align-items: center;
   background-color: transparent;
-  opacity: 0.7;
+  /* opacity: 0.7; */
+  font-weight: bold;
 }
 
 .field-label svg {
@@ -256,12 +276,20 @@ pre {
 
 /* progress bar */
 .bar {
-  height: 7px;
+  /* height: 7px;
   width: 0px;
   background-color: var(--primary);
   border-radius: 2px;
   position: fixed;
-  top: 66px;
+  top: 66px; */
+  height: 10px;
+  width: 0px;
+  background-color: var(--primary);
+  border-radius: 2px;
+  position: absolute;
+  top: -83px;
+  top: -175px;
+  /* border: 2px solid red */
 }
 
 ::-webkit-scrollbar {
