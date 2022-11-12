@@ -34,12 +34,12 @@ export default {
       category: '',
       categories: ['Elderly', 'Children & Youth', 'Environment', 'Community'],
       categories_details: 
-        {
-        'Elderly': "badge text-bg-primary",
-        'Children & Youth': "badge text-bg-danger",
-        'Environment': "badge text-bg-success",
-        'Community': "badge text-bg-secondary",
-        },
+      {
+      'Elderly': "badge text-bg-primary",
+      'Children & Youth': "badge text-bg-danger",
+      'Environment': "badge text-bg-success",
+      'Community': "badge text-bg-secondary",
+      },
 
       categories_details: 
       {
@@ -61,6 +61,48 @@ export default {
         },
         },
       regions: ['North', 'South', 'East', 'West', 'Central'],
+      project_img:[
+      {
+        id: 1,
+        src: "projectimg/pic1.jpg"
+      },
+      {
+        id: 2,
+        src: "projectimg/pic2.jpg"
+      },
+      {
+        id: 3,
+        src: "projectimg/pic3.jpg"
+      },
+
+      {
+        id: 4,
+        src: "projectimg/pic4.jpg"
+      },
+      {
+        id: 5,
+        src: "projectimg/pic5.jpg"
+      },
+      {
+        id: 6,
+        src: "projectimg/pic6.jpg"
+      },
+
+
+
+      // "projectimg/pic1.jpg",
+      // "projectimg/pic2.jpg",
+      // "projectimg/pic3.jpg",
+      // "projectimg/pic4.jpg",
+      // "projectimg/pic5.jpg",
+      // "projectimg/pic6.jpg",
+      // "projectimg/pic7.jpg",
+      // "projectimg/pic8.jpg",
+      // "projectimg/pic9.jpg",
+      // "projectimg/pic10.jpg",
+      // "projectimg/pic11.jpg",
+      // "projectimg/pic12.jpg",
+      ],
     };
     
   },
@@ -125,41 +167,27 @@ export default {
         );
       });
     },
-    categories() {
-      var category = document.getElementById("cat")
-
-      console.log(category)
-          
-    //     console.log(categories_details[Elderly].badge/key)
-    //     let category = el.innerText.match("Community")[1];
-    //     console.log(category)
-    //     if (category == "Community") {
-    //       el.className = "badge text-bg-danger";
-    //     } else if (category == "Environment") {
-    //       el.className = "badge text-bg-danger";
-    //     } else if (category == "Children & Youth") {
-    //       el.className = "badge text-bg-danger";
-    //     } else if (category == "Elderly")  {
-    //       el.className = "badge text-bg-danger";
-    //     }
-      
-    }
+    
   },
 
   methods: {
     get_details() {
       axios
-        .get('http://localhostkakidb-2/project/read.php')
+        .get('http://localhost/is216/kakidb-2/kakidb-2/project/read.php')
         .then((response) => {
           this.project_details = response.data.records;
           console.log(this.project_details);
         })
         .catch((error) => alert(error));
     },
-    
+    getImgUrl(path) { 
+      var str = 'src/assets/' + path
+      return str;
+    }
   },
   created: function () {
     this.get_details();
+    this.getImgUrl();
   },
 
   //   mounted: function () {
@@ -312,11 +340,11 @@ export default {
           <a class="nav-link" :href="'/projectdetails?id=' + project.id">
             <!-- class="mt-4 col col-md-4 mb-2 p-3 d-flex justify-content-start" -->
             <div class="card glass">
-              <div class="card-header card-image">
+              <div v-for="img in project_img" :key="img.idx" class="card-header card-image">
                 <img
                   id="card-img"
                   class="mb-2 rounded"
-                  src="src/assets/projectimg/pic1.jpg"
+                  :src="getImgUrl(img.src)"
                 />
               </div>
               <div class="card-body mb-1">
@@ -397,12 +425,8 @@ export default {
                 <h6 style="font-size: 12px" class="fw-light">
                   &nbsp;{{ project.capacity }}
                 </h6>
+
                 <div v-if="project.category == 'Elderly'" 
-                class="d-flex justify-content-end">
-                  <span class="badge text-bg-primary">
-                    {{project.category}}</span>
-                </div>
-                <!-- <div v-if="project.category == 'Elderly'" 
                 class="d-flex justify-content-end">
                   <span class="badge text-bg-primary">
                     {{project.category}}</span>
@@ -421,7 +445,7 @@ export default {
                 class="d-flex justify-content-end">
                   <span class="badge text-bg-secondary">
                     {{project.category}}</span>
-                </div> -->
+                </div>
 
 
               </div>
