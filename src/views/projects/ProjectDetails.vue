@@ -53,6 +53,7 @@ export default defineComponent({
       ], // Img Url , string or Array of string
       visible: false,
       index: 0, // default: 0
+      selected: '',
 
       // center: { lat: this.projectDetails[0].lat, lng: this.projectDetails[0].lng }
       // lats: 1.41518559,
@@ -69,21 +70,9 @@ export default defineComponent({
     },
   },
   methods: {
-    // lightbox methods
-    // showSingle() {
-    //   this.imgs = 'http://via.placeholder.com/350x150';
-    //   this.show();
-    // },
-    // showMultiple() {
-    //   this.imgs = [
-    //     'https://unsplash.it/1200/768.jpg?image=251',
-    //     'https://unsplash.it/1200/768.jpg?image=252',
-    //     'https://unsplash.it/1200/768.jpg?image=253',
-    //   ];
-
-    //   this.index = 1; // index of imgList
-    //   this.show();
-    // },
+    getRole() {
+      console.log(this.roleSelected);
+    },
     show() {
       this.visible = true;
     },
@@ -297,15 +286,19 @@ export default defineComponent({
                               <select
                                 class="form-select"
                                 aria-label="Default select example"
+                                v-model="selected"
                               >
                                 <option selected>Select Roles</option>
-                                <option value="1">Role 1</option>
-                                <option value="2">Role 2</option>
-                                <option value="3">Role 3</option></select
-                              ><br />=<br />
+                                <option value="General Volunteer">
+                                  General Volunteer
+                                </option>
+                                <option value="Designer">Designer</option>
+                                <option value="Coder">Coder</option>
+                                <option value="Manager">Manager</option></select
+                              ><br /><br />
                               <textarea
                                 class="form-control"
-                                placeholder="Write comments here"
+                                placeholder="Tell us about yourself!"
                               ></textarea
                               ><br /><br />
                             </form>
@@ -341,8 +334,8 @@ export default defineComponent({
                             </h1>
                           </div>
                           <div class="modal-body">
-                            You have confirmed your application for the selected
-                            role.
+                            You have confirmed your application for
+                            {{ selected }}
                           </div>
                           <div class="modal-footer">
                             <button
