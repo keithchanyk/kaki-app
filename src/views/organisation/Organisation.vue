@@ -11,11 +11,26 @@ if (sessionStorage.getItem('isAuth') == 'true') {
 
 <script>
 import Nav from '../../components/Nav.vue';
+import * as Main from '../../main';
 
 export default {
   name: 'App',
   components: {
     Nav,
+  },
+  data() {
+    return {
+      proj_name: '',
+      org_name: '',
+      proj_date: '',
+      starttime: '',
+      endtime: '',
+      for_who: '',
+      capacity: '',
+      location: '',
+      project_details: [],
+      search: '',
+    };
   },
   computed: {
     filteredList() {
@@ -40,6 +55,25 @@ export default {
       });
     },
   },
+
+  methods: {
+    get_details() {
+      axios
+        .get('http://localhost:8888/kakidb-2/project/read.php')
+        .then((response) => {
+          this.project_details = response.data.records;
+          console.log(this.project_details);
+        })
+        .catch((error) => alert(error));
+    },
+    isDateOver() {
+      console.log(new Date());
+    },
+  },
+  created: function () {
+    this.get_details();
+    return true;
+  },
 };
 </script>
 
@@ -56,9 +90,9 @@ export default {
       <div class="col-2"></div>
       <div class="col-8">
         <!-- <div class="row mx-auto container-fluid"> -->
-        <div class="row m-0 d-flex justify-content-center border border-dark">
+        <div class="row m-0 d-flex justify-content-center">
           <div
-            class="mt-1 col-12 col-sm-6 col-md-3 pt-0 text-center border border-dark p-2 m-2 rounded-3 border-opacity-25"
+            class="mt-1 col-12 col-sm-6 col-md-3 pt-0 text-center border border-dark p-2 m-2 rounded-3 border-opacity-25 bg-light"
           >
             <span class="fw-bold">Supported Causes</span><br />
             <span>Children & Youth</span><br />
@@ -67,14 +101,14 @@ export default {
             <span>&nbsp;Community</span>
           </div>
           <div
-            class="mt-1 col-12 col-sm-6 col-md-3 text-center border border-dark p-2 m-2 rounded-3 border-opacity-25"
+            class="mt-1 col-12 col-sm-6 col-md-3 text-center border border-dark p-2 m-2 rounded-3 border-opacity-25 bg-light"
           >
             <span class="fw-bold">Our Engagements</span><br />
             <span class="">Total posts: 20</span><br />
             <span>Total posts: 20</span>
           </div>
           <div
-            class="mt-1 col-12 col-sm-6 col-md-3 text-center border border-dark p-2 m-2 rounded-3 border-opacity-25"
+            class="mt-1 col-12 col-sm-6 col-md-3 text-center border border-dark p-2 m-2 rounded-3 border-opacity-25 bg-light"
           >
             <span class="fw-bold">Find us here</span><br />
             <span>Instagram</span><br />
@@ -144,8 +178,8 @@ export default {
             <div class="row mx-auto container-fluid">
               <p class="h4 mt-4">Vision</p>
               <p>
-                Spreading kindness to everyone in society. Empowering every
-                individual to contribute to society
+                Spreading kindness to everyone in society. Kathy, [12/11/22 4:02
+                PM] Empowering every individual to contribute to society
               </p>
               <p class="h4 mt-2">Mission</p>
               <p>
@@ -156,14 +190,9 @@ export default {
             </div>
           </div>
         </div>
-      </div>
-      <div
-        class="tab-content"
-        id="nav-tabContent"
-        style="background-color: white; border-radius: 10px"
-      >
+
         <div
-          class="tab-pane fade show active"
+          class="tab-pane fade show"
           id="nav-post"
           role="tabpanel"
           aria-labelledby="nav-post-tab"
@@ -171,7 +200,6 @@ export default {
         >
           <div class="container-fluid">
             <div class="row mx-auto container-fluid">
-              <h1>HI</h1>
               <div
                 v-if="isDateOver"
                 v-for="project in filteredList"
@@ -221,7 +249,16 @@ export default {
                           d="M8.5 5.5a.5.5 0 0 0-1 0v3.362l-1.429 2.38a.5.5 0 1 0 .858.515l1.5-2.5A.5.5 0 0 0 8.5 9V5.5z"
                         />
                         <path
-                          d="M6.5 0a.5.5 0 0 0 0 1H7v1.07a7.001 7.001 0 0 0-3.273 12.474l-.602.602a.5.5 0 0 0 .707.708l.746-.746A6.97 6.97 0 0 0 8 16a6.97 6.97 0 0 0 3.422-.892l.746.746a.5.5 0 0 0 .707-.708l-.601-.602A7.001 7.001 0 0 0 9 2.07V1h.5a.5.5 0 0 0 0-1h-3zm1.038 3.018a6.093 6.093 0 0 1 .924 0 6 6 0 1 1-.924 0zM0 3.5c0 .753.333 1.429.86 1.887A8.035 8.035 0 0 1 4.387 1.86 2.5 2.5 0 0 0 0 3.5zM13.5 1c-.753 0-1.429.333-1.887.86a8.035 8.035 0 0 1 3.527 3.527A2.5 2.5 0 0 0 13.5 1z"
+                          d="M6.5 0a.5.5 0 0 0 0
+                        1H7v1.07a7.001 7.001 0 0 0-3.273 12.474l-.602.602a.5.5 0
+                        0 0 .707.708l.746-.746A6.97 6.97 0 0 0 8 16a6.97 6.97 0
+                        0 0 3.422-.892l.746.746a.5.5 0 0 0
+                        .707-.708l-.601-.602A7.001 7.001 0 0 0 9 2.07V1h.5a.5.5
+                        0 0 0 0-1h-3zm1.038 3.018a6.093 6.093 0 0 1 .924 0 6 6 0
+                        1 1-.924 0zM0 3.5c0 .753.333 1.429.86 1.887A8.035 8.035
+                        0 0 1 4.387 1.86 2.5 2.5 0 0 0 0 3.5zM13.5 1c-.753
+                        0-1.429.333-1.887.86a8.035 8.035 0 0 1 3.527 3.527A2.5
+                        2.5 0 0 0 13.5 1z"
                         />
                       </svg>
                       <h6 class="fw-normal">
@@ -274,14 +311,8 @@ export default {
             </div>
           </div>
         </div>
-      </div>
-      <div
-        class="tab-content"
-        id="nav-tabContent"
-        style="background-color: white; border-radius: 10px"
-      >
         <div
-          class="tab-pane fade show active"
+          class="tab-pane fade show"
           id="nav-forum"
           role="tabpanel"
           aria-labelledby="nav-forum-tab"
@@ -348,6 +379,8 @@ export default {
   overflow: hidden;
   max-height: 400px;
 }
+/* 
+
 
 .img {
   text-align: center;
@@ -469,16 +502,16 @@ h3 {
 }
 
 .tabs .tab {
-  order: 99;
-  flex-grow: 1;
-  width: 100%;
-  display: none;
-  padding: 0.1rem;
-  /* background: white; */
-}
+    order: 99;
+    flex-grow: 1;
+    width: 100%;
+    display: none;
+    padding: 0.1rem;
+    /* background: white; 
+}*/
 
-.tabs input[type='radio'] {
-  display: none;
+/* .tabs input[type="radio"] {
+    display: none;
 }
 
 .tabs input[type='radio']:checked + label {
@@ -502,19 +535,104 @@ h3 {
   }
 }
 
-body {
-  /* background: #333; */
-  min-height: 100vh;
-  box-sizing: border-box;
-  padding-top: 10vh;
-  /* font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; */
-  font-weight: 300;
-  line-height: 1.5;
-  max-width: 60rem;
-  margin: 0 auto;
-  font-size: 112%;
+body { */
+/* background: #333; */
+/* min-height: 100vh;
+    box-sizing: border-box;
+    padding-top: 10vh; */
+/* font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; */
+/* font-weight: 300;
+    line-height: 1.5;
+    max-width: 60rem;
+    margin: 0 auto;
+    font-size: 112%;
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  position: relative;
+  font-weight: normal;
+} */
+
+#bg_img {
+  position: fixed;
+  min-height: 100px;
+  min-width: 1024px;
+  width: 100%;
+  height: auto;
+  top: 0;
+  bottom: 0;
+}
+
+.glass {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.3),
+    rgba(255, 255, 255, 0.1)
+  );
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 2px 22px 0 rgba(0, 0, 0, 0.2);
+}
+
+.projCard {
+  --padding: 0.8rem;
+  border-radius: 0.25rem;
+  overflow: hidden;
+  min-width: 300px;
+  max-width: 400px;
+}
+
+.projCard-header {
+  font-size: 1.5rem;
+  padding: var(--padding);
+  padding-bottom: 0;
+  margin-bottom: 0.5rem;
+}
+
+.projCard-header.projCard-image {
+  padding: 4;
+  overflow: hidden;
+}
+
+.projCard-header.projCard-image > img {
+  display: block;
+  width: 100%;
+  max-height: 200px;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  object-position: center;
+  transition: 200ms transform ease-in-out;
+}
+
+.projCard:hover > .projCard-header.projCard-image > img {
+  transform: scale(1.025);
+}
+
+.projCard-body {
+  font-size: 0.9rem;
+  padding: 0 1rem;
+  background: linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0.5)
+    ),
+    linear-gradient(114.55deg, #dfe3fc 0%, #e2dffe 98.46%);
+}
+
+h6,
+svg {
+  display: inline;
+}
+
+h3 {
+  position: absolute;
+}
 *,
 *::before,
 *::after {
