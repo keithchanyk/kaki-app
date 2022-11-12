@@ -174,7 +174,7 @@ export default {
           aria-labelledby="nav-about-tab"
           tabindex="0"
         >
-          <div class="container-fluid">
+          <div class="container-fluid mb-4">
             <div class="row mx-auto container-fluid">
               <p class="h4 mt-4">Vision</p>
               <p>
@@ -198,7 +198,7 @@ export default {
           aria-labelledby="nav-post-tab"
           tabindex="0"
         >
-          <div class="container-fluid">
+          <div class="container-fluid mb-4">
             <div class="row mx-auto container-fluid">
               <div
                 v-if="isDateOver"
@@ -318,7 +318,7 @@ export default {
           aria-labelledby="nav-forum-tab"
           tabindex="0"
         >
-          <div class="container-fluid">
+          <div class="container-fluid mb-4">
             <div class="row mx-auto container-fluid">
               <div class="mt-4">
                 <p class="h4 fw-light">Recent shares</p>
@@ -371,6 +371,7 @@ export default {
         </div>
       </div>
     </div>
+    <div class="row mt-4"></div>
   </div>
 </template>
 
