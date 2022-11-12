@@ -19,7 +19,6 @@ export default {
     Nav,
   },
   data() {
-    
     return {
       proj_name: '',
       org_name: '',
@@ -33,80 +32,68 @@ export default {
       search: '',
       category: '',
       categories: ['Elderly', 'Children & Youth', 'Environment', 'Community'],
-      categories_details: 
-      {
-      'Elderly': "badge text-bg-primary",
-      'Children & Youth': "badge text-bg-danger",
-      'Environment': "badge text-bg-success",
-      'Community': "badge text-bg-secondary",
+      categories_details: {
+        Elderly: 'badge text-bg-primary',
+        'Children & Youth': 'badge text-bg-danger',
+        Environment: 'badge text-bg-success',
+        Community: 'badge text-bg-secondary',
       },
 
-      categories_details: 
-      {
-        'Elderly': {  
-          badge: "badge text-bg-primary",
+      categories_details: {
+        Elderly: {
+          badge: 'badge text-bg-primary',
           // img: "src/assets/projectimg/pic2.jpg"
         },
         'Children & Youth': {
-            badge: "badge text-bg-danger",
-            // img: "src/assets/projectimg/pic1.jpg", 
+          badge: 'badge text-bg-danger',
+          // img: "src/assets/projectimg/pic1.jpg",
         },
-        'Environment': {
-          badge: "badge text-bg-success",
+        Environment: {
+          badge: 'badge text-bg-success',
           // img: "src/assets/projectimg/pic6.jpg"
-        } ,
-        'Community': {
-          badge: "badge text-bg-secondary",
+        },
+        Community: {
+          badge: 'badge text-bg-secondary',
           // img: "src/assets/projectimg/pic1.jpg"
         },
-        },
+      },
       regions: ['North', 'South', 'East', 'West', 'Central'],
-      project_img:[
-      {
-        id: 1,
-        src: "projectimg/pic1.jpg"
-      },
-      {
-        id: 2,
-        src: "projectimg/pic2.jpg"
-      },
-      {
-        id: 3,
-        src: "projectimg/pic3.jpg"
-      },
+      project_img: [
+        {
+          Elderly: 'src/assets/projectimg/pic1.jpg',
+          'Children & Youth': 'src/assets/projectimg/pic2.jpg',
+          Environment: 'src/assets/projectimg/pic3.jpg',
+          Community: 'src/assets/projectimg/pic4.jpg',
+        },
+        // {
+        //   id: 5,
+        //   src: 'src/assets/projectimg/pic5.jpg',
+        // },
+        // {
+        //   id: 6,
+        //   src: 'src/assets/projectimg/pic6.jpg',
+        // },
 
-      {
-        id: 4,
-        src: "projectimg/pic4.jpg"
-      },
-      {
-        id: 5,
-        src: "projectimg/pic5.jpg"
-      },
-      {
-        id: 6,
-        src: "projectimg/pic6.jpg"
-      },
-
-
-
-      // "projectimg/pic1.jpg",
-      // "projectimg/pic2.jpg",
-      // "projectimg/pic3.jpg",
-      // "projectimg/pic4.jpg",
-      // "projectimg/pic5.jpg",
-      // "projectimg/pic6.jpg",
-      // "projectimg/pic7.jpg",
-      // "projectimg/pic8.jpg",
-      // "projectimg/pic9.jpg",
-      // "projectimg/pic10.jpg",
-      // "projectimg/pic11.jpg",
-      // "projectimg/pic12.jpg",
+        // "projectimg/pic1.jpg",
+        // "projectimg/pic2.jpg",
+        // "projectimg/pic3.jpg",
+        // "projectimg/pic4.jpg",
+        // "projectimg/pic5.jpg",
+        // "projectimg/pic6.jpg",
+        // "projectimg/pic7.jpg",
+        // "projectimg/pic8.jpg",
+        // "projectimg/pic9.jpg",
+        // "projectimg/pic10.jpg",
+        // "projectimg/pic11.jpg",
+        // "projectimg/pic12.jpg",
       ],
     };
-    
   },
   computed: {
+    check() {
+      console.log(this.project_img[0]['Elderly']);
+      console.log(this.project_img[0]);
+    },
     // filteredList() {
     //   var org_name = 'amk community club';
     //   var today = new Date();
@@ -167,23 +154,34 @@ export default {
         );
       });
     },
-    
   },
 
   methods: {
     get_details() {
       axios
-        .get('http://localhost/is216/kakidb-2/kakidb-2/project/read.php')
+        .get('http://localhost:8888/kakidb-2/project/read.php')
         .then((response) => {
           this.project_details = response.data.records;
           console.log(this.project_details);
         })
         .catch((error) => alert(error));
     },
-    getImgUrl(path) { 
-      var str = 'src/assets/' + path
+    getImgUrl(path) {
+      var str = 'src/assets/' + path;
       return str;
-    }
+    },
+    checkCat(cardCat) {
+      console.log(cardCat);
+      for (const category of this.categories) {
+        if (category != cardCat) {
+          console.log(category + ' ' + cardCat + ' there is no match');
+          continue;
+        } else {
+          console.log(category + ' ' + cardCat + ' there is a match');
+          return true;
+        }
+      }
+    },
   },
   created: function () {
     this.get_details();
@@ -197,6 +195,7 @@ export default {
 </script>
 
 <template>
+  {{ check }}
   <Nav style="z-index: 3" />
 
   <div class="container">
@@ -340,11 +339,12 @@ export default {
           <a class="nav-link" :href="'/projectdetails?id=' + project.id">
             <!-- class="mt-4 col col-md-4 mb-2 p-3 d-flex justify-content-start" -->
             <div class="card glass">
-              <div v-for="img in project_img" :key="img.idx" class="card-header card-image">
+              <div class="card-header card-image">
                 <img
                   id="card-img"
                   class="mb-2 rounded"
-                  :src="getImgUrl(img.src)"
+                  v-if="checkCat(project.category)"
+                  :src="project_img[0][project.category]"
                 />
               </div>
               <div class="card-body mb-1">
@@ -426,28 +426,38 @@ export default {
                   &nbsp;{{ project.capacity }}
                 </h6>
 
-                <div v-if="project.category == 'Elderly'" 
-                class="d-flex justify-content-end">
+                <div
+                  v-if="project.category == 'Elderly'"
+                  class="d-flex justify-content-end"
+                >
                   <span class="badge text-bg-primary">
-                    {{project.category}}</span>
+                    {{ project.category }}</span
+                  >
                 </div>
-                <div v-if="project.category == 'Children & Youth'" 
-                class="d-flex justify-content-end">
+                <div
+                  v-if="project.category == 'Children & Youth'"
+                  class="d-flex justify-content-end"
+                >
                   <span class="badge text-bg-danger">
-                    {{project.category}}</span>
+                    {{ project.category }}</span
+                  >
                 </div>
-                <div v-if="project.category == 'Environment'" 
-                class="d-flex justify-content-end">
+                <div
+                  v-if="project.category == 'Environment'"
+                  class="d-flex justify-content-end"
+                >
                   <span class="badge text-bg-success">
-                    {{project.category}}</span>
+                    {{ project.category }}</span
+                  >
                 </div>
-                <div v-if="project.category == 'Community'" 
-                class="d-flex justify-content-end">
+                <div
+                  v-if="project.category == 'Community'"
+                  class="d-flex justify-content-end"
+                >
                   <span class="badge text-bg-secondary">
-                    {{project.category}}</span>
+                    {{ project.category }}</span
+                  >
                 </div>
-
-
               </div>
             </div>
           </a>
@@ -547,7 +557,6 @@ svg {
 h3 {
   position: absolute;
 }
-
 
 .searchFilter {
   width: 90%;

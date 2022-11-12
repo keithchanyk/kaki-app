@@ -30,6 +30,15 @@ export default {
       location: '',
       project_details: [],
       search: '',
+      categories: ['Elderly', 'Children & Youth', 'Environment', 'Community'],
+      project_img: [
+        {
+          Elderly: 'src/assets/projectimg/pic1.jpg',
+          'Children & Youth': 'src/assets/projectimg/pic2.jpg',
+          Environment: 'src/assets/projectimg/pic3.jpg',
+          Community: 'src/assets/projectimg/pic4.jpg',
+        },
+      ],
     };
   },
   computed: {
@@ -57,6 +66,18 @@ export default {
   },
 
   methods: {
+    checkCat(cardCat) {
+      console.log(cardCat);
+      for (const category of this.categories) {
+        if (category != cardCat) {
+          console.log(category + ' ' + cardCat + ' there is no match');
+          continue;
+        } else {
+          console.log(category + ' ' + cardCat + ' there is a match');
+          return true;
+        }
+      }
+    },
     get_details() {
       axios
         .get('http://localhost:8888/kakidb-2/project/read.php')
@@ -349,7 +370,8 @@ export default {
                       <img
                         id="card-img"
                         class="mb-2 rounded"
-                        src="src/assets/pic1.jpg"
+                        v-if="checkCat(project.category)"
+                        :src="project_img[0][project.category]"
                       />
                     </div>
                     <div class="card-body projCard-body mb-1">
