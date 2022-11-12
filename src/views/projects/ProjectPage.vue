@@ -347,6 +347,10 @@ export default {
 </template>
 
 <style scoped>
+.container {
+  z-index: -1;
+}
+
 #bg_img {
   position: fixed;
   min-height: 100px;
