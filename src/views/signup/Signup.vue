@@ -39,7 +39,7 @@
                                                 <router-link to="/register" custom v-slot="{ navigate }">
                                                     <button class="btn btn-dark btn-signup btn-outline-light fs-4" @click="navigate"
                                                         role="link">
-                                                        Sign Up
+                                                        Continue to Sign Up
                                                     </button>
                                                 </router-link>
                                             </div>

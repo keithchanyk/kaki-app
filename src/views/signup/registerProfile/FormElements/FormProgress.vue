@@ -29,8 +29,8 @@ watch(percent, (newVal) => {
   tl.to(bar.value, {
   // tl.to(bar.value, {
     duration: 1, // how long for the animation to run
-    // width: newVal + "%",
-    width: "95%"
+    width: newVal + "%",
+    // width: "95%"
   });
 });
 </script>
