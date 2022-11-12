@@ -31,6 +31,7 @@ export default {
       project_details: [],
       search: '',
       message: '',
+      id: '',
     };
   },
   computed: {
@@ -75,8 +76,13 @@ export default {
     isDateOver() {
       console.log(new Date());
     },
+    getId(id) {
+      this.id = id;
+    },
+
     submitForm() {
-      alert(this.message);
+      console.log(this.message);
+      console.log(this.id);
     },
   },
   created: function () {
@@ -465,6 +471,7 @@ export default {
                       data-bs-toggle="modal"
                       data-bs-target="#exampleModal"
                       data-bs-whatever="@mdo"
+                      @click="getId(project.id)"
                     >
                       Leave a Review
                     </button>
