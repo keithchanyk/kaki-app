@@ -376,6 +376,9 @@ export default {
 </template>
 
 <style scoped>
+.container {
+  z-index: -1;
+}
 .banner {
   overflow: hidden;
   max-height: 400px;

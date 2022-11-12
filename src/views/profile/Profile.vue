@@ -11,7 +11,7 @@ if (sessionStorage.getItem('isAuth') == 'true') {
 
 <script>
 import Nav from '../../components/Nav.vue';
-import * as Main from "../../main"
+import * as Main from '../../main';
 
 export default {
   name: 'App',
@@ -70,10 +70,13 @@ export default {
 
   <!-- sidebar -->
   <div class="container">
-    <div class="row sticky-top bg-white border-bottom mb-4">
+    <div class="row sticky-top bg-white border-bottom mb-4" style="z-index: -1">
       <div class="col-12 text-start">
         <div class="card sidebar-item bg-special">
-          <img class="sidebar-img m-4" src="../../assets/undraw_pic_profile_re_lxn6.svg" />
+          <img
+            class="sidebar-img m-4"
+            src="../../assets/undraw_pic_profile_re_lxn6.svg"
+          />
           <div class="card-body">
             <h5 class="card-title">Xavier</h5>
             <h6 class="card-subtitle mb-2 text-muted">
@@ -83,7 +86,7 @@ export default {
         </div>
       </div>
     </div>
-    <div class="row">
+    <div class="row" style="z-index: -2">
       <h1>Your Profile</h1>
       <!-- nav -->
       <div class="col p-0">
@@ -216,7 +219,8 @@ export default {
                           />
                         </svg>
                         <h6 class="fw-normal">
-                          &nbsp;{{ Main.tConvert(project.starttime) }} - {{ Main.tConvert(project.endtime) }}
+                          &nbsp;{{ Main.tConvert(project.starttime) }} -
+                          {{ Main.tConvert(project.endtime) }}
                         </h6>
                         <br />
                         <svg
@@ -267,7 +271,6 @@ export default {
             </div>
 
             <!-- PROJECT DETAILS -->
-
           </div>
           <div
             class="tab-pane fade"
@@ -304,6 +307,10 @@ export default {
 </template>
 
 <style scoped>
+.container {
+  z-index: -1;
+}
+
 body {
   background-color: #f0eefe;
 }
