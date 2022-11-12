@@ -21,7 +21,8 @@ export default {
       > -->
       <!-- <a class="navbar-brand"> -->
       <router-link
-        class="fw-bold text-success nav-link navbar-brand"
+        class="fw-bold nav-link navbar-brand"
+        style="color: #7a542e"
         to="/project"
         >Kaki</router-link
       >
@@ -49,9 +50,9 @@ export default {
             >
           </li> -->
 
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <router-link class="nav-link" to="/org">Organisation</router-link>
-          </li>
+          </li> -->
 
           <li class="nav-item">
             <router-link class="nav-link" to="/profile">Profile</router-link>
@@ -135,5 +136,4 @@ img {
   border: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: 0 2px 22px 0 rgba(0, 0, 0, 0.2);
 }
-
 </style>
