@@ -65,7 +65,7 @@ export default defineComponent({
   },
   computed: {
     getId() {
-      // console.log(this.$route.query.id)
+      console.log(this.$route.query.id)
       return this.$route.query.id;
     },
   },
@@ -105,7 +105,7 @@ export default defineComponent({
       // /Applications/MAMP/htdocs/is216/kaki-app/src/kakidb-2
 
       axios
-        .get('http://localhost:8888/kakidb-2/project/read_one.php?id=' + id)
+        .get('http://localhost/kakidb-2/project/read_one.php?id=' + id)
         .then((response) => {
           console.log(response.data.records);
           this.projectDetails = response.data.records;

@@ -28,6 +28,7 @@ export default {
       for_who: '',
       capacity: '',
       location: '',
+      error_msg: "",
       project_details: [],
       review_details: [],
       search: '',
@@ -94,7 +95,7 @@ export default {
           this.project_details = response.data.records;
           console.log(this.project_details);
         })
-        .catch((error) => alert(error));
+        .catch((error) => this.error_msg = "No reviews yet...");
     },
     isDateOver() {
       console.log(new Date());
@@ -117,7 +118,7 @@ export default {
           this.review_details = response.data.records;
           console.log(this.review_details);
         })
-        .catch((error) => alert(error));
+        .catch((error) => this.error_msg = "No reviews yet...");
     }
   },
   mounted: function () {
@@ -258,7 +259,7 @@ export default {
           
           <button class="nav-link active" id="nav-about-tab" data-bs-toggle="tab" data-bs-target="#nav-about"
             type="button" role="tab" aria-controls="nav-about" aria-selected="true">
-            About us Test 1
+            About Us
           </button>
           <button class="nav-link" id="nav-post-tab" data-bs-toggle="tab" data-bs-target="#nav-post" type="button"
             role="tab" aria-controls="nav-post" aria-selected="false">
@@ -270,7 +271,7 @@ export default {
           </button>
         </div>
       </nav>
-      <div class="tab-content" id="nav-tabContent" >
+      <div class="tab-content pb-2" id="nav-tabContent" >
         <div class="tab-pane fade show active" id="nav-about" role="tabpanel" aria-labelledby="nav-about-tab"
           tabindex="0">
           <div class="container-fluid mb-4 rounded-0">
@@ -408,7 +409,10 @@ export default {
               <div class="mt-4">
                 <p class="h4 fw-light">Recent shares</p>
               </div>
-              <div v-for="review in this.review_details" class="mt-2 border border-dark rounded-3 border-opacity-25">
+              <div v-if=" this.error_msg != '' ">
+                <h1>No review yet...</h1>
+              </div>
+              <div v-if="this.error_msg == '' " v-for="review in this.review_details" class="mt-2 border border-dark rounded-3 border-opacity-25">
                 <div class="ms-2">
                   <p class="fw-bold h4 mt-3 mt-2">{{review.proj_name}}</p>
                   <p>
@@ -417,6 +421,7 @@ export default {
                   <p class="h6 d-flex justify-content-end me-2 mb-3">{{review.vol_name}}</p>
                 </div>
               </div>
+              
               <!-- <div class="mt-2 border border-dark rounded-3 border-opacity-25">
                 <div class="ms-2">
                   <p class="fw-bold h4 mt-3 mt-2">Elderly Home</p>
@@ -745,5 +750,6 @@ h3 {
 #nav-tabContent {
   background-color: white; 
   /* border-radius: 10px; */
+  
 }
 </style>
