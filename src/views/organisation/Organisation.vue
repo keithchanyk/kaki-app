@@ -92,21 +92,21 @@ export default {
   <div class="container">
     <div class="h-50 w-100 d-inline-block">
       <div class="row bg-white rounded my-3">
-        <div class="col-3">
+        <div class="col-12 text-center col-md-3">
           <img
             src="../../assets/landingImg/landing/org3.png"
             style="max-width: 120px"
           />
         </div>
         <div class="col my-auto">
-          <h1>Autism Association Singapore</h1>
+          <h1 id="orgTitle">Autism Association Singapore</h1>
         </div>
       </div>
     </div>
 
     <!-- carousel -->
     <div class="row">
-      <div class="col-md-8">
+      <div class="col-md-8 mb-3">
         <div
           id="carouselExampleInterval"
           class="carousel slide"
@@ -313,7 +313,8 @@ export default {
             <div class="row mx-auto container-fluid">
               <p class="h4 mt-4">Vision</p>
               <p>
-                Spreading kindness to everyone in society. Empowering every individual to contribute to society
+                Spreading kindness to everyone in society. Empowering every
+                individual to contribute to society
               </p>
               <p class="h4 mt-2">Mission</p>
               <p>
@@ -520,6 +521,18 @@ export default {
 .banner {
   overflow: hidden;
   max-height: 400px;
+}
+
+@media (min-width: 100px) {
+  #orgTitle {
+    display: none;
+  }
+}
+
+@media (min-width: 400px) {
+  #orgTitle {
+    display: block;
+  }
 }
 /* 
 
