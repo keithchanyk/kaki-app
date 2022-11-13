@@ -90,7 +90,7 @@ export default {
     },
     get_details() {
       axios
-        .get('http://localhost/kakidb-2/project/read.php')
+        .get('http://localhost/kakidb/project/read.php')
         .then((response) => {
           this.project_details = response.data.records;
           console.log(this.project_details);
@@ -112,7 +112,7 @@ export default {
     getReviews() {
       const org_name = this.getOrgName
       axios
-        .get('http://localhost/kakidb-2/review/search.php?org_name=' + org_name)
+        .get('http://localhost/kakidb/review/search.php?org_name=' + org_name)
         .then((response) => {
           console.log(response.data.records)
           this.review_details = response.data.records;

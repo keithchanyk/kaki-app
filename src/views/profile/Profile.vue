@@ -75,7 +75,7 @@ export default {
   methods: {
     get_details() {
       axios
-        .get('http://localhost/kakidb-2/project/read.php')
+        .get('http://localhost/kakidb/project/read.php')
         .then((response) => {
           this.project_details = response.data.records;
           console.log(this.project_details);
@@ -111,7 +111,7 @@ export default {
       const vol_name = 'Xavier';
 
       const url =
-        'http://localhost/kakidb-2/review/send.php?org_name=' +
+        'http://localhost/kakidb/review/send.php?org_name=' +
         project.org_name +
         '&proj_name=' +
         project.proj_name +
@@ -119,7 +119,7 @@ export default {
         vol_name +
         '&review_text=' +
         this.message;
-      // const url = "http://localhost/kakidb-2/review/send.php"
+      // const url = "http://localhost/kakidb/review/send.php"
 
       axios
         .get(url, {
@@ -384,7 +384,7 @@ export default {
                           />
                         </svg>
                         <h6 class="fw-normal">
-                          &nbsp;Located in: {{ project.region }}
+                          Located in: {{ project.region }}
                         </h6>
                         <br />
                         <div
@@ -548,7 +548,7 @@ export default {
                           />
                         </svg>
                         <h6 class="fw-normal">
-                          &nbsp;Located in: {{ project.region }}
+                          Located in: {{ project.region }}
                         </h6>
                         <br />
                         <div

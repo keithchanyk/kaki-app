@@ -159,7 +159,7 @@ export default {
   methods: {
     get_details() {
       axios
-        .get('http://localhost/kakidb-2/project/read.php')
+        .get('http://localhost/kakidb/project/read.php')
         .then((response) => {
           this.project_details = response.data.records;
           console.log(this.project_details);
@@ -322,9 +322,9 @@ export default {
                 <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" />
               </svg>
               <h6 class="fw-normal">
-                &nbsp;&nbsp;Located in: {{ project.region }}
+                &nbsp;Located in: {{ project.region }}
               </h6>
-
+&nbsp;
               <h6 style="font-size: 12px" class="fw-light">
                 &nbsp;{{ project.capacity }}
               </h6>
