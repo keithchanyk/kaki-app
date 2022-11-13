@@ -42,6 +42,7 @@ export default defineComponent({
           skill: 'None Required',
           suitability: 'All are Welcome!',
           desc: 'Love to clean? Does it spark joy? Unleash your inner Marie Kondo and help out with the cleaning of venue. Through working with others and proper facilitaion, the area will be cleaned throughouly with work split amongst the volunteers. ',
+          capacity: 0,
         },
         1: {
           title: 'Coder Volunteer',
@@ -49,18 +50,21 @@ export default defineComponent({
           suitability:
             'Mid-Level Coders, programming background is a must! No, Scratch does not count!',
           desc: 'Front End, Back End, Full Stack? We need them all! We are trying to shift our operations online and you will be tasked with using your coding skills to help the develoment of our online presence, join us now and use your tech skills for good!',
+          capacity: 0,
         },
         2: {
           title: 'Designer Volunteer',
           skill: 'Canva',
           suitability: 'As long as you are willing to learn!',
           desc: 'To help out with the creation of marketing material. Volunteers will use canva or equilivent toolset to genrate promotional material for the project. These materials will be used to attract new volunteers as well as to inform the public on our efforts ',
+          capacity: 0,
         },
         3: {
           title: 'illustrator Volunteer',
           skill: 'Adobe Illustrator',
           suitability: 'Basic skills in Adobe Suite Required!',
           desc: 'To help out with the cleaning of venue. Through working with others and proper facilitaion, the area will be cleaned throughouly with work split amongst the volunteers. ',
+          capacity: 0,
         },
       },
       roles: [],
@@ -106,6 +110,7 @@ export default defineComponent({
         .then((response) => {
           console.log(response.data.records);
           this.projectDetails = response.data.records;
+          console.log(this.projectDetails);
           console.log(this.volunteerPositions);
           //positions
           //create array of positions ordered as Cleaner, Coder, Designer, Illustrator
@@ -114,17 +119,27 @@ export default defineComponent({
           var isCoder = this.projectDetails[0].coder;
           var isDesigner = this.projectDetails[0].designer;
           var isIllustrator = this.projectDetails[0].illustrator;
+
           console.log(isCleaner);
           positions.push(isCleaner);
           positions.push(isCoder);
           positions.push(isDesigner);
           positions.push(isIllustrator);
 
+          var capacities = [
+            this.projectDetails[0].tc_cleaner,
+            this.projectDetails[0].tc_coder,
+            this.projectDetails[0].tc_designer,
+            this.projectDetails[0].tc_illustrator,
+          ];
+
           for (var position in positions) {
             if (positions[position] == 1) {
               var haveIndex = position;
               var roleInfo = this.volunteerPositions[haveIndex];
+              roleInfo['capacity'] = capacities[position];
               this.roles.push(roleInfo);
+              console.log(this.roles);
             }
           }
 
@@ -238,7 +253,7 @@ export default defineComponent({
                       class="d-grid gap-2 d-md-flex justify-content-md-end align-items-center"
                     >
                       <p class="fw-bold m-0">
-                        {{ project.total_capacity }} Opening Left
+                        {{ role.capacity }} Opening Left
                       </p>
 
                       <button
