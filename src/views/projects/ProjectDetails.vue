@@ -36,7 +36,7 @@ export default defineComponent({
       ], // Img Url , string or Array of string
       visible: false,
       index: 0, // default: 0
-      selected: '',
+      selected: 'Select Roles',
 
     };
   },
