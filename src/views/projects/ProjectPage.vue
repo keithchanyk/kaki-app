@@ -31,10 +31,10 @@ export default {
       project_details: [],
       search: '',
       category: '',
-      categories: ['Elderly', 'Children & Youth', 'Environment', 'Community'],
+      categories: ['Elderly', 'Children', 'Environment', 'Community'],
       categories_details: {
         Elderly: 'badge text-bg-primary',
-        'Children & Youth': 'badge text-bg-danger',
+        'Children': 'badge text-bg-danger',
         Environment: 'badge text-bg-success',
         Community: 'badge text-bg-secondary',
       },
@@ -44,7 +44,7 @@ export default {
           badge: 'badge text-bg-primary',
           // img: "src/assets/projectimg/pic2.jpg"
         },
-        'Children & Youth': {
+        'Children': {
           badge: 'badge text-bg-danger',
           // img: "src/assets/projectimg/pic1.jpg",
         },
@@ -61,7 +61,7 @@ export default {
       project_img: [
         {
           Elderly: 'src/assets/projectimg/pic2.jpg',
-          'Children & Youth': 'src/assets/projectimg/pic4.jpg',
+          'Children': 'src/assets/projectimg/pic4.jpg',
           Environment: 'src/assets/projectimg/pic6.jpg',
           Community: 'src/assets/projectimg/pic3.jpg',
         },
@@ -226,8 +226,8 @@ export default {
                   for="elderly">&nbsp;Elderly</label>
               </li>
               <li class="dropdown-item">
-                <input type="checkbox" value="Children & Youth" id="children" v-model="categories" /><label
-                  class="w-100" for="children">&nbsp;Children & Youth</label>
+                <input type="checkbox" value="Children" id="children" v-model="categories" /><label
+                  class="w-100" for="children">&nbsp;Children</label>
               </li>
               <li class="dropdown-item">
                 <input type="checkbox" value="Environment" id="environment" v-model="categories" /><label class="w-100"
@@ -335,7 +335,7 @@ export default {
                     {{ project.category }}</span>
                 </h5>
               </div>
-              <div v-if="project.category == 'Children & Youth'" class="d-flex justify-content-end">
+              <div v-if="project.category == 'Children'" class="d-flex justify-content-end">
                 <h5>
                   <span class="badge text-bg-danger">
                     {{ project.category }}</span>

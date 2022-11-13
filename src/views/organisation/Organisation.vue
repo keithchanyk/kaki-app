@@ -32,11 +32,11 @@ export default {
       project_details: [],
       review_details: [],
       search: '',
-      categories: ['Elderly', 'Children & Youth', 'Environment', 'Community'],
+      categories: ['Elderly', 'Children', 'Environment', 'Community'],
       project_img: [
         {
           Elderly: 'src/assets/projectimg/pic2.jpg',
-          'Children & Youth': 'src/assets/projectimg/pic4.jpg',
+          Children: 'src/assets/projectimg/pic4.jpg',
           Environment: 'src/assets/projectimg/pic6.jpg',
           Community: 'src/assets/projectimg/pic3.jpg',
         },
@@ -367,7 +367,7 @@ export default {
                         </h5>
                       </div>
                       <div
-                        v-if="project.category == 'Children & Youth'"
+                        v-if="project.category == 'Children'"
                         class="d-flex justify-content-end"
                       >
                         <h5>
