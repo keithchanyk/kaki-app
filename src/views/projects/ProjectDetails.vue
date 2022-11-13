@@ -65,7 +65,7 @@ export default defineComponent({
   },
   computed: {
     getId() {
-      console.log(this.$route.query.id)
+      console.log(this.$route.query.id);
       return this.$route.query.id;
     },
   },
@@ -99,13 +99,13 @@ export default defineComponent({
       const id = this.getId;
       // console.log(id)
       const url =
-        'http://localhost/kakidb-2/project/read_one.php?id=' + id;
+        'http://localhost:8888/kakidb-2/project/read_one.php?id=' + id;
       // console.log(url)
 
       // /Applications/MAMP/htdocs/is216/kaki-app/src/kakidb-2
 
       axios
-        .get('http://localhost/kakidb-2/project/read_one.php?id=' + id)
+        .get('http://localhost:8888/kakidb-2/project/read_one.php?id=' + id)
         .then((response) => {
           console.log(response.data.records);
           this.projectDetails = response.data.records;
@@ -153,6 +153,7 @@ export default defineComponent({
       <div
         v-for="(img, idx) in imgs"
         :key="idx"
+        :id="'image' + idx"
         class="col pic"
         @click="() => show(idx)"
       >
@@ -215,7 +216,7 @@ export default defineComponent({
     <div class="row mt-3">
       <div class="col-xl-8 col-md-12 col-s-12">
         <!-- <div class="row pt-3"> -->
-        <div class="row">
+        <div class="row order-2 p-2">
           <div class="card">
             <div class="card-body">
               <p class="h2 fw-bold">About the Activity</p>
@@ -226,7 +227,7 @@ export default defineComponent({
           </div>
         </div>
 
-        <div class="row mt-3 row-xs-12">
+        <div class="row mt-3 order-4 p-2">
           <div class="card">
             <div class="card-body">
               <p class="h2 fw-bold">Volunteer Position</p>
@@ -492,12 +493,18 @@ export default defineComponent({
 
       <!-- sticky sign up -->
 
-      <div id="details-page" class="sticky-xl-top col-xl-4 col-xs-12">
+      <div id="details-page" class="sticky-xl-top col-xl-4 col-xs-12 p-2">
         <div class="card">
           <div class="card-body">
             <h3 class="card-title">{{ project.proj_name }}</h3>
             <h6 class="card-subtitle mb-2 text-muted">
-              by {{ project.org_name }}
+              <!-- by {{ project.org_name }} -->
+              by
+              <a
+                class="nav-link nav-link-org"
+                :href="'/org?org_name=' + project.org_name"
+                >{{ project.org_name }}</a
+              >
             </h6>
 
             <!-- information sticky -->
@@ -656,6 +663,24 @@ export default defineComponent({
   -->
 
 <style>
+@media (max-width: 400px) {
+  #image1 {
+    display: none;
+  }
+  #image2 {
+    display: none;
+  }
+}
+
+@media (min-width: 700px) {
+  #image1 {
+    display: block;
+  }
+  #image2 {
+    display: block;
+  }
+}
+
 *,
 *::before,
 *::after {
