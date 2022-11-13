@@ -8,16 +8,6 @@ if (sessionStorage.getItem('isAuth') == 'true') {
   window.location.href = 'http://localhost:5173/';
 }
 
-// function tConvert(time) {
-//       const timeString = '18:00:00'
-//       // Prepend any date. Use your birthday.
-//       const timeString12hr = new Date('1970-01-01T' + timeString + 'Z')
-//         .toLocaleTimeString('en-US',
-//           { timeZone: 'UTC', hour12: true, hour: 'numeric', minute: 'numeric' }
-//         );
-
-//       return timeString12hr
-// }
 </script>
 
 <script>
@@ -27,13 +17,6 @@ import Nav from '../../components/Nav.vue';
 import VueEasyLightbox from 'vue-easy-lightbox';
 
 export default defineComponent({
-  // components: { GoogleMap, Marker },
-  // setup() {
-  //   const center = { lat: 40.689247, lng: -74.044502 }
-  //   const markerOptions = { position: center, label: 'L', title: 'LADY LIBERTY' }
-
-  //   return { center, markerOptions }
-  // },
   name: 'App',
   components: {
     Nav,
@@ -55,12 +38,6 @@ export default defineComponent({
       index: 0, // default: 0
       selected: '',
 
-      // center: { lat: this.projectDetails[0].lat, lng: this.projectDetails[0].lng }
-      // lats: 1.41518559,
-      // center: { lat: this.lats, lng: 103.835153 },
-      // markerOptions : { position: { lat: 1.41518559, lng: 103.835153 }},
-      // center: {  },
-      // markerOptions : { },
     };
   },
   computed: {
@@ -97,15 +74,9 @@ export default defineComponent({
 
     getProjectDetails() {
       const id = this.getId;
-      // console.log(id)
-      const url =
-        'http://localhost:8888/kakidb/project/read_one.php?id=' + id;
-      // console.log(url)
-
-      // /Applications/MAMP/htdocs/is216/kaki-app/src/kakidb
 
       axios
-        .get('http://localhost:8888/kakidb/project/read_one.php?id=' + id)
+        .get('http://localhost/kakidb/project/read_one.php?id=' + id)
         .then((response) => {
           console.log(response.data.records);
           this.projectDetails = response.data.records;
@@ -127,20 +98,6 @@ export default defineComponent({
 });
 </script>
 
-<style>
-/* .container {
-  border: 2px solid black;
-}
-
-.row {
-  border: 2px solid red;
-} */
-
-.map {
-  height: 500px;
-}
-</style>
-
 <template>
   <Nav style="z-index: 3" />
 
@@ -148,67 +105,19 @@ export default defineComponent({
     <!-- <div class="row"> -->
     <div v-for="project in projectDetails" :key="project.id">
       <div class="row gallery">
-        <div
-          v-for="(img, idx) in imgs"
-          :key="idx"
-          :id="'image' + idx"
-          class="col pic"
-          @click="() => show(idx)"
-        >
+        <div v-for="(img, idx) in imgs" :key="idx" :id="'image' + idx" class="col pic" @click="() => show(idx)">
           <img :src="img.src ? img.src : img" style="width: 100%" />
         </div>
       </div>
 
       <div>
-        <!-- <button @click="showSingle">Show single picture.</button>
-      <button @click="showMultiple">Show a group of pictures.</button> -->
 
         <!-- all props & events -->
 
-        <vue-easy-lightbox
-          escDisabled
-          moveDisabled
-          :visible="visible"
-          :imgs="imgs"
-          :index="index"
-          @hide="handleHide"
-          class="proj_lightbox"
-        ></vue-easy-lightbox>
+        <vue-easy-lightbox escDisabled moveDisabled :visible="visible" :imgs="imgs" :index="index" @hide="handleHide"
+          class="proj_lightbox"></vue-easy-lightbox>
       </div>
 
-      <!-- <a
-            href="https://unsplash.it/1200/768.jpg?image=251"
-            data-toggle="my-lightbox-toggle"
-            data-gallery="example-gallery"
-            class="col-sm-4"
-          >
-            <img src="https://unsplash.it/600.jpg?image=251" class="img-fluid" />
-          </a>
-          <a
-            href="https://unsplash.it/1200/768.jpg?image=252"
-            data-toggle="my-lightbox-toggle"
-            data-gallery="example-gallery"
-            class="col-sm-4"
-          >
-            <img src="https://unsplash.it/600.jpg?image=252" class="img-fluid" />
-          </a>
-          <a
-            href="https://unsplash.it/1200/768.jpg?image=253"
-            data-toggle="my-lightbox-toggle"
-            data-gallery="example-gallery"
-            class="col-sm-4"
-          >
-            <img src="https://unsplash.it/600.jpg?image=253" class="img-fluid" />
-          </a> -->
-      <!-- </div> -->
-
-      <!-- <div class="container" > -->
-      <!-- project name header -->
-      <!-- <div class="row">
-            <div class="col text-center p-5 mb-4">
-              <h1>Project Kaki</h1>
-            </div>
-          </div> -->
 
       <!-- project description -->
       <div class="row mt-3">
@@ -246,47 +155,28 @@ export default defineComponent({
                       SafeEntry and safe distancing measures
                     </p>
 
-                    <div
-                      class="d-grid gap-2 d-md-flex justify-content-md-end align-items-center"
-                    >
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end align-items-center">
                       <p class="fw-bold m-0">
                         {{ project.total_capacity }} Opening Left
                       </p>
 
-                      <button
-                        class="btn btn-primary btn-apply btn-lg me-md-2 px-5"
-                        type="button"
-                        data-bs-toggle="modal"
-                        href="#exampleModalToggle"
-                      >
+                      <button class="btn btn-primary btn-apply btn-lg me-md-2 px-5" type="button" data-bs-toggle="modal"
+                        href="#exampleModalToggle">
                         Apply Now
                       </button>
 
-                      <div
-                        class="modal fade"
-                        id="exampleModalToggle"
-                        aria-labelledby="exampleModalToggleLabel"
-                        tabindex="-1"
-                        aria-hidden="true"
-                        style="display: none"
-                      >
+                      <div class="modal fade" id="exampleModalToggle" aria-labelledby="exampleModalToggleLabel"
+                        tabindex="-1" aria-hidden="true" style="display: none">
                         <div class="modal-dialog modal-dialog-centered">
                           <div class="modal-content">
                             <div class="modal-header">
-                              <h1
-                                class="modal-title fs-5"
-                                id="exampleModalToggleLabel"
-                              >
+                              <h1 class="modal-title fs-5" id="exampleModalToggleLabel">
                                 Please select your preferred role
                               </h1>
                             </div>
                             <div class="modal-body">
                               <form>
-                                <select
-                                  class="form-select"
-                                  aria-label="Default select example"
-                                  v-model="selected"
-                                >
+                                <select class="form-select" aria-label="Default select example" v-model="selected">
                                   <option selected>Select Roles</option>
                                   <option value="General Volunteer">
                                     General Volunteer
@@ -295,42 +185,27 @@ export default defineComponent({
                                   <option value="Coder">Coder</option>
                                   <option value="Manager">
                                     Manager
-                                  </option></select
-                                ><br /><br />
-                                <textarea
-                                  class="form-control"
-                                  placeholder="Tell us about yourself!"
-                                ></textarea
-                                ><br /><br />
+                                  </option>
+                                </select><br /><br />
+                                <textarea class="form-control"
+                                  placeholder="Tell us about yourself!"></textarea><br /><br />
                               </form>
                             </div>
                             <div class="modal-footer">
-                              <button
-                                class="btn btn-primary"
-                                data-bs-target="#exampleModalToggle2"
-                                data-bs-toggle="modal"
-                              >
+                              <button class="btn btn-primary" data-bs-target="#exampleModalToggle2"
+                                data-bs-toggle="modal">
                                 Confirm application
                               </button>
                             </div>
                           </div>
                         </div>
                       </div>
-                      <div
-                        class="modal fade"
-                        id="exampleModalToggle2"
-                        aria-labelledby="exampleModalToggleLabel2"
-                        tabindex="-1"
-                        aria-hidden="true"
-                        style="display: none"
-                      >
+                      <div class="modal fade" id="exampleModalToggle2" aria-labelledby="exampleModalToggleLabel2"
+                        tabindex="-1" aria-hidden="true" style="display: none">
                         <div class="modal-dialog modal-dialog-centered">
                           <div class="modal-content">
                             <div class="modal-header">
-                              <h1
-                                class="modal-title fs-5"
-                                id="exampleModalToggleLabel2"
-                              >
+                              <h1 class="modal-title fs-5" id="exampleModalToggleLabel2">
                                 Your application
                               </h1>
                             </div>
@@ -339,10 +214,7 @@ export default defineComponent({
                               {{ selected }}
                             </div>
                             <div class="modal-footer">
-                              <button
-                                class="btn btn-primary"
-                                data-bs-dismiss="modal"
-                              >
+                              <button class="btn btn-primary" data-bs-dismiss="modal">
                                 Back to home page
                               </button>
                             </div>
@@ -358,156 +230,15 @@ export default defineComponent({
 
           <!-- </div> -->
         </div>
-        <!-- <div class="col-8">
-              <div class="card text-center">
-                <div class="card-header">
-                  <ul class="nav nav-tabs card-header-tabs">
-                    <li class="nav-item">
-                      <a class="nav-link active" aria-current="true" href="#"
-                        >Description</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="#">Timeline</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link">Roles</a>
-                    </li>
-                  </ul>
-                </div>
-                <div class="card-body">
-                  <div class="accordion" id="accordionExample">
-                    <div class="accordion-item">
-                      <h2 class="accordion-header" id="headingOne">
-                        <button
-                          class="accordion-button"
-                          type="button"
-                          data-bs-toggle="collapse"
-                          data-bs-target="#collapseOne"
-                          aria-expanded="true"
-                          aria-controls="collapseOne"
-                        >
-                          Description
-                        </button>
-                      </h2>
-                      <div
-                        id="collapseOne"
-                        class="accordion-collapse collapse show"
-                        aria-labelledby="headingOne"
-                        data-bs-parent="#accordionExample"
-                      >
-                        <div class="accordion-body">
-                          <strong>This is the first item's accordion body.</strong>
-                          It is shown by default, until the collapse plugin adds the
-                          appropriate classes that we use to style each element.
-                          These classes control the overall appearance, as well as
-                          the showing and hiding via CSS transitions. You can modify
-                          any of this with custom CSS or overriding our default
-                          variables. It's also worth noting that just about any HTML
-                          can go within the Lorem ipsum dolor sit amet, consectetur
-                          adipisicing elit. Saepe qui vero quod exercitationem, a
-                          molestias repellat pariatur? Ipsum sint nostrum asperiores
-                          maxime obcaecati rem quaerat molestias magnam commodi
-                          ratione? Tempore! Lorem ipsum dolor sit amet consectetur
-                          adipisicing elit. Officia natus atque ipsam consectetur
-                          placeat mollitia quo dolorem deleniti nemo nam.
-                          Consequatur repellat ad numquam ut odio? Vero magni illum
-                          odio! Lorem ipsum dolor sit amet consectetur adipisicing
-                          elit. Magni earum esse, nemo reprehenderit eos reiciendis
-                          vel corporis sed, ipsam ipsum tempore laudantium obcaecati
-                          distinctio. Reprehenderit reiciendis veniam architecto
-                          nobis magni!
-                          <code>.accordion-body</code>, though the transition does
-                          limit overflow.
-                        </div>
-                      </div>
-                    </div>
-                    <div class="accordion-item">
-                      <h2 class="accordion-header" id="headingTwo">
-                        <button
-                          class="accordion-button collapsed"
-                          type="button"
-                          data-bs-toggle="collapse"
-                          data-bs-target="#collapseTwo"
-                          aria-expanded="false"
-                          aria-controls="collapseTwo"
-                        >
-                          Project Timeline
-                        </button>
-                      </h2>
-                      <div
-                        id="collapseTwo"
-                        class="accordion-collapse collapse"
-                        aria-labelledby="headingTwo"
-                        data-bs-parent="#accordionExample"
-                      >
-                        <div class="accordion-body">
-                          <strong>This is the second item's accordion body.</strong>
-                          It is hidden by default, until the collapse plugin adds
-                          the appropriate classes that we use to style each element.
-                          These classes control the overall appearance, as well as
-                          the showing and hiding via CSS transitions. You can modify
-                          any of this with custom CSS or overriding our default
-                          variables. It's also worth noting that just about any HTML
-                          can go within the
-                          <code>.accordion-body</code>, though the transition does
-                          limit overflow.
-                        </div>
-                      </div>
-                    </div>
-                    <div class="accordion-item">
-                      <h2 class="accordion-header" id="headingThree">
-                        <button
-                          class="accordion-button collapsed"
-                          type="button"
-                          data-bs-toggle="collapse"
-                          data-bs-target="#collapseThree"
-                          aria-expanded="false"
-                          aria-controls="collapseThree"
-                        >
-                          Project Roles
-                        </button>
-                      </h2>
-                      <div
-                        id="collapseThree"
-                        class="accordion-collapse collapse"
-                        aria-labelledby="headingThree"
-                        data-bs-parent="#accordionExample"
-                      >
-                        <div class="accordion-body">
-                          <strong>This is the third item's accordion body.</strong>
-                          It is hidden by default, until the collapse plugin adds
-                          the appropriate classes that we use to style each element.
-                          These classes control the overall appearance, as well as
-                          the showing and hiding via CSS transitions. You can modify
-                          any of this with custom CSS or overriding our default
-                          variables. It's also worth noting that just about any HTML
-                          can go within the
-                          <code>.accordion-body</code>, though the transition does
-                          limit overflow.
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div> -->
 
         <!-- sticky sign up -->
-
-        <div
-          id="details-page"
-          class="sticky-xl-top col-xl-4 col-xs-12 p-2 order-2 order-md-3"
-        >
+        <div id="details-page" class="sticky-xl-top col-xl-4 col-xs-12 p-2 order-2 order-md-3">
           <div class="card">
             <div class="card-body">
               <h3 class="card-title">{{ project.proj_name }}</h3>
               <h6 class="card-subtitle mb-2 text-muted">
-                
-                <a
-                  class="nav-link nav-link-org"
-                  :href="'/org?org_name=' + project.org_name"
-                  >{{ project.org_name }}</a
-                >
+
+                <a class="nav-link nav-link-org" :href="'/org?org_name=' + project.org_name">{{ project.org_name }}</a>
               </h6>
 
               <!-- information sticky -->
@@ -515,28 +246,20 @@ export default defineComponent({
                 <div class="row pt-3 ps-3">
                   <ul>
                     <li class="list-group-item mt-2">
-                      <img
-                        src="../../assets/landingImg/icons/pdicons/Timesheet.png"
-                      />
+                      <img src="../../assets/landingImg/icons/pdicons/Timesheet.png" />
                       &nbsp; {{ project.proj_date }}
                     </li>
                     <li class="list-group-item mt-2">
-                      <img
-                        src="../../assets/landingImg/icons/pdicons/Clock.png"
-                      />
+                      <img src="../../assets/landingImg/icons/pdicons/Clock.png" />
                       &nbsp; {{ tConvert(project.starttime) }} -
                       {{ tConvert(project.endtime) }}
                     </li>
                     <li class="list-group-item mt-2">
-                      <img
-                        src="../../assets/landingImg/icons/pdicons/Group.png"
-                      />
+                      <img src="../../assets/landingImg/icons/pdicons/Group.png" />
                       &nbsp; Suitable for: All, First-timers
                     </li>
                     <li class="list-group-item mt-2">
-                      <img
-                        src="../../assets/landingImg/icons/pdicons/Location.png"
-                      />
+                      <img src="../../assets/landingImg/icons/pdicons/Location.png" />
                       &nbsp; Geylang
                       <p class="text-muted mt-2">
                         3 EUNOS CRESCENT Singapore 400003
@@ -548,29 +271,20 @@ export default defineComponent({
                 <div class="d-flex justify-content-around">
                   <div class="row">
                     <div class="col">
-                      <button
-                        type="button"
-                        class="btn btn-secondary rounded-circle btn-icon"
-                      >
+                      <button type="button" class="btn btn-secondary rounded-circle btn-icon">
                         <!-- <font-awesome-icon icon="fa-solid fa-link" /> -->
                         <font-awesome-icon icon="fa-solid fa-lock" />
                       </button>
                     </div>
                     <div class="col">
-                      <button
-                        type="button"
-                        class="btn btn-secondary rounded-circle btn-icon"
-                      >
+                      <button type="button" class="btn btn-secondary rounded-circle btn-icon">
                         <font-awesome-icon icon="fa-solid fa-share" />
                         <!-- <font-awesome-icon icon="fa-solid fa-share" /> -->
                       </button>
                     </div>
 
                     <div class="col">
-                      <button
-                        type="button"
-                        class="btn btn-secondary rounded-circle btn-icon"
-                      >
+                      <button type="button" class="btn btn-secondary rounded-circle btn-icon">
                         <i class="fa-solid fa-bookmark" aria-hidden="true"></i>
                       </button>
                     </div>
@@ -584,22 +298,16 @@ export default defineComponent({
                   <h4>Contact Us</h4>
                   <ul>
                     <li class="list-group-item">
-                      <img
-                        src="../../assets/landingImg/icons/pdicons/User.png"
-                      />
-                      &nbsp; Mon, 3 Oct 2022
+                      <img src="../../assets/landingImg/icons/pdicons/User.png" />
+                      &nbsp; {{ project.contact_person }}
                     </li>
                     <li class="list-group-item">
-                      <img
-                        src="../../assets/landingImg/icons/pdicons/Mail.png"
-                      />
-                      &nbsp; kaki_tgt123@gmail.com
+                      <img src="../../assets/landingImg/icons/pdicons/Mail.png" />
+                      &nbsp; {{ project.email }}
                     </li>
                     <li class="list-group-item">
-                      <img
-                        src="../../assets/landingImg/icons/pdicons/Phone.png"
-                      />
-                      &nbsp; +65 1234 5678
+                      <img src="../../assets/landingImg/icons/pdicons/Phone.png" />
+                      &nbsp; {{ project.contact_num }}
                     </li>
                   </ul>
                 </div>
@@ -607,29 +315,6 @@ export default defineComponent({
 
               <br />
               <br />
-              <!-- <p class="card-text">
-                    Some quick example text to build on the card title and make up
-                    the bulk of the card's content.
-                  </p> -->
-
-              <!-- dropdown -->
-              <!-- <div class="dropdown-center">
-                    <button
-                      class="btn btn-secondary dropdown-toggle"
-                      type="button"
-                      data-bs-toggle="dropdown"
-                      aria-expanded="false"
-                    >
-                      Apply For...
-                    </button>
-                    <ul class="dropdown-menu mb-4">
-                      <li><a class="dropdown-item" href="#">Designer</a></li>
-                      <li>
-                        <a class="dropdown-item" href="#">Photographer</a>
-                      </li>
-                      <li><a class="dropdown-item" href="#">Leader</a></li>
-                    </ul>
-                  </div> -->
             </div>
           </div>
         </div>
@@ -640,13 +325,8 @@ export default defineComponent({
           <div class="card">
             <div class="card-body">
               <p class="h2 fw-bold">Location</p>
-              <GoogleMap
-                :key="componentKey"
-                api-key="AIzaSyDCBtObBDUy_E5GwV4iWad9G7I3EhMNjt4"
-                class="map"
-                :center="center"
-                :zoom="15"
-              >
+              <GoogleMap :key="componentKey" api-key="AIzaSyDCBtObBDUy_E5GwV4iWad9G7I3EhMNjt4" class="map"
+                :center="center" :zoom="15">
                 <Marker :options="markerOptions" />
               </GoogleMap>
             </div>
@@ -658,54 +338,8 @@ export default defineComponent({
   <!-- </div> -->
 </template>
 
-<!-- <script>
-
-
-    export default defineComponent({
-      components: { GoogleMap, Marker },
-      setup() {
-        const center = { lat: 40.689247, lng: -74.044502 }
-
-        return { center }
-      },
-    })
-  </script>
-  -->
-
-<style>
-@media (max-width: 600px) {
-  #image1 {
-    display: none;
-  }
-  #image2 {
-    display: none;
-  }
-}
-
-@media (min-width: 600px) {
-  #image1 {
-    display: block;
-  }
-  #image2 {
-    display: block;
-  }
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  position: static;
-  font-weight: normal;
-}
-</style>
 
 <style scoped>
-.btn__prev {
-  top: 400px;
-}
-
 body {
   background-color: #ededed;
 }
@@ -728,21 +362,6 @@ p {
   position: relative;
 }
 
-/* 
-p{
-  color: #D2DEFE;
-} */
-
-.text-landing {
-  background-color: #4a60e8;
-  opacity: 0.95;
-  border: 1px solid #4a60e8;
-  border-radius: 25px;
-  bottom: 0;
-  right: 0;
-  position: absolute;
-}
-
 h2 {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   letter-spacing: 5px;
@@ -761,45 +380,47 @@ h2 {
   background-color: #4a60e8;
 }
 
-.bg-special {
-  background-image: linear-gradient(#eaedff, #e2defe);
-  /* background-color: #E2DEFE; */
-}
-
-.sidebar-item {
-  top: 0;
-  left: 0;
-  padding: 0;
-  width: 100%;
-  height: 80%;
-}
-
 @media (max-width: 576px) {
   #details-page {
     padding: 0;
     margin-bottom: 1rem;
   }
 
-  .phone-view {
+
+}
+</style>
+
+<style>
+@media (max-width: 600px) {
+  #image1 {
+    display: none;
+  }
+
+  #image2 {
     display: none;
   }
 }
 
-.btn__next {
-  /* position: relative !important ; */
-  vertical-align: -35em;
+@media (min-width: 600px) {
+  #image1 {
+    display: block;
+  }
+
+  #image2 {
+    display: block;
+  }
 }
 
-/* .glass {
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.3),
-    rgba(255, 255, 255, 0.1)
-  );
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 2px 22px 0 rgba(0, 0, 0, 0.2);
-} */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  position: static;
+  font-weight: normal;
+}
+
+.map {
+  height: 500px;
+}
 </style>
