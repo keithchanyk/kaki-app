@@ -99,13 +99,13 @@ export default defineComponent({
       const id = this.getId;
       // console.log(id)
       const url =
-        'http://localhost/kakidb/project/read_one.php?id=' + id;
+        'http://localhost:8888/kakidb/project/read_one.php?id=' + id;
       // console.log(url)
 
       // /Applications/MAMP/htdocs/is216/kaki-app/src/kakidb
 
       axios
-        .get('http://localhost/kakidb/project/read_one.php?id=' + id)
+        .get('http://localhost:8888/kakidb/project/read_one.php?id=' + id)
         .then((response) => {
           console.log(response.data.records);
           this.projectDetails = response.data.records;
