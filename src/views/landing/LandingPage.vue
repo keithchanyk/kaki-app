@@ -11,25 +11,35 @@ if (sessionStorage.getItem('isAuth') == '') {
 </script>
 
 <template>
-
   <body>
     <div class="row" style="position: relative">
       <div class="col">
         <!-- jumbotron -->
         <div id="jumbotron-home" class="custom-jumbotron p-2">
           <!-- navbar -->
-          <nav class="navbar navbar-expand-lg navbar-dark rounded p-3 m-2" style="background-color: #2a2e45">
+          <nav
+            class="navbar navbar-expand-lg navbar-dark rounded p-3 m-2"
+            style="background-color: #2a2e45"
+          >
             <div class="container-fluid">
               <a class="navbar-brand" href="#">Kaki</a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
+              <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
                 <span class="navbar-toggler-icon"></span>
               </button>
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                   <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <a class="nav-link active" aria-current="page" href="#"
+                      >Home</a
+                    >
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="#">About Us</a>
@@ -46,7 +56,11 @@ if (sessionStorage.getItem('isAuth') == '') {
                 </ul>
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                   <router-link to="/signin" custom v-slot="{ navigate }">
-                    <button class="btn btn-primary" @click="navigate" role="link">
+                    <button
+                      class="btn btn-primary"
+                      @click="navigate"
+                      role="link"
+                    >
                       Sign In
                     </button>
                   </router-link>
@@ -74,7 +88,7 @@ if (sessionStorage.getItem('isAuth') == '') {
     <div class="container">
       <!-- about us -->
 
-      <div class="about row rounded px-5 py-2 mb-4 mt-5">
+      <div class="about row rounded px-5 py-2 mb-4 mt-3">
         <div class="col">
           <div class="row">
             <div class="aboutText col mt-5">
@@ -87,8 +101,11 @@ if (sessionStorage.getItem('isAuth') == '') {
               </p>
             </div>
             <div class="aboutImg col ms-2">
-              <img class="people" src="../../assets/landingImg/undraw_creative_thinking_re_9k71.svg"
-                style="top: 2rem" />
+              <img
+                class="people"
+                src="../../assets/landingImg/undraw_creative_thinking_re_9k71.svg"
+                style="top: 2rem"
+              />
             </div>
           </div>
         </div>
@@ -99,44 +116,91 @@ if (sessionStorage.getItem('isAuth') == '') {
         <h2 class="pb-3">Partner Organisations</h2>
         <div class="row row-cols-1 row-cols-md-4 g-4">
           <div class="col">
-            <div class="card h-100 d-flex justify-content-center align-items-center-center rounded-5">
-              <img src="../../assets/landingImg/landing/org1.png" class="card-img-top" />
+            <div
+              class="card h-100 d-flex justify-content-center align-items-center-center rounded-5"
+            >
+              <img
+                src="../../assets/landingImg/landing/org1.png"
+                class="card-img-top"
+              />
             </div>
           </div>
 
           <div class="col">
-            <div class="card h-100 d-flex justify-content-center align-items-center-center rounded-5 p-4">
-              <img src="../../assets/landingImg/landing/org2.png" class="card-img" alt="..." />
+            <div
+              class="card h-100 d-flex justify-content-center align-items-center-center rounded-5 p-4"
+            >
+              <img
+                src="../../assets/landingImg/landing/org2.png"
+                class="card-img"
+                alt="..."
+              />
             </div>
           </div>
           <div class="col">
-            <div class="card h-100 d-flex justify-content-center align-items-center-center rounded-5 p-4">
-              <img src="../../assets/landingImg/landing/org3.png" class="card-img" alt="..." />
+            <div
+              class="card h-100 d-flex justify-content-center align-items-center-center rounded-5 p-4"
+            >
+              <img
+                src="../../assets/landingImg/landing/org3.png"
+                class="card-img"
+                alt="..."
+              />
             </div>
           </div>
           <div class="col">
-            <div class="card h-100 d-flex justify-content-center align-items-center-center rounded-5 p-4">
-              <img src="../../assets/landingImg/landing/org4.png" class="card-img" alt="..." />
+            <div
+              class="card h-100 d-flex justify-content-center align-items-center-center rounded-5 p-4"
+            >
+              <img
+                src="../../assets/landingImg/landing/org4.png"
+                class="card-img"
+                alt="..."
+              />
             </div>
           </div>
           <div class="col">
-            <div class="card h-100 d-flex justify-content-center align-items-center-center rounded-5 p-4">
-              <img src="../../assets/landingImg/landing/org5.png" class="card-img" alt="..." />
+            <div
+              class="card h-100 d-flex justify-content-center align-items-center-center rounded-5 p-4"
+            >
+              <img
+                src="../../assets/landingImg/landing/org5.png"
+                class="card-img"
+                alt="..."
+              />
             </div>
           </div>
           <div class="col">
-            <div class="card h-100 d-flex justify-content-center align-items-center-center rounded-5 p-4">
-              <img src="../../assets/landingImg/landing/org6.png" class="card-img" alt="..." />
+            <div
+              class="card h-100 d-flex justify-content-center align-items-center-center rounded-5 p-4"
+            >
+              <img
+                src="../../assets/landingImg/landing/org6.png"
+                class="card-img"
+                alt="..."
+              />
             </div>
           </div>
           <div class="col">
-            <div class="card h-100 d-flex justify-content-center align-items-center-center rounded-5 p-4">
-              <img src="../../assets/landingImg/landing/org7.png" class="card-img" alt="..." />
+            <div
+              class="card h-100 d-flex justify-content-center align-items-center-center rounded-5 p-4"
+            >
+              <img
+                src="../../assets/landingImg/landing/org7.png"
+                class="card-img"
+                alt="..."
+              />
             </div>
           </div>
           <div class="col">
-            <div class="card h-100 d-flex justify-content-center align-items-center-center rounded-5 p-4">
-              <img src="../../assets/landingImg/landing/org8.png" class="card-img" alt="..." />
+            <div
+              class="card h-100 d-flex justify-content-center align-items-center-center rounded-5 p-4"
+            >
+              <img
+                src="../../assets/landingImg/landing/org8.png"
+                class="card-img"
+                alt="..."
+              />
             </div>
           </div>
         </div>
@@ -147,17 +211,39 @@ if (sessionStorage.getItem('isAuth') == '') {
       <div class="container mt-5 p-5 rounded bg-light">
         <div class="row">
           <div class="col">
-            <img id="feedback" src="../../assets/landingImg/undraw_feedback_re_urmj.svg" alt="" />
+            <img
+              id="feedback"
+              src="../../assets/landingImg/undraw_feedback_re_urmj.svg"
+              alt=""
+            />
           </div>
           <div class="col">
-            <div id="carouselExampleDark" class="carousel carousel-dark slide mt-4" data-bs-ride="carousel">
+            <div
+              id="carouselExampleDark"
+              class="carousel carousel-dark slide mt-4"
+              data-bs-ride="carousel"
+            >
               <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
-                  aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-                  aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
-                  aria-label="Slide 3"></button>
+                <button
+                  type="button"
+                  data-bs-target="#carouselExampleIndicators"
+                  data-bs-slide-to="0"
+                  class="active"
+                  aria-current="true"
+                  aria-label="Slide 1"
+                ></button>
+                <button
+                  type="button"
+                  data-bs-target="#carouselExampleIndicators"
+                  data-bs-slide-to="1"
+                  aria-label="Slide 2"
+                ></button>
+                <button
+                  type="button"
+                  data-bs-target="#carouselExampleIndicators"
+                  data-bs-slide-to="2"
+                  aria-label="Slide 3"
+                ></button>
               </div>
               <div class="carousel-inner">
                 <div class="carousel-item active" data-bs-interval="10000">
@@ -219,14 +305,28 @@ if (sessionStorage.getItem('isAuth') == '') {
                   </div>
                 </div>
               </div>
-              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark"
-                data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <button
+                class="carousel-control-prev"
+                type="button"
+                data-bs-target="#carouselExampleDark"
+                data-bs-slide="prev"
+              >
+                <span
+                  class="carousel-control-prev-icon"
+                  aria-hidden="true"
+                ></span>
                 <span class="visually-hidden">Previous</span>
               </button>
-              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark"
-                data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <button
+                class="carousel-control-next"
+                type="button"
+                data-bs-target="#carouselExampleDark"
+                data-bs-slide="next"
+              >
+                <span
+                  class="carousel-control-next-icon"
+                  aria-hidden="true"
+                ></span>
                 <span class="visually-hidden">Next</span>
               </button>
             </div>
@@ -241,8 +341,12 @@ if (sessionStorage.getItem('isAuth') == '') {
           <div id="contactDiv">
             <div class="col-12 d-flex justify-content-center text-center">
               <div class="card rounded-5 mt-5">
-                <img src="../../assets/landingImg/landing/footer pill.png" class="card-img rounded-5"
-                  id="footerOverlayImg" alt="..." />
+                <img
+                  src="../../assets/landingImg/landing/footer pill.png"
+                  class="card-img rounded-5"
+                  id="footerOverlayImg"
+                  alt="..."
+                />
 
                 <div class="card-img-overlay">
                   <div id="contactTexts" class="text-center">
@@ -255,9 +359,18 @@ if (sessionStorage.getItem('isAuth') == '') {
                     <!--send meesage input-->
                     <form>
                       <div class="input-group w-75 mx-auto">
-                        <input type="text" class="form-control border border-dark bg-light fw-bold"
-                          placeholder="Talk To Us!" aria-label="message" aria-describedby="button-addon2" />
-                        <button class="btn btn-primary" type="button" id="button-addon2">
+                        <input
+                          type="text"
+                          class="form-control border border-dark bg-light fw-bold"
+                          placeholder="Talk To Us!"
+                          aria-label="message"
+                          aria-describedby="button-addon2"
+                        />
+                        <button
+                          class="btn btn-primary"
+                          type="button"
+                          id="button-addon2"
+                        >
                           Send!
                         </button>
                       </div>
@@ -297,7 +410,6 @@ if (sessionStorage.getItem('isAuth') == '') {
     </footer>
     <!-- Footer -->
   </body>
-
 </template>
 
 <style scoped>
