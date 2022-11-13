@@ -287,7 +287,7 @@ export default {
             <div class="card-body mb-1">
               <h5 class="h3">{{ project.proj_name }}</h5>
               <h6 class="mt-5 fw-normal opacity-50">
-                by <a class="nav-link nav-link-org" :href="'/org?org_name=' + project.org_name">{{ project.org_name }}</a>
+                <a class="nav-link nav-link-org" :href="'/org?org_name=' + project.org_name">{{ project.org_name }}</a>
               </h6>
               <br />
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar"
@@ -487,7 +487,5 @@ h3 {
   border: 1px solid gray;
 }
 
-.nav-link-org:hover {
-  text-decoration: underline;
-}
+
 </style>
