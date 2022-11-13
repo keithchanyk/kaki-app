@@ -75,7 +75,7 @@ export default {
   methods: {
     get_details() {
       axios
-        .get('http://localhost:8888/kakidb-2/project/read.php')
+        .get('http://localhost:8888/kakidb/project/read.php')
         .then((response) => {
           this.project_details = response.data.records;
           console.log(this.project_details);
@@ -111,7 +111,7 @@ export default {
       const vol_name = 'Xavier';
 
       const url =
-        'http://localhost/kakidb/review/send.php?org_name=' +
+        'http://localhost:8888/kakidb/review/send.php?org_name=' +
         project.org_name +
         '&proj_name=' +
         project.proj_name +
@@ -309,7 +309,11 @@ export default {
                       <div class="card-body projCard-body mb-1">
                         <h5 class="h3">{{ project.proj_name }}</h5>
                         <h6 class="mt-5 fw-normal opacity-50">
-                          <a class="nav-link nav-link-org" :href="'/org?org_name=' + project.org_name">{{ project.org_name }}</a>
+                          <a
+                            class="nav-link nav-link-org"
+                            :href="'/org?org_name=' + project.org_name"
+                            >{{ project.org_name }}</a
+                          >
                         </h6>
                         <br />
                         <svg
@@ -473,7 +477,11 @@ export default {
                       <div class="card-body projCard-body mb-1">
                         <h5 class="h3">{{ project.proj_name }}</h5>
                         <h6 class="mt-5 fw-normal opacity-50">
-                          <a class="nav-link nav-link-org" :href="'/org?org_name=' + project.org_name">{{ project.org_name }}</a>
+                          <a
+                            class="nav-link nav-link-org"
+                            :href="'/org?org_name=' + project.org_name"
+                            >{{ project.org_name }}</a
+                          >
                         </h6>
                         <br />
                         <svg

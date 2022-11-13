@@ -29,6 +29,7 @@ export default {
       capacity: '',
       location: '',
       error_msg: '',
+      error_activity_msg: '',
       project_details: [],
       review_details: [],
       search: '',
@@ -50,6 +51,7 @@ export default {
       return this.$route.query.org_name;
     },
     filteredList() {
+      this.error_activity_msg = '';
       console.log(this.getOrgName);
       // var org_name = 'amk community club';
       var org_name = this.getOrgName;
@@ -69,9 +71,15 @@ export default {
         return project.proj_date > today;
       });
 
-      return Array.prototype.filter.call(dateList, (project) => {
+      var returnArray = Array.prototype.filter.call(dateList, (project) => {
         return org_name.includes(project.org_name.toLowerCase());
       });
+
+      if (returnArray.length == 0) {
+        console.log(returnArray);
+        this.error_activity_msg = 'No Upcoming Projects';
+      }
+      return returnArray;
     },
   },
 
@@ -90,12 +98,14 @@ export default {
     },
     get_details() {
       axios
-        .get('http://localhost:8888/kakidb-2/project/read.php')
+        .get('http://localhost:8888/kakidb/project/read.php')
         .then((response) => {
           this.project_details = response.data.records;
           console.log(this.project_details);
         })
-        .catch((error) => (this.error_msg = 'No reviews yet...'));
+        .catch(
+          (error) => (this.error_activity_msg = 'No upcoming projects...')
+        );
     },
     isDateOver() {
       console.log(new Date());
@@ -112,7 +122,9 @@ export default {
     getReviews() {
       const org_name = this.getOrgName;
       axios
-        .get('http://localhost/kakidb/review/search.php?org_name=' + org_name)
+        .get(
+          'http://localhost:8888/kakidb/review/search.php?org_name=' + org_name
+        )
         .then((response) => {
           console.log(response.data.records);
           this.review_details = response.data.records;
@@ -201,7 +213,7 @@ export default {
           <span class="visually-hidden">Next</span>
         </button>
       </div>
-      <div class="col">
+      <div class="col mb-3">
         <div class="card border-0 mb-3 h-100">
           <div class="card-header fs-3">Our Impact In Numbers</div>
           <div class="card-body text-primary">
@@ -374,13 +386,14 @@ export default {
         aria-labelledby="nav-post-tab"
         tabindex="0"
       >
-        <div class="container-fluid mb-4">
-          <div class="row mx-auto container-fluid">
+        <div class="container mb-4">
+          <div class="row">
+            <!-- <div v-if="filteredList.length > 0"> -->
             <div
-              v-if="isDateOver"
+              v-if="filteredList.length > 0"
               v-for="project in filteredList"
               :key="project.id"
-              class="mt-4 col d-flex justify-content-start"
+              class="col-12 col-sm-6 col-md-4 mt-4"
             >
               <a class="nav-link" :href="'/projectdetails?id=' + project.id">
                 <div class="card projCard glass">
@@ -526,6 +539,10 @@ export default {
                   </div>
                 </div>
               </a>
+              <!-- </div> -->
+            </div>
+            <div v-else>
+              <h1 class="mt-4">{{ this.error_activity_msg }}</h1>
             </div>
           </div>
         </div>
@@ -543,21 +560,23 @@ export default {
               <p class="h4 fw-light">Recent shares</p>
             </div>
             <div v-if="this.error_msg != ''">
-              <h1>No review yet...</h1>
+              <h1>{{ this.error_msg }}</h1>
             </div>
-            <div
-              v-if="this.error_msg == ''"
-              v-for="review in this.review_details"
-              class="mt-2 border border-dark rounded-3 border-opacity-25"
-            >
-              <div class="ms-2">
-                <p class="fw-bold h4 mt-3 mt-2">{{ review.proj_name }}</p>
-                <p>
-                  {{ review.review_text }}
-                </p>
-                <p class="h6 d-flex justify-content-end me-2 mb-3">
-                  {{ review.vol_name }}
-                </p>
+            <div class="row">
+              <div
+                v-if="this.error_msg == ''"
+                v-for="review in this.review_details"
+                class="col-12 mt-2 border border-dark rounded-3 border-opacity-25"
+              >
+                <div class="ms-2">
+                  <p class="fw-bold h4 mt-3 mt-2">{{ review.proj_name }}</p>
+                  <p>
+                    {{ review.review_text }}
+                  </p>
+                  <p class="h6 me-2 mb-3">
+                    {{ review.vol_name }}
+                  </p>
+                </div>
               </div>
             </div>
 
