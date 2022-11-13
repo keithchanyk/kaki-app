@@ -78,7 +78,7 @@ export const formConfig = [
     },
   },
   {
-    type: "checkbox",
+    type: "radio",
     label: "Which region do you live in?",
     name: "region",
     buttonText: "Cool!",
@@ -87,7 +87,7 @@ export const formConfig = [
     },
     validation: {
       required: true,
-      minLength: 1,
+      // minLength: 1,
       // maxLength: 1,
     },
   },
