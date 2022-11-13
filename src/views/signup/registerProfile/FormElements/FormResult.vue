@@ -7,11 +7,10 @@
 </template>
 <script setup>
 // Transition - functional component
-import TypeBasedTransition from "../Transitions/TypeBasedTransition";
+import TypeBasedTransition from '../Transitions/TypeBasedTransition';
 
 // Pinia
-import { useLeadStore } from "../../../../stores/LeadStore";
-
+import { useLeadStore } from '../../../../stores/LeadStore';
 
 defineProps({
   isLastField: {
@@ -26,10 +25,10 @@ const store = useLeadStore();
 export default {
   methods: {
     LastField() {
-      console.log(this.isLastField)
+      console.log(this.isLastField);
       window.location.href = 'http://localhost:5173/project';
       sessionStorage.setItem('isAuth', 'true');
-    }
-  }
-}
+    },
+  },
+};
 </script>
