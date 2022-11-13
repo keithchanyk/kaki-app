@@ -50,9 +50,6 @@ if (sessionStorage.getItem('isAuth') == '') {
                       Sign In
                     </button>
                   </router-link>
-                  <!-- <button type="button" class="btn btn-outline-primary">
-                    Sign In
-                  </button> -->
                 </div>
               </div>
             </div>
@@ -301,132 +298,6 @@ if (sessionStorage.getItem('isAuth') == '') {
     <!-- Footer -->
   </body>
 
-  <!-- </div>
-    <footer>
-      <div class="">
-        <div class="col-6">
-          <h4>Kaki</h4>
-          <p class="fs-3">We Make Volunteer Fun</p>
-        </div>
-        <div class="col">test</div>
-        <div class="col">test</div>
-        <div class="col">test</div>
-      </div>
-    </footer> -->
-
-  <!-- </div> -->
-
-  <!-- carousel -->
-  <!-- <div class="row justify-content-center mt-3">
-      <div class="col-md-6">
-        <div
-          id="carouselExampleDark"
-          class="carousel carousel-light slide"
-          data-bs-ride="carousel"
-        >
-          <div class="carousel-indicators">
-            <button
-              type="button"
-              data-bs-target="#carouselExampleDark"
-              data-bs-slide-to="0"
-              class="active"
-              aria-current="true"
-              aria-label="Slide 1"
-            ></button>
-            <button
-              type="button"
-              data-bs-target="#carouselExampleDark"
-              data-bs-slide-to="1"
-              aria-label="Slide 2"
-            ></button>
-            <button
-              type="button"
-              data-bs-target="#carouselExampleDark"
-              data-bs-slide-to="2"
-              aria-label="Slide 3"
-            ></button>
-          </div>
-          <div class="carousel-inner">
-            <div class="carousel-item active" data-bs-interval="10000">
-              <img src="../../assets/landingImg/carousel1.JPG" class="d-block w-100" alt="..." />
-              <div class="carousel-caption d-none d-md-block">
-                <h5>First slide label</h5>
-                <p>
-                  Some representative placeholder content for the first slide.
-                </p>
-              </div>
-            </div>
-            <div class="carousel-item" data-bs-interval="2000">
-              <img src="../../assets/landingImg/carousel2.JPG" class="d-block w-100" alt="..." />
-              <div class="carousel-caption d-none d-md-block">
-                <h5>Second slide label</h5>
-                <p>
-                  Some representative placeholder content for the second slide.
-                </p>
-              </div>
-            </div>
-            <div class="carousel-item">
-              <img src="../../assets/landingImg/carousel3.JPG" class="d-block w-100" alt="..." />
-              <div class="carousel-caption d-none d-md-block">
-                <h5>Third slide label</h5>
-                <p>
-                  Some representative placeholder content for the third slide.
-                </p>
-              </div>
-            </div>
-          </div>
-          <button
-            class="carousel-control-prev"
-            type="button"
-            data-bs-target="#carouselExampleDark"
-            data-bs-slide="prev"
-          >
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button
-            class="carousel-control-next"
-            type="button"
-            data-bs-target="#carouselExampleDark"
-            data-bs-slide="next"
-          >
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
-        </div>
-      </div>
-      intro text -->
-  <!-- <div class="col-md-5">
-        <div class="card w-100 h-100">
-          <div class="card-body">
-            <h3 class="card-title">
-              Hi, I'm Xavier. A photographer from Singapore.
-            </h3>
-            <p class="card-text">
-              Nulla eleifend pulvinar purus, molestie euismod odio imperdiet ac.
-              Ut sit amet erat nec nibh rhoncus varius in non lorem. Donec
-              interdum, lectus in convallis pulvinar, enim elit porta sapien,
-              vel finibus erat felis sed neque. Etiam aliquet neque sagittis
-              erat tincidunt aliquam. Vestibulum at neque hendrerit, mollis
-              dolor at, blandit justo. Integer ac interdum purus. In placerat
-              lorem non quam pulvinar molestie ac eget lacus. Proin mollis
-              lobortis porttitor. Nam in fringilla felis.Maecenas justo quam,
-              pretium id sapien in, varius vehicula sem. Pellentesque consequat
-              mauris justo. Aenean rhoncus tempor volutpat. Donec nec ligula
-              rhoncus, vulputate purus quis, pulvinar massa. Nulla placerat
-              ullamcorper molestie. Maecenas feugiat mollis egestas. Proin
-              vehicula lorem non turpis varius venenatis. Maecenas dapibus
-              hendrerit diam, ac auctor est dignissim ac. Suspendisse tincidunt
-              pulvinar ex. Etiam aliquet venenatis ultricies. Duis dignissim
-              blandit eros.Nunc at felis pellentesque leo efficitur varius. Nam
-              dui eros, maximus vitae tellus nec, finibus euismod ante.
-              Vestibulum ac ex vel nisl faucibus dignissim et eu justo.
-            </p>
-            <a href="./gallery.html" class="btn btn-dark">See My Pictures</a>
-          </div>
-        </div>
-      </div>
-    </div> -->
 </template>
 
 <style scoped>
@@ -459,7 +330,6 @@ body {
 }
 
 .custom-jumbotron {
-  /* rgb(247, 224, 183) */
   background-color: rgb(255, 218, 154);
   color: rgb(77, 77, 77);
   background-size: 100%;
@@ -474,7 +344,6 @@ body {
 
 .text-landing {
   background-color: #96a2ec;
-  /* opacity: 0.8; */
   border: 1px solid #4a60e8;
   border-radius: 25px;
   bottom: 0;
@@ -491,37 +360,12 @@ body {
   padding: 0;
 }
 
-.list-group,
-.list-group-item {
-  border-style: none;
-}
-
-.btn-apply {
-  background-color: #4a60e8;
-}
-
-.bg-special {
-  background-image: linear-gradient(#eaedff, #e2defe);
-  /* background-color: #E2DEFE; */
-}
-
-.sidebar-item {
-  top: 0;
-  left: 0;
-  padding: 0;
-  width: 100%;
-  height: 80%;
-}
-
 @media (min-width: 290px) {
   .carousel-indicators {
-    /* bottom: -60px; */
     bottom: -3rem;
   }
 
   .carousel-control-prev {
-    /* bottom: -120px;
-  left: 400px; */
     bottom: -16rem;
     left: 12rem;
   }
@@ -563,13 +407,10 @@ body {
   }
 
   .carousel-indicators {
-    /* bottom: -60px; */
     bottom: -4rem;
   }
 
   .carousel-control-prev {
-    /* bottom: -120px;
-  left: 400px; */
     bottom: -9rem;
     left: 20rem;
   }
@@ -590,13 +431,10 @@ body {
 
 @media (min-width: 992px) {
   .carousel-indicators {
-    /* bottom: -60px; */
     bottom: -4rem;
   }
 
   .carousel-control-prev {
-    /* bottom: -120px;
-  left: 400px; */
     bottom: -9rem;
     left: 18rem;
   }
@@ -629,18 +467,12 @@ body {
 }
 
 @media (min-width: 1200px) {
-
-  /* .input-group {
-    padding-bottom: 20px;
-  } */
   .carousel-indicators {
     /* bottom: -60px; */
     bottom: -4rem;
   }
 
   .carousel-control-prev {
-    /* bottom: -120px;
-  left: 400px; */
     bottom: -9rem;
     left: 24rem;
   }

@@ -16,7 +16,7 @@
                                         <form>
 
                                             <div class="d-flex align-items-center mb-3 pb-1">
-                                                
+
                                                 <span class="h3 fw-bold mb-0">Join Kaki Now!</span>
                                             </div>
 
@@ -37,15 +37,16 @@
                                             <div class="d-grid gap-2 text-center">
 
                                                 <router-link to="/register" custom v-slot="{ navigate }">
-                                                    <button class="btn btn-dark btn-signup btn-outline-light fs-4" @click="navigate"
-                                                        role="link">
+                                                    <button class="btn btn-dark btn-signup btn-outline-light fs-4"
+                                                        @click="navigate" role="link">
                                                         Continue to Sign Up
                                                     </button>
                                                 </router-link>
                                             </div>
                                         </form>
                                         <div class="text-center mt-4">
-                                            <p class="text-center fs-6">Already have an account? <router-link to="/signin">Sign In
+                                            <p class="text-center fs-6">Already have an account? <router-link
+                                                    to="/signin">Sign In
                                                 </router-link>
                                             </p>
                                         </div>
@@ -72,7 +73,6 @@ img {
     display: flex;
     align-items: center;
     margin: auto;
-    /* height: 100%; */
     width: 100%;
     justify-content: center;
 }
@@ -106,15 +106,6 @@ input {
     z-index: 2;
 }
 
-.gButton {
-    /* display: inline-block;
-    vertical-align: middle;
-    padding-left: 42px;
-    padding-right: 42px;
-    font-size: 14px;
-    font-weight: bold; */
-}
-
 .btn-signup {
     background-color: #3B4F7D;
     border-radius: 10px;
@@ -129,19 +120,12 @@ input {
     /* border:  rgb(68, 88, 141) */
 }
 
-a,
-.green {
-    text-decoration: none;
-    color: hsla(160, 100%, 37%, 1);
-    transition: 0.4s;
-}
-
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
-  margin: 0;
-  position: relative;
-  font-weight: normal;
+    box-sizing: border-box;
+    margin: 0;
+    position: relative;
+    font-weight: normal;
 }
 </style>
