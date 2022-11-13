@@ -22,18 +22,6 @@ const props = defineProps({
     type: String,
     default: "",
   },
-  // type: {
-  //   type: String,
-  //   default: "textarea",
-  // },
-  // name: {
-  //   type: String,
-  //   default: null,
-  // },
-  // validation: {
-  //   type: Object,
-  //   default: null,
-  // },
 });
 
 const { selectedValue } = useFormField(props);

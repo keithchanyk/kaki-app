@@ -1,4 +1,3 @@
-// Converted to Vue 3
 import { h, Transition } from "vue";
 
 const TYPE_MAP = {

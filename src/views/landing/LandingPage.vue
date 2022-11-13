@@ -95,7 +95,7 @@ if (sessionStorage.getItem('isAuth') == '') {
               <h1>About Us</h1>
               <br />
               <p class="fs-4">
-                We are 5 students from SMU Information Systems with one dream:
+                We are 4 students from SMU Information Systems with one dream:
                 Make the volunteering experience tailored for every individual.
                 We Make Volunteering Easy!
               </p>

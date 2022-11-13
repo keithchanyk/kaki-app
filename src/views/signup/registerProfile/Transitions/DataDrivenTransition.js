@@ -1,4 +1,3 @@
-// Converted to Vue 3
 import { h, Transition } from "vue";
 const DataDrivenTransition = ({ isNext = true }, { slots }) => {
   const animClass = "animate__animated animate__";

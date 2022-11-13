@@ -27,22 +27,6 @@ const props = defineProps({
     type: String,
     default: "",
   },
-  // type: {
-  //   type: String,
-  //   default: null,
-  // },
-  // options: {
-  //   type: Array,
-  //   default: () => [],
-  // },
-  // name: {
-  //   type: String,
-  //   default: "",
-  // },
-  // validation: {
-  //   type: Object,
-  //   default: null,
-  // },
 });
 
 const { selectedValue } = useFormField(props);

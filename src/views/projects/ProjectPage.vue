@@ -64,10 +64,6 @@ export default {
     };
   },
   computed: {
-    check() {
-      console.log(this.project_img[0]['Elderly']);
-      console.log(this.project_img[0]);
-    },
     filteredList() {
       var categories = [];
       var regions = [];
@@ -78,15 +74,12 @@ export default {
 
       today = yyyy + '/' + mm + '/' + dd;
 
-      console.log(today);
-
       for (const category of this.categories) {
         categories.push(category.toLowerCase());
       }
       for (const region of this.regions) {
         regions.push(region.toLowerCase());
       }
-      console.log(this.project_details);
 
       var dateList = this.project_details.filter((project) => {
         return project.proj_date > today;
@@ -111,10 +104,9 @@ export default {
   methods: {
     get_details() {
       axios
-        .get('http://localhost:8888/kakidb/project/read.php')
+        .get('http://localhost/kakidb/project/read.php')
         .then((response) => {
           this.project_details = response.data.records;
-          console.log(this.project_details);
         })
         .catch((error) => alert(error));
     },
@@ -123,13 +115,12 @@ export default {
       return str;
     },
     checkCat(cardCat) {
-      console.log(cardCat);
       for (const category of this.categories) {
         if (category != cardCat) {
-          console.log(category + ' ' + cardCat + ' there is no match');
+          // console.log(category + ' ' + cardCat + ' there is no match');
           continue;
         } else {
-          console.log(category + ' ' + cardCat + ' there is a match');
+          // console.log(category + ' ' + cardCat + ' there is a match');
           return true;
         }
       }
@@ -143,10 +134,9 @@ export default {
 </script>
 
 <template>
-  {{ check }}
   <Nav style="z-index: 3" />
 
-  <div class="container">
+  <div class="container pb-5">
     <div class="row">
       <div class="col">
         <div class="searchFilter m-3 mx-auto">

@@ -1,41 +1,23 @@
 <template>
   <form class="register-form form-template" @submit.prevent="onSubmit">
     <template v-for="(field, key) in formFields" :key="key">
-      <FieldGroup
-        :field-id="key"
-        :activeField="formState.activeField"
-        :next="formState.next"
-      >
+      <FieldGroup :field-id="key" :activeField="formState.activeField" :next="formState.next">
         <FieldLabel :props="getFieldLabelMeta(key, field)" />
-        <Component
-          :is="field.component"
-          v-model="formData[field.name]"
-          v-bind="field.options.attrs"
-          :field="getComponentFieldMeta(field)"
-          @change="
+        <Component :is="field.component" v-model="formData[field.name]" v-bind="field.options.attrs"
+          :field="getComponentFieldMeta(field)" @change="
             updateField({
               key: field.name,
               value: formData[field.name],
             })
-          "
-        />
-        <FieldError
-          :button-text="field.buttonText"
-          :silentErrors="v.$silentErrors"
-          @back="back"
-          @next="onSubmit"
-        >
+          " />
+        <FieldError :button-text="field.buttonText" :silentErrors="v.$silentErrors" @back="back" @next="onSubmit">
         </FieldError>
       </FieldGroup>
     </template>
 
     <!-- Next and Back Nav -->
-    <FormNav
-      :isLastField="formState.isLastField"
-      :isFirstField="formState.isFirstField"
-      @back="back"
-      @next="onSubmit"
-    />
+    <FormNav :isLastField="formState.isLastField" :isFirstField="formState.isFirstField" @back="back"
+      @next="onSubmit" />
 
     <!-- Form Results -->
     <FormResult :isLastField="formState.isLastField" />

@@ -23,19 +23,7 @@ const props = defineProps({
   modelValue: {
     type: String,
     default: "",
-  },
-  // type: {
-  //   type: String,
-  //   default: null,
-  // },
-  // name: {
-  //   type: String,
-  //   default: "",
-  // },
-  // validation: {
-  //   type: Object,
-  //   default: null,
-  // },
+  }
 });
 
 const { selectedValue, vFocus } = useFormField(props);

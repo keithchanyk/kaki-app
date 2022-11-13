@@ -12,14 +12,6 @@ const props = defineProps({
     type: Object,
     default: null,
   },
-  // text: {
-  //   type: String,
-  //   default: "",
-  // },
-  // validation: {
-  //   type: Object,
-  //   default: null,
-  // },
 });
 
 useFormField(props);

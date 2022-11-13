@@ -1,4 +1,11 @@
 <script setup>
+
+if (sessionStorage.getItem('isAuth') == 'true') {
+  console.log('is authenticated!');
+  window.location.href = 'http://localhost:5173/project';
+
+}
+
 const callback = (response) => {
   // This callback will be triggered when the user selects or login to
   // his Google account from the popup
@@ -129,14 +136,12 @@ input {
   background-color: #3b4f7d;
   border-radius: 10px;
   padding: 10px 0;
-  /* box-shadow: -5px -5px 5px rgba(0, 0, 0, 0.25); */
 }
 
 .btn:hover {
   color: white;
   background-color: #4e5ff4;
   box-shadow: -2px -1px 2px rgba(0, 0, 0, 0.25);
-  /* border:  rgb(68, 88, 141) */
 }
 
 *,
