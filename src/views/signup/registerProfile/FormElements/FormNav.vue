@@ -1,5 +1,4 @@
 <template>
-  <!-- <div style="width: 100%; position: fixed"> -->
   <div class="container  position-fixed" style="width: 100%; position: fixed">
     <div class="formProgress">
     <FormProgress />
@@ -34,15 +33,3 @@ defineProps({
   },
 });
 </script>
-
-
-<style scoped>
-.container {
-  /* border: 2px solid red; */
-}
-
-/* .formProgress {
-  border: 2px solid red;
-  background-color: yellow;
-} */
-</style>
