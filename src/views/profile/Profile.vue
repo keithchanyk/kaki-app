@@ -418,7 +418,6 @@ body {
 
 .bg-special {
   background-image: linear-gradient(#eaedff, #e2defe);
-  /* background-color: #E2DEFE; */
 }
 
 .sidebar-item {

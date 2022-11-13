@@ -4,7 +4,6 @@ console.log(sessionStorage.getItem('isAuth'));
 if (sessionStorage.getItem('isAuth') == 'true') {
   console.log('is authenticated!');
 } else {
-  console.log('fuck off!');
   window.location.href = 'http://localhost:5173/';
 }
 </script>
@@ -46,13 +45,10 @@ export default {
   },
   computed: {
     getOrgName() {
-      console.log('Hello');
-      console.log(this.$route.query.org_name);
       return this.$route.query.org_name;
     },
     filteredList() {
       this.error_activity_msg = '';
-      console.log(this.getOrgName);
       // var org_name = 'amk community club';
       var org_name = this.getOrgName;
       org_name = org_name.toLowerCase();
@@ -63,10 +59,6 @@ export default {
 
       today = yyyy + '/' + mm + '/' + dd;
 
-      console.log(today);
-
-      console.log(this.project_details);
-
       var dateList = this.project_details.filter((project) => {
         return project.proj_date > today;
       });
@@ -76,7 +68,6 @@ export default {
       });
 
       if (returnArray.length == 0) {
-        console.log(returnArray);
         this.error_activity_msg = 'No Upcoming Projects';
       }
       return returnArray;
@@ -85,30 +76,25 @@ export default {
 
   methods: {
     checkCat(cardCat) {
-      console.log(cardCat);
       for (const category of this.categories) {
         if (category != cardCat) {
-          console.log(category + ' ' + cardCat + ' there is no match');
+          // console.log(category + ' ' + cardCat + ' there is no match');
           continue;
         } else {
-          console.log(category + ' ' + cardCat + ' there is a match');
+          // console.log(category + ' ' + cardCat + ' there is a match');
           return true;
         }
       }
     },
     get_details() {
       axios
-        .get('http://localhost:8888/kakidb/project/read.php')
+        .get('http://localhost/kakidb/project/read.php')
         .then((response) => {
           this.project_details = response.data.records;
-          console.log(this.project_details);
         })
         .catch(
           (error) => (this.error_activity_msg = 'No Upcoming projects...')
         );
-    },
-    isDateOver() {
-      console.log(new Date());
     },
     theFormat(number) {
       return number.toFixed(0);
@@ -123,18 +109,16 @@ export default {
       const org_name = this.getOrgName;
       axios
         .get(
-          'http://localhost:8888/kakidb/review/search.php?org_name=' + org_name
+          'http://localhost/kakidb/review/search.php?org_name=' + org_name
         )
         .then((response) => {
-          console.log(response.data.records);
           this.review_details = response.data.records;
-          console.log(this.review_details);
         })
         .catch((error) => (this.error_msg = 'No reviews yet...'));
     },
   },
   mounted: function () {
-    console.log(this.getReviews());
+    this.getReviews()
   },
   created: function () {
     this.get_details();
@@ -190,7 +174,6 @@ export default {
         <div class="card border-0 mb-3 h-100">
           <div class="card-header fs-3">Our Impact In Numbers</div>
           <div class="card-body text-primary">
-            <!-- <h5 class="card-title">Let Our Numbers Speak For Themselves</h5> -->
             <div id="rollingNumbers">
               <h2 class="fw-bold">Events Organised</h2>
               <h1>
@@ -210,62 +193,11 @@ export default {
               </h1>
             </div>
 
-            <!-- <number
-              tag="div"
-              animationPaused
-              ref="number2"
-              :to="10000"
-              :duration="5"
-              easing="Back.easeIn"
-              @complete="completed"
-              @click="playAnimation"
-            /> -->
           </div>
         </div>
       </div>
     </div>
-    <!-- 
-    <div class="mt-3 row">
-      <div class="d-flex justify-content-center">
-        <img class="img-fluid banner" src="src/assets/projectimg/pic1.jpg" />
-      </div>
-    </div> -->
-    <!-- <div class="mt-1 row">
-      <div class="col-2"></div>
-      <div class="col-8">
 
-        <div class="row m-0 d-flex justify-content-center">
-          <div
-            class="mt-1 col-12 col-sm-6 col-md-3 pt-0 text-center border border-dark p-2 m-2 rounded-3 border-opacity-25 bg-light"
-          >
-            <span class="fw-bold">Supported Causes</span><br />
-            <span>Children & Youth</span><br />
-            <span>&nbsp;Elderly</span><br />
-            <span>&nbsp;Families</span><br />
-            <span>&nbsp;Community</span>
-          </div>
-          <div
-            class="mt-1 col-12 col-sm-6 col-md-3 text-center border border-dark p-2 m-2 rounded-3 border-opacity-25 bg-light"
-          >
-            <span class="fw-bold">Our Engagements</span><br />
-            <span class="">Total posts: 20</span><br />
-            <span>Total posts: 20</span>
-          </div>
-          <div
-            class="mt-1 col-12 col-sm-6 col-md-3 text-center border border-dark p-2 m-2 rounded-3 border-opacity-25 bg-light"
-          >
-            <span class="fw-bold">Find us here</span><br />
-            <span>Instagram</span><br />
-            <span>Twitter</span><br />
-            <span>Facebook</span>
-          </div>
-        </div>
-
-      </div>
-      <div class="col-2"></div>
-    </div> -->
-
-    <!-- <div class="row mt-3"> -->
     <nav>
       <div class="nav nav-tabs" id="nav-tab" role="tablist">
         <button class="nav-link active" id="nav-about-tab" data-bs-toggle="tab" data-bs-target="#nav-about"
@@ -305,7 +237,6 @@ export default {
       <div class="tab-pane fade show" id="nav-post" role="tabpanel" aria-labelledby="nav-post-tab" tabindex="0">
         <div class="container mb-4">
           <div class="row">
-            <!-- <div v-if="filteredList.length > 0"> -->
             <div v-if="filteredList.length > 0" v-for="project in filteredList" :key="project.id"
               class="col-12 col-sm-6 col-md-4 mt-4">
               <a class="nav-link" :href="'/projectdetails?id=' + project.id">
@@ -363,9 +294,6 @@ export default {
                     </svg>
                     <h6 class="fw-normal">Located in: {{ project.region }}</h6>
                     <br />
-                    <!-- <h6 style="font-size: 12px" class="fw-light">
-                                    &nbsp;{{ project.total_capacity }}
-                                    </h6> -->
                     <div v-if="project.category == 'Elderly'" class="d-flex justify-content-end">
                       <h5>
                         <span class="badge text-bg-primary">
@@ -393,45 +321,41 @@ export default {
                   </div>
                 </div>
               </a>
-              <!-- </div> -->
             </div>
             <div v-else class="container-fluid mx-auto">
               <div class="container-fluid">
                 <h1 class="fs-3 mt-4">{{ this.error_activity_msg }}</h1>
               </div>
-              
+
             </div>
           </div>
         </div>
       </div>
       <div class="tab-pane fade show" id="nav-forum" role="tabpanel" aria-labelledby="nav-forum-tab" tabindex="0">
         <div class="container-fluid mb-4 row mx-auto ">
-          <!-- <div class="container-fluid"> -->
-            <div class="mt-4">
-              <p class="h4 fw-light">Recent shares</p>
-            </div>
-            <div v-if="this.error_msg != ''">
-              <h1 class="fs-3">{{ this.error_msg }}</h1>
-            </div>
-            <div class="row">
-              <div v-if="this.error_msg == ''" v-for="review in this.review_details"
-                class="col-12 mt-2 border border-dark rounded-3 border-opacity-25">
-                <div class="ms-2">
-                  <p class="fw-bold h4 mt-3 mt-2">{{ review.proj_name }}</p>
-                  <p>
-                    {{ review.review_text }}
-                  </p>
-                  <p class="h6 me-2 mb-3">
-                    {{ review.vol_name }}
-                  </p>
-                </div>
+          <div class="mt-4">
+            <p class="h4 fw-light">Recent shares</p>
+          </div>
+          <div v-if="this.error_msg != ''">
+            <h1 class="fs-3">{{ this.error_msg }}</h1>
+          </div>
+          <div class="row">
+            <div v-if="this.error_msg == ''" v-for="review in this.review_details"
+              class="col-12 mt-2 border border-dark rounded-3 border-opacity-25">
+              <div class="ms-2">
+                <p class="fw-bold h4 mt-3 mt-2">{{ review.proj_name }}</p>
+                <p>
+                  {{ review.review_text }}
+                </p>
+                <p class="h6 me-2 mb-3">
+                  {{ review.vol_name }}
+                </p>
               </div>
             </div>
-          <!-- </div> -->
+          </div>
         </div>
       </div>
     </div>
-    <!-- </div> -->
     <div class="row mt-4"></div>
   </div>
 </template>
@@ -461,21 +385,6 @@ export default {
   }
 }
 
-/* 
-
-
-.img {
-  text-align: center;
-  min-width: 3px;
-}
-
-#about_us_info {
-  border: 2px inset white;
-  border-radius: 15px;
-  padding: 0.2cm;
-  background-color: #dfe3fc;
-}
-
 #bg_img {
   position: fixed;
   min-height: 100px;
@@ -485,182 +394,6 @@ export default {
   top: 0;
   bottom: 0;
 }
-
-.glass {
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.3),
-    rgba(255, 255, 255, 0.1)
-  );
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 2px 22px 0 rgba(0, 0, 0, 0.2);
-}
-.card {
-  --padding: 0.8rem;
-  border-radius: 0.25rem;
-  overflow: hidden;
-  min-width: 300px;
-  max-width: 400px;
-}
-
-.card-header {
-  font-size: 1.5rem;
-  padding: var(--padding);
-  padding-bottom: 0;
-  margin-bottom: 0.5rem;
-}
-
-.card-header.card-image {
-  padding: 4;
-  overflow: hidden;
-}
-
-.card-header.card-image > img {
-  display: block;
-  width: 100%;
-  max-height: 200px;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
-  object-position: center;
-  transition: 200ms transform ease-in-out;
-}
-
-.card:hover > .card-header.card-image > img {
-  transform: scale(1.025);
-}
-
-.card-body {
-  font-size: 0.9rem;
-  padding: 0 1rem;
-  background: linear-gradient(
-      0deg,
-      rgba(255, 255, 255, 0.5),
-      rgba(255, 255, 255, 0.5)
-    ),
-    linear-gradient(114.55deg, #dfe3fc 0%, #e2dffe 98.46%);
-}
-
-.card-footer {
-  margin-top: 1rem;
-  padding: var(--padding);
-  padding-top: 0;
-}
-
-h6,
-svg {
-  display: inline;
-}
-
-h3 {
-  position: absolute;
-}
-
-.a {
-  border: 2px solid red;
-}
-
-.tabs {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.tabs label {
-  border-bottom: 1px solid;
-  border-radius: 8px;
-  order: 1;
-  display: flex;
-  padding: 1rem 1rem;
-  margin-left: 4.5rem;
-  margin-right: 4.5rem;
-  margin-bottom: 1rem;
-  cursor: pointer;
-  background: #d1d7f6;
-  opacity: 0.7;
-  font-weight: bold;
-  transition: background ease 0.1s;
-}
-
-.tabs .tab {
-    order: 99;
-    flex-grow: 1;
-    width: 100%;
-    display: none;
-    padding: 0.1rem;
-    /* background: white; 
-}*/
-
-/* .tabs input[type="radio"] {
-    display: none;
-}
-
-.tabs input[type='radio']:checked + label {
-  background: #dfe3fc;
-}
-
-.tabs input[type='radio']:checked + label + .tab {
-  display: block;
-}
-
-@media (max-width: 45em) {
-  .tabs .tab,
-  .tabs label {
-    order: initial;
-  }
-
-  .tabs label {
-    width: 100%;
-    margin-right: 0;
-    margin-top: 0.2rem;
-  }
-}
-
-body { */
-/* background: #333; */
-/* min-height: 100vh;
-    box-sizing: border-box;
-    padding-top: 10vh; */
-/* font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; */
-/* font-weight: 300;
-    line-height: 1.5;
-    max-width: 60rem;
-    margin: 0 auto;
-    font-size: 112%;
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  position: relative;
-  font-weight: normal;
-} */
-
-#bg_img {
-  position: fixed;
-  min-height: 100px;
-  min-width: 1024px;
-  width: 100%;
-  height: auto;
-  top: 0;
-  bottom: 0;
-}
-
-/* .glass {
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.3),
-    rgba(255, 255, 255, 0.1)
-  );
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 2px 22px 0 rgba(0, 0, 0, 0.2);
-} */
 
 .projCard {
   --padding: 0.8rem;
@@ -725,6 +458,5 @@ h3 {
 
 #nav-tabContent {
   background-color: white;
-  /* border-radius: 10px; */
 }
 </style>

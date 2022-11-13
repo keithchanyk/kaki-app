@@ -4,10 +4,8 @@ export default {
   methods: {
     logout() {
       sessionStorage.setItem('isAuth', '');
-      console.log('logout start');
       googleLogout();
       window.location.href = 'http://localhost:5173/';
-      console.log('logout ends');
     },
   },
 };
@@ -16,26 +14,9 @@ export default {
 <template>
   <nav class="rounded-bottom navbar navbar-expand-lg navbar-container">
     <div class="mx-5 container-fluid p-0">
-      <!-- <a class="navbar-brand" href="/project"
-        ><span class="fw-bold text-success" >Kaki</span></a
-      > -->
-      <!-- <a class="navbar-brand"> -->
-      <router-link
-        class="fw-bold nav-link navbar-brand"
-        style="color: #7a542e"
-        to="/"
-        >Kaki</router-link
-      >
-      <!-- </a> -->
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
+      <router-link class="fw-bold nav-link navbar-brand" style="color: #7a542e" to="/">Kaki</router-link>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -43,16 +24,6 @@ export default {
           <li class="nav-item">
             <router-link class="nav-link" to="/project">Explore</router-link>
           </li>
-
-          <!-- <li class="nav-item">
-            <router-link class="nav-link" to="/projectdetails"
-              >Project Details</router-link
-            >
-          </li> -->
-
-          <!-- <li class="nav-item">
-            <router-link class="nav-link" to="/org">Organisation</router-link>
-          </li> -->
 
           <li class="nav-item">
             <router-link class="nav-link" to="/profile">Profile</router-link>
@@ -64,17 +35,17 @@ export default {
                 <img src="../assets/xavier.JPG" />
               </button>
               <div class="dropdown-menu dropdown-menu-end">
-                <li><a class="dropdown-item">Reports</a></li>
-                <li><a class="dropdown-item">Settings</a></li>
-                <div class="dropdown-divider"></div>
-                <li @click="logout">
-                  <a class="dropdown-item"> Log Out</a>
-                </li>
-              </div>
+            <li><a class="dropdown-item">Reports</a></li>
+            <li><a class="dropdown-item">Settings</a></li>
+            <div class="dropdown-divider"></div>
+            <li @click="logout">
+              <a class="dropdown-item"> Log Out</a>
             </li>
           </div>
-        </ul>
+          </li>
       </div>
+      </ul>
+    </div>
     </div>
   </nav>
 </template>
@@ -100,10 +71,6 @@ export default {
   background-color: transparent !important;
 }
 
-/* nav {
-  z-index: 9999999999999;
-} */
-
 *,
 *::before,
 *::after {
@@ -113,10 +80,6 @@ export default {
   font-weight: normal;
 }
 
-/* nav {
-  z-index: 99999999999;
-} */
-
 img {
   width: 35px;
   height: 35px;
@@ -125,14 +88,11 @@ img {
 }
 
 .navbar-container {
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.3),
-    rgba(255, 255, 255, 0.1)
-  );
+  background: linear-gradient(135deg,
+      rgba(255, 255, 255, 0.3),
+      rgba(255, 255, 255, 0.1));
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  /* border-radius: 20px; */
   border: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: 0 2px 22px 0 rgba(0, 0, 0, 0.2);
 }

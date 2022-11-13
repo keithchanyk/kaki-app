@@ -1,5 +1,4 @@
 import { createRouter, createWebHistory } from "vue-router";
-import Join from '../views/signup/Join.vue'
 import Signup from "../views/signup/Signup.vue"
 import Registration from "../views/signup/Register.vue"
 import SignIn from "../views/signup/SignIn.vue"
@@ -10,11 +9,6 @@ import LandingPage from "../views/landing/LandingPage.vue"
 import ProfilePage from "../views/profile/Profile.vue"
 
 const routes = [
-    {
-        path: '/join',
-        name: "Join",
-        component: Join
-    },
     {
         path: '/signup',
         name: "Sign Up",
