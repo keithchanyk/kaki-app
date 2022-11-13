@@ -102,7 +102,7 @@ export default defineComponent({
         'http://localhost:8888/kakidb-2/project/read_one.php?id=' + id;
       // console.log(url)
 
-      // /Applications/MAMP/htdocs/is216/kaki-app/src/kakidb-2
+      // /Applications/MAMP/htdocs/is216/kaki-app/src/kakidb
 
       axios
         .get('http://localhost:8888/kakidb-2/project/read_one.php?id=' + id)

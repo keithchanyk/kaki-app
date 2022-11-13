@@ -32,11 +32,11 @@ export default {
       project_details: [],
       review_details: [],
       search: '',
-      categories: ['Elderly', 'Children & Youth', 'Environment', 'Community'],
+      categories: ['Elderly', 'Children', 'Environment', 'Community'],
       project_img: [
         {
           Elderly: 'src/assets/projectimg/pic2.jpg',
-          'Children & Youth': 'src/assets/projectimg/pic4.jpg',
+          Children: 'src/assets/projectimg/pic4.jpg',
           Environment: 'src/assets/projectimg/pic6.jpg',
           Community: 'src/assets/projectimg/pic3.jpg',
         },
@@ -112,7 +112,7 @@ export default {
     getReviews() {
       const org_name = this.getOrgName
       axios
-        .get('http://localhost/kakidb-2/review/search.php?org_name=' + org_name)
+        .get('http://localhost/kakidb/review/search.php?org_name=' + org_name)
         .then((response) => {
           console.log(response.data.records)
           this.review_details = response.data.records;
@@ -305,7 +305,7 @@ export default {
                     <div class="card-body projCard-body mb-1">
                       <h5 class="h3">{{ project.proj_name }}</h5>
                       <h6 class="mt-5 fw-normal opacity-50">
-                        by {{ project.org_name }}
+                        <a class="nav-link nav-link-org" :href="'/org?org_name=' + project.org_name">{{ project.org_name }}</a>
                       </h6>
                       <br />
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -367,7 +367,7 @@ export default {
                         </h5>
                       </div>
                       <div
-                        v-if="project.category == 'Children & Youth'"
+                        v-if="project.category == 'Children'"
                         class="d-flex justify-content-end"
                       >
                         <h5>

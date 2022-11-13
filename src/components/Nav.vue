@@ -23,7 +23,7 @@ export default {
       <router-link
         class="fw-bold nav-link navbar-brand"
         style="color: #7a542e"
-        to="/project"
+        to="/"
         >Kaki</router-link
       >
       <!-- </a> -->

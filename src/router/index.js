@@ -8,8 +8,6 @@ import Organisation from "../views/organisation/Organisation.vue"
 import ProjectDetails from "../views/projects/ProjectDetails.vue"
 import LandingPage from "../views/landing/LandingPage.vue"
 import ProfilePage from "../views/profile/Profile.vue"
-import SignUpPage from "../views/signup/SignUpRegister.vue"
-
 
 const routes = [
     {
@@ -58,11 +56,6 @@ const routes = [
         path: '/register',
         name: "Register",
         component: Registration
-    },
-    {
-        path: '/signupregister',
-        name: "SignUpRegister",
-        component: SignUpPage
     }
 
 

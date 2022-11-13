@@ -31,10 +31,10 @@ export default {
       project_details: [],
       search: '',
       category: '',
-      categories: ['Elderly', 'Children & Youth', 'Environment', 'Community'],
+      categories: ['Elderly', 'Children', 'Environment', 'Community'],
       categories_details: {
         Elderly: 'badge text-bg-primary',
-        'Children & Youth': 'badge text-bg-danger',
+        'Children': 'badge text-bg-danger',
         Environment: 'badge text-bg-success',
         Community: 'badge text-bg-secondary',
       },
@@ -44,7 +44,7 @@ export default {
           badge: 'badge text-bg-primary',
           // img: "src/assets/projectimg/pic2.jpg"
         },
-        'Children & Youth': {
+        'Children': {
           badge: 'badge text-bg-danger',
           // img: "src/assets/projectimg/pic1.jpg",
         },
@@ -61,7 +61,7 @@ export default {
       project_img: [
         {
           Elderly: 'src/assets/projectimg/pic2.jpg',
-          'Children & Youth': 'src/assets/projectimg/pic4.jpg',
+          'Children': 'src/assets/projectimg/pic4.jpg',
           Environment: 'src/assets/projectimg/pic6.jpg',
           Community: 'src/assets/projectimg/pic3.jpg',
         },
@@ -226,8 +226,8 @@ export default {
                   for="elderly">&nbsp;Elderly</label>
               </li>
               <li class="dropdown-item">
-                <input type="checkbox" value="Children & Youth" id="children" v-model="categories" /><label
-                  class="w-100" for="children">&nbsp;Children & Youth</label>
+                <input type="checkbox" value="Children" id="children" v-model="categories" /><label
+                  class="w-100" for="children">&nbsp;Children</label>
               </li>
               <li class="dropdown-item">
                 <input type="checkbox" value="Environment" id="environment" v-model="categories" /><label class="w-100"
@@ -287,7 +287,7 @@ export default {
             <div class="card-body mb-1">
               <h5 class="h3">{{ project.proj_name }}</h5>
               <h6 class="mt-5 fw-normal opacity-50">
-                by <a class="nav-link nav-link-org" :href="'/org?org_name=' + project.org_name">{{ project.org_name }}</a>
+                <a class="nav-link nav-link-org" :href="'/org?org_name=' + project.org_name">{{ project.org_name }}</a>
               </h6>
               <br />
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar"
@@ -322,9 +322,9 @@ export default {
                 <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" />
               </svg>
               <h6 class="fw-normal">
-                &nbsp;&nbsp;Located in: {{ project.region }}
+                &nbsp;Located in: {{ project.region }}
               </h6>
-
+&nbsp;
               <h6 style="font-size: 12px" class="fw-light">
                 &nbsp;{{ project.capacity }}
               </h6>
@@ -335,7 +335,7 @@ export default {
                     {{ project.category }}</span>
                 </h5>
               </div>
-              <div v-if="project.category == 'Children & Youth'" class="d-flex justify-content-end">
+              <div v-if="project.category == 'Children'" class="d-flex justify-content-end">
                 <h5>
                   <span class="badge text-bg-danger">
                     {{ project.category }}</span>
@@ -487,7 +487,5 @@ h3 {
   border: 1px solid gray;
 }
 
-.nav-link-org:hover {
-  text-decoration: underline;
-}
+
 </style>

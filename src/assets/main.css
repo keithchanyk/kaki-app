@@ -86,3 +86,7 @@ a,
   background-color: #3B4F7D;
   border: none;
 }
+
+.nav-link-org:hover {
+  text-decoration: underline;
+}

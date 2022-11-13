@@ -29,11 +29,11 @@ export default {
       capacity: '',
       location: '',
       project_details: [],
-      categories: ['Elderly', 'Children & Youth', 'Environment', 'Community'],
+      categories: ['Elderly', 'Children', 'Environment', 'Community'],
       project_img: [
         {
           Elderly: 'src/assets/projectimg/pic2.jpg',
-          'Children & Youth': 'src/assets/projectimg/pic4.jpg',
+          Children: 'src/assets/projectimg/pic4.jpg',
           Environment: 'src/assets/projectimg/pic6.jpg',
           Community: 'src/assets/projectimg/pic3.jpg',
         },
@@ -111,7 +111,7 @@ export default {
       const vol_name = 'Xavier';
 
       const url =
-        'http://localhost/kakidb-2/review/send.php?org_name=' +
+        'http://localhost/kakidb/review/send.php?org_name=' +
         project.org_name +
         '&proj_name=' +
         project.proj_name +
@@ -119,7 +119,7 @@ export default {
         vol_name +
         '&review_text=' +
         this.message;
-      // const url = "http://localhost/kakidb-2/review/send.php"
+      // const url = "http://localhost/kakidb/review/send.php"
 
       axios
         .get(url, {
@@ -309,7 +309,7 @@ export default {
                       <div class="card-body projCard-body mb-1">
                         <h5 class="h3">{{ project.proj_name }}</h5>
                         <h6 class="mt-5 fw-normal opacity-50">
-                          by {{ project.org_name }}
+                          <a class="nav-link nav-link-org" :href="'/org?org_name=' + project.org_name">{{ project.org_name }}</a>
                         </h6>
                         <br />
                         <svg
@@ -384,7 +384,7 @@ export default {
                           />
                         </svg>
                         <h6 class="fw-normal">
-                          &nbsp;Located in: {{ project.region }}
+                          Located in: {{ project.region }}
                         </h6>
                         <br />
                         <div
@@ -398,7 +398,7 @@ export default {
                           </h5>
                         </div>
                         <div
-                          v-if="project.category == 'Children & Youth'"
+                          v-if="project.category == 'Children'"
                           class="d-flex justify-content-end"
                         >
                           <h5>
@@ -473,7 +473,7 @@ export default {
                       <div class="card-body projCard-body mb-1">
                         <h5 class="h3">{{ project.proj_name }}</h5>
                         <h6 class="mt-5 fw-normal opacity-50">
-                          by {{ project.org_name }}
+                          <a class="nav-link nav-link-org" :href="'/org?org_name=' + project.org_name">{{ project.org_name }}</a>
                         </h6>
                         <br />
                         <svg
@@ -548,7 +548,7 @@ export default {
                           />
                         </svg>
                         <h6 class="fw-normal">
-                          &nbsp;Located in: {{ project.region }}
+                          Located in: {{ project.region }}
                         </h6>
                         <br />
                         <div
@@ -562,7 +562,7 @@ export default {
                           </h5>
                         </div>
                         <div
-                          v-if="project.category == 'Children & Youth'"
+                          v-if="project.category == 'Children'"
                           class="d-flex justify-content-end"
                         >
                           <h5>
