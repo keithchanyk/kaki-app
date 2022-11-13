@@ -75,7 +75,7 @@ export default {
   methods: {
     get_details() {
       axios
-        .get('http://localhost:8888/kakidb/project/read.php')
+        .get('http://localhost/kakidb/project/read.php')
         .then((response) => {
           this.project_details = response.data.records;
           console.log(this.project_details);
@@ -111,7 +111,7 @@ export default {
       const vol_name = 'Xavier';
 
       const url =
-        'http://localhost:8888/kakidb/review/send.php?org_name=' +
+        'http://localhost/kakidb/review/send.php?org_name=' +
         project.org_name +
         '&proj_name=' +
         project.proj_name +
