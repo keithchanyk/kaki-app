@@ -72,13 +72,13 @@ export default defineComponent({
   },
   computed: {
     getId() {
-      console.log(this.$route.query.id);
+      // console.log(this.$route.query.id);
       return this.$route.query.id;
     },
   },
   methods: {
     getRole() {
-      console.log(this.roleSelected);
+      // console.log(this.roleSelected);
     },
     show() {
       this.visible = true;
@@ -108,10 +108,10 @@ export default defineComponent({
       axios
         .get('http://localhost:8888/kakidb/project/read_one.php?id=' + id)
         .then((response) => {
-          console.log(response.data.records);
+          // console.log(response.data.records);
           this.projectDetails = response.data.records;
-          console.log(this.projectDetails);
-          console.log(this.volunteerPositions);
+          // console.log(this.projectDetails);
+          // console.log(this.volunteerPositions);
           //positions
           //create array of positions ordered as Cleaner, Coder, Designer, Illustrator
           var positions = [];
@@ -120,7 +120,7 @@ export default defineComponent({
           var isDesigner = this.projectDetails[0].designer;
           var isIllustrator = this.projectDetails[0].illustrator;
 
-          console.log(isCleaner);
+          // console.log(isCleaner);
           positions.push(isCleaner);
           positions.push(isCoder);
           positions.push(isDesigner);
@@ -139,7 +139,7 @@ export default defineComponent({
               var roleInfo = this.volunteerPositions[haveIndex];
               roleInfo['capacity'] = capacities[position];
               this.roles.push(roleInfo);
-              console.log(this.roles);
+              // console.log(this.roles);
             }
           }
 
@@ -157,12 +157,15 @@ export default defineComponent({
     },
   },
   mounted: function () {
-    console.log(this.getProjectDetails());
+    this.getProjectDetails();
   },
 
   updated: function () {
     const exampleModal = document.getElementById('exampleModalToggle');
+    const applyText = document.getElementById('applyText');
+
     exampleModal.addEventListener('show.bs.modal', (event) => {
+      applyText.value = '';
       // Button that triggered the modal
       const button = event.relatedTarget;
       // Extract info from data-bs-* attributes
@@ -178,7 +181,7 @@ export default defineComponent({
       const exampleModal2 = document.getElementById('exampleModalToggle2');
 
       const confirmDisplay = exampleModal2.querySelector('#confirmedRole');
-      console.log(confirmDisplay);
+      // console.log(confirmDisplay);
       confirmDisplay.innerHTML =
         `You have confirmed your application for: ` + roleTitle;
     });
