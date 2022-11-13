@@ -235,7 +235,7 @@ export default defineComponent({
                     <p class="card-text">
                       Skills required: No Specific Skills required
                     </p>
-                    <p class="card-text">Suitable for: All, First Timers</p>
+                    <p class="card-text">Suitable for: {{ project.suitability }}</p>
                     <p class="card-text">
                       Objective: Conduct and assist to coordinate the Art and
                       Craft session to engage seniors. And through the
@@ -502,8 +502,7 @@ export default defineComponent({
             <div class="card-body">
               <h3 class="card-title">{{ project.proj_name }}</h3>
               <h6 class="card-subtitle mb-2 text-muted">
-                <!-- by {{ project.org_name }} -->
-                by
+                
                 <a
                   class="nav-link nav-link-org"
                   :href="'/org?org_name=' + project.org_name"
