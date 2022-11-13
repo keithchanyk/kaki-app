@@ -106,7 +106,7 @@ export default defineComponent({
       const id = this.getId;
 
       axios
-        .get('http://localhost:8888/kakidb/project/read_one.php?id=' + id)
+        .get('http://localhost/kakidb/project/read_one.php?id=' + id)
         .then((response) => {
           // console.log(response.data.records);
           this.projectDetails = response.data.records;

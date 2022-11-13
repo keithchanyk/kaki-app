@@ -104,7 +104,7 @@ export default {
   methods: {
     get_details() {
       axios
-        .get('http://localhost:8888/kakidb/project/read.php')
+        .get('http://localhost/kakidb/project/read.php')
         .then((response) => {
           this.project_details = response.data.records;
         })
